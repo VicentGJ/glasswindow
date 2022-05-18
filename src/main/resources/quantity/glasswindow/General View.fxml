@@ -32,7 +32,6 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
-<?import com.gluonhq.charm.glisten.control.Icon?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.ScrollPane?>
@@ -43,9 +42,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
-         tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"
-         fx:controller="quantity.glasswindow.GeneralController">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="quantity.glasswindow.GeneralController">
   <tabs>
     <Tab text="Companies">
       <content>
@@ -55,12 +52,7 @@
                      <children>
                         <HBox alignment="CENTER_LEFT" fillHeight="false" prefHeight="82.0" prefWidth="600.0">
                            <children>
-                              <Icon content="DOMAIN" scaleX="2.0" scaleY="2.0">
-                                 <HBox.margin>
-                                    <Insets left="30.0" right="30.0" />
-                                 </HBox.margin>
-                              </Icon>
-                              <Hyperlink text="CompanyName" onAction="#onCompanyLink">
+                              <Hyperlink onAction="#onCompanyLink" text="CompanyName">
                                  <font>
                                     <Font size="19.0" />
                                  </font>
@@ -74,12 +66,7 @@
                         </HBox>
                         <HBox alignment="CENTER_LEFT" fillHeight="false" layoutX="30.0" layoutY="30.0" prefHeight="82.0" prefWidth="600.0">
                            <children>
-                              <Icon content="DOMAIN" scaleX="2.0" scaleY="2.0">
-                                 <HBox.margin>
-                                    <Insets left="30.0" right="30.0" />
-                                 </HBox.margin>
-                              </Icon>
-                              <Hyperlink text="CompanyName" onAction="#onCompanyLink">
+                              <Hyperlink onAction="#onCompanyLink" text="CompanyName">
                                  <font>
                                     <Font size="19.0" />
                                  </font>
@@ -93,12 +80,7 @@
                         </HBox>
                         <HBox alignment="CENTER_LEFT" fillHeight="false" layoutX="30.0" layoutY="113.0" prefHeight="82.0" prefWidth="600.0">
                            <children>
-                              <Icon content="DOMAIN" scaleX="2.0" scaleY="2.0">
-                                 <HBox.margin>
-                                    <Insets left="30.0" right="30.0" />
-                                 </HBox.margin>
-                              </Icon>
-                              <Hyperlink text="CompanyName" onAction="#onCompanyLink">
+                              <Hyperlink onAction="#onCompanyLink" text="CompanyName">
                                  <font>
                                     <Font size="19.0" />
                                  </font>
@@ -112,12 +94,7 @@
                         </HBox>
                         <HBox alignment="CENTER_LEFT" fillHeight="false" layoutX="30.0" layoutY="196.0" prefHeight="82.0" prefWidth="600.0">
                            <children>
-                              <Icon content="DOMAIN" scaleX="2.0" scaleY="2.0">
-                                 <HBox.margin>
-                                    <Insets left="30.0" right="30.0" />
-                                 </HBox.margin>
-                              </Icon>
-                              <Hyperlink text="CompanyName" onAction="#onCompanyLink">
+                              <Hyperlink onAction="#onCompanyLink" text="CompanyName">
                                  <font>
                                     <Font size="19.0" />
                                  </font>
@@ -131,12 +108,7 @@
                         </HBox>
                         <HBox alignment="CENTER_LEFT" fillHeight="false" layoutX="30.0" layoutY="279.0" prefHeight="82.0" prefWidth="600.0">
                            <children>
-                              <Icon content="DOMAIN" scaleX="2.0" scaleY="2.0">
-                                 <HBox.margin>
-                                    <Insets left="30.0" right="30.0" />
-                                 </HBox.margin>
-                              </Icon>
-                              <Hyperlink text="CompanyName" onAction="#onCompanyLink">
+                              <Hyperlink onAction="#onCompanyLink" text="CompanyName">
                                  <font>
                                     <Font size="19.0" />
                                  </font>
@@ -150,12 +122,7 @@
                         </HBox>
                         <HBox alignment="CENTER_LEFT" fillHeight="false" layoutX="30.0" layoutY="297.0" prefHeight="82.0" prefWidth="600.0">
                            <children>
-                              <Icon content="DOMAIN" scaleX="2.0" scaleY="2.0">
-                                 <HBox.margin>
-                                    <Insets left="30.0" right="30.0" />
-                                 </HBox.margin>
-                              </Icon>
-                              <Hyperlink text="CompanyName" onAction="#onCompanyLink">
+                              <Hyperlink onAction="#onCompanyLink" text="CompanyName">
                                  <font>
                                     <Font size="19.0" />
                                  </font>
@@ -169,12 +136,7 @@
                         </HBox>
                         <HBox alignment="CENTER_LEFT" fillHeight="false" layoutX="30.0" layoutY="308.0" prefHeight="82.0" prefWidth="600.0">
                            <children>
-                              <Icon content="DOMAIN" scaleX="2.0" scaleY="2.0">
-                                 <HBox.margin>
-                                    <Insets left="30.0" right="30.0" />
-                                 </HBox.margin>
-                              </Icon>
-                              <Hyperlink text="CompanyName" onAction="#onCompanyLink">
+                              <Hyperlink onAction="#onCompanyLink" text="CompanyName">
                                  <font>
                                     <Font size="19.0" />
                                  </font>
@@ -203,12 +165,7 @@
                      <children>
                         <HBox alignment="CENTER_LEFT" fillHeight="false" prefHeight="82.0" prefWidth="600.0">
                            <children>
-                              <Icon content="PERSON" scaleX="2.0" scaleY="2.0">
-                                 <HBox.margin>
-                                    <Insets left="30.0" right="30.0" />
-                                 </HBox.margin>
-                              </Icon>
-                              <Hyperlink text="CandidateName" onAction="#onCandidateLink">
+                              <Hyperlink onAction="#onCandidateLink" text="CandidateName">
                                  <font>
                                     <Font size="19.0" />
                                  </font>
@@ -222,12 +179,7 @@
                         </HBox>
                         <HBox alignment="CENTER_LEFT" fillHeight="false" layoutX="30.0" layoutY="30.0" prefHeight="82.0" prefWidth="600.0">
                            <children>
-                              <Icon content="PERSON" scaleX="2.0" scaleY="2.0">
-                                 <HBox.margin>
-                                    <Insets left="30.0" right="30.0" />
-                                 </HBox.margin>
-                              </Icon>
-                              <Hyperlink text="CandidateName" onAction="#onCandidateLink">
+                              <Hyperlink onAction="#onCandidateLink" text="CandidateName">
                                  <font>
                                     <Font size="19.0" />
                                  </font>
@@ -241,12 +193,7 @@
                         </HBox>
                         <HBox alignment="CENTER_LEFT" fillHeight="false" layoutX="30.0" layoutY="113.0" prefHeight="82.0" prefWidth="600.0">
                            <children>
-                              <Icon content="PERSON" scaleX="2.0" scaleY="2.0">
-                                 <HBox.margin>
-                                    <Insets left="30.0" right="30.0" />
-                                 </HBox.margin>
-                              </Icon>
-                              <Hyperlink text="CandidateName" onAction="#onCandidateLink">
+                              <Hyperlink onAction="#onCandidateLink" text="CandidateName">
                                  <font>
                                     <Font size="19.0" />
                                  </font>
@@ -260,12 +207,7 @@
                         </HBox>
                         <HBox alignment="CENTER_LEFT" fillHeight="false" layoutX="30.0" layoutY="196.0" prefHeight="82.0" prefWidth="600.0">
                            <children>
-                              <Icon content="PERSON" scaleX="2.0" scaleY="2.0">
-                                 <HBox.margin>
-                                    <Insets left="30.0" right="30.0" />
-                                 </HBox.margin>
-                              </Icon>
-                              <Hyperlink text="CandidateName" onAction="#onCandidateLink">
+                              <Hyperlink onAction="#onCandidateLink" text="CandidateName">
                                  <font>
                                     <Font size="19.0" />
                                  </font>
@@ -279,12 +221,7 @@
                         </HBox>
                         <HBox alignment="CENTER_LEFT" fillHeight="false" layoutX="30.0" layoutY="279.0" prefHeight="82.0" prefWidth="600.0">
                            <children>
-                              <Icon content="PERSON" scaleX="2.0" scaleY="2.0">
-                                 <HBox.margin>
-                                    <Insets left="30.0" right="30.0" />
-                                 </HBox.margin>
-                              </Icon>
-                              <Hyperlink text="CandidateName" onAction="#onCandidateLink">
+                              <Hyperlink onAction="#onCandidateLink" text="CandidateName">
                                  <font>
                                     <Font size="19.0" />
                                  </font>
@@ -298,12 +235,7 @@
                         </HBox>
                         <HBox alignment="CENTER_LEFT" fillHeight="false" layoutX="30.0" layoutY="297.0" prefHeight="82.0" prefWidth="600.0">
                            <children>
-                              <Icon content="PERSON" scaleX="2.0" scaleY="2.0">
-                                 <HBox.margin>
-                                    <Insets left="30.0" right="30.0" />
-                                 </HBox.margin>
-                              </Icon>
-                              <Hyperlink text="CandidateName" onAction="#onCandidateLink">
+                              <Hyperlink onAction="#onCandidateLink" text="CandidateName">
                                  <font>
                                     <Font size="19.0" />
                                  </font>
@@ -317,12 +249,7 @@
                         </HBox>
                         <HBox alignment="CENTER_LEFT" fillHeight="false" layoutX="30.0" layoutY="308.0" prefHeight="82.0" prefWidth="600.0">
                            <children>
-                              <Icon content="PERSON" scaleX="2.0" scaleY="2.0">
-                                 <HBox.margin>
-                                    <Insets left="30.0" right="30.0" />
-                                 </HBox.margin>
-                              </Icon>
-                              <Hyperlink text="CandidateName" onAction="#onCandidateLink">
+                              <Hyperlink onAction="#onCandidateLink" text="CandidateName">
                                  <font>
                                     <Font size="19.0" />
                                  </font>
@@ -336,12 +263,7 @@
                         </HBox>
                         <HBox alignment="CENTER_LEFT" fillHeight="false" layoutX="30.0" layoutY="275.0" prefHeight="82.0" prefWidth="600.0">
                            <children>
-                              <Icon content="PERSON" scaleX="2.0" scaleY="2.0">
-                                 <HBox.margin>
-                                    <Insets left="30.0" right="30.0" />
-                                 </HBox.margin>
-                              </Icon>
-                              <Hyperlink text="CandidateName" onAction="#onCandidateLink">
+                              <Hyperlink onAction="#onCandidateLink" text="CandidateName">
                                  <font>
                                     <Font size="19.0" />
                                  </font>
@@ -355,12 +277,7 @@
                         </HBox>
                         <HBox alignment="CENTER_LEFT" fillHeight="false" layoutX="30.0" layoutY="331.0" prefHeight="82.0" prefWidth="600.0">
                            <children>
-                              <Icon content="PERSON" scaleX="2.0" scaleY="2.0">
-                                 <HBox.margin>
-                                    <Insets left="30.0" right="30.0" />
-                                 </HBox.margin>
-                              </Icon>
-                              <Hyperlink text="CandidateName" onAction="#onCandidateLink">
+                              <Hyperlink onAction="#onCandidateLink" text="CandidateName">
                                  <font>
                                     <Font size="19.0" />
                                  </font>
@@ -374,12 +291,7 @@
                         </HBox>
                         <HBox alignment="CENTER_LEFT" fillHeight="false" layoutX="30.0" layoutY="374.0" prefHeight="82.0" prefWidth="600.0">
                            <children>
-                              <Icon content="PERSON" scaleX="2.0" scaleY="2.0">
-                                 <HBox.margin>
-                                    <Insets left="30.0" right="30.0" />
-                                 </HBox.margin>
-                              </Icon>
-                              <Hyperlink text="CandidateName" onAction="#onCandidateLink">
+                              <Hyperlink onAction="#onCandidateLink" text="CandidateName">
                                  <font>
                                     <Font size="19.0" />
                                  </font>
@@ -393,12 +305,7 @@
                         </HBox>
                         <HBox alignment="CENTER_LEFT" fillHeight="false" layoutX="30.0" layoutY="417.0" prefHeight="82.0" prefWidth="600.0">
                            <children>
-                              <Icon content="PERSON" scaleX="2.0" scaleY="2.0">
-                                 <HBox.margin>
-                                    <Insets left="30.0" right="30.0" />
-                                 </HBox.margin>
-                              </Icon>
-                              <Hyperlink text="CandidateName" onAction="#onCandidateLink">
+                              <Hyperlink onAction="#onCandidateLink" text="CandidateName">
                                  <font>
                                     <Font size="19.0" />
                                  </font>
