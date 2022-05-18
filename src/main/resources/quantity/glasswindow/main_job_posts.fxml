@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
@@ -15,7 +15,6 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
 <VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
@@ -65,46 +64,37 @@
                <children>
                   <HBox>
                      <children>
-                        <Label alignment="CENTER" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="Companies" textAlignment="CENTER" wrapText="false">
-                           <font>
-                              <Font size="23.0" fx:id="x1111" />
-                           </font>
-                           <textFill>
-                              <Color red="0.624" green="0.624" blue="0.624" fx:id="x2111" />
-                           </textFill>
+                        <JFXButton text="Companies">
                            <cursor>
                               <Cursor fx:constant="CLOSED_HAND" />
                            </cursor>
-                        </Label>
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </JFXButton>
                      </children>
                   </HBox>
                   <HBox>
                      <children>
-                        <Label alignment="CENTER" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="Candidates" textAlignment="CENTER" wrapText="false">
-                           <font>
-                              <Font size="23.0" fx:id="x11" />
-                           </font>
-                           <textFill>
-                              <Color red="0.624" green="0.624" blue="0.624" fx:id="x21" />
-                           </textFill>
+                        <JFXButton text="Candidates">
                            <cursor>
                               <Cursor fx:constant="CLOSED_HAND" />
                            </cursor>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox>
-                     <children>
-                        <Label alignment="CENTER" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="Job Posts" textAlignment="CENTER" textFill="#6b43fc" wrapText="false">
                            <font>
-                              <Font size="23.0" fx:id="x12" />
+                              <Font size="19.0" />
                            </font>
-                           <cursor>
-                              <Cursor fx:constant="CLOSED_HAND" />
-                           </cursor>
-                        </Label>
+                        </JFXButton>
                      </children>
                   </HBox>
+                  <JFXButton buttonType="RAISED" text="Job Posts" underline="true">
+                     <cursor>
+                        <Cursor fx:constant="CLOSED_HAND" />
+                     </cursor>
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </JFXButton>
+                  <HBox />
                   <VBox alignment="BOTTOM_CENTER" prefHeight="347.0" prefWidth="183.0">
                      <children>
                         <Hyperlink text="My Profile">
