@@ -64,7 +64,7 @@ tribunal, y el ejecutable .jar para presentar la aplicación funcionando.
 - Entre los elementos a abordar se debe presentar el enunciado del problema, el objetivo del trabajo y el plan de trabajo que se siguió para resolverlo.
 - Para la elaboración de este plan de trabajo se deben definir las tareas a realizar, el responsable de cada una y el tiempo límite para su cumplimiento. 
 - La fecha inicial de este plan de trabajo es a partir de la asignación de los enunciado y la fecha final es hasta la entrega del
-informa final del trabajo de curso.
+informe al final del trabajo de curso.
 ### Desarrollo:
 - Tarjetas CRC para cada una de las clases identificadas.
 - Diagrama de clases en UML de la capa lógica que da respuesta al problema.
@@ -95,7 +95,9 @@ viñetas.
 - Generado de manera automática con la estructura exigida en cada corte.
 #### Introducción:
 - Debe emplearse una redacción fluida y lógica.
-- Entre los elementos a abordar se debe presentar el enunciado del problema, el objetivo del trabajo y el plan de trabajo que se siguió para resolverlo. - Para la elaboración de este plan de trabajo se deben definir las tareas a realizar, el responsable de cada una y el tiempo límite para su cumplimiento. - La fecha inicial de este plan de trabajo es a partir de la asignación de los enunciado y la fecha final es hasta la entrega del informa final del trabajo de curso.
+- Entre los elementos a abordar se debe presentar el enunciado del problema, el objetivo del trabajo y el plan de trabajo que se siguió para resolverlo. 
+- Para la elaboración de este plan de trabajo se deben definir las tareas a realizar, el responsable de cada una y el tiempo límite para su cumplimiento. 
+- La fecha inicial de este plan de trabajo es a partir de la asignación de los enunciado y la fecha final es hasta la entrega del informa final del trabajo de curso.
 
 ### CORTE 1
 #### Desarrollo:
