@@ -1,6 +1,4 @@
-package quantity.glasswindow;
-
-import javafx.fxml.FXML;
+package quantity.glasswindow.UI;
 
 public class JobPostController extends TransitionController{
 

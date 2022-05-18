@@ -1,4 +1,4 @@
-package quantity.glasswindow;
+package quantity.glasswindow.UI;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

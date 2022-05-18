@@ -9,4 +9,6 @@ module quantity.glasswindow {
 
     opens quantity.glasswindow to javafx.fxml;
     exports quantity.glasswindow;
+    exports quantity.glasswindow.UI;
+    opens quantity.glasswindow.UI to javafx.fxml;
 }
