@@ -80,7 +80,7 @@
         <dependency>
             <groupId>com.gluonhq.attach</groupId>
             <artifactId>display</artifactId>
-            <version>4.0.13</version>
+            <version>4.0.14</version>
         </dependency>
     </dependencies>
 
