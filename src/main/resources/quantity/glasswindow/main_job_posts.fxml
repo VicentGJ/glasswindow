@@ -1,37 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--
-  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
-  All rights reserved. Use is subject to license terms.
-
-  This file is available and licensed under the following license:
-
-  Redistribution and use in source and binary forms, with or without
-  modification, are permitted provided that the following conditions
-  are met:
-
-  - Redistributions of source code must retain the above copyright
-    notice, this list of conditions and the following disclaimer.
-  - Redistributions in binary form must reproduce the above copyright
-    notice, this list of conditions and the following disclaimer in
-    the documentation and/or other materials provided with the distribution.
-  - Neither the name of Oracle Corporation nor the names of its
-    contributors may be used to endorse or promote products derived
-    from this software without specific prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
--->
-
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -51,60 +19,63 @@
 <?import javafx.scene.text.Font?>
 
 <VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
-  <children>
-    <MenuBar VBox.vgrow="NEVER">
-      <menus>
-        <Menu mnemonicParsing="false" text="File">
-          <items>
-            <MenuItem mnemonicParsing="false" text="New" />
-            <MenuItem mnemonicParsing="false" text="Open…" />
-            <Menu mnemonicParsing="false" text="Open Recent" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Close" />
-            <MenuItem mnemonicParsing="false" text="Save" />
-            <MenuItem mnemonicParsing="false" text="Save As…" />
-            <MenuItem mnemonicParsing="false" text="Revert" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Preferences…" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Quit" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Edit">
-          <items>
-            <MenuItem mnemonicParsing="false" text="Undo" />
-            <MenuItem mnemonicParsing="false" text="Redo" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Cut" />
-            <MenuItem mnemonicParsing="false" text="Copy" />
-            <MenuItem mnemonicParsing="false" text="Paste" />
-            <MenuItem mnemonicParsing="false" text="Delete" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Select All" />
-            <MenuItem mnemonicParsing="false" text="Unselect All" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Help">
-          <items>
-            <MenuItem mnemonicParsing="false" text="About GlassWindow" />
-          </items>
-        </Menu>
-      </menus>
-    </MenuBar>
-    <SplitPane dividerPositions="0.2505567928730512" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
-      <items>
+   <children>
+      <MenuBar VBox.vgrow="NEVER">
+         <menus>
+            <Menu mnemonicParsing="false" text="File">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="New" />
+                  <MenuItem mnemonicParsing="false" text="Open…" />
+                  <Menu mnemonicParsing="false" text="Open Recent" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Close" />
+                  <MenuItem mnemonicParsing="false" text="Save" />
+                  <MenuItem mnemonicParsing="false" text="Save As…" />
+                  <MenuItem mnemonicParsing="false" text="Revert" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Preferences…" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Quit" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Edit">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Undo" />
+                  <MenuItem mnemonicParsing="false" text="Redo" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Cut" />
+                  <MenuItem mnemonicParsing="false" text="Copy" />
+                  <MenuItem mnemonicParsing="false" text="Paste" />
+                  <MenuItem mnemonicParsing="false" text="Delete" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Select All" />
+                  <MenuItem mnemonicParsing="false" text="Unselect All" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="About GlassWindow" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <SplitPane dividerPositions="0.2505567928730512" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+         <items>
             <VBox spacing="40.0">
                <children>
                   <HBox>
                      <children>
-                  <Label alignment="CENTER" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="Companies" textAlignment="CENTER" textFill="#6b43fc" wrapText="false">
-                    <font>
-                      <Font size="23.0" fx:id="x1" />
-                    </font>
+                        <Label alignment="CENTER" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="Companies" textAlignment="CENTER" wrapText="false">
+                           <font>
+                              <Font size="23.0" fx:id="x1111" />
+                           </font>
+                           <textFill>
+                              <Color red="0.624" green="0.624" blue="0.624" fx:id="x2111" />
+                           </textFill>
                            <cursor>
                               <Cursor fx:constant="CLOSED_HAND" />
                            </cursor>
-                  </Label>
+                        </Label>
                      </children>
                   </HBox>
                   <HBox>
@@ -124,13 +95,10 @@
                   </HBox>
                   <HBox>
                      <children>
-                        <Label alignment="CENTER" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="Job Posts" textAlignment="CENTER" wrapText="false">
+                        <Label alignment="CENTER" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="Job Posts" textAlignment="CENTER" textFill="#6b43fc" wrapText="false">
                            <font>
-                              <Font size="23.0" fx:id="x111" />
+                              <Font size="23.0" fx:id="x12" />
                            </font>
-                           <textFill>
-                              <Color red="0.624" green="0.624" blue="0.624" fx:id="x211" />
-                           </textFill>
                            <cursor>
                               <Cursor fx:constant="CLOSED_HAND" />
                            </cursor>
@@ -151,7 +119,7 @@
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </padding>
             </VBox>
-        <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
+            <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
                <content>
                   <VBox prefHeight="559.0" prefWidth="661.0">
                      <padding>
@@ -184,7 +152,7 @@
                            <children>
                               <HBox alignment="CENTER">
                                  <children>
-                                    <Hyperlink prefHeight="30.0" prefWidth="455.0" text="Company Name">
+                                    <Hyperlink prefHeight="30.0" prefWidth="455.0" text="Job Post Name">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
@@ -215,7 +183,7 @@
                            <children>
                               <HBox alignment="CENTER">
                                  <children>
-                                    <Hyperlink prefHeight="30.0" prefWidth="455.0" text="Company Name">
+                                    <Hyperlink prefHeight="30.0" prefWidth="455.0" text="Job Post Name">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
@@ -246,7 +214,7 @@
                            <children>
                               <HBox alignment="CENTER">
                                  <children>
-                                    <Hyperlink prefHeight="30.0" prefWidth="455.0" text="Company Name">
+                                    <Hyperlink prefHeight="30.0" prefWidth="455.0" text="Job Post Name">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
@@ -277,7 +245,7 @@
                            <children>
                               <HBox alignment="CENTER">
                                  <children>
-                                    <Hyperlink prefHeight="30.0" prefWidth="455.0" text="Company Name">
+                                    <Hyperlink prefHeight="30.0" prefWidth="455.0" text="Job Post Name">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
@@ -304,11 +272,11 @@
                               </Separator>
                            </children>
                         </VBox>
-                        <VBox layoutX="30.0" layoutY="150.0" prefHeight="0.0" prefWidth="621.0">
+                        <VBox layoutX="30.0" layoutY="248.0" prefHeight="0.0" prefWidth="621.0">
                            <children>
                               <HBox alignment="CENTER">
                                  <children>
-                                    <Hyperlink prefHeight="30.0" prefWidth="455.0" text="Company Name">
+                                    <Hyperlink prefHeight="30.0" prefWidth="455.0" text="Job Post Name">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
@@ -339,7 +307,38 @@
                            <children>
                               <HBox alignment="CENTER">
                                  <children>
-                                    <Hyperlink prefHeight="30.0" prefWidth="455.0" text="Company Name">
+                                    <Hyperlink prefHeight="30.0" prefWidth="455.0" text="Job Post Name">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Hyperlink>
+                                    <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="56.0" text="Edit">
+                                       <HBox.margin>
+                                          <Insets left="5.0" right="5.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button layoutX="81.0" layoutY="10.0" mnemonicParsing="false" text="Delete">
+                                       <HBox.margin>
+                                          <Insets left="5.0" right="5.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                              <Separator opacity="0.34" prefWidth="200.0">
+                                 <padding>
+                                    <Insets left="40.0" right="40.0" />
+                                 </padding>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" top="10.0" />
+                                 </VBox.margin>
+                              </Separator>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="30.0" layoutY="346.0" prefHeight="0.0" prefWidth="621.0">
+                           <children>
+                              <HBox alignment="CENTER">
+                                 <children>
+                                    <Hyperlink prefHeight="30.0" prefWidth="455.0" text="Job Post Name">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
@@ -369,8 +368,8 @@
                      </children>
                   </VBox>
                </content>
-        </ScrollPane>
-      </items>
-    </SplitPane>
-  </children>
+            </ScrollPane>
+         </items>
+      </SplitPane>
+   </children>
 </VBox>
