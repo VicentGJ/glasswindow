@@ -95,7 +95,7 @@
                <children>
                   <HBox>
                      <children>
-                        <JFXButton buttonType="RAISED" prefHeight="37.0" prefWidth="132.0" text="Companies" textAlignment="CENTER" underline="true">
+                        <JFXButton buttonType="RAISED" text="Companies" underline="true">
                            <font>
                               <Font size="19.0" />
                            </font>
