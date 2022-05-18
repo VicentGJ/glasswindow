@@ -8,15 +8,15 @@ import java.io.IOException;
 public abstract class MainController extends TransitionController{
     @FXML
     protected void onCompaniesSection(ActionEvent event) throws IOException {
-        this.transition("main_companies", event);
+        this.transition("main_companies.fxml", event);
     }
     @FXML
     protected void onCandidatesSection(ActionEvent event) throws IOException {
-        this.transition("main_candidates", event);
+        this.transition("main_candidates.fxml", event);
     }
     @FXML
     protected void onJobPotsSection(ActionEvent event) throws IOException {
-        this.transition("main_job_posts", event);
+        this.transition("main_job_posts.fxml", event);
     }
     @FXML
     protected abstract void onEntityLink(ActionEvent event) throws IOException;

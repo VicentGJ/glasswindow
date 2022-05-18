@@ -102,12 +102,12 @@
                         </JFXButton>
                      </children>
                   </HBox>
-                  <JFXButton text="Candidates">
+                  <JFXButton text="Candidates" onAction="#onCandidatesSection">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton text="Job Posts">
+                  <JFXButton text="Job Posts" onAction="#onJobPotsSection">
                      <font>
                         <Font size="19.0" />
                      </font>

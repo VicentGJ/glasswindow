@@ -17,7 +17,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"
+fx:controller="quantity.glasswindow.MainJobPostsController">
    <children>
       <MenuBar VBox.vgrow="NEVER">
          <menus>
@@ -64,7 +65,7 @@
                <children>
                   <HBox>
                      <children>
-                        <JFXButton text="Companies">
+                        <JFXButton text="Companies" onAction="#onCompaniesSection">
                            <cursor>
                               <Cursor fx:constant="CLOSED_HAND" />
                            </cursor>
@@ -76,7 +77,7 @@
                   </HBox>
                   <HBox>
                      <children>
-                        <JFXButton text="Candidates">
+                        <JFXButton text="Candidates" onAction="#onCandidatesSection">
                            <cursor>
                               <Cursor fx:constant="CLOSED_HAND" />
                            </cursor>
@@ -142,17 +143,17 @@
                            <children>
                               <HBox alignment="CENTER">
                                  <children>
-                                    <Hyperlink prefHeight="30.0" prefWidth="455.0" text="Job Post Name">
+                                    <Hyperlink prefHeight="30.0" prefWidth="455.0" text="Job Post Name" onAction="#onEntityLink">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
                                     </Hyperlink>
-                                    <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="56.0" text="Edit">
+                                    <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="56.0" text="Edit" onAction="#onEditButton">
                                        <HBox.margin>
                                           <Insets left="5.0" right="5.0" />
                                        </HBox.margin>
                                     </Button>
-                                    <Button layoutX="81.0" layoutY="10.0" mnemonicParsing="false" text="Delete">
+                                    <Button layoutX="81.0" layoutY="10.0" mnemonicParsing="false" text="Delete" onAction="#onDeleteButton">
                                        <HBox.margin>
                                           <Insets left="5.0" right="5.0" />
                                        </HBox.margin>
@@ -173,17 +174,17 @@
                            <children>
                               <HBox alignment="CENTER">
                                  <children>
-                                    <Hyperlink prefHeight="30.0" prefWidth="455.0" text="Job Post Name">
+                                    <Hyperlink prefHeight="30.0" prefWidth="455.0" text="Job Post Name" onAction="#onEntityLink">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
                                     </Hyperlink>
-                                    <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="56.0" text="Edit">
+                                    <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="56.0" text="Edit" onAction="#onEditButton">
                                        <HBox.margin>
                                           <Insets left="5.0" right="5.0" />
                                        </HBox.margin>
                                     </Button>
-                                    <Button layoutX="81.0" layoutY="10.0" mnemonicParsing="false" text="Delete">
+                                    <Button layoutX="81.0" layoutY="10.0" mnemonicParsing="false" text="Delete" onAction="#onDeleteButton">
                                        <HBox.margin>
                                           <Insets left="5.0" right="5.0" />
                                        </HBox.margin>
@@ -204,17 +205,17 @@
                            <children>
                               <HBox alignment="CENTER">
                                  <children>
-                                    <Hyperlink prefHeight="30.0" prefWidth="455.0" text="Job Post Name">
+                                    <Hyperlink prefHeight="30.0" prefWidth="455.0" text="Job Post Name" onAction="#onEntityLink">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
                                     </Hyperlink>
-                                    <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="56.0" text="Edit">
+                                    <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="56.0" text="Edit" onAction="#onEditButton">
                                        <HBox.margin>
                                           <Insets left="5.0" right="5.0" />
                                        </HBox.margin>
                                     </Button>
-                                    <Button layoutX="81.0" layoutY="10.0" mnemonicParsing="false" text="Delete">
+                                    <Button layoutX="81.0" layoutY="10.0" mnemonicParsing="false" text="Delete" onAction="#onDeleteButton">
                                        <HBox.margin>
                                           <Insets left="5.0" right="5.0" />
                                        </HBox.margin>
@@ -235,17 +236,17 @@
                            <children>
                               <HBox alignment="CENTER">
                                  <children>
-                                    <Hyperlink prefHeight="30.0" prefWidth="455.0" text="Job Post Name">
+                                    <Hyperlink prefHeight="30.0" prefWidth="455.0" text="Job Post Name" onAction="#onEntityLink">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
                                     </Hyperlink>
-                                    <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="56.0" text="Edit">
+                                    <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="56.0" text="Edit" onAction="#onEditButton">
                                        <HBox.margin>
                                           <Insets left="5.0" right="5.0" />
                                        </HBox.margin>
                                     </Button>
-                                    <Button layoutX="81.0" layoutY="10.0" mnemonicParsing="false" text="Delete">
+                                    <Button layoutX="81.0" layoutY="10.0" mnemonicParsing="false" text="Delete" onAction="#onDeleteButton">
                                        <HBox.margin>
                                           <Insets left="5.0" right="5.0" />
                                        </HBox.margin>
@@ -266,17 +267,17 @@
                            <children>
                               <HBox alignment="CENTER">
                                  <children>
-                                    <Hyperlink prefHeight="30.0" prefWidth="455.0" text="Job Post Name">
+                                    <Hyperlink prefHeight="30.0" prefWidth="455.0" text="Job Post Name" onAction="#onEntityLink">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
                                     </Hyperlink>
-                                    <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="56.0" text="Edit">
+                                    <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="56.0" text="Edit" onAction="#onEditButton">
                                        <HBox.margin>
                                           <Insets left="5.0" right="5.0" />
                                        </HBox.margin>
                                     </Button>
-                                    <Button layoutX="81.0" layoutY="10.0" mnemonicParsing="false" text="Delete">
+                                    <Button layoutX="81.0" layoutY="10.0" mnemonicParsing="false" text="Delete" onAction="#onDeleteButton">
                                        <HBox.margin>
                                           <Insets left="5.0" right="5.0" />
                                        </HBox.margin>
@@ -297,17 +298,17 @@
                            <children>
                               <HBox alignment="CENTER">
                                  <children>
-                                    <Hyperlink prefHeight="30.0" prefWidth="455.0" text="Job Post Name">
+                                    <Hyperlink prefHeight="30.0" prefWidth="455.0" text="Job Post Name" onAction="#onEntityLink">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
                                     </Hyperlink>
-                                    <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="56.0" text="Edit">
+                                    <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="56.0" text="Edit" onAction="#onEditButton">
                                        <HBox.margin>
                                           <Insets left="5.0" right="5.0" />
                                        </HBox.margin>
                                     </Button>
-                                    <Button layoutX="81.0" layoutY="10.0" mnemonicParsing="false" text="Delete">
+                                    <Button layoutX="81.0" layoutY="10.0" mnemonicParsing="false" text="Delete" onAction="#onDeleteButton">
                                        <HBox.margin>
                                           <Insets left="5.0" right="5.0" />
                                        </HBox.margin>
@@ -328,17 +329,17 @@
                            <children>
                               <HBox alignment="CENTER">
                                  <children>
-                                    <Hyperlink prefHeight="30.0" prefWidth="455.0" text="Job Post Name">
+                                    <Hyperlink prefHeight="30.0" prefWidth="455.0" text="Job Post Name" onAction="#onEntityLink">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
                                     </Hyperlink>
-                                    <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="56.0" text="Edit">
+                                    <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="56.0" text="Edit" onAction="#onEditButton">
                                        <HBox.margin>
                                           <Insets left="5.0" right="5.0" />
                                        </HBox.margin>
                                     </Button>
-                                    <Button layoutX="81.0" layoutY="10.0" mnemonicParsing="false" text="Delete">
+                                    <Button layoutX="81.0" layoutY="10.0" mnemonicParsing="false" text="Delete" onAction="#onDeleteButton">
                                        <HBox.margin>
                                           <Insets left="5.0" right="5.0" />
                                        </HBox.margin>
