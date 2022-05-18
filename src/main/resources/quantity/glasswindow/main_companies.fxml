@@ -54,13 +54,16 @@
       <menus>
         <Menu mnemonicParsing="false" text="File">
           <items>
-            <MenuItem mnemonicParsing="false" text="New" />
+                  <Menu mnemonicParsing="false" text="New...">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Company" />
+                        <MenuItem mnemonicParsing="false" text="Candidate" />
+                        <MenuItem mnemonicParsing="false" text="Job Post" />
+                     </items>
+                  </Menu>
             <MenuItem mnemonicParsing="false" text="Open…" />
             <Menu mnemonicParsing="false" text="Open Recent" />
             <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Close" />
-            <MenuItem mnemonicParsing="false" text="Save" />
-            <MenuItem mnemonicParsing="false" text="Save As…" />
             <MenuItem mnemonicParsing="false" text="Revert" />
             <SeparatorMenuItem mnemonicParsing="false" />
             <MenuItem mnemonicParsing="false" text="Preferences…" />

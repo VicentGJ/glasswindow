@@ -18,17 +18,20 @@
 
 <VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="quantity.glasswindow.MainCandidatesController">
    <children>
-      <MenuBar VBox.vgrow="NEVER">
+      <MenuBar>
          <menus>
             <Menu mnemonicParsing="false" text="File">
                <items>
-                  <MenuItem mnemonicParsing="false" text="New" />
+                  <Menu mnemonicParsing="false" text="New...">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Company" />
+                        <MenuItem mnemonicParsing="false" text="Candidate" />
+                        <MenuItem mnemonicParsing="false" text="Job Post" />
+                     </items>
+                  </Menu>
                   <MenuItem mnemonicParsing="false" text="Open…" />
                   <Menu mnemonicParsing="false" text="Open Recent" />
                   <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem mnemonicParsing="false" text="Close" />
-                  <MenuItem mnemonicParsing="false" text="Save" />
-                  <MenuItem mnemonicParsing="false" text="Save As…" />
                   <MenuItem mnemonicParsing="false" text="Revert" />
                   <SeparatorMenuItem mnemonicParsing="false" />
                   <MenuItem mnemonicParsing="false" text="Preferences…" />
@@ -61,7 +64,7 @@
          <items>
             <VBox spacing="40.0">
                <children>
-                  <JFXButton text="Companies" onAction="#onCompaniesSection">
+                  <JFXButton onAction="#onCompaniesSection" text="Companies">
                      <font>
                         <Font size="19.0" />
                      </font>
@@ -71,7 +74,7 @@
                         <Font size="19.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton layoutX="30.0" layoutY="537.0" text="Job Posts" onAction="#onJobPotsSection">
+                  <JFXButton layoutX="30.0" layoutY="537.0" onAction="#onJobPotsSection" text="Job Posts">
                      <font>
                         <Font size="19.0" />
                      </font>

@@ -17,20 +17,22 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"
-fx:controller="quantity.glasswindow.MainJobPostsController">
+<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="quantity.glasswindow.MainJobPostsController">
    <children>
-      <MenuBar VBox.vgrow="NEVER">
+      <MenuBar>
          <menus>
             <Menu mnemonicParsing="false" text="File">
                <items>
-                  <MenuItem mnemonicParsing="false" text="New" />
+                  <Menu mnemonicParsing="false" text="New...">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Company" />
+                        <MenuItem mnemonicParsing="false" text="Candidate" />
+                        <MenuItem mnemonicParsing="false" text="Job Post" />
+                     </items>
+                  </Menu>
                   <MenuItem mnemonicParsing="false" text="Open…" />
                   <Menu mnemonicParsing="false" text="Open Recent" />
                   <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem mnemonicParsing="false" text="Close" />
-                  <MenuItem mnemonicParsing="false" text="Save" />
-                  <MenuItem mnemonicParsing="false" text="Save As…" />
                   <MenuItem mnemonicParsing="false" text="Revert" />
                   <SeparatorMenuItem mnemonicParsing="false" />
                   <MenuItem mnemonicParsing="false" text="Preferences…" />
@@ -65,7 +67,7 @@ fx:controller="quantity.glasswindow.MainJobPostsController">
                <children>
                   <HBox>
                      <children>
-                        <JFXButton text="Companies" onAction="#onCompaniesSection">
+                        <JFXButton onAction="#onCompaniesSection" text="Companies">
                            <cursor>
                               <Cursor fx:constant="CLOSED_HAND" />
                            </cursor>
@@ -77,7 +79,7 @@ fx:controller="quantity.glasswindow.MainJobPostsController">
                   </HBox>
                   <HBox>
                      <children>
-                        <JFXButton text="Candidates" onAction="#onCandidatesSection">
+                        <JFXButton onAction="#onCandidatesSection" text="Candidates">
                            <cursor>
                               <Cursor fx:constant="CLOSED_HAND" />
                            </cursor>
@@ -143,17 +145,17 @@ fx:controller="quantity.glasswindow.MainJobPostsController">
                            <children>
                               <HBox alignment="CENTER">
                                  <children>
-                                    <Hyperlink prefHeight="30.0" prefWidth="455.0" text="Job Post Name" onAction="#onEntityLink">
+                                    <Hyperlink onAction="#onEntityLink" prefHeight="30.0" prefWidth="455.0" text="Job Post Name">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
                                     </Hyperlink>
-                                    <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="56.0" text="Edit" onAction="#onEditButton">
+                                    <Button mnemonicParsing="false" onAction="#onEditButton" prefHeight="22.0" prefWidth="56.0" text="Edit">
                                        <HBox.margin>
                                           <Insets left="5.0" right="5.0" />
                                        </HBox.margin>
                                     </Button>
-                                    <Button layoutX="81.0" layoutY="10.0" mnemonicParsing="false" text="Delete" onAction="#onDeleteButton">
+                                    <Button layoutX="81.0" layoutY="10.0" mnemonicParsing="false" onAction="#onDeleteButton" text="Delete">
                                        <HBox.margin>
                                           <Insets left="5.0" right="5.0" />
                                        </HBox.margin>
@@ -174,17 +176,17 @@ fx:controller="quantity.glasswindow.MainJobPostsController">
                            <children>
                               <HBox alignment="CENTER">
                                  <children>
-                                    <Hyperlink prefHeight="30.0" prefWidth="455.0" text="Job Post Name" onAction="#onEntityLink">
+                                    <Hyperlink onAction="#onEntityLink" prefHeight="30.0" prefWidth="455.0" text="Job Post Name">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
                                     </Hyperlink>
-                                    <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="56.0" text="Edit" onAction="#onEditButton">
+                                    <Button mnemonicParsing="false" onAction="#onEditButton" prefHeight="22.0" prefWidth="56.0" text="Edit">
                                        <HBox.margin>
                                           <Insets left="5.0" right="5.0" />
                                        </HBox.margin>
                                     </Button>
-                                    <Button layoutX="81.0" layoutY="10.0" mnemonicParsing="false" text="Delete" onAction="#onDeleteButton">
+                                    <Button layoutX="81.0" layoutY="10.0" mnemonicParsing="false" onAction="#onDeleteButton" text="Delete">
                                        <HBox.margin>
                                           <Insets left="5.0" right="5.0" />
                                        </HBox.margin>
@@ -205,17 +207,17 @@ fx:controller="quantity.glasswindow.MainJobPostsController">
                            <children>
                               <HBox alignment="CENTER">
                                  <children>
-                                    <Hyperlink prefHeight="30.0" prefWidth="455.0" text="Job Post Name" onAction="#onEntityLink">
+                                    <Hyperlink onAction="#onEntityLink" prefHeight="30.0" prefWidth="455.0" text="Job Post Name">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
                                     </Hyperlink>
-                                    <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="56.0" text="Edit" onAction="#onEditButton">
+                                    <Button mnemonicParsing="false" onAction="#onEditButton" prefHeight="22.0" prefWidth="56.0" text="Edit">
                                        <HBox.margin>
                                           <Insets left="5.0" right="5.0" />
                                        </HBox.margin>
                                     </Button>
-                                    <Button layoutX="81.0" layoutY="10.0" mnemonicParsing="false" text="Delete" onAction="#onDeleteButton">
+                                    <Button layoutX="81.0" layoutY="10.0" mnemonicParsing="false" onAction="#onDeleteButton" text="Delete">
                                        <HBox.margin>
                                           <Insets left="5.0" right="5.0" />
                                        </HBox.margin>
@@ -236,17 +238,17 @@ fx:controller="quantity.glasswindow.MainJobPostsController">
                            <children>
                               <HBox alignment="CENTER">
                                  <children>
-                                    <Hyperlink prefHeight="30.0" prefWidth="455.0" text="Job Post Name" onAction="#onEntityLink">
+                                    <Hyperlink onAction="#onEntityLink" prefHeight="30.0" prefWidth="455.0" text="Job Post Name">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
                                     </Hyperlink>
-                                    <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="56.0" text="Edit" onAction="#onEditButton">
+                                    <Button mnemonicParsing="false" onAction="#onEditButton" prefHeight="22.0" prefWidth="56.0" text="Edit">
                                        <HBox.margin>
                                           <Insets left="5.0" right="5.0" />
                                        </HBox.margin>
                                     </Button>
-                                    <Button layoutX="81.0" layoutY="10.0" mnemonicParsing="false" text="Delete" onAction="#onDeleteButton">
+                                    <Button layoutX="81.0" layoutY="10.0" mnemonicParsing="false" onAction="#onDeleteButton" text="Delete">
                                        <HBox.margin>
                                           <Insets left="5.0" right="5.0" />
                                        </HBox.margin>
@@ -267,17 +269,17 @@ fx:controller="quantity.glasswindow.MainJobPostsController">
                            <children>
                               <HBox alignment="CENTER">
                                  <children>
-                                    <Hyperlink prefHeight="30.0" prefWidth="455.0" text="Job Post Name" onAction="#onEntityLink">
+                                    <Hyperlink onAction="#onEntityLink" prefHeight="30.0" prefWidth="455.0" text="Job Post Name">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
                                     </Hyperlink>
-                                    <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="56.0" text="Edit" onAction="#onEditButton">
+                                    <Button mnemonicParsing="false" onAction="#onEditButton" prefHeight="22.0" prefWidth="56.0" text="Edit">
                                        <HBox.margin>
                                           <Insets left="5.0" right="5.0" />
                                        </HBox.margin>
                                     </Button>
-                                    <Button layoutX="81.0" layoutY="10.0" mnemonicParsing="false" text="Delete" onAction="#onDeleteButton">
+                                    <Button layoutX="81.0" layoutY="10.0" mnemonicParsing="false" onAction="#onDeleteButton" text="Delete">
                                        <HBox.margin>
                                           <Insets left="5.0" right="5.0" />
                                        </HBox.margin>
@@ -298,17 +300,17 @@ fx:controller="quantity.glasswindow.MainJobPostsController">
                            <children>
                               <HBox alignment="CENTER">
                                  <children>
-                                    <Hyperlink prefHeight="30.0" prefWidth="455.0" text="Job Post Name" onAction="#onEntityLink">
+                                    <Hyperlink onAction="#onEntityLink" prefHeight="30.0" prefWidth="455.0" text="Job Post Name">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
                                     </Hyperlink>
-                                    <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="56.0" text="Edit" onAction="#onEditButton">
+                                    <Button mnemonicParsing="false" onAction="#onEditButton" prefHeight="22.0" prefWidth="56.0" text="Edit">
                                        <HBox.margin>
                                           <Insets left="5.0" right="5.0" />
                                        </HBox.margin>
                                     </Button>
-                                    <Button layoutX="81.0" layoutY="10.0" mnemonicParsing="false" text="Delete" onAction="#onDeleteButton">
+                                    <Button layoutX="81.0" layoutY="10.0" mnemonicParsing="false" onAction="#onDeleteButton" text="Delete">
                                        <HBox.margin>
                                           <Insets left="5.0" right="5.0" />
                                        </HBox.margin>
@@ -329,17 +331,17 @@ fx:controller="quantity.glasswindow.MainJobPostsController">
                            <children>
                               <HBox alignment="CENTER">
                                  <children>
-                                    <Hyperlink prefHeight="30.0" prefWidth="455.0" text="Job Post Name" onAction="#onEntityLink">
+                                    <Hyperlink onAction="#onEntityLink" prefHeight="30.0" prefWidth="455.0" text="Job Post Name">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
                                     </Hyperlink>
-                                    <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="56.0" text="Edit" onAction="#onEditButton">
+                                    <Button mnemonicParsing="false" onAction="#onEditButton" prefHeight="22.0" prefWidth="56.0" text="Edit">
                                        <HBox.margin>
                                           <Insets left="5.0" right="5.0" />
                                        </HBox.margin>
                                     </Button>
-                                    <Button layoutX="81.0" layoutY="10.0" mnemonicParsing="false" text="Delete" onAction="#onDeleteButton">
+                                    <Button layoutX="81.0" layoutY="10.0" mnemonicParsing="false" onAction="#onDeleteButton" text="Delete">
                                        <HBox.margin>
                                           <Insets left="5.0" right="5.0" />
                                        </HBox.margin>
