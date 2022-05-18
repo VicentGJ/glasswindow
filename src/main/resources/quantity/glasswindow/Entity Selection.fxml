@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.Icon?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" snapToPixel="false" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
@@ -24,16 +21,11 @@
       </Label>
       <HBox alignment="CENTER" prefHeight="401.0" prefWidth="600.0">
          <children>
-            <AnchorPane layoutX="371.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0">
+            <VBox alignment="CENTER" prefHeight="400.0" prefWidth="201.0">
                <children>
-                  <VBox alignment="CENTER" fillWidth="false" layoutX="-1.0" prefHeight="400.0" prefWidth="201.0">
-                     <children>
-                        <Icon content="PERSON" scaleX="5.0" scaleY="5.0" />
-                        <Button mnemonicParsing="false" scaleX="2.0" scaleY="2.0" text="Candidate" translateY="90.0" />
-                     </children>
-                  </VBox>
+                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="86.0" scaleX="2.0" scaleY="2.0" text="Candidate" translateY="90.0" />
                </children>
-            </AnchorPane>
+            </VBox>
             <Separator orientation="VERTICAL" prefHeight="402.0" prefWidth="120.0">
                <padding>
                   <Insets bottom="100.0" top="100.0" />
@@ -42,16 +34,11 @@
                   <Insets />
                </HBox.margin>
             </Separator>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+            <VBox alignment="CENTER" fillWidth="false" prefHeight="400.0" prefWidth="201.0">
                <children>
-                  <VBox alignment="CENTER" fillWidth="false" layoutX="-1.0" prefHeight="400.0" prefWidth="201.0">
-                     <children>
-                        <Icon content="DOMAIN" scaleX="5.0" scaleY="5.0" />
-                        <Button mnemonicParsing="false" scaleX="2.0" scaleY="2.0" text="Company" translateY="90.0" />
-                     </children>
-                  </VBox>
+                  <Button mnemonicParsing="false" scaleX="2.0" scaleY="2.0" text="Company" translateY="90.0" />
                </children>
-            </AnchorPane>
+            </VBox>
          </children>
       </HBox>
    </children>
