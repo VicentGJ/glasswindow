@@ -1,38 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.Icon?>
-<?import com.gluonhq.charm.glisten.control.TextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<VBox alignment="CENTER" prefHeight="585.0" prefWidth="460.0" spacing="40.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="quantity.glasswindow.LoginController">
+<VBox alignment="CENTER" prefHeight="490.0" prefWidth="460.0" spacing="40.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="quantity.glasswindow.LoginController">
    <children>
-      <HBox alignment="CENTER_LEFT" prefHeight="62.0" prefWidth="427.0" translateY="-20.0">
+      <HBox alignment="CENTER" prefHeight="62.0" prefWidth="427.0" translateY="-20.0">
          <children>
-            <Icon cacheShape="false" centerShape="false" content="ARROW_BACK" prefHeight="63.0" prefWidth="42.0" scaleShape="false" scaleX="1.5" scaleY="1.5">
-               <HBox.margin>
-                  <Insets right="115.0" />
-               </HBox.margin>
-            </Icon>
-            <Icon cacheShape="false" centerShape="false" content="ACCOUNT_CIRCLE" prefHeight="0.0" prefWidth="23.0" scaleShape="false" scaleX="1.5" scaleY="1.5">
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </Icon>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
                <font>
                   <Font size="28.0" />
                </font>
                <HBox.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="20.0" />
                </HBox.margin>
             </Text>
          </children>
@@ -42,65 +30,42 @@
             <Font size="15.0" />
          </font>
       </Text>
-      <VBox fillWidth="false" spacing="5.0">
+      <VBox layoutX="40.0" layoutY="301.0" prefHeight="0.0" prefWidth="401.0" spacing="5.0">
          <children>
-            <HBox>
-               <children>
-                  <Label layoutX="10.0" layoutY="10.0" text="Username">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-                  <Text fx:id="usernameErrorMessage" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Error Message" textAlignment="RIGHT" visible="false">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="30.0" />
-                     </HBox.margin>
-                  </Text>
-               </children>
-            </HBox>
-            <HBox fillHeight="false" layoutX="10.0" layoutY="35.0" prefHeight="0.0" prefWidth="387.0">
-               <children>
-                  <TextField prefHeight="27.0" prefWidth="365.0" promptText="username" />
-                  <Icon content="BACKSPACE" nodeOrientation="LEFT_TO_RIGHT" />
-               </children>
-            </HBox>
+            <Label text="Username">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField prefHeight="49.0" prefWidth="376.0" promptText="username">
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </TextField>
+            <HBox prefHeight="0.0" prefWidth="387.0" />
+            <HBox layoutX="10.0" layoutY="35.0" prefHeight="0.0" prefWidth="387.0" />
          </children>
          <VBox.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </VBox.margin>
       </VBox>
-      <VBox spacing="5.0" translateY="-20.0">
+      <VBox prefHeight="0.0" prefWidth="401.0" spacing="5.0" translateY="-20.0">
          <children>
-            <HBox>
-               <children>
-                  <Label layoutX="10.0" layoutY="10.0" text="Password">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-                  <Text fx:id="passwordErrorMessage" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Error Message" textAlignment="RIGHT" visible="false">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="30.0" />
-                     </HBox.margin>
-                  </Text>
-               </children>
-            </HBox>
+            <Label text="Password">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
             <HBox prefHeight="0.0" prefWidth="387.0">
                <children>
-                  <PasswordField prefHeight="27.0" prefWidth="365.0" promptText="password">
+                  <PasswordField prefHeight="37.0" prefWidth="402.0" promptText="password">
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
                   </PasswordField>
-                  <Icon content="BACKSPACE" nodeOrientation="LEFT_TO_RIGHT" />
                </children>
             </HBox>
+            <HBox layoutX="10.0" layoutY="35.0" prefHeight="0.0" prefWidth="387.0" />
          </children>
          <VBox.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -109,18 +74,20 @@
       <HBox alignment="CENTER" translateY="-30.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Don't have an account?" wrappingWidth="157.56365966796875" HBox.hgrow="SOMETIMES" />
-            <Hyperlink prefHeight="27.0" prefWidth="52.0" text="Sign up" onAction="#onSignUpLink" />
-            <Icon cacheShape="false" centerShape="false" content="LAUNCH" prefHeight="0.0" prefWidth="23.0" scaleShape="false" scaleX="0.7" scaleY="0.7" />
+            <Hyperlink onAction="#onSignUpLink" prefHeight="23.0" prefWidth="71.0" text="Sign up" />
          </children>
          <VBox.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </VBox.margin>
       </HBox>
-      <Button mnemonicParsing="false" prefHeight="36.0" prefWidth="56.0" text="Login" onAction="#onLoginButton">
+      <HBox alignment="CENTER" prefHeight="60.0" prefWidth="401.0">
          <VBox.margin>
-            <Insets bottom="40.0" left="10.0" right="10.0" top="10.0"/>
+            <Insets bottom="40.0" left="10.0" right="10.0" top="10.0" />
          </VBox.margin>
-      </Button>
+         <children>
+            <Button mnemonicParsing="false" onAction="#onLoginButton" prefHeight="33.0" prefWidth="82.0" text="Login" />
+         </children>
+      </HBox>
    </children>
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
