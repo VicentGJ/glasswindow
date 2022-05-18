@@ -95,19 +95,19 @@
                <children>
                   <HBox>
                      <children>
-                        <JFXButton buttonType="RAISED" text="Companies" underline="true">
+                        <JFXButton buttonType="RAISED" onAction="#onCandidatesSection" text="Companies" underline="true">
                            <font>
                               <Font size="19.0" />
                            </font>
                         </JFXButton>
                      </children>
                   </HBox>
-                  <JFXButton text="Candidates" onAction="#onCandidatesSection">
+                  <JFXButton onAction="#onCandidatesSection" text="Candidates">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton text="Job Posts" onAction="#onJobPotsSection">
+                  <JFXButton onAction="#onJobPotsSection" text="Job Posts">
                      <font>
                         <Font size="19.0" />
                      </font>
