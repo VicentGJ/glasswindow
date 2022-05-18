@@ -50,7 +50,8 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="quantity.glasswindow.MainCompaniesController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -184,12 +185,12 @@
                            <children>
                               <HBox alignment="CENTER">
                                  <children>
-                                    <Hyperlink prefHeight="30.0" prefWidth="455.0" text="Company Name">
+                                    <Hyperlink prefHeight="30.0" prefWidth="455.0" text="Company Name" onAction="#onEntityLink">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
                                     </Hyperlink>
-                                    <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="56.0" text="Edit">
+                                    <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="56.0" text="Edit" onAction="#onEditButton">
                                        <HBox.margin>
                                           <Insets left="5.0" right="5.0" />
                                        </HBox.margin>
@@ -215,12 +216,12 @@
                            <children>
                               <HBox alignment="CENTER">
                                  <children>
-                                    <Hyperlink prefHeight="30.0" prefWidth="455.0" text="Company Name">
+                                    <Hyperlink prefHeight="30.0" prefWidth="455.0" text="Company Name" onAction="#onEntityLink">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
                                     </Hyperlink>
-                                    <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="56.0" text="Edit">
+                                    <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="56.0" text="Edit" onAction="#onEditButton">
                                        <HBox.margin>
                                           <Insets left="5.0" right="5.0" />
                                        </HBox.margin>
@@ -246,12 +247,12 @@
                            <children>
                               <HBox alignment="CENTER">
                                  <children>
-                                    <Hyperlink prefHeight="30.0" prefWidth="455.0" text="Company Name">
+                                    <Hyperlink prefHeight="30.0" prefWidth="455.0" text="Company Name" onAction="#onEntityLink">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
                                     </Hyperlink>
-                                    <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="56.0" text="Edit">
+                                    <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="56.0" text="Edit" onAction="#onEditButton">
                                        <HBox.margin>
                                           <Insets left="5.0" right="5.0" />
                                        </HBox.margin>
@@ -277,12 +278,12 @@
                            <children>
                               <HBox alignment="CENTER">
                                  <children>
-                                    <Hyperlink prefHeight="30.0" prefWidth="455.0" text="Company Name">
+                                    <Hyperlink prefHeight="30.0" prefWidth="455.0" text="Company Name" onAction="#onEntityLink">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
                                     </Hyperlink>
-                                    <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="56.0" text="Edit">
+                                    <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="56.0" text="Edit" onAction="#onEditButton">
                                        <HBox.margin>
                                           <Insets left="5.0" right="5.0" />
                                        </HBox.margin>
@@ -308,12 +309,12 @@
                            <children>
                               <HBox alignment="CENTER">
                                  <children>
-                                    <Hyperlink prefHeight="30.0" prefWidth="455.0" text="Company Name">
+                                    <Hyperlink prefHeight="30.0" prefWidth="455.0" text="Company Name" onAction="#onEntityLink">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
                                     </Hyperlink>
-                                    <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="56.0" text="Edit">
+                                    <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="56.0" text="Edit" onAction="#onEditButton">
                                        <HBox.margin>
                                           <Insets left="5.0" right="5.0" />
                                        </HBox.margin>
@@ -339,12 +340,12 @@
                            <children>
                               <HBox alignment="CENTER">
                                  <children>
-                                    <Hyperlink prefHeight="30.0" prefWidth="455.0" text="Company Name">
+                                    <Hyperlink prefHeight="30.0" prefWidth="455.0" text="Company Name" onAction="#onEntityLink">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
                                     </Hyperlink>
-                                    <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="56.0" text="Edit">
+                                    <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="56.0" text="Edit" onAction="#onEditButton">
                                        <HBox.margin>
                                           <Insets left="5.0" right="5.0" />
                                        </HBox.margin>

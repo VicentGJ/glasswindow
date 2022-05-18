@@ -1,4 +1,4 @@
-package quantity.glasswindow.UI;
+package quantity.glasswindow;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

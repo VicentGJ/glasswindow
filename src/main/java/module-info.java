@@ -6,9 +6,9 @@ module quantity.glasswindow {
     requires com.dlsc.formsfx;
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
+    requires java.logging;
 
     opens quantity.glasswindow to javafx.fxml;
     exports quantity.glasswindow;
-    exports quantity.glasswindow.UI;
-    opens quantity.glasswindow.UI to javafx.fxml;
+    exports quantity.glasswindow.utils;
 }
