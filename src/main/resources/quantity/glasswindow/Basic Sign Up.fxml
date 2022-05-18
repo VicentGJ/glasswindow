@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" prefHeight="585.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="CENTER" prefHeight="585.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="quantity.glasswindow.SignUpController">
    <children>
       <HBox alignment="CENTER_LEFT" fillHeight="false" prefHeight="62.0" prefWidth="427.0" VBox.vgrow="SOMETIMES">
          <children>
@@ -133,7 +133,7 @@
             <HBox alignment="CENTER">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Already Have an Account? " wrappingWidth="175.54443359375" HBox.hgrow="SOMETIMES" />
-                  <Hyperlink prefHeight="25.0" prefWidth="44.0" text="Log In" />
+                  <Hyperlink prefHeight="25.0" prefWidth="44.0" text="Log In" onAction="#onLoginLink"/>
                   <Icon cacheShape="false" centerShape="false" content="LAUNCH" prefHeight="0.0" prefWidth="23.0" scaleShape="false" scaleX="0.7" scaleY="0.7" />
                </children>
             </HBox>
@@ -144,7 +144,7 @@
       </VBox>
       <HBox alignment="TOP_CENTER" fillHeight="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="83.0" prefWidth="427.0">
          <children>
-            <Button minHeight="18.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="124.0" text="Sign Up" HBox.hgrow="SOMETIMES">
+            <Button minHeight="18.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="124.0" text="Sign Up" HBox.hgrow="SOMETIMES" onAction="#onSignUpButton">
                <HBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </HBox.margin>
