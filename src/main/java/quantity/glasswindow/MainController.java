@@ -2,10 +2,30 @@ package quantity.glasswindow;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
+import javafx.stage.Stage;
+import quantity.glasswindow.utils.WindowLoader;
 
 import java.io.IOException;
 
 public abstract class MainController extends TransitionController{
+    @FXML
+    protected void onNewCompany(ActionEvent event) throws IOException {
+        WindowLoader.loadWindow(getClass().getResource("Company Edit.fxml"), "Edit Company", null);
+    }
+    @FXML
+    protected void onNewCandidate(ActionEvent event) throws IOException {
+        WindowLoader.loadWindow(getClass().getResource("Candidate Edit.fxml"), "Edit Company", null);
+    }
+    @FXML
+    protected void onNewJobPost(ActionEvent event) throws IOException {
+        WindowLoader.loadWindow(getClass().getResource("Job Post Edit.fxml"), "Edit Company", null);
+    }
+    @FXML
+    protected void onQuit(ActionEvent event) throws IOException {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        System.exit(0);
+    }
     @FXML
     protected void onCompaniesSection(ActionEvent event) throws IOException {
         this.transition("main_companies.fxml", event);

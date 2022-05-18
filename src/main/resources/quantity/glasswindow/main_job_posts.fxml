@@ -25,9 +25,9 @@
                <items>
                   <Menu mnemonicParsing="false" text="New...">
                      <items>
-                        <MenuItem mnemonicParsing="false" text="Company" />
-                        <MenuItem mnemonicParsing="false" text="Candidate" />
-                        <MenuItem mnemonicParsing="false" text="Job Post" />
+                        <MenuItem mnemonicParsing="false" text="Company" onAction="#onNewCompany"/>
+                        <MenuItem mnemonicParsing="false" text="Candidate" onAction="#onNewCandidate"/>
+                        <MenuItem mnemonicParsing="false" text="Job Post" onAction="#onNewJobPost"/>
                      </items>
                   </Menu>
                   <MenuItem mnemonicParsing="false" text="Open…" />
@@ -37,7 +37,7 @@
                   <SeparatorMenuItem mnemonicParsing="false" />
                   <MenuItem mnemonicParsing="false" text="Preferences…" />
                   <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem mnemonicParsing="false" text="Quit" />
+                  <MenuItem mnemonicParsing="false" text="Quit" onAction="#onQuit"/>
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Edit">
