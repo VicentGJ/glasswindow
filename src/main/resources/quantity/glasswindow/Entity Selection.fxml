@@ -10,7 +10,8 @@
 <?import javafx.scene.text.Font?>
 
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" snapToPixel="false" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+      prefWidth="600.0" snapToPixel="false" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="quantity.glasswindow.EntitySelectionController">
    <children>
       <Label alignment="CENTER" prefHeight="44.0" prefWidth="600.0" text="Who are You?">
          <font>
@@ -24,7 +25,7 @@
          <children>
             <VBox alignment="CENTER" prefHeight="400.0" prefWidth="201.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="86.0" scaleX="2.0" scaleY="2.0" text="Candidate" translateY="90.0" />
+                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="86.0" scaleX="2.0" scaleY="2.0" text="Candidate" translateY="90.0" onAction="#onCandidateButton" />
                </children>
             </VBox>
             <Separator orientation="VERTICAL" prefHeight="402.0" prefWidth="120.0">
@@ -37,7 +38,7 @@
             </Separator>
             <VBox alignment="CENTER" fillWidth="false" prefHeight="400.0" prefWidth="201.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="86.0" scaleX="2.0" scaleY="2.0" text="Company" translateY="90.0" />
+                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="86.0" scaleX="2.0" scaleY="2.0" text="Company" translateY="90.0" onAction="#onCompanyButton" />
                </children>
             </VBox>
             <Separator layoutX="250.0" layoutY="10.0" orientation="VERTICAL" prefHeight="402.0" prefWidth="120.0">
@@ -47,7 +48,7 @@
             </Separator>
             <VBox alignment="CENTER" fillWidth="false" layoutX="310.0" layoutY="10.0" prefHeight="400.0" prefWidth="201.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="86.0" scaleX="2.0" scaleY="2.0" text="Agency" translateY="90.0" />
+                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="86.0" scaleX="2.0" scaleY="2.0" text="Agency" translateY="90.0" onAction="#onCompanyButton"/>
                </children>
             </VBox>
          </children>

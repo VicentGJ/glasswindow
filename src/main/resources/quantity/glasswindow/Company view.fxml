@@ -10,13 +10,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="380.0" prefWidth="469.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="380.0" prefWidth="469.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="quantity.glasswindow.CompanyViewController">
    <children>
       <HBox alignment="CENTER" fillHeight="false" prefHeight="45.0" prefWidth="469.0">
          <children>
             <HBox alignment="CENTER" prefHeight="62.0" prefWidth="427.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="62.0" text="Back" />
+                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="62.0" text="Back" onAction="#onBackButton"/>
                   <Pane layoutX="53.0" layoutY="10.0" prefHeight="26.0" prefWidth="40.0" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CompanyView">
                      <font>
@@ -24,7 +24,7 @@
                      </font>
                   </Text>
                   <Pane layoutX="138.0" layoutY="10.0" prefHeight="26.0" prefWidth="40.0" />
-                  <Button layoutX="67.0" layoutY="11.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="68.0" text="Edit" />
+                  <Button layoutX="67.0" layoutY="11.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="68.0" text="Edit" onAction="#onEditButton"/>
                </children>
                <HBox.margin>
                   <Insets top="15.0" />

@@ -12,7 +12,8 @@
 <?import javafx.scene.layout.VBox?>
 
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+      prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="quantity.glasswindow.JobPostListController">
    <children>
       <HBox alignment="CENTER_LEFT">
          <children>
@@ -29,7 +30,7 @@
             <Pane layoutX="74.0" layoutY="10.0" prefHeight="0.0" prefWidth="47.0" />
             <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="63.0" text="Search" />
             <Pane layoutX="380.0" layoutY="10.0" prefHeight="23.0" prefWidth="26.0" />
-            <Button layoutX="428.0" layoutY="10.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="63.0" text="Profile" />
+            <Button layoutX="428.0" layoutY="10.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="63.0" text="Profile" onAction="#onProfileButton"/>
          </children>
          <VBox.margin>
             <Insets left="20.0" top="20.0" />
