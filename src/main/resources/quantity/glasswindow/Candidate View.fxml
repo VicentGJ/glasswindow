@@ -14,17 +14,17 @@
    <children>
       <HBox alignment="CENTER" fillHeight="false" prefHeight="45.0" prefWidth="469.0">
          <children>
-            <HBox alignment="CENTER" prefHeight="62.0" prefWidth="427.0">
+            <HBox alignment="CENTER_RIGHT" prefHeight="62.0" prefWidth="427.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#onBackButton" prefHeight="27.0" prefWidth="62.0" text="Back" />
-                  <Pane layoutX="53.0" layoutY="10.0" prefHeight="26.0" prefWidth="40.0" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CandiateName">
                      <font>
                         <Font size="22.0" />
                      </font>
+                     <HBox.margin>
+                        <Insets right="60.0" />
+                     </HBox.margin>
                   </Text>
-                  <Pane layoutX="138.0" layoutY="10.0" prefHeight="26.0" prefWidth="40.0" />
-                  <Button layoutX="67.0" layoutY="11.0" mnemonicParsing="false" onAction="#onEditButton" prefHeight="25.0" prefWidth="68.0" text="Edit" />
+                  <Button mnemonicParsing="false" onAction="#onEditButton" prefHeight="25.0" prefWidth="60.0" text="Edit" />
                </children>
                <HBox.margin>
                   <Insets top="15.0" />
@@ -224,7 +224,15 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button mnemonicParsing="false" text="Log Out" />
+                  <Button mnemonicParsing="false" text="Log Out">
+                     <HBox.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </HBox.margin></Button>
+                  <Button layoutX="180.0" layoutY="23.0" mnemonicParsing="false" text="Back">
+                     <HBox.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </HBox.margin>
+                  </Button>
                </children>
             </HBox>
          </children>
