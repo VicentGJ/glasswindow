@@ -11,20 +11,24 @@ import java.io.IOException;
 public abstract class MainController extends TransitionController{
     @FXML
     protected void onNewCompany(ActionEvent event) throws IOException {
-        WindowLoader.loadWindow(getClass().getResource("Company Edit.fxml"), "Edit Company", null);
+        WindowLoader.loadWindow(getClass().getResource("Company Edit.fxml"), "New Company", null);
     }
     @FXML
     protected void onNewCandidate(ActionEvent event) throws IOException {
-        WindowLoader.loadWindow(getClass().getResource("Candidate Edit.fxml"), "Edit Company", null);
+        WindowLoader.loadWindow(getClass().getResource("Candidate Edit.fxml"), "New Candidate", null);
     }
     @FXML
     protected void onNewJobPost(ActionEvent event) throws IOException {
-        WindowLoader.loadWindow(getClass().getResource("Job Post Edit.fxml"), "Edit Company", null);
+        WindowLoader.loadWindow(getClass().getResource("Job Post Edit.fxml"), "New Job Post", null);
     }
     @FXML
     protected void onQuit(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         System.exit(0);
+    }
+    @FXML
+    protected void onProfileLink(ActionEvent event) throws IOException {
+        WindowLoader.loadWindow(getClass().getResource("Profile View.fxml"), "User Profile", null);
     }
     @FXML
     protected void onCompaniesSection(ActionEvent event) throws IOException {

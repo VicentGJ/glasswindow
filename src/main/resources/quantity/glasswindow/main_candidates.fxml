@@ -84,7 +84,7 @@
                   <HBox />
                   <VBox alignment="BOTTOM_CENTER" prefHeight="347.0" prefWidth="183.0">
                      <children>
-                        <Hyperlink text="My Profile">
+                        <Hyperlink text="My Profile" onAction="#onProfileLink">
                            <font>
                               <Font size="21.0" />
                            </font>
