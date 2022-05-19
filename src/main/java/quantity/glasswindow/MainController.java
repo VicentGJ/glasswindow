@@ -22,7 +22,7 @@ public abstract class MainController extends TransitionController{
         WindowLoader.loadWindow(getClass().getResource("Job Post Edit.fxml"), "Edit Company", null);
     }
     @FXML
-    protected void onQuit(ActionEvent event) throws IOException {
+    protected void onQuit(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         System.exit(0);
     }

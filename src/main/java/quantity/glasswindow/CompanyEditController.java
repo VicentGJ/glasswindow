@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public class CompanyEditController extends TransitionController{
     @FXML
-    protected void onButtonBack(ActionEvent event) throws IOException{
+    protected void onButtonBack(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.close();
     }

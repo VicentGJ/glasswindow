@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public class CandidateProfileEditController extends TransitionController{
     @FXML
-    protected void onSaveButton(ActionEvent event) throws IOException{
+    protected void onSaveButton(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.close();
     }
