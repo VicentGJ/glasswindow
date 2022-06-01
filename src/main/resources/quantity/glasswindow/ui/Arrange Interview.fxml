@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.DropdownButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.Spinner?>
 <?import javafx.scene.layout.HBox?>
@@ -15,8 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="394.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"
-fx:controller="quantity.glasswindow.ui.InterviewController">
+<VBox prefHeight="394.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="quantity.glasswindow.ui.InterviewController">
    <children>
       <HBox alignment="CENTER" fillHeight="false" prefHeight="45.0" prefWidth="469.0">
          <children>
@@ -56,7 +53,6 @@ fx:controller="quantity.glasswindow.ui.InterviewController">
                         <DatePicker editable="false" />
                      </children>
                   </VBox>
-                  <Pane prefHeight="10.0" prefWidth="112.0" />
                </children>
                <VBox.margin>
                   <Insets bottom="10.0" top="10.0" />
@@ -78,15 +74,11 @@ fx:controller="quantity.glasswindow.ui.InterviewController">
                            </font>
                         </Text>
                         <Spinner layoutX="10.0" layoutY="10.0" prefHeight="28.0" prefWidth="65.0" />
-                        <DropdownButton>
-                            <items>
-                                <MenuItem text="AM" />
-                                <MenuItem text="PM" />
-                            </items>
+                        <ComboBox prefHeight="28.0" prefWidth="67.0" promptText="AM">
                            <HBox.margin>
-                              <Insets left="5.0" />
+                              <Insets left="10.0" />
                            </HBox.margin>
-                        </DropdownButton>
+                        </ComboBox>
                      </children>
                   </HBox>
                </children>
@@ -101,16 +93,15 @@ fx:controller="quantity.glasswindow.ui.InterviewController">
                   <ComboBox prefWidth="150.0" promptText="Candidate 1" />
                </children>
             </VBox>
-            <Pane prefHeight="38.0" prefWidth="370.0" />
             <HBox alignment="CENTER" prefHeight="11.0" prefWidth="367.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="24.0" prefWidth="85.0" text="Cancel" onAction="#onCancelButton">
+                  <Button mnemonicParsing="false" onAction="#onOkButton" prefHeight="15.0" prefWidth="85.0" text="Ok">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Pane prefHeight="39.0" prefWidth="13.0" />
-                  <Button mnemonicParsing="false" prefHeight="15.0" prefWidth="85.0" text="Ok" onAction="#onOkButton">
+                  <Pane prefHeight="30.0" prefWidth="43.0" />
+                  <Button mnemonicParsing="false" onAction="#onCancelButton" prefHeight="24.0" prefWidth="85.0" text="Cancel">
                      <font>
                         <Font size="15.0" />
                      </font>
