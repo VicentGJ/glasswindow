@@ -17,7 +17,8 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="495.0" prefWidth="469.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="495.0" prefWidth="469.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"
+fx:controller="quantity.glasswindow.ui.JobPostController">
    <children>
       <HBox alignment="CENTER" fillHeight="false" prefHeight="45.0" prefWidth="469.0">
          <children>
@@ -123,7 +124,7 @@
       </GridPane>
       <HBox alignment="CENTER" prefHeight="29.0" prefWidth="452.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="36.0" prefWidth="78.0" text="Save">
+            <Button mnemonicParsing="false" prefHeight="36.0" prefWidth="78.0" text="Save" onAction="#onApplyButton">
                <font>
                   <Font size="14.0" />
                </font>
@@ -131,7 +132,7 @@
                   <Insets left="5.0" right="5.0" />
                </HBox.margin>
             </Button>
-            <Button layoutX="197.0" layoutY="10.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="78.0" text="Cancel">
+            <Button layoutX="197.0" layoutY="10.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="78.0" text="Cancel" onAction="#onCancelButton">
                <font>
                   <Font size="14.0" />
                </font>

@@ -13,13 +13,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="622.0" prefWidth="469.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="quantity.glasswindow.CandidateProfileEditController">
+<VBox prefHeight="622.0" prefWidth="469.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="quantity.glasswindow.ui.CandidateProfileEditController">
    <children>
       <HBox alignment="CENTER" fillHeight="false" prefHeight="45.0" prefWidth="469.0">
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="62.0" prefWidth="427.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#onBackButton" prefHeight="28.0" prefWidth="58.0" text="Back" />
+                  <Button mnemonicParsing="false" onAction="#onBackButton" prefHeight="28.0" prefWidth="58.0" text="Back"/>
                   <Pane prefHeight="31.0" prefWidth="75.0" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CandiateName">
                      <font>
@@ -194,7 +194,7 @@
       <Pane prefHeight="42.0" prefWidth="410.0" />
       <HBox alignment="CENTER" prefHeight="43.0" prefWidth="410.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="72.0" text="Save" />
+            <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="72.0" text="Save" onAction="#onSaveButton"/>
          </children>
       </HBox>
    </children>

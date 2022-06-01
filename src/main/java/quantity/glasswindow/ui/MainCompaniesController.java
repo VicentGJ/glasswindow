@@ -1,4 +1,4 @@
-package quantity.glasswindow;
+package quantity.glasswindow.ui;
 
 import javafx.event.ActionEvent;
 import quantity.glasswindow.utils.WindowLoader;
@@ -18,7 +18,7 @@ public class MainCompaniesController extends  MainController{
 
     @Override
     protected void onEntityLink(ActionEvent event) throws IOException {
-        WindowLoader.loadWindow(getClass().getResource("Company View.fxml"), "Edit Company", null);
+        WindowLoader.loadWindow(getClass().getResource("Company View.fxml"), "View Company", null);
     }
 
     @Override

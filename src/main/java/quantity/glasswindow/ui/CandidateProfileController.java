@@ -1,4 +1,4 @@
-package quantity.glasswindow;
+package quantity.glasswindow.ui;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public class CandidateProfileController extends TransitionController{
     @FXML
-    protected void onBackButton(ActionEvent event) throws IOException {
+    protected void onBackButton(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.close();
     }
