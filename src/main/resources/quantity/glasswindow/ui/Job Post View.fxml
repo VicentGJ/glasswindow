@@ -11,8 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="495.0" prefWidth="469.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"
-fx:controller="quantity.glasswindow.ui.JobPostController">
+<VBox prefHeight="495.0" prefWidth="469.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="quantity.glasswindow.ui.JobPostController">
    <children>
       <HBox alignment="CENTER" fillHeight="false" prefHeight="45.0" prefWidth="469.0">
          <children>
@@ -69,7 +68,7 @@ fx:controller="quantity.glasswindow.ui.JobPostController">
                   <Font size="17.0" />
                </font>
             </Label>
-            <Text fill="LIME" fontSmoothingType="LCD" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="\$0.0" wrappingWidth="198.85574340820312">
+            <Text fill="#102110" fontSmoothingType="LCD" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="\$0.0" wrappingWidth="198.85574340820312">
                <VBox.margin>
                   <Insets left="10.0" />
                </VBox.margin>
@@ -95,18 +94,14 @@ fx:controller="quantity.glasswindow.ui.JobPostController">
                   <Font size="17.0" />
                </font>
             </Label>
-            <HBox alignment="CENTER_LEFT" fillHeight="false" prefHeight="45.0" prefWidth="469.0" spacing="3.0">
-               <children>
-                  <Hyperlink text="CompanyName">
-                     <font>
-                        <Font size="19.0" />
-                     </font>
-                  </Hyperlink>
-               </children>
+            <Hyperlink prefHeight="33.0" prefWidth="167.0" text="CompanyName">
+               <font>
+                  <Font size="19.0" />
+               </font>
                <VBox.margin>
-                  <Insets left="15.0" />
+                  <Insets left="10.0" />
                </VBox.margin>
-            </HBox>
+            </Hyperlink>
          </children>
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -137,14 +132,14 @@ fx:controller="quantity.glasswindow.ui.JobPostController">
       </VBox>
       <HBox alignment="CENTER" prefHeight="31.0" prefWidth="452.0">
          <children>
-            <Button mnemonicParsing="false" text="Apply" onAction="#onApplyButton">
+            <Button mnemonicParsing="false" onAction="#onApplyButton" prefHeight="25.0" prefWidth="70.0" text="Apply">
                <HBox.margin>
-                  <Insets left="5.0" right="5.0" />
+                  <Insets right="15.0" />
                </HBox.margin>
             </Button>
-            <Button layoutX="205.0" layoutY="10.0" mnemonicParsing="false" text="Cancel" onAction="#onCancelButton">
+            <Button layoutX="205.0" layoutY="10.0" mnemonicParsing="false" onAction="#onCancelButton" prefHeight="25.0" prefWidth="78.0" text="Cancel">
                <HBox.margin>
-                  <Insets left="5.0" right="5.0" />
+                  <Insets left="15.0" />
                </HBox.margin>
             </Button>
          </children>
