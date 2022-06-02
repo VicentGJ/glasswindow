@@ -5,26 +5,21 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="380.0" prefWidth="469.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="quantity.glasswindow.ui.CompanyViewController">
+<VBox prefHeight="443.0" prefWidth="469.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="quantity.glasswindow.ui.CompanyViewController">
    <children>
       <HBox alignment="CENTER" fillHeight="false" prefHeight="45.0" prefWidth="469.0">
          <children>
             <HBox alignment="CENTER" prefHeight="62.0" prefWidth="427.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="62.0" text="Back" onAction="#onBackButton"/>
-                  <Pane layoutX="53.0" layoutY="10.0" prefHeight="26.0" prefWidth="40.0" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CompanyView">
                      <font>
                         <Font size="22.0" />
                      </font>
                   </Text>
-                  <Pane layoutX="138.0" layoutY="10.0" prefHeight="26.0" prefWidth="40.0" />
-                  <Button layoutX="67.0" layoutY="11.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="68.0" text="Edit" onAction="#onEditButton"/>
                </children>
                <HBox.margin>
                   <Insets top="15.0" />
@@ -116,6 +111,23 @@
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding>
       </VBox>
+      <HBox alignment="CENTER" fillHeight="false" prefHeight="30.0" prefWidth="450.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#onEditButton" prefHeight="37.0" prefWidth="69.0" text="Edit">
+               <HBox.margin>
+                  <Insets right="15.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#onBackButton" prefHeight="43.0" prefWidth="63.0" text="Back">
+               <HBox.margin>
+                  <Insets left="15.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+         <VBox.margin>
+            <Insets top="20.0" />
+         </VBox.margin>
+      </HBox>
    </children>
    <padding>
       <Insets bottom="10.0" left="10.0" right="10.0" />
