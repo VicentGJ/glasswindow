@@ -48,7 +48,7 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" fillHeight="false">
                <children>
-                  <Label prefHeight="25.0" prefWidth="111.0" text="Username:">
+                  <Label prefHeight="22.0" prefWidth="158.0" text="Username:">
                      <font>
                         <Font size="17.0" />
                      </font>
@@ -64,13 +64,17 @@
                   </Text>
                </children>
             </HBox>
-            <HBox alignment="BOTTOM_CENTER" prefHeight="135.0" prefWidth="330.0">
+            <Pane prefHeight="200.0" prefWidth="200.0" />
+            <HBox alignment="BOTTOM_CENTER" prefHeight="32.0" prefWidth="331.0">
                <children>
+                  <Button layoutX="143.0" layoutY="47.0" mnemonicParsing="false" onAction="#onBackButton" prefHeight="28.0" prefWidth="152.0" text="Change Password">
+                     <HBox.margin>
+                        <Insets right="15.0" />
+                     </HBox.margin></Button>
                   <Button mnemonicParsing="false" onAction="#onBackButton" prefHeight="27.0" prefWidth="62.0" text="Back">
                      <HBox.margin>
-                        <Insets left="5.0" right="5.0" />
+                        <Insets left="15.0" />
                      </HBox.margin></Button>
-                  <Button layoutX="143.0" layoutY="47.0" mnemonicParsing="false" onAction="#onBackButton" prefHeight="28.0" prefWidth="152.0" text="Change Password" />
                </children>
             </HBox>
          </children>
