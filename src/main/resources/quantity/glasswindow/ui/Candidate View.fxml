@@ -214,12 +214,12 @@
             <Pane prefHeight="42.0" prefWidth="410.0" />
             <HBox alignment="CENTER" prefHeight="28.0" prefWidth="410.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#onSaveButton" prefHeight="32.0" prefWidth="72.0" text="Edit">
+                  <Button mnemonicParsing="false" onAction="#onEditButton" prefHeight="32.0" prefWidth="72.0" text="Edit">
                      <HBox.margin>
                         <Insets left="5.0" right="15.0" />
                      </HBox.margin>
                   </Button>
-                  <Button layoutX="179.0" layoutY="15.0" mnemonicParsing="false" onAction="#onSaveButton" prefHeight="33.0" prefWidth="73.0" text="Back">
+                  <Button layoutX="179.0" layoutY="15.0" mnemonicParsing="false" onAction="#onBackButton" prefHeight="33.0" prefWidth="73.0" text="Back">
                      <HBox.margin>
                         <Insets left="15.0" right="5.0" />
                      </HBox.margin>
