@@ -63,7 +63,7 @@ public class Agency {
         else if(classname.equalsIgnoreCase("Interview"))
             addInterviewToList((Interview) o);
         else
-            System.out.println("No list for: "+ classname);
+            throw new IllegalArgumentException("Agency has no records of " + classname);
     }
 
     //Simple-remove
@@ -78,7 +78,7 @@ public class Agency {
         else if(classname.equalsIgnoreCase("Interview"))
             removeInterviewFromList((Interview) o);
         else
-            System.out.println("No list for: "+ classname);
+            throw new IllegalArgumentException("Agency has no records of " + classname);
 
     }
 
