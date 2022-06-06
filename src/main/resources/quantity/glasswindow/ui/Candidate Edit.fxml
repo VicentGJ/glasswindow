@@ -15,25 +15,16 @@
 
 <VBox prefHeight="622.0" prefWidth="469.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="quantity.glasswindow.ui.CandidateProfileEditController">
    <children>
-      <HBox alignment="CENTER" fillHeight="false" prefHeight="45.0" prefWidth="469.0">
+      <HBox alignment="CENTER" fillHeight="false" prefHeight="20.0" prefWidth="410.0">
          <children>
-            <HBox alignment="CENTER_LEFT" prefHeight="62.0" prefWidth="427.0">
-               <children>
-                  <Button mnemonicParsing="false" onAction="#onBackButton" prefHeight="28.0" prefWidth="58.0" text="Back"/>
-                  <Pane prefHeight="31.0" prefWidth="75.0" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CandiateName">
-                     <font>
-                        <Font size="22.0" />
-                     </font>
-                  </Text>
-               </children>
-               <HBox.margin>
-                  <Insets top="15.0" />
-               </HBox.margin>
-            </HBox>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CandiateName">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Text>
          </children>
          <VBox.margin>
-            <Insets bottom="10.0" />
+            <Insets top="20.0" />
          </VBox.margin>
       </HBox>
       <Separator prefHeight="28.0" prefWidth="410.0">
@@ -57,7 +48,10 @@
                      </HBox.margin>
                   </Label>
                   <Pane prefHeight="24.0" prefWidth="39.0" />
-                  <TextField floatText="id" />
+                  <TextField promptText="id">
+                     <padding>
+                        <Insets bottom="4.0" right="4.0" top="4.0" />
+                     </padding></TextField>
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" fillHeight="false">
@@ -70,8 +64,11 @@
                         <Insets left="5.0" />
                      </HBox.margin>
                   </Label>
-                  <Pane prefHeight="24.0" prefWidth="39.0" />
-                  <TextField floatText="full name" />
+                  <Pane prefHeight="25.0" prefWidth="50.0" />
+                  <TextField prefHeight="37.0" prefWidth="169.0" promptText="full name">
+                     <padding>
+                        <Insets bottom="4.0" right="4.0" top="4.0" />
+                     </padding></TextField>
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" fillHeight="false">
@@ -84,7 +81,7 @@
                         <Insets left="5.0" />
                      </HBox.margin>
                   </Label>
-                  <Pane prefHeight="23.0" prefWidth="45.0" />
+                  <Pane prefHeight="24.0" prefWidth="51.0" />
                   <ComboBox prefWidth="150.0" promptText="Genders" />
                </children>
                <padding>
@@ -101,8 +98,11 @@
                         <Insets left="5.0" />
                      </HBox.margin>
                   </Label>
-                  <Pane prefHeight="23.0" prefWidth="45.0" />
-                  <TextField floatText="address" />
+                  <Pane prefHeight="24.0" prefWidth="50.0" />
+                  <TextField promptText="address">
+                     <padding>
+                        <Insets bottom="4.0" right="4.0" top="4.0" />
+                     </padding></TextField>
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" fillHeight="false">
@@ -115,8 +115,11 @@
                         <Insets left="5.0" />
                      </HBox.margin>
                   </Label>
-                  <Pane prefHeight="23.0" prefWidth="45.0" />
-                  <TextField floatText="phone" />
+                  <Pane prefHeight="24.0" prefWidth="51.0" />
+                  <TextField promptText="phone">
+                     <padding>
+                        <Insets bottom="4.0" right="4.0" top="4.0" />
+                     </padding></TextField>
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" fillHeight="false">
@@ -129,7 +132,7 @@
                         <Insets left="5.0" />
                      </HBox.margin>
                   </Label>
-                  <Pane prefHeight="23.0" prefWidth="45.0" />
+                  <Pane prefHeight="24.0" prefWidth="51.0" />
                   <ComboBox prefWidth="150.0" promptText="Scholarships" />
                </children>
             </HBox>
@@ -143,7 +146,7 @@
                         <Insets left="5.0" />
                      </HBox.margin>
                   </Label>
-                  <Pane prefHeight="23.0" prefWidth="45.0" />
+                  <Pane prefHeight="24.0" prefWidth="51.0" />
                   <ComboBox prefWidth="150.0" promptText="Specialties" />
                </children>
             </HBox>
@@ -157,7 +160,7 @@
                         <Insets left="5.0" />
                      </HBox.margin>
                   </Label>
-                  <Pane prefHeight="23.0" prefWidth="45.0" />
+                  <Pane prefHeight="24.0" prefWidth="52.0" />
                   <ComboBox prefWidth="150.0" promptText="Branches" />
                </children>
             </HBox>
@@ -171,8 +174,12 @@
                         <Insets left="5.0" />
                      </HBox.margin>
                   </Label>
-                  <Pane prefHeight="23.0" prefWidth="45.0" />
-                  <Spinner prefHeight="27.0" prefWidth="71.0" />
+                  <Pane prefHeight="57.0" prefWidth="56.0" />
+                  <VBox alignment="CENTER" prefHeight="57.0" prefWidth="72.0">
+                     <children>
+                        <Spinner prefHeight="27.0" prefWidth="71.0" />
+                     </children>
+                  </VBox>
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" fillHeight="false">
@@ -185,16 +192,27 @@
                         <Insets left="5.0" />
                      </HBox.margin>
                   </Label>
-                  <Pane prefHeight="23.0" prefWidth="45.0" />
-                  <TextField floatText="data" />
+                  <Pane prefHeight="24.0" prefWidth="53.0" />
+                  <TextField promptText="data">
+                     <padding>
+                        <Insets bottom="4.0" right="4.0" top="4.0" />
+                     </padding></TextField>
                </children>
             </HBox>
          </children>
       </VBox>
       <Pane prefHeight="42.0" prefWidth="410.0" />
-      <HBox alignment="CENTER" prefHeight="43.0" prefWidth="410.0">
+      <HBox alignment="CENTER" prefHeight="28.0" prefWidth="410.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="72.0" text="Save" onAction="#onSaveButton"/>
+            <Button mnemonicParsing="false" onAction="#onSaveButton" prefHeight="32.0" prefWidth="72.0" text="Save">
+               <HBox.margin>
+                  <Insets left="5.0" right="15.0" />
+               </HBox.margin></Button>
+            <Button layoutX="179.0" layoutY="15.0" mnemonicParsing="false" onAction="#onSaveButton" prefHeight="32.0" prefWidth="72.0" text="Cancel">
+               <HBox.margin>
+                  <Insets left="15.0" right="5.0" />
+               </HBox.margin>
+            </Button>
          </children>
       </HBox>
    </children>

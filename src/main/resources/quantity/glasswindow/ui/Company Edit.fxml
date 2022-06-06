@@ -8,6 +8,7 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -40,13 +41,14 @@
       </Separator>
       <VBox alignment="CENTER_LEFT" spacing="20.0">
          <children>
-            <HBox alignment="CENTER_LEFT" spacing="20.0">
+            <HBox alignment="CENTER_LEFT">
                <children>
                   <Label text="Description">
                      <font>
                         <Font size="17.0" />
                      </font>
                   </Label>
+                  <Pane prefHeight="63.0" prefWidth="22.0" />
                   <TextArea prefHeight="64.0" prefWidth="309.0" promptText="description" wrapText="true">
                      <HBox.margin>
                         <Insets />
@@ -57,14 +59,15 @@
                   </TextArea>
                </children>
             </HBox>
-            <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="20.0" spacing="20.0">
+            <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="20.0">
                <children>
                   <Label text="Address">
                      <font>
                         <Font size="17.0" />
                      </font>
                   </Label>
-                  <TextArea prefHeight="50.0" prefWidth="339.0" promptText="address" wrapText="true">
+                  <Pane prefHeight="49.0" prefWidth="50.0" />
+                  <TextArea prefHeight="50.0" prefWidth="307.0" promptText="address" wrapText="true">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
@@ -74,23 +77,25 @@
                   </TextArea>
                </children>
             </HBox>
-            <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="198.0" spacing="20.0">
+            <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="198.0">
                <children>
                   <Label text="Phone">
                      <font>
                         <Font size="17.0" />
                      </font>
                   </Label>
-                  <TextField prefHeight="27.0" prefWidth="308.0" promptText="phone" />
+                  <Pane prefHeight="29.0" prefWidth="67.0" />
+                  <TextField prefHeight="29.0" prefWidth="305.0" promptText="phone" />
                </children>
             </HBox>
-            <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="245.0" spacing="20.0">
+            <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="245.0">
                <children>
                   <Label text="Sector">
                      <font>
                         <Font size="17.0" />
                      </font>
                   </Label>
+                  <Pane prefHeight="14.0" prefWidth="65.0" />
                   <ComboBox prefWidth="150.0" promptText="Sectors" />
                </children>
             </HBox>
@@ -99,7 +104,7 @@
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding>
       </VBox>
-      <HBox alignment="CENTER" prefHeight="63.0" prefWidth="450.0">
+      <HBox alignment="CENTER" prefHeight="30.0" prefWidth="450.0">
          <children>
             <Button mnemonicParsing="false" onAction="#onButtonBack" prefHeight="32.0" prefWidth="75.0" text="Save">
                <HBox.margin>
@@ -111,6 +116,9 @@
                </HBox.margin>
             </Button>
          </children>
+         <VBox.margin>
+            <Insets top="20.0" />
+         </VBox.margin>
       </HBox>
    </children>
    <padding>

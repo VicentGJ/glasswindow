@@ -17,8 +17,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="495.0" prefWidth="469.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"
-fx:controller="quantity.glasswindow.ui.JobPostController">
+<VBox prefHeight="495.0" prefWidth="469.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="quantity.glasswindow.ui.JobPostController">
    <children>
       <HBox alignment="CENTER" fillHeight="false" prefHeight="45.0" prefWidth="469.0">
          <children>
@@ -56,6 +55,7 @@ fx:controller="quantity.glasswindow.ui.JobPostController">
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <HBox alignment="CENTER" GridPane.rowIndex="1">
@@ -68,11 +68,7 @@ fx:controller="quantity.glasswindow.ui.JobPostController">
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </GridPane.margin>
                <children>
-                  <TextArea prefHeight="72.0" prefWidth="249.0" promptText="description" wrapText="true">
-                     <padding>
-                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
-                     </padding>
-                  </TextArea>
+                  <TextArea prefHeight="72.0" prefWidth="249.0" promptText="description" wrapText="true" />
                </children>
             </HBox>
             <HBox alignment="CENTER" GridPane.rowIndex="2">
@@ -82,7 +78,7 @@ fx:controller="quantity.glasswindow.ui.JobPostController">
             </HBox>
             <HBox alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
-                  <Spinner editable="true" prefHeight="25.0" prefWidth="135.0" />
+                  <Spinner editable="true" prefHeight="26.0" prefWidth="163.0" />
                   <Label text="\$">
                      <font>
                         <Font size="21.0" />
@@ -117,14 +113,17 @@ fx:controller="quantity.glasswindow.ui.JobPostController">
             </HBox>
             <HBox alignment="CENTER_LEFT" GridPane.columnIndex="1">
                <children>
-                  <TextField prefHeight="25.0" prefWidth="250.0" promptText="company name" />
+                  <TextField prefHeight="25.0" prefWidth="250.0" promptText="company name">
+                     <padding>
+                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                     </padding></TextField>
                </children>
             </HBox>
          </children>
       </GridPane>
       <HBox alignment="CENTER" prefHeight="29.0" prefWidth="452.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="36.0" prefWidth="78.0" text="Save" onAction="#onApplyButton">
+            <Button mnemonicParsing="false" onAction="#onApplyButton" prefHeight="36.0" prefWidth="78.0" text="Save">
                <font>
                   <Font size="14.0" />
                </font>
@@ -132,7 +131,7 @@ fx:controller="quantity.glasswindow.ui.JobPostController">
                   <Insets left="5.0" right="5.0" />
                </HBox.margin>
             </Button>
-            <Button layoutX="197.0" layoutY="10.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="78.0" text="Cancel" onAction="#onCancelButton">
+            <Button layoutX="197.0" layoutY="10.0" mnemonicParsing="false" onAction="#onCancelButton" prefHeight="36.0" prefWidth="78.0" text="Cancel">
                <font>
                   <Font size="14.0" />
                </font>
