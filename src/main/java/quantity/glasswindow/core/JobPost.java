@@ -69,4 +69,8 @@ public class JobPost extends Model {
     public void setInterviewList(ArrayList<Interview> interviewList) {
         this.interviewList = interviewList;
     }
+
+    public void addInterview(Interview interview){
+        this.interviewList.add(interview);
+    }
 }

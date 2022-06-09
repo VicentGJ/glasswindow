@@ -72,11 +72,17 @@ public class HelloApplication extends Application {
 
         //interviews
         Interview interview1 = new Interview("interview-001",new Date(),candidate1,company1,jb1);
+        jb1.addInterview(interview1);
         Interview interview2 = new Interview("interview-002",new Date(),candidate2,company2,jb2);
+        jb2.addInterview(interview2);
         Interview interview3 = new Interview("interview-003",new Date(),candidate3,company3,jb3);
+        jb3.addInterview(interview3);
         Interview interview4 = new Interview("interview-004",new Date(),candidate4,company4,jb4);
+        jb4.addInterview(interview4);
         Interview interview5 = new Interview("interview-005",new Date(),candidate5,company5,jb5);
+        jb5.addInterview(interview5);
         Interview interview6 = new Interview("interview-006",new Date(),candidate6,company6,jb6);
+        jb6.addInterview(interview6);
 
         //add all to models
         models.add(candidate1);
