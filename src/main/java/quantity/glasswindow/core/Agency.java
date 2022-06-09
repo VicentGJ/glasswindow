@@ -67,7 +67,7 @@ public class Agency implements IDataBase {
             return order_ID(type);
         else if (order == OrderBy.CREATION_DATE)
             return order_creationDate(type);
-        else throw new Exception(order + "is not a valid sort");
+        else throw new Exception(order + " is not a valid sort");
     }
 
     private ArrayList<Model> order_ID(String type){
