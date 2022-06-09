@@ -10,6 +10,15 @@ public class Company extends Model {
     private Branch sector;
     private ArrayList<JobPost> jobPostList;
 
+    public Company(String id, String name, String address, ArrayList<Integer> phoneList, Branch sector, ArrayList<JobPost> jobPostList) {
+        this.setId(id);
+        this.setAddress(address);
+        this.setName(name);
+        this.setSector(sector);
+        this.setPhoneList(phoneList);
+        this.setJobPostList(jobPostList);
+    }
+
     public String getName() {
         return name;
     }
@@ -46,6 +55,9 @@ public class Company extends Model {
         return jobPostList;
     }
 
+    public void addJobPostToList(JobPost jobPost){
+        jobPostList.add(jobPost);
+    }
     public void setJobPostList(ArrayList<JobPost> jobPostList) {
         this.jobPostList = jobPostList;
     }

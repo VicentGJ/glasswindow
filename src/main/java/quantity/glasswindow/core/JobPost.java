@@ -11,6 +11,17 @@ public class JobPost extends Model {
     private Company company;
     private ArrayList<Interview> interviewList;
 
+    public JobPost(String id, Branch branch, float salary, Status status, String description,
+                   Company company, ArrayList<Interview> interviewList) {
+        this.setId(id);
+        this.setBranch(branch);
+        this.setSalary(salary);
+        this.setStatus(status);
+        this.setDescription(description);
+        this.setCompany(company);
+        this.setInterviewList(interviewList);
+    }
+
     public Branch getBranch() {
         return branch;
     }

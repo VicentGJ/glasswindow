@@ -5,10 +5,23 @@ public class Candidate extends Model {
     private String name;
     private Gender gender;
     private String address;
-    private int phone;
+    private String phone;
     private Scholarship scholarship;
     private Specialty specialty;
     private Branch sector;
+
+    public Candidate(String id, String name, Gender gender, String address, String phone, Scholarship scholarship,
+                     Specialty specialty, Branch sector) {
+        this.setId(id);
+        this.setAddress(address);
+        this.setName(name);
+        this.setGender(gender);
+        this.setPhone(phone);
+        this.setSector(sector);
+        this.setScholarship(scholarship);
+        this.setSpecialty(specialty);
+
+    }
 
     public String getName() {
         return name;
@@ -34,11 +47,11 @@ public class Candidate extends Model {
         this.address = address;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 

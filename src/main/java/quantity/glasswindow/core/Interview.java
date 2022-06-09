@@ -9,6 +9,14 @@ public class Interview extends Model {
     private Company company;
     private JobPost jobPost;
 
+    public Interview(String id, Date date, Candidate candidate, Company company, JobPost jobPost) {
+        this.setId(id);
+        this.setDate(date);
+        this.setCandidate(candidate);
+        this.setCompany(company);
+        this.setJobPost(jobPost);
+    }
+
     public Date getDate() {
         return date;
     }
