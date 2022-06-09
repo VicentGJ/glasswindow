@@ -2,20 +2,12 @@ package quantity.glasswindow.core;
 
 import java.util.Date;
 
-public class Interview {
+public class Interview extends Model {
     private String id;
     private Date date;
     private Candidate candidate;
     private Company company;
     private JobPost jobPost;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public Date getDate() {
         return date;

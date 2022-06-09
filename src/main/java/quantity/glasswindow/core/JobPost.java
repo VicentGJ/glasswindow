@@ -2,7 +2,7 @@ package quantity.glasswindow.core;
 
 import java.util.ArrayList;
 
-public class JobPost {
+public class JobPost extends Model {
     private String id;
     private Branch branch;
     private float salary;
@@ -10,14 +10,6 @@ public class JobPost {
     private String description;
     private Company company;
     private ArrayList<Interview> interviewList;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public Branch getBranch() {
         return branch;

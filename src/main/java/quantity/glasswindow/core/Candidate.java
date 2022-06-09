@@ -1,6 +1,6 @@
 package quantity.glasswindow.core;
 
-public class Candidate {
+public class Candidate extends Model {
     private String id;
     private String name;
     private Gender gender;
@@ -9,14 +9,6 @@ public class Candidate {
     private Scholarship scholarship;
     private Specialty specialty;
     private Branch sector;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
