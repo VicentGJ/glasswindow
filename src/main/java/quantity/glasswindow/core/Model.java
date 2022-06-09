@@ -1,6 +1,6 @@
 package quantity.glasswindow.core;
 
-public abstract class Model {
+public abstract class Model{
     protected String id;
 
     public String getId() {

@@ -1,153 +1,62 @@
 package quantity.glasswindow.core;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
-public class Agency {
+public class Agency implements IDataBase {
     //maybe add agency name and stuff like that
-    private ArrayList<Candidate> candidateList;
-    private ArrayList<Company> companyList;
-    private ArrayList<JobPost> jobPostList;
-    private ArrayList<Interview> interviewList;
+    private ArrayList<Model> models;
 
     //constructor
-    public Agency(){
-        this.setCandidateList(new ArrayList<>());
-        this.setCompanyList(new ArrayList<>());
-        this.setJobPostList(new ArrayList<>());
-        this.setInterviewList(new ArrayList<>());
+    public Agency() {
+        this.setModels(new ArrayList<>());
     }
 
     //getters & setters
-    public ArrayList<Candidate> getCandidateList() {
-        return candidateList;
+
+    public void setModels(ArrayList<Model> models) {
+        this.models = models;
     }
 
-    public void setCandidateList(ArrayList<Candidate> candidateList) {
-        this.candidateList = candidateList;
+    public ArrayList<Model> getModels() {
+        return models;
     }
 
-    public ArrayList<Company> getCompanyList() {
-        return companyList;
-    }
-
-    public void setCompanyList(ArrayList<Company> companyList) {
-        this.companyList = companyList;
-    }
-
-    public ArrayList<JobPost> getJobPostList() {
-        return jobPostList;
-    }
-
-    public void setJobPostList(ArrayList<JobPost> jobPostList) {
-        this.jobPostList = jobPostList;
-    }
-
-    public ArrayList<Interview> getInterviewList() {
-        return interviewList;
-    }
-
-    public void setInterviewList(ArrayList<Interview> interviewList) {
-        this.interviewList = interviewList;
-    }
-
-    //--------CRUD operations
-    //Simple-add
-    public void simpleAddToList(Object o){
-        String classname = o.getClass().getSimpleName();
-        if(classname.equalsIgnoreCase("Candidate"))
-            addCandidateToList((Candidate) o);
-        else if(classname.equalsIgnoreCase("Company"))
-            addCompanyToList((Company) o);
-        else if(classname.equalsIgnoreCase("JobPost"))
-            addJobPostToList((JobPost) o);
-        else if(classname.equalsIgnoreCase("Interview"))
-            addInterviewToList((Interview) o);
-        else
-            throw new IllegalArgumentException("Agency has no records of " + classname);
-    }
-
-    //Simple-remove
-    public void simpleRemoveFromList(Object o){
-        String classname = o.getClass().getSimpleName();
-        if(classname.equalsIgnoreCase("Candidate"))
-            removeCandidateFromList((Candidate) o);
-        else if(classname.equalsIgnoreCase("Company"))
-            removeCompanyFromList((Company) o);
-        else if(classname.equalsIgnoreCase("JobPost"))
-            removeJobPostFromList((JobPost) o);
-        else if(classname.equalsIgnoreCase("Interview"))
-            removeInterviewFromList((Interview) o);
-        else
-            throw new IllegalArgumentException("Agency has no records of " + classname);
-
-    }
-
-    //Candidate
-    private void addCandidateToList(Candidate c){
-        this.candidateList.add(c);
-    }
-    private void removeCandidateFromList(Candidate c){
-        if(!candidateList.isEmpty()){
-            int i = 0;
-            while(i < candidateList.size()){
-                Candidate current = candidateList.get(i);
-                if(current.getId().equals(c.getId())){
-                    candidateList.remove(current);
-                    break;
-                }
-                i++;
-            }
+    //from interface
+    @Override
+    public Model getObject(String id, String[] args) throws Exception {
+        int i = 0;
+        while (i < models.size()) {
+            Model current = models.get(i);
+            if(current.getId().equals(id))
+                return current;
+            i++;
         }
+        throw new Exception("ID not found");
+
     }
-    //Company
-    private void addCompanyToList(Company c){
-        this.companyList.add(c);
-    }
-    private void removeCompanyFromList(Company c){
-        if(!companyList.isEmpty()){
-            int i = 0;
-            while(i < companyList.size()){
-                Company current = companyList.get(i);
-                if(current.getId().equals(c.getId())){
-                    companyList.remove(current);
-                    break;
-                }
-                i++;
+
+    @Override
+    public void deleteObject(String id) throws Exception {
+        int i = 0;
+        while (i < models.size()) {
+            Model current = models.get(i);
+            if (current.getId().equals(id)) {
+                models.remove(current);
+                break;
             }
+            i++;
         }
+        throw new Exception("ID not found");
     }
-    //Job Post
-    private void addJobPostToList(JobPost c){
-        this.jobPostList.add(c);
+
+    @Override
+    public void insertObject(Model object) {
+        models.add(object);
     }
-    private void removeJobPostFromList(JobPost c){
-        if(!jobPostList.isEmpty()){
-            int i = 0;
-            while(i < jobPostList.size()){
-                JobPost current = jobPostList.get(i);
-                if(current.getId().equals(c.getId())){
-                    jobPostList.remove(current);
-                    break;
-                }
-                i++;
-            }
-        }
-    }
-    //Interview
-    private void addInterviewToList(Interview c){
-        this.interviewList.add(c);
-    }
-    private void removeInterviewFromList(Interview c){
-        if(!interviewList.isEmpty()){
-            int i = 0;
-            while(i < interviewList.size()){
-                Interview current = interviewList.get(i);
-                if(current.getId().equals(c.getId())){
-                    interviewList.remove(current);
-                    break;
-                }
-                i++;
-            }
-        }
+
+    @Override
+    public ArrayList<Model> getObjectList(String type, OrderBy order, HashMap<String, Object> filter) {
+        return null;
     }
 }
