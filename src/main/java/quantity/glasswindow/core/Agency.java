@@ -7,12 +7,17 @@ import java.util.HashMap;
 public class Agency implements IDataBase {
     //maybe add agency name and stuff like that
     private ArrayList<Model> models;
+    private static Agency single_instance = null; //for singleton pattern
 
     //constructor
-    public Agency() {
+    private Agency() {//private constructor to ensure singleton pattern
         this.setModels(new ArrayList<>());
     }
-
+    public static Agency create(){//method to create singleton object
+        if(single_instance == null)
+            single_instance = new Agency();
+        return single_instance;
+    }
     //getters & setters
 
     public void setModels(ArrayList<Model> models) {

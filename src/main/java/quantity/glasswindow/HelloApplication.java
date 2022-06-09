@@ -22,7 +22,7 @@ public class HelloApplication extends Application {
 
     public static void main(String[] args) {
         //agency
-        Agency agency = new Agency();
+        Agency agency = Agency.create(); //create a singleton object
         ArrayList<Model> models = new ArrayList<>();
         //candidates
         Candidate candidate1 = new Candidate("candidate-001","Bruce Banner", Gender.MASCULINE,"New York",
