@@ -1,6 +1,7 @@
 package quantity.glasswindow.core;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 
 public class Agency implements IDataBase {
@@ -56,7 +57,33 @@ public class Agency implements IDataBase {
     }
 
     @Override
-    public ArrayList<Model> getObjectList(String type, OrderBy order, HashMap<String, Object> filter) {
-        return null;
+    public ArrayList<Model> getObjectList(String type, OrderBy order, HashMap<String, Object> filter) throws Exception {
+        if(order == OrderBy.ID)
+            return order_ID(type);
+        else if (order == OrderBy.CREATION_DATE)
+            return order_creationDate(type);
+        else throw new Exception(order + "is not a valid sort");
+    }
+
+    private ArrayList<Model> order_ID(String type){
+        ArrayList<String> ids = new ArrayList<>();
+        ArrayList<Model> result = new ArrayList<>();
+        for (Model m : models)
+            if (m.getType().equalsIgnoreCase(type))
+                ids.add(m.getId());
+        Collections.sort(ids);
+        for (String id : ids)
+            for (Model m : models)
+                if (id.equals(m.getId()))
+                    result.add(m);
+        return result;
+    }
+
+    private ArrayList<Model> order_creationDate(String type){
+        ArrayList<Model> result = new ArrayList<>();
+        for (Model m : models)
+            if (m.getType().equalsIgnoreCase(type))
+                result.add(m);
+        return result;
     }
 }

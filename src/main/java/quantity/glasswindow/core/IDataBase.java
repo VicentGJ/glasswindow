@@ -7,5 +7,5 @@ public interface IDataBase {
     Model getObject(String id, String[] args) throws Exception;
     void deleteObject(String id) throws Exception;
     void insertObject(Model object);
-    ArrayList<Model> getObjectList(String type, OrderBy order, HashMap<String, Object> filter);
+    ArrayList<Model> getObjectList(String type, OrderBy order, HashMap<String, Object> filter) throws Exception;
 }
