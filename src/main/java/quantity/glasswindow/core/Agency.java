@@ -49,7 +49,7 @@ public class Agency implements IDataBase {
             Model current = models.get(i);
             if (current.getId().equals(id)) {
                 models.remove(current);
-                break;
+                return;
             }
             i++;
         }
@@ -80,15 +80,15 @@ public class Agency implements IDataBase {
         for (String id : ids)
             for (Model m : models)
                 if (id.equals(m.getId()))
-                    result.add(m);
+                    result.add(m);//TODO: should be a clone
         return result;
     }
 
-    private ArrayList<Model> order_creationDate(String type){
+    private ArrayList<Model> order_creationDate(String type){//creation date is the same as the original list order
         ArrayList<Model> result = new ArrayList<>();
         for (Model m : models)
             if (m.getType().equalsIgnoreCase(type))
-                result.add(m);
+                result.add(m);//TODO: should be a clone
         return result;
     }
 }
