@@ -7,7 +7,7 @@ import java.util.HashMap;
 public class Agency implements IDataBase {
     //maybe add agency name and stuff like that
     private ArrayList<Model> models;
-    private static Agency single_instance = null; //for singleton pattern
+    private static Agency single_instance; //for singleton pattern
 
     //constructor
     private Agency() {//private constructor to ensure singleton pattern
@@ -45,15 +45,17 @@ public class Agency implements IDataBase {
     @Override
     public void deleteObject(String id) throws Exception {
         int i = 0;
-        while (i < models.size()) {
+        boolean found = false;
+        while (i < models.size() && !found) {
             Model current = models.get(i);
             if (current.getId().equals(id)) {
                 models.remove(current);
-                return;
+                found = true;
             }
             i++;
         }
-        throw new Exception("ID not found");
+        if(!found)
+            throw new Exception("ID not found");
     }
 
     @Override
