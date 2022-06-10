@@ -7,6 +7,8 @@ import quantity.glasswindow.utils.WindowLoader;
 import java.io.IOException;
 
 public class MainController extends TransitionController{
+    
+
     @FXML
     protected void onNewCompany(ActionEvent event) throws IOException {
         WindowLoader.loadWindow(getClass().getResource("Company Edit.fxml"), "New Company", null);
@@ -29,15 +31,15 @@ public class MainController extends TransitionController{
     }
     @FXML
     protected void onCompaniesSection(ActionEvent event) throws IOException {
-        this.transition("main_companies.fxml", event);
+        
     }
     @FXML
     protected void onCandidatesSection(ActionEvent event) throws IOException {
-        this.transition("main_candidates.fxml", event);
+        
     }
     @FXML
     protected void onJobPotsSection(ActionEvent event) throws IOException {
-        this.transition("main_job_posts.fxml", event);
+        
     }
     @FXML
     protected void onEntityLink(ActionEvent event) throws IOException {}
