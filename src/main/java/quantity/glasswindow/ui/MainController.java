@@ -6,8 +6,28 @@ import quantity.glasswindow.utils.WindowLoader;
 
 import java.io.IOException;
 
-public class MainController extends TransitionController{
-    
+public class MainController extends TransitionController implements Initializable {
+
+    @FXML
+    private ListView<String> mainList;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        Agency agency = Agency.create();
+        try {
+            ArrayList<Model> list = new ArrayList<>(agency.getObjectList("Company", OrderBy.ID, new HashMap<>()));
+
+            ArrayList<String> ids = new ArrayList<>();
+            for (Model i: list) {
+                ids.add(i.getId());
+            }
+            mainList.setItems(FXCollections.observableArrayList(ids));
+            System.out.println(this.mainList.getItems());
+        }
+        catch (Exception e) {
+            System.out.println("Lola");
+        }
+    }
 
     @FXML
     protected void onNewCompany(ActionEvent event) throws IOException {
@@ -31,25 +51,25 @@ public class MainController extends TransitionController{
     }
     @FXML
     protected void onCompaniesSection(ActionEvent event) throws IOException {
-        
+        this.transition("main_companies.fxml", event);
     }
     @FXML
     protected void onCandidatesSection(ActionEvent event) throws IOException {
-        
+        this.transition("main_candidates.fxml", event);
     }
     @FXML
     protected void onJobPotsSection(ActionEvent event) throws IOException {
-        
+        this.transition("main_job_posts.fxml", event);
     }
     @FXML
-    protected abstract void onEntityLink(ActionEvent event) throws IOException;
+    protected void onEntityLink(ActionEvent event) throws IOException {}
 
     @FXML
-    protected abstract void onEditButton(ActionEvent event) throws IOException;
+    protected void onEditButton(ActionEvent event) throws IOException {}
 
     @FXML
-    protected abstract void onDeleteButton(ActionEvent event) throws IOException;
+    protected void onDeleteButton(ActionEvent event) throws IOException {}
 
     @FXML
-    protected abstract void onSearchButton() throws  IOException;
+    protected void onSearchButton() throws  IOException {}
 }
