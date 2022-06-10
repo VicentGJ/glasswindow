@@ -2,8 +2,6 @@ package quantity.glasswindow.ui;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
-import javafx.stage.Stage;
 import quantity.glasswindow.utils.WindowLoader;
 
 import java.io.IOException;
@@ -23,7 +21,6 @@ public abstract class MainController extends TransitionController{
     }
     @FXML
     protected void onQuit(ActionEvent event) {
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         System.exit(0);
     }
     @FXML

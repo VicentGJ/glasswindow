@@ -1,7 +1,6 @@
 package quantity.glasswindow.ui;
 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import quantity.glasswindow.utils.WindowLoader;
 
 import java.io.IOException;
