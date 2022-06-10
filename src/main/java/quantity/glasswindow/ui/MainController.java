@@ -1,12 +1,46 @@
 package quantity.glasswindow.ui;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableArray;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.control.ListView;
+import quantity.glasswindow.core.Agency;
+import quantity.glasswindow.core.Company;
+import quantity.glasswindow.core.Model;
+import quantity.glasswindow.core.OrderBy;
 import quantity.glasswindow.utils.WindowLoader;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.*;
 
-public class MainController extends TransitionController{
+public class MainController extends TransitionController implements Initializable {
+
+    @FXML
+    private ListView<String> mainList;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        Agency agency = Agency.create();
+        try {
+            ArrayList<Model> list = new ArrayList<>(agency.getObjectList("Company", OrderBy.ID, new HashMap<>()));
+
+            ArrayList<String> ids = new ArrayList<>();
+            for (Model i: list) {
+                ids.add(i.getId());
+            }
+            mainList.setItems(FXCollections.observableArrayList(ids));
+            System.out.println(this.mainList.getItems());
+        }
+        catch (Exception e) {
+            System.out.println("Lola");
+        }
+    }
+
     @FXML
     protected void onNewCompany(ActionEvent event) throws IOException {
         WindowLoader.loadWindow(getClass().getResource("Company Edit.fxml"), "New Company", null);
@@ -29,15 +63,15 @@ public class MainController extends TransitionController{
     }
     @FXML
     protected void onCompaniesSection(ActionEvent event) throws IOException {
-        this.transition("main_companies.fxml", event);
+        
     }
     @FXML
     protected void onCandidatesSection(ActionEvent event) throws IOException {
-        this.transition("main_candidates.fxml", event);
+        
     }
     @FXML
     protected void onJobPotsSection(ActionEvent event) throws IOException {
-        this.transition("main_job_posts.fxml", event);
+        
     }
     @FXML
     protected void onEntityLink(ActionEvent event) throws IOException {}
