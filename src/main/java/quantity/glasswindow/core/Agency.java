@@ -7,12 +7,17 @@ import java.util.HashMap;
 public class Agency implements IDataBase {
     //maybe add agency name and stuff like that
     private ArrayList<Model> models;
+    private static Agency single_instance; //for singleton pattern
 
     //constructor
-    public Agency() {
+    private Agency() {//private constructor to ensure singleton pattern
         this.setModels(new ArrayList<>());
     }
-
+    public static Agency create(){//method to create singleton object
+        if(single_instance == null)
+            single_instance = new Agency();
+        return single_instance;
+    }
     //getters & setters
 
     public void setModels(ArrayList<Model> models) {
@@ -40,15 +45,17 @@ public class Agency implements IDataBase {
     @Override
     public void deleteObject(String id) throws Exception {
         int i = 0;
-        while (i < models.size()) {
+        boolean found = false;
+        while (i < models.size() && !found) {
             Model current = models.get(i);
             if (current.getId().equals(id)) {
                 models.remove(current);
-                break;
+                found = true;
             }
             i++;
         }
-        throw new Exception("ID not found");
+        if(!found)
+            throw new Exception("ID not found");
     }
 
     @Override
@@ -62,7 +69,7 @@ public class Agency implements IDataBase {
             return order_ID(type);
         else if (order == OrderBy.CREATION_DATE)
             return order_creationDate(type);
-        else throw new Exception(order + "is not a valid sort");
+        else throw new Exception(order + " is not a valid sort");
     }
 
     private ArrayList<Model> order_ID(String type){
@@ -75,15 +82,15 @@ public class Agency implements IDataBase {
         for (String id : ids)
             for (Model m : models)
                 if (id.equals(m.getId()))
-                    result.add(m);
+                    result.add(m);//TODO: should be a clone
         return result;
     }
 
-    private ArrayList<Model> order_creationDate(String type){
+    private ArrayList<Model> order_creationDate(String type){//creation date is the same as the original list order
         ArrayList<Model> result = new ArrayList<>();
         for (Model m : models)
             if (m.getType().equalsIgnoreCase(type))
-                result.add(m);
+                result.add(m);//TODO: should be a clone
         return result;
     }
 }
