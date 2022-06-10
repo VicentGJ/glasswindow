@@ -8,7 +8,7 @@ import java.io.IOException;
 public class LoginController extends TransitionController {
     @FXML
     protected void onLoginButton(ActionEvent event) throws IOException {
-        this.transition("main_companies.fxml", event);
+        this.transition("main_view.fxml", event);
     }
     @FXML
     protected void onSignUpLink(ActionEvent event) throws IOException {
