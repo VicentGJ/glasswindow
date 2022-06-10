@@ -272,6 +272,7 @@ public class Agency implements IDataBase {
         }else throw new DuplicatedIDException(m.getId());
     }
 
+    // TODO: Fix exceptions
     @Override
     public ArrayList<Model> getObjectList(String type, HashMap<String, Object> filter) throws InvalidTypeException {
         ArrayList<Model> filteredList = new ArrayList<>();
