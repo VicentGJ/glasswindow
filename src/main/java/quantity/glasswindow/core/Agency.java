@@ -65,6 +65,7 @@ public class Agency implements IDataBase {
         models.add(object);
     }
 
+    // TODO: Fix exceptions
     @Override
     public ArrayList<Model> getObjectList(String type, OrderBy order, HashMap<String, Object> filter) {
         ArrayList<Model> orderedList = new ArrayList<>();
