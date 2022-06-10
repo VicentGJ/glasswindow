@@ -3,7 +3,6 @@ package quantity.glasswindow.core;
 import java.util.ArrayList;
 
 public class Company extends Model {
-    private String id;
     private String name;
     private String address;
     private ArrayList<Integer> phoneList;
@@ -11,7 +10,7 @@ public class Company extends Model {
     private ArrayList<JobPost> jobPostList;
 
     public Company(String id, String name, String address, ArrayList<Integer> phoneList, Branch sector, ArrayList<JobPost> jobPostList) {
-        this.setId(id);
+        super(id);
         this.setAddress(address);
         this.setName(name);
         this.setSector(sector);

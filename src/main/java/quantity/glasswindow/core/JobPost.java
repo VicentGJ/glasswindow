@@ -3,7 +3,6 @@ package quantity.glasswindow.core;
 import java.util.ArrayList;
 
 public class JobPost extends Model {
-    private String id;
     private Branch branch;
     private float salary;
     private Status status;
@@ -13,7 +12,7 @@ public class JobPost extends Model {
 
     public JobPost(String id, Branch branch, float salary, Status status, String description,
                    Company company, ArrayList<Interview> interviewList) {
-        this.setId(id);
+        super(id);
         this.setBranch(branch);
         this.setSalary(salary);
         this.setStatus(status);

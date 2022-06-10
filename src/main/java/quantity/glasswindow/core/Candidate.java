@@ -1,7 +1,6 @@
 package quantity.glasswindow.core;
 
 public class Candidate extends Model {
-    private String id;
     private String name;
     private Gender gender;
     private String address;
@@ -12,7 +11,7 @@ public class Candidate extends Model {
 
     public Candidate(String id, String name, Gender gender, String address, String phone, Scholarship scholarship,
                      Specialty specialty, Branch sector) {
-        this.setId(id);
+        super(id);
         this.setAddress(address);
         this.setName(name);
         this.setGender(gender);
