@@ -52,22 +52,22 @@ public class HelloApplication extends Application {
                 new ArrayList<>(), Branch.INDUSTRY, new ArrayList<>());
         //jobposts
         JobPost jb1 = new JobPost("jobpost-001",Branch.INDUSTRY,2000,Status.OPEN,"default jobpost",
-                company1, new ArrayList<>());
+                company1, new ArrayList<>(),Scholarship.BASIC, Specialty.ECONOMIST);
         company1.addJobPostToList(jb1);
         JobPost jb2 = new JobPost("jobpost-002",Branch.SERVICES,1900,Status.APPLICATION_ACTIVE,"default jobpost",
-                company2, new ArrayList<>());
+                company2, new ArrayList<>(),Scholarship.PHD, Specialty.ACCOUNTANT);
         company2.addJobPostToList(jb2);
         JobPost jb3 = new JobPost("jobpost-003",Branch.EDUCATION,20000,Status.CLOSED,"default jobpost",
-                company3, new ArrayList<>());
+                company3, new ArrayList<>(), Scholarship.GRADE, Specialty.MANAGER);
         company3.addJobPostToList(jb3);
         JobPost jb4 = new JobPost("jobpost-004",Branch.HEALTH,1000,Status.OPEN,"default jobpost",
-                company4, new ArrayList<>());
+                company4, new ArrayList<>(), Scholarship.MASTER, Specialty.ENGINEER);
         company4.addJobPostToList(jb4);
         JobPost jb5 = new JobPost("jobpost-005",Branch.TOURISM,999,Status.OPEN,"default jobpost",
-                company5, new ArrayList<>());
+                company5, new ArrayList<>(), Scholarship.PHD, Specialty.SCIENTIST);
         company5.addJobPostToList(jb5);
         JobPost jb6 = new JobPost("jobpost-006",Branch.AGRICULTURE,10000,Status.OPEN,"default jobpost",
-                company6, new ArrayList<>());
+                company6, new ArrayList<>(), Scholarship.PHD, Specialty.TRANSLATOR);
         company6.addJobPostToList(jb6);
 
         //interviews

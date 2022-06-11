@@ -5,11 +5,11 @@ import java.util.ArrayList;
 public class Company extends Model {
     private String name;
     private String address;
-    private ArrayList<Integer> phoneList;
+    private ArrayList<String> phoneList;
     private Branch sector;
     private ArrayList<JobPost> jobPostList;
 
-    public Company(String id, String name, String address, ArrayList<Integer> phoneList, Branch sector, ArrayList<JobPost> jobPostList) {
+    public Company(String id, String name, String address, ArrayList<String> phoneList, Branch sector, ArrayList<JobPost> jobPostList) {
         super(id);
         this.setAddress(address);
         this.setName(name);
@@ -34,11 +34,11 @@ public class Company extends Model {
         this.address = address;
     }
 
-    public ArrayList<Integer> getPhoneList() {
+    public ArrayList<String> getPhoneList() {
         return phoneList;
     }
 
-    public void setPhoneList(ArrayList<Integer> phoneList) {
+    public void setPhoneList(ArrayList<String> phoneList) {
         this.phoneList = phoneList;
     }
 

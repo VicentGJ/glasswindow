@@ -9,9 +9,12 @@ public class JobPost extends Model {
     private String description;
     private Company company;
     private ArrayList<Interview> interviewList;
+    private Scholarship scholarship;
+    private Specialty specialty;
 
     public JobPost(String id, Branch branch, float salary, Status status, String description,
-                   Company company, ArrayList<Interview> interviewList) {
+                   Company company, ArrayList<Interview> interviewList, Scholarship scholarship,
+                    Specialty specialty) {
         super(id);
         this.setBranch(branch);
         this.setSalary(salary);
@@ -19,6 +22,24 @@ public class JobPost extends Model {
         this.setDescription(description);
         this.setCompany(company);
         this.setInterviewList(interviewList);
+        this.setScholarship(scholarship);
+        this.setSpecialty(specialty);
+    }
+
+    public Specialty getSpecialty() {
+        return specialty;
+    }
+
+    public void setSpecialty(Specialty specialty) {
+        this.specialty = specialty;
+    }
+
+    public Scholarship getScholarship() {
+        return scholarship;
+    }
+
+    public void setScholarship(Scholarship scholarship) {
+        this.scholarship = scholarship;
     }
 
     public Branch getBranch() {
