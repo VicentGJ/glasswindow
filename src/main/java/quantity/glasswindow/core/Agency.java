@@ -125,7 +125,7 @@ public class Agency implements IDataBase {
      * @return the ordered list with the elements that match with the filter
      */
     private ArrayList<Model> filterOrderedList(HashMap<String, Object> filter, ArrayList<Model> orderedList) throws KeyException {
-        ArrayList<Model> result = (ArrayList<Model>) orderedList.clone();
+        @SuppressWarnings("unchecked") ArrayList<Model> result = (ArrayList<Model>) orderedList.clone();
         if (!filter.isEmpty())
             for (String key : filter.keySet()) {
                 switch (key) {
