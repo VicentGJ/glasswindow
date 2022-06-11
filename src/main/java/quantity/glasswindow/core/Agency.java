@@ -57,40 +57,58 @@ public class Agency implements IDataBase {
         if(!found)
             throw new Exception("ID not found");
     }
-
+    
     @Override
     public void insertObject(Model object) {
         models.add(object);
     }
 
     @Override
-    public ArrayList<Model> getObjectList(String type, OrderBy order, HashMap<String, Object> filter) throws Exception {
-        if(order == OrderBy.ID)
-            return order_ID(type);
-        else if (order == OrderBy.CREATION_DATE)
-            return order_creationDate(type);
-        else throw new Exception(order + " is not a valid sort");
+    public ArrayList<Model> getObjectList(String type, OrderBy order, HashMap<String, Object> filter) {
+        ArrayList<Model> orderedList = new ArrayList<>();
+        try {
+            if(order == OrderBy.ID) {
+                orderedList = order_ID(type);
+            }
+            else if (order == OrderBy.CREATION_DATE) {
+                orderedList = order_creationDate(type);
+            }
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return orderedList;
     }
 
-    private ArrayList<Model> order_ID(String type){
+    private ArrayList<Model> order_ID(String type) throws Exception {
         ArrayList<String> ids = new ArrayList<>();
         ArrayList<Model> result = new ArrayList<>();
+        boolean typeCorrect = false;
         for (Model m : models)
-            if (m.getType().equalsIgnoreCase(type))
+            if (m.getType().equalsIgnoreCase(type)) {
                 ids.add(m.getId());
-        Collections.sort(ids);
-        for (String id : ids)
-            for (Model m : models)
-                if (id.equals(m.getId()))
-                    result.add(m);//TODO: should be a clone
+                typeCorrect = true;
+            }
+        if(typeCorrect) {
+            Collections.sort(ids);
+            for (String id : ids)
+                for (Model m : models)
+                    if (id.equals(m.getId()))
+                        result.add(m);
+        }else throw new Exception("Incorrect type: \""+type+"\".");
         return result;
     }
 
-    private ArrayList<Model> order_creationDate(String type){//creation date is the same as the original list order
+    private ArrayList<Model> order_creationDate(String type) throws Exception {//creation date is the same as the original list order
         ArrayList<Model> result = new ArrayList<>();
+        boolean typeCorrect = false;
         for (Model m : models)
-            if (m.getType().equalsIgnoreCase(type))
-                result.add(m);//TODO: should be a clone
+            if (m.getType().equalsIgnoreCase(type)) {
+                result.add(m);
+                typeCorrect = true;
+                }
+        if(!typeCorrect)
+            throw new Exception("Incorrect type: \""+type+"\".");
         return result;
     }
 }
