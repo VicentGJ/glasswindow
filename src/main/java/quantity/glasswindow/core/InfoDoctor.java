@@ -16,7 +16,7 @@ public class InfoDoctor implements IAdditionalInfo {
     }
 
     @Override
-    public Specialty getType() {
+    public Enum<Specialty> getType() {
         return Specialty.DOCTOR;
     }
 }

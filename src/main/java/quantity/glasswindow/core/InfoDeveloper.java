@@ -26,7 +26,7 @@ public class InfoDeveloper implements IAdditionalInfo{
     }
 
     @Override
-    public Specialty getType() {
+    public Enum<Specialty> getType() {
         return Specialty.DEVELOPER;
     }
 }
