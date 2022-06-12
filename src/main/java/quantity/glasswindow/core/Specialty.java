@@ -11,5 +11,6 @@ public enum Specialty {
     ECONOMIST,
     ACCOUNTANT,
     MANAGER,
-    CONSULTANT
+    CONSULTANT,
+    GUARD
 }
