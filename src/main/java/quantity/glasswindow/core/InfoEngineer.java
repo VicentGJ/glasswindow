@@ -1,9 +1,9 @@
 package quantity.glasswindow.core;
 
-public class EngineerProfile extends AdditionalProfile {
+public class InfoEngineer implements IAdditionalInfo{
     private EngineerSpec specialization;
 
-    public EngineerProfile(EngineerSpec specialization) {
+    public InfoEngineer(EngineerSpec specialization) {
         this.setSpecialization(specialization);
     }
 
@@ -13,5 +13,10 @@ public class EngineerProfile extends AdditionalProfile {
 
     public void setSpecialization(EngineerSpec specialization) {
         this.specialization = specialization;
+    }
+
+    @Override
+    public Specialty getType() {
+        return Specialty.ENGINEER;
     }
 }

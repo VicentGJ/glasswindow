@@ -1,12 +1,11 @@
 package quantity.glasswindow.core;
 
 import java.util.ArrayList;
-import java.util.concurrent.ArrayBlockingQueue;
 
-public class ProfileDeveloper {
+public class InfoDeveloper implements IAdditionalInfo{
     private ArrayList<ProgrammingLang> languages;
 
-    public ProfileDeveloper(ArrayList<ProgrammingLang> languages) {
+    public InfoDeveloper(ArrayList<ProgrammingLang> languages) {
         this.setLanguages(languages);
     }
 
@@ -24,5 +23,10 @@ public class ProfileDeveloper {
 
     public void removeLanguage(ProgrammingLang lang){
         languages.remove(lang);
+    }
+
+    @Override
+    public Specialty getType() {
+        return Specialty.DEVELOPER;
     }
 }
