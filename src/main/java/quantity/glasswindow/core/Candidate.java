@@ -1,5 +1,7 @@
 package quantity.glasswindow.core;
 
+import java.util.ArrayList;
+
 public class Candidate extends Model {
     private String name;
     private Gender gender;
@@ -9,6 +11,7 @@ public class Candidate extends Model {
     private Specialty specialty;
     private Branch sector;
 
+    private ArrayList<IAdditionalInfo> addtionalInfo;
     public Candidate(String id, String name, Gender gender, String address, String phone, Scholarship scholarship,
                      Specialty specialty, Branch sector) {
         super(id);
@@ -21,6 +24,7 @@ public class Candidate extends Model {
         this.setSpecialty(specialty);
 
     }
+
 
     public String getName() {
         return name;
@@ -76,5 +80,9 @@ public class Candidate extends Model {
 
     public void setSector(Branch sector) {
         this.sector = sector;
+    }
+
+    public ArrayList<IAdditionalInfo> getAddtionalInfo() {
+        return addtionalInfo;
     }
 }
