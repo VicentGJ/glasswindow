@@ -1,6 +1,9 @@
 package quantity.glasswindow.core;
 
 import java.security.KeyException;
+import java.time.Month;
+import java.time.Year;
+import java.time.YearMonth;
 import java.util.*;
 
 public class Agency implements IDataBase {
@@ -283,6 +286,61 @@ public class Agency implements IDataBase {
         }
         return result;
     }
+     public ArrayList<ArrayList<Interview>> getInterviewsMonth (String id, int month) {
+        int lenght = Month.of(month).length(Year.now().isLeap());
+        ArrayList<ArrayList<Interview>> result = new ArrayList<>(
+                Collections.nCopies(lenght, (ArrayList<Interview>) null)
+        );
+        ArrayList<Interview> dailyInterviews = new ArrayList<>();
+        try {
+            Model object = this.getObject(id);
+            // TODO: review if a pattern can be applied here in the future
+            HashMap<String, Object> filter = new HashMap<>();
+            if (object.getType().equals("Company")) {
+                filter.put("company", object);
+            }
+            else {
+                filter.put("candidate", object);
+            }
+            filter.put("date", month-1);
+            ArrayList<Model> monthInterviews = new ArrayList<>(this.getObjectList(
+                    "Interview", OrderBy.ID, filter)
+            );
+            for (Model i: monthInterviews) {
+                Interview interview = (Interview) i;
+                int index = interview.getDate().getDate() - 1;
+                if (result.get(index) == null){
+                    ArrayList<Interview> temp = new ArrayList<>();
+                    temp.add(interview);
+                    result.set(index, temp);
+                }
+                else result.get(index).add(interview);
+
+            }
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.exit(1);
+        }
+        return result;
+     }
+
+     public ArrayList<ArrayList<Interview>> getCompanyInterviews(Company company) {
+        ArrayList<ArrayList<Interview>> result = new ArrayList<>(
+                Collections.nCopies(company.getJobPostList().size(), (ArrayList<Interview>) null)
+        );
+        for (int i = 0; i < company.getJobPostList().size(); i++) {
+            for (Interview j: company.getJobPostList().get(i).getInterviewList()) {
+                if (result.get(i) == null){
+                    ArrayList<Interview> temp = new ArrayList<>();
+                    temp.add(j);
+                    result.set(i, temp);
+                }
+                else result.get(i).add(j);
+            }
+        }
+        return result;
+     }
     public void initTestData() {
         ArrayList<Model> models = new ArrayList<>();
         //candidates
