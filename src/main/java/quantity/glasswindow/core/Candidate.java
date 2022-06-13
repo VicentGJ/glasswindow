@@ -25,7 +25,6 @@ public class Candidate extends Model {
 
     }
 
-
     public String getName() {
         return name;
     }

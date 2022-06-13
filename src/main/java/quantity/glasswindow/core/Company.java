@@ -2,7 +2,7 @@ package quantity.glasswindow.core;
 
 import java.util.ArrayList;
 
-public class Company extends Model {
+public class Company extends Model implements ICascadeDelete {
     private String name;
     private String address;
     private ArrayList<String> phoneList;
@@ -16,6 +16,19 @@ public class Company extends Model {
         this.setSector(sector);
         this.setPhoneList(phoneList);
         this.setJobPostList(jobPostList);
+    }
+
+    @Override
+    public void deleteNode() {
+        try {
+            for (JobPost jobPost : jobPostList) {
+                jobPost.deleteNode();
+            }
+            Agency.create().deleteObject(this.id);
+        }
+        catch (Exception e) {
+            System.exit(1);
+        }
     }
 
     public String getName() {

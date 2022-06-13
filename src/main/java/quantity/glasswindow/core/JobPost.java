@@ -2,7 +2,7 @@ package quantity.glasswindow.core;
 
 import java.util.ArrayList;
 
-public class JobPost extends Model {
+public class JobPost extends Model implements ICascadeDelete {
     private Branch branch;
     private float salary;
     private Status status;
@@ -24,6 +24,17 @@ public class JobPost extends Model {
         this.setInterviewList(interviewList);
         this.setScholarship(scholarship);
         this.setSpecialty(specialty);
+    }
+
+    @Override
+    public void deleteNode() {
+        Agency agency = Agency.create();
+        try {
+            agency.deleteObject(this.id);
+        }
+        catch (Exception e) {
+            System.exit(1);
+        }
     }
 
     public Specialty getSpecialty() {
