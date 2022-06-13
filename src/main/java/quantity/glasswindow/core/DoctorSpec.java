@@ -17,8 +17,4 @@ public enum DoctorSpec {
     PSYCHIATRIST,
     SURGEON,
     UROLOGIST,
-
-
-
-
 }
