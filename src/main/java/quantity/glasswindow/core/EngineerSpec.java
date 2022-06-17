@@ -3,8 +3,8 @@ package quantity.glasswindow.core;
 public enum EngineerSpec {
     CIVIL,
     INDUSTRIAL,
-    BIOMEDIC,
-    TELECOMUNICATIONS,
+    BIOMEDICAL,
+    TELECOMMUNICATIONS,
     INFORMATIC,
     AUTOMATIC,
     ELECTRONIC,
