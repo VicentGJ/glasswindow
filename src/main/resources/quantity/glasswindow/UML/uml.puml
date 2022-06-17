@@ -1,17 +1,18 @@
 @startuml
 skinparam classAttributeIconSize 0
+!pragma layout smetana
 
-interface IDataBase{
+interface IDataBase<<interface>>{
     +getObject(String, String[]):Model
     +deleteObject(String):void
     +insertObject(Model):void
 
 }
-interface IAdditionalInfo{
+interface IAdditionalInfo <<interface>>{
     +getType():Enum
 }
 
-interface ICascadeDelete {
+interface ICascadeDelete <<interface>>{
     +deleteNode():void
 }
 class Agency implements IDataBase{
@@ -30,7 +31,7 @@ class Agency implements IDataBase{
     -filterOrderedList(HashMap<String, Object>, ArrayList<Model>)
 }
 
-class Model{
+class Model<<abstract>>{
     # id : String
     +Model(String)
     +getId():String
@@ -190,7 +191,65 @@ class InfoScientist implements IAdditionalInfo{
 +getType():Enum<Specialty>
 }
 
-enum Branch {
+class InterviewController {
+    #onCancelButton(ActionEvent):void
+    #onOkButton(ActionEvent):void
+}
+
+class JobPostController extends TransitionController{
+    #onCancelButton(ActionEvent):void
+    #onApplyButton(ActionEvent):void
+}
+
+class LoginController extends TransitionController {
+    #onLoginButton(ActionEvent):void
+    #onSignUpLink(ActionEvent):void
+}
+
+class MainCandidatesController extends MainController {
+    #onEntityLink(ActionEvent):void
+    #onEditButton(ActionEvent):void
+    #onDeleteButton(ActionEvent):void 
+    #onSearchButton():void
+}
+
+class MainCompaniesController extends  MainController{
+    #onEditButton(ActionEvent):void
+    #onDeleteButton(ActionEvent):void
+    #onEntityLink(ActionEvent):void
+    #onSearchButton()
+}
+class MainController extends TransitionController{
+    #onNewCompany(ActionEvent):void
+    #onNewCandidate(ActionEvent):void
+    #onNewJobPost(ActionEvent):void 
+    #onQuit(ActionEvent):void
+    #onProfileLink(ActionEvent):void
+    #onCompaniesSection(ActionEvent):void
+    #onCandidatesSection(ActionEvent):void
+    #onJobPotsSection(ActionEvent):void
+    #onEntityLink(ActionEvent):void
+    #onEditButton(ActionEvent):void
+    #onDeleteButton(ActionEvent):void 
+    #onSearchButton()
+}
+
+class SignUpController extends TransitionController{
+    #onSignUpButton(ActionEvent):void
+    #onLoginLink(ActionEvent):void
+}
+
+class MainJobPostsController extends MainController {
+    #onEntityLink(ActionEvent):void
+    #onEditButton(ActionEvent):void
+    #onDeleteButton(ActionEvent):void
+    #onSearchButton():void
+}
+
+class TransitionController {
+    #transition(String, ActionEvent):void
+}
+enum Branch <<enumeration>>{
 AGRICULTURE
 TOURISM
 HEALTH
@@ -199,7 +258,7 @@ SERVICES
 INDUSTRY
 }
 
-enum DoctorSpec {
+enum DoctorSpec <<enumeration>>{
 ALLERGIST
 IMMUNOLOGIST
 DERMATOLOGIST
@@ -218,23 +277,23 @@ SURGEON
 UROLOGIST
 }
 
-enum EngineerSpec {
+enum EngineerSpec <<enumeration>>{
 CIVIL
 INDUSTRIAL
-BIOMEDIC
-TELECOMUNICATIONS
+BIOMEDICAL
+TELECOMMUNICATIONS
 INFORMATIC
 AUTOMATIC
 ELECTRONIC
 MECHANIC
 }
 
-enum Gender {
+enum Gender <<enumeration>>{
 MASCULINE
 FEMININE
 }
 
-enum Languages {
+enum Languages <<enumeration>>{
 AFRIKAANS
 ALBANIAN
 AMHARIC
@@ -296,7 +355,7 @@ VIETNAMESE
 WELSH
 }
 
-enum ProgrammingLang {
+enum ProgrammingLang <<enumeration>>{
 PYTHON
 C
 CPP
@@ -314,14 +373,14 @@ TYPESCRIPT
 SQL
 }
 
-enum Scholarship {
+enum Scholarship <<enumeration>>{
 BASIC
 GRADE
 MASTER
 PHD
 }
 
-enum ScientistSpec {
+enum ScientistSpec <<enumeration>>{
 ECOLOGY
 BIOLOGY
 CHEMISTRY
@@ -340,7 +399,7 @@ PHYSICS
 FORENSIC
 }
 
-enum Specialty {
+enum Specialty <<enumeration>>{
 ENGINEER
 DEVELOPER
 DOCTOR
@@ -355,31 +414,31 @@ CONSULTANT
 GUARD
 }
 
-enum  Status {
+enum  Status <<enumeration>>{
 OPEN
 APPLICATION_ACTIVE
 CLOSED
 }
 
-Candidate --> Gender
-Candidate --> Scholarship
-Candidate --> Specialty
-Candidate --> Branch
-InfoHealth--> Branch
-InfoTourism --> Branch
-JobPost--> Branch
-JobPost--> Status
-JobPost--> Scholarship
-JobPost--> Specialty
-Company --> Branch
+Candidate"1" --> "1"Gender
+Candidate"1" --> "1"Scholarship
+Candidate"1" --> "     1"Specialty
+Candidate"1" --> "1 "Branch
+InfoHealth"1  "--> "1 "Branch
+InfoTourism"1  " --> "1 "Branch
+JobPost"1 " --> "1  "Branch
+JobPost"1" --> "1  "Status
+JobPost"1"--> "1  "Scholarship
+JobPost"1" --> "1  "Specialty
+Company"1" --> "1      "Branch
 
-InfoDeveloper"1" --> "1..*"ProgrammingLang
-InfoTranslator"1" <--"1..*"Languages
-InfoScientist"1" <--"1..*"ScientistSpec
+InfoDeveloper"1" --> "1..* "ProgrammingLang
+InfoTranslator"1" -->"1..* "Languages
+InfoScientist"1" -->"1..* "ScientistSpec
 
-InfoDoctor --> DoctorSpec
-InfoEngineer --> EngineerSpec
-Agency"1" *--"1..*"Model
-Agency *--Agency
-Candidate *--IAdditionalInfo
+InfoDoctor"1" --> "1"DoctorSpec
+InfoEngineer"1" --> "1 "EngineerSpec
+Agency"1 " *--"1..*"Model
+Agency "1" *-- "   1" Agency
+Candidate *-- IAdditionalInfo
 @enduml
