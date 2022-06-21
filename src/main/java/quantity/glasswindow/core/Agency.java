@@ -3,7 +3,6 @@ package quantity.glasswindow.core;
 import java.security.KeyException;
 import java.time.Month;
 import java.time.Year;
-import java.time.YearMonth;
 import java.util.*;
 
 public class Agency implements IDataBase {
@@ -216,8 +215,8 @@ public class Agency implements IDataBase {
                         Company filter_company = (Company) filter.get(key);
                         for (Model m : orderedList)
                             if (m instanceof Company && !(m.getId().equals(filter_company.getId())) ||
-                                    (m instanceof JobPost && !(((JobPost) m).getCompany().getId().equals(filter_company.getId()))) ||
-                                    (m instanceof Interview && !(((Interview) m).getCompany().getId().equals(filter_company.getId()))))
+                                    (m instanceof JobPost && !(((JobPost) m).getCompany().equals(filter_company.getId()))) ||
+                                    (m instanceof Interview && !(((Interview) m).getCompany().equals(filter_company.getId()))))
                                 result.remove(m);
                     }
                     case "date" -> {
@@ -231,7 +230,7 @@ public class Agency implements IDataBase {
                         Candidate filter_candidate = (Candidate) filter.get(key);
                         for (Model m : orderedList)
                             if ((m instanceof Candidate && !(m.getId().equals(filter_candidate.getId()))) ||
-                                    (m instanceof Interview && !(((Interview) m).getCandidate().getId().equals(filter_candidate.getId()))))
+                                    (m instanceof Interview && !(((Interview) m).getCandidate().equals(filter_candidate.getId()))))
                                 result.remove(m);
                     }
                     case "jobpost" -> {
@@ -242,8 +241,8 @@ public class Agency implements IDataBase {
                                 result.remove(m);
                             else if (m instanceof Company) {
                                 boolean match_found = false;
-                                for (JobPost j : ((Company) m).getJobPostList())
-                                    if (j.getId().equals(filter_jobpost.getId())) {
+                                for (String jp : ((Company) m).getJobPostList())
+                                    if (jp.equals(filter_jobpost.getId())) {
                                         match_found = true;
                                         break;
                                     }
@@ -271,25 +270,30 @@ public class Agency implements IDataBase {
         return result;
     }
 
-    public ArrayList<Candidate> getAppliances (Company company, int month) {
+    public ArrayList<Candidate> getAppliances (String company, int month) {
         month--;
         ArrayList<Candidate> result = new ArrayList<>();
-        ArrayList<JobPost> jobPosts = new ArrayList<>(company.getJobPostList());
-        ArrayList<Interview> interviews = new ArrayList<>();
-        for (JobPost j: jobPosts) {
-            interviews = j.getInterviewList();
-            for (Interview i: interviews) {
-                if (i.getDate().getMonth() == month) {
-                    result.add(i.getCandidate());
+        Company c = (Company)getModelWithID(company);
+        ArrayList<String> jobPosts = new ArrayList<>(c.getJobPostList());
+        ArrayList<String> interviews;
+        JobPost tempJP;
+        for (String j: jobPosts) {
+            tempJP = (JobPost)getModelWithID(j);
+            interviews = tempJP.getInterviewList();
+            for (String i: interviews) {
+                Interview interview = (Interview) getModelWithID(i);
+                if (interview.getDate().getMonth() == month) {
+                    Candidate candidate = (Candidate)getModelWithID(interview.getCandidate());
+                    result.add(candidate);
                 }
             }
         }
         return result;
     }
      public ArrayList<ArrayList<Interview>> getInterviewsMonth (String id, int month) {
-        int lenght = Month.of(month).length(Year.now().isLeap());
+        int length = Month.of(month).length(Year.now().isLeap());
         ArrayList<ArrayList<Interview>> result = new ArrayList<>(
-                Collections.nCopies(lenght, (ArrayList<Interview>) null)
+                Collections.nCopies(length, null)
         );
         ArrayList<Interview> dailyInterviews = new ArrayList<>();
         try {
@@ -327,19 +331,32 @@ public class Agency implements IDataBase {
 
      public ArrayList<ArrayList<Interview>> getCompanyInterviews(Company company) {
         ArrayList<ArrayList<Interview>> result = new ArrayList<>(
-                Collections.nCopies(company.getJobPostList().size(), (ArrayList<Interview>) null)
+                Collections.nCopies(company.getJobPostList().size(), null)
         );
-        for (int i = 0; i < company.getJobPostList().size(); i++) {
-            for (Interview j: company.getJobPostList().get(i).getInterviewList()) {
-                if (result.get(i) == null){
+        ArrayList<String> jpList = company.getJobPostList();
+        for(String jp : jpList){
+            JobPost jobPost = ((JobPost)(getModelWithID(jp)));
+            ArrayList<String> interviews = jobPost.getInterviewList();
+            for(String interview: interviews){
+                Interview i = (Interview)getModelWithID(interview);
+                if(result.get(jpList.indexOf(jp)) == null){
                     ArrayList<Interview> temp = new ArrayList<>();
-                    temp.add(j);
-                    result.set(i, temp);
-                }
-                else result.get(i).add(j);
+                    temp.add(i);
+                    result.set(jpList.indexOf(jp),temp);
+                }else result.get(jpList.indexOf(jp)).add(i);
             }
         }
         return result;
+     }
+
+     public Model getModelWithID(String id){
+        if(!models.isEmpty()){
+            for(Model model:models){
+                if(model.getId().equals(id))
+                    return model;
+            }
+        }
+        return null;
      }
     public void initTestData() {
         ArrayList<Model> models = new ArrayList<>();
@@ -371,37 +388,37 @@ public class Agency implements IDataBase {
                 new ArrayList<>(), Branch.INDUSTRY, new ArrayList<>());
         //jobposts
         JobPost jb1 = new JobPost("jobpost-001",Branch.INDUSTRY,2000,Status.OPEN,"default jobpost",
-                company1, new ArrayList<>(), Scholarship.PHD, Specialty.SCIENTIST);
-        company1.addJobPostToList(jb1);
+                company1.getId(), new ArrayList<>(), Scholarship.PHD, Specialty.SCIENTIST);
+        company1.addJobPostToList(jb1.getId());
         JobPost jb2 = new JobPost("jobpost-002",Branch.SERVICES,1900,Status.APPLICATION_ACTIVE,"default jobpost",
-                company2, new ArrayList<>(),Scholarship.PHD, Specialty.ACCOUNTANT);
-        company2.addJobPostToList(jb2);
+                company2.getId(), new ArrayList<>(),Scholarship.PHD, Specialty.ACCOUNTANT);
+        company2.addJobPostToList(jb2.getId());
         JobPost jb3 = new JobPost("jobpost-003",Branch.EDUCATION,20000,Status.CLOSED,"default jobpost",
-                company3, new ArrayList<>(), Scholarship.GRADE, Specialty.MANAGER);
-        company3.addJobPostToList(jb3);
+                company3.getId(), new ArrayList<>(), Scholarship.GRADE, Specialty.MANAGER);
+        company3.addJobPostToList(jb3.getId());
         JobPost jb4 = new JobPost("jobpost-004",Branch.HEALTH,1000,Status.OPEN,"default jobpost",
-                company4, new ArrayList<>(), Scholarship.MASTER, Specialty.ENGINEER);
-        company4.addJobPostToList(jb4);
+                company4.getId(), new ArrayList<>(), Scholarship.MASTER, Specialty.ENGINEER);
+        company4.addJobPostToList(jb4.getId());
         JobPost jb5 = new JobPost("jobpost-005",Branch.TOURISM,999,Status.OPEN,"default jobpost",
-                company5, new ArrayList<>(), Scholarship.PHD, Specialty.SCIENTIST);
-        company5.addJobPostToList(jb5);
+                company5.getId(), new ArrayList<>(), Scholarship.PHD, Specialty.SCIENTIST);
+        company5.addJobPostToList(jb5.getId());
         JobPost jb6 = new JobPost("jobpost-006",Branch.AGRICULTURE,10000,Status.OPEN,"default jobpost",
-                company6, new ArrayList<>(), Scholarship.PHD, Specialty.TRANSLATOR);
-        company6.addJobPostToList(jb6);
+                company6.getId(), new ArrayList<>(), Scholarship.PHD, Specialty.TRANSLATOR);
+        company6.addJobPostToList(jb6.getId());
 
         //interviews
-        Interview interview1 = new Interview("interview-001",new Date(),candidate1,company1,jb1);
-        jb1.addInterview(interview1);
-        Interview interview2 = new Interview("interview-002",new Date(),candidate2,company2,jb2);
-        jb2.addInterview(interview2);
-        Interview interview3 = new Interview("interview-003",new Date(),candidate3,company3,jb3);
-        jb3.addInterview(interview3);
-        Interview interview4 = new Interview("interview-004",new Date(),candidate4,company4,jb4);
-        jb4.addInterview(interview4);
-        Interview interview5 = new Interview("interview-005",new Date(),candidate5,company5,jb5);
-        jb5.addInterview(interview5);
-        Interview interview6 = new Interview("interview-006",new Date(),candidate6,company6,jb6);
-        jb6.addInterview(interview6);
+        Interview interview1 = new Interview("interview-001",new Date(),candidate1.getId(),company1.getId(),jb1.getId());
+        jb1.addInterview(interview1.getId());
+        Interview interview2 = new Interview("interview-002",new Date(),candidate2.getId(),company2.getId(),jb2.getId());
+        jb2.addInterview(interview2.getId());
+        Interview interview3 = new Interview("interview-003",new Date(),candidate3.getId(),company3.getId(),jb3.getId());
+        jb3.addInterview(interview3.getId());
+        Interview interview4 = new Interview("interview-004",new Date(),candidate4.getId(),company4.getId(),jb4.getId());
+        jb4.addInterview(interview4.getId());
+        Interview interview5 = new Interview("interview-005",new Date(),candidate5.getId(),company5.getId(),jb5.getId());
+        jb5.addInterview(interview5.getId());
+        Interview interview6 = new Interview("interview-006",new Date(),candidate6.getId(),company6.getId(),jb6.getId());
+        jb6.addInterview(interview6.getId());
 
         //add all to models
         models.add(candidate1);

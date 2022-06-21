@@ -84,7 +84,56 @@ class Company extends Model implements ICascadeDelete{
     +getJobPostList():ArrayList<JobPost>
     +addJobPostToList(JobPost):void
     +setJobPostList(ArrayList<JobPost>):void
+    +deleteNode():void
 }
+
+
+class Interview extends Model{
+    -date:Date
+    -candidate:String
+    -company:String
+    -jobPost:String
+    +Interview(String, Date, String, String, String)
+    +getDate():Date
+    +setDate(Date):void
+    +getCandidate():String
+    +setCandidate(String):void
+    +getCompany():String
+    +setCompany(String):void
+    +getJobPost():String
+    +setJobPost(String):void
+}
+
+class JobPost extends Model implements ICascadeDelete{
+    -branch:Branch
+    -salary:float
+    -status:Status
+    -description:String
+    -company:String
+    -interviewList:ArrayList<String>
+    -scholarship:Scholarship
+    -specialty:Specialty
+    +JobPost(String,Branch,float,Status,String,String,ArrayList<String>,Scholarship,Specialty)
+    +getSpecialty():Specialty
+    +setSpecialty(Specialty):void
+    +getScholarship():Scholarship
+    +setScholarship(Scholarship) :void
+    +getBranch():Branch
+    +setBranch(Branch):void
+    +getSalary():float
+    +setSalary(float):void
+    +getStatus():Status
+    +setStatus(Status):void
+    +getDescription():String
+    +setDescription(String):void
+    +getCompany():String
+    +setCompany(String):void
+    +getInterviewList() :ArrayList<String>
+    +setInterviewList(ArrayList<String>):void
+    +addInterview(String):void
+    deleteNode():void
+}
+
 
 class InfoDeveloper implements IAdditionalInfo{
     -languages:ArrayList<ProgrammingLang>
@@ -105,90 +154,45 @@ class InfoDoctor implements IAdditionalInfo{
 }
 
 class InfoEngineer implements IAdditionalInfo{
--specialization:EngineerSpec
-+InfoEngineer(EngineerSpec)
-+getSpecialization():EngineerSpec
-+setSpecialization(EngineerSpec):void
-+getType() :Enum<Specialty>
+    -specialization:EngineerSpec
+    +InfoEngineer(EngineerSpec)
+    +getSpecialization():EngineerSpec
+    +setSpecialization(EngineerSpec):void
+    +getType() :Enum<Specialty>
 }
 
 class InfoHealth implements IAdditionalInfo{
--hasCertificate:boolean
-+InfoHealth(boolean)
-+hasCertificate():boolean
-+setCertificate(boolean):void
-+getType():Enum<Branch>
+    -hasCertificate:boolean
+    +InfoHealth(boolean)
+    +hasCertificate():boolean
+    +setCertificate(boolean):void
+    +getType():Enum<Branch>
 }
 class InfoTourism implements IAdditionalInfo{
--hasLicence:boolean
-+InfoTourism(boolean)
-+hasLicence:boolean():boolean
-+setLicence(boolean):void
-+getType():Enum<Branch>
-}
-
-class Interview extends Model{
--date:Date
--candidate:Candidate
--company:Company
--jobPost:JobPost
-+Interview(String, Date, Candidate, Company, JobPost)
-+getDate():Date
-+setDate(Date):void
-+getCandidate():Candidate
-+setCandidate(Candidate):void
-+getCompany():Company
-+setCompany(Company):void
-+getJobPost():JobPost
-+setJobPost(JobPost):void
-}
-
-class JobPost extends Model implements ICascadeDelete{
--branch:Branch
--salary:float
--status:Status
--description:String
--company:Company
--interviewList:ArrayList<Interview>
--scholarship:Scholarship
--specialty:Specialty
-+JobPost(String,Branch,float,Status,String,Company,ArrayList<Interview>,Scholarship,Specialty)
-+getSpecialty():Specialty
-+setSpecialty(Specialty):void
-+getScholarship():Scholarship
-+setScholarship(Scholarship) :void
-+getBranch():Branch
-+setBranch(Branch):void
-+getSalary():float
-+setSalary(float):void
-+getStatus():Status
-+setStatus(Status):void
-+getDescription():String
-+setDescription(String):void
-+getCompany():Company
-+setCompany(Company):void
-+getInterviewList() :ArrayList<Interview>
-+setInterviewList(ArrayList<Interview>):void
-+addInterview(Interview):void
+    -hasLicence:boolean
+    +InfoTourism(boolean)
+    +hasLicence:boolean():boolean
+    +setLicence(boolean):void
+    +getType():Enum<Branch>
 }
 
 class InfoTranslator implements IAdditionalInfo{
--langs:ArrayList<Languages>
-+InfoTranslator(ArrayList<Languages>)
-+getLangs():ArrayList<Languages>
-+setLangs(ArrayList<Languages>):void
-+addLang(Languages):void
-+removeLang(Languages)void
+    -langs:ArrayList<Languages>
+    +InfoTranslator(ArrayList<Languages>)
+    +getLangs():ArrayList<Languages>
+    +setLangs(ArrayList<Languages>):void
+    +addLang(Languages):void
+    +removeLang(Languages)void
 }
 
 class InfoScientist implements IAdditionalInfo{
--specialization:ArrayList<ScientistSpec>
-+InfoScientist(ArrayList<ScientistSpec>)
-+getSpecialization():ArrayList<ScientistSpec>
-+setSpecialization(ArrayList<ScientistSpec>):void
-+addSpec(ScientistSpec spec):void
-+removeSpec(ScientistSpec):void
-+getType():Enum<Specialty>
+    -specialization:ArrayList<ScientistSpec>
+    +InfoScientist(ArrayList<ScientistSpec>)
+    +getSpecialization():ArrayList<ScientistSpec>
+    +setSpecialization(ArrayList<ScientistSpec>):void
+    +addSpec(ScientistSpec spec):void
+    +removeSpec(ScientistSpec):void
+    +getType():Enum<Specialty>
 }
 
 class InterviewController {
@@ -250,180 +254,180 @@ class TransitionController {
     #transition(String, ActionEvent):void
 }
 enum Branch <<enumeration>>{
-AGRICULTURE
-TOURISM
-HEALTH
-EDUCATION
-SERVICES
-INDUSTRY
+    AGRICULTURE
+    TOURISM
+    HEALTH
+    EDUCATION
+    SERVICES
+    INDUSTRY
 }
 
 enum DoctorSpec <<enumeration>>{
-ALLERGIST
-IMMUNOLOGIST
-DERMATOLOGIST
-RADIOLOGIST
-EMERGENCY_MED
-FAMILY_MED
-GENETICS
-NEUROLOGIST
-GYNECOLOGIST
-OPHTHALMOLOGIST
-PATHOLOGIST
-PREVENTIVE_MED
-REHAB_MED
-PSYCHIATRIST
-SURGEON
-UROLOGIST
+    ALLERGIST
+    IMMUNOLOGIST
+    DERMATOLOGIST
+    RADIOLOGIST
+    EMERGENCY_MED
+    FAMILY_MED
+    GENETICS
+    NEUROLOGIST
+    GYNECOLOGIST
+    OPHTHALMOLOGIST
+    PATHOLOGIST
+    PREVENTIVE_MED
+    REHAB_MED
+    PSYCHIATRIST
+    SURGEON
+    UROLOGIST
 }
 
 enum EngineerSpec <<enumeration>>{
-CIVIL
-INDUSTRIAL
-BIOMEDICAL
-TELECOMMUNICATIONS
-INFORMATIC
-AUTOMATIC
-ELECTRONIC
-MECHANIC
+    CIVIL
+    INDUSTRIAL
+    BIOMEDICAL
+    TELECOMMUNICATIONS
+    INFORMATIC
+    AUTOMATIC
+    ELECTRONIC
+    MECHANIC
 }
 
 enum Gender <<enumeration>>{
-MASCULINE
-FEMININE
+    MASCULINE
+    FEMININE
 }
 
 enum Languages <<enumeration>>{
-AFRIKAANS
-ALBANIAN
-AMHARIC
-ARABIC
-ARMENIAN
-BASQUE
-BENGALI
-BELORUSSIAN
-BURMESE
-BULGARIAN
-CATALAN
-CHINESE
-CROATIAN
-DANISH
-DUTCH
-ENGLISH
-ESPERANTO
-ESTONIAN
-FARSI
-FINNISH
-FRENCH
-GAELIC
-GERMAN
-GREEK
-HEBREW
-HINDI
-HUNGARIAN
-ICELANDIC
-INDONESIAN
-ITALIAN
-JAPANESE
-KOREAN
-KURDISH
-LAOTIAN
-LATVIAN
-LITHUANIAN
-MACEDONIAN
-MALAY
-MALTESE
-NEPALI
-NORWEGIAN
-POLISH
-PORTUGUESE
-ROMANIAN
-RUSSIAN
-SCOTS
-SERBIAN
-SLOVAK
-SLOVENIAN
-SOMALI
-SPANISH
-SWEDISH
-SWAHILI
-TIBETAN
-TURKISH
-UKRAINIAN
-UZBEK
-VIETNAMESE
-WELSH
+    AFRIKAANS
+    ALBANIAN
+    AMHARIC
+    ARABIC
+    ARMENIAN
+    BASQUE
+    BENGALI
+    BELORUSSIAN
+    BURMESE
+    BULGARIAN
+    CATALAN
+    CHINESE
+    CROATIAN
+    DANISH
+    DUTCH
+    ENGLISH
+    ESPERANTO
+    ESTONIAN
+    FARSI
+    FINNISH
+    FRENCH
+    GAELIC
+    GERMAN
+    GREEK
+    HEBREW
+    HINDI
+    HUNGARIAN
+    ICELANDIC
+    INDONESIAN
+    ITALIAN
+    JAPANESE
+    KOREAN
+    KURDISH
+    LAOTIAN
+    LATVIAN
+    LITHUANIAN
+    MACEDONIAN
+    MALAY
+    MALTESE
+    NEPALI
+    NORWEGIAN
+    POLISH
+    PORTUGUESE
+    ROMANIAN
+    RUSSIAN
+    SCOTS
+    SERBIAN
+    SLOVAK
+    SLOVENIAN
+    SOMALI
+    SPANISH
+    SWEDISH
+    SWAHILI
+    TIBETAN
+    TURKISH
+    UKRAINIAN
+    UZBEK
+    VIETNAMESE
+    WELSH
 }
 
 enum ProgrammingLang <<enumeration>>{
-PYTHON
-C
-CPP
-CSHARP
-JAVA
-GDSCRIPT
-PHP
-HTML
-CSS
-JS
-RUBY
-PERL
-RUST
-TYPESCRIPT
-SQL
+    PYTHON
+    C
+    CPP
+    CSHARP
+    JAVA
+    GDSCRIPT
+    PHP
+    HTML
+    CSS
+    JS
+    RUBY
+    PERL
+    RUST
+    TYPESCRIPT
+    SQL
 }
 
 enum Scholarship <<enumeration>>{
-BASIC
-GRADE
-MASTER
-PHD
+    BASIC
+    GRADE
+    MASTER
+    PHD
 }
 
 enum ScientistSpec <<enumeration>>{
-ECOLOGY
-BIOLOGY
-CHEMISTRY
-MATHEMATICIAN
-MEDICAL_SCI
-PSYCHOLOGY
-GEOLOGY
-PALEONTOLOGY
-STATISTIC
-PHARMACOLOGY
-NEUROSCIENCE
-COMPUTER_SCI
-OCEANOGRAPHY
-MICROBIOLOGY
-PHYSICS
-FORENSIC
+    ECOLOGY
+    BIOLOGY
+    CHEMISTRY
+    MATHEMATICIAN
+    MEDICAL_SCI
+    PSYCHOLOGY
+    GEOLOGY
+    PALEONTOLOGY
+    STATISTIC
+    PHARMACOLOGY
+    NEUROSCIENCE
+    COMPUTER_SCI
+    OCEANOGRAPHY
+    MICROBIOLOGY
+    PHYSICS
+    FORENSIC
 }
 
 enum Specialty <<enumeration>>{
-ENGINEER
-DEVELOPER
-DOCTOR
-TRANSLATOR
-DESIGNER
-ARCHITECT
-SCIENTIST
-ECONOMIST
-ACCOUNTANT
-MANAGER
-CONSULTANT
-GUARD
+    ENGINEER
+    DEVELOPER
+    DOCTOR
+    TRANSLATOR
+    DESIGNER
+    ARCHITECT
+    SCIENTIST
+    ECONOMIST
+    ACCOUNTANT
+    MANAGER
+    CONSULTANT
+    GUARD
 }
 
 enum  Status <<enumeration>>{
-OPEN
-APPLICATION_ACTIVE
-CLOSED
+    OPEN
+    APPLICATION_ACTIVE
+    CLOSED
 }
 
-Candidate"1" --> "1"Gender
+Candidate"1      " --> "1"Gender
 Candidate"1" --> "1"Scholarship
 Candidate"1" --> "     1"Specialty
-Candidate"1" --> "1 "Branch
+Candidate"1   " --> "1 "Branch
 InfoHealth"1  "--> "1 "Branch
 InfoTourism"1  " --> "1 "Branch
 JobPost"1 " --> "1  "Branch
@@ -436,7 +440,7 @@ InfoDeveloper"1" --> "1..* "ProgrammingLang
 InfoTranslator"1" -->"1..* "Languages
 InfoScientist"1" -->"1..* "ScientistSpec
 
-InfoDoctor"1" --> "1"DoctorSpec
+InfoDoctor"1" --> "1 "DoctorSpec
 InfoEngineer"1" --> "1 "EngineerSpec
 Agency"1 " *--"1..*"Model
 Agency "1" *-- "   1" Agency

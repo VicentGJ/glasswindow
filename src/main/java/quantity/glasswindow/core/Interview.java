@@ -4,11 +4,11 @@ import java.util.Date;
 
 public class Interview extends Model {
     private Date date;
-    private Candidate candidate;
-    private Company company;
-    private JobPost jobPost;
+    private String candidate;
+    private String company;
+    private String jobPost;
 
-    public Interview(String id, Date date, Candidate candidate, Company company, JobPost jobPost) {
+    public Interview(String id, Date date, String candidate, String company, String jobPost) {
         super(id);
         this.setDate(date);
         this.setCandidate(candidate);
@@ -24,27 +24,27 @@ public class Interview extends Model {
         this.date = date;
     }
 
-    public Candidate getCandidate() {
+    public String getCandidate() {
         return candidate;
     }
 
-    public void setCandidate(Candidate candidate) {
+    public void setCandidate(String candidate) {
         this.candidate = candidate;
     }
 
-    public Company getCompany() {
+    public String getCompany() {
         return company;
     }
 
-    public void setCompany(Company company) {
+    public void setCompany(String company) {
         this.company = company;
     }
 
-    public JobPost getJobPost() {
+    public String getJobPost() {
         return jobPost;
     }
 
-    public void setJobPost(JobPost jobPost) {
+    public void setJobPost(String jobPost) {
         this.jobPost = jobPost;
     }
 }

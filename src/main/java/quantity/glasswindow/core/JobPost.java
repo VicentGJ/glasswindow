@@ -7,13 +7,13 @@ public class JobPost extends Model implements ICascadeDelete {
     private float salary;
     private Status status;
     private String description;
-    private Company company;
-    private ArrayList<Interview> interviewList;
+    private String company;
+    private ArrayList<String> interviewList;
     private Scholarship scholarship;
     private Specialty specialty;
 
     public JobPost(String id, Branch branch, float salary, Status status, String description,
-                   Company company, ArrayList<Interview> interviewList, Scholarship scholarship,
+                   String company, ArrayList<String> interviewList, Scholarship scholarship,
                     Specialty specialty) {
         super(id);
         this.setBranch(branch);
@@ -85,23 +85,23 @@ public class JobPost extends Model implements ICascadeDelete {
         this.description = description;
     }
 
-    public Company getCompany() {
+    public String getCompany() {
         return company;
     }
 
-    public void setCompany(Company company) {
+    public void setCompany(String company) {
         this.company = company;
     }
 
-    public ArrayList<Interview> getInterviewList() {
+    public ArrayList<String> getInterviewList() {
         return interviewList;
     }
 
-    public void setInterviewList(ArrayList<Interview> interviewList) {
+    public void setInterviewList(ArrayList<String> interviewList) {
         this.interviewList = interviewList;
     }
 
-    public void addInterview(Interview interview){
+    public void addInterview(String interview){
         this.interviewList.add(interview);
     }
 }

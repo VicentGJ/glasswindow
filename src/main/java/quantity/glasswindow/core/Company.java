@@ -7,9 +7,9 @@ public class Company extends Model implements ICascadeDelete {
     private String address;
     private ArrayList<String> phoneList;
     private Branch sector;
-    private ArrayList<JobPost> jobPostList;
+    private ArrayList<String> jobPostList;
 
-    public Company(String id, String name, String address, ArrayList<String> phoneList, Branch sector, ArrayList<JobPost> jobPostList) {
+    public Company(String id, String name, String address, ArrayList<String> phoneList, Branch sector, ArrayList<String> jobPostList) {
         super(id);
         this.setAddress(address);
         this.setName(name);
@@ -21,10 +21,11 @@ public class Company extends Model implements ICascadeDelete {
     @Override
     public void deleteNode() {
         try {
-            for (JobPost jobPost : jobPostList) {
-                jobPost.deleteNode();
+            Agency a = Agency.create();
+            for (String jobPost : jobPostList) {
+                ((JobPost) a.getModelWithID(jobPost)).deleteNode();
             }
-            Agency.create().deleteObject(this.id);
+            a.deleteObject(this.id);
         }
         catch (Exception e) {
             System.exit(1);
@@ -63,14 +64,14 @@ public class Company extends Model implements ICascadeDelete {
         this.sector = sector;
     }
 
-    public ArrayList<JobPost> getJobPostList() {
+    public ArrayList<String> getJobPostList() {
         return jobPostList;
     }
 
-    public void addJobPostToList(JobPost jobPost){
+    public void addJobPostToList(String jobPost){
         jobPostList.add(jobPost);
     }
-    public void setJobPostList(ArrayList<JobPost> jobPostList) {
+    public void setJobPostList(ArrayList<String> jobPostList) {
         this.jobPostList = jobPostList;
     }
 }
