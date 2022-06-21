@@ -18,6 +18,8 @@ public abstract class Model{
     }
 
     public void setId(String id) throws InvalidIDException {
+        if(Agency.create().modelExists(id))
+            throw new InvalidIDException("Cant create "+getType()+" with ID:" + id + "because it already exists.");
         this.id = id;
     }
 }

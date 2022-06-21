@@ -24,7 +24,8 @@ class Agency implements IDataBase{
     +getModels():ArrayList<Model>
     +getObject(String, String[]):Model
     +deleteObject(String):void
-    +insertObject(Model object):void
+    +insertObject(Model):void
+    +modelExists(String):boolean
     +getObjectList(String, OrderBy, HashMap<String, Object>):<ArrayList<Model>
     +gerObjectListIDs(String,OrderBy, HashMap<String, Object>):ArrayList<String>
     -order_ID(String):ArrayList<Model>
