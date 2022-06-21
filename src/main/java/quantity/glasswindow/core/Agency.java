@@ -1,5 +1,7 @@
 package quantity.glasswindow.core;
 
+import quantity.glasswindow.core.customExceptions.InvalidIDException;
+
 import java.security.KeyException;
 import java.time.Month;
 import java.time.Year;
@@ -84,7 +86,13 @@ public class Agency implements IDataBase {
         }
         return filteredList;
     }
-
+    public ArrayList<String> gerObjectListIDs(String type, OrderBy order, HashMap<String, Object> filter){
+        ArrayList<Model> filtered = getObjectList(type,order,filter);
+        ArrayList<String> filteredID = new ArrayList<>();
+        for(Model m : filtered)
+            filteredID.add(m.getId());
+        return filteredID;
+    }
     private ArrayList<Model> order_ID(String type) throws Exception {
         ArrayList<String> ids = new ArrayList<>();
         ArrayList<Model> result = new ArrayList<>();
@@ -319,7 +327,6 @@ public class Agency implements IDataBase {
                     result.set(index, temp);
                 }
                 else result.get(index).add(interview);
-
             }
         }
         catch (Exception e) {
@@ -358,7 +365,7 @@ public class Agency implements IDataBase {
         }
         return null;
      }
-    public void initTestData() {
+    public void initTestData() throws InvalidIDException {
         ArrayList<Model> models = new ArrayList<>();
         //candidates
         Candidate candidate1 = new Candidate("candidate-001","Bruce Banner", Gender.MASCULINE,"New York",

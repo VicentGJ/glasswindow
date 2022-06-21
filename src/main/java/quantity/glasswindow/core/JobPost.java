@@ -1,5 +1,7 @@
 package quantity.glasswindow.core;
 
+import quantity.glasswindow.core.customExceptions.InvalidIDException;
+
 import java.util.ArrayList;
 
 public class JobPost extends Model implements ICascadeDelete {
@@ -14,7 +16,7 @@ public class JobPost extends Model implements ICascadeDelete {
 
     public JobPost(String id, Branch branch, float salary, Status status, String description,
                    String company, ArrayList<String> interviewList, Scholarship scholarship,
-                    Specialty specialty) {
+                    Specialty specialty) throws InvalidIDException {
         super(id);
         this.setBranch(branch);
         this.setSalary(salary);
