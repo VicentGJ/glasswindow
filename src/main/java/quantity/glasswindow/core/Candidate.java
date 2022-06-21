@@ -2,7 +2,7 @@ package quantity.glasswindow.core;
 
 import java.util.ArrayList;
 import java.util.regex.*;
-
+import quantity.glasswindow.core.customExceptions.InvalidIDException;
 public class Candidate extends Model {
     private String name;
     private Gender gender;
@@ -13,7 +13,7 @@ public class Candidate extends Model {
     private Branch sector;
     private ArrayList<IAdditionalInfo> addtionalInfo;
     public Candidate(String id, String name, Gender gender, String address, String phone, Scholarship scholarship,
-                     Specialty specialty, Branch sector) {
+                     Specialty specialty, Branch sector) throws InvalidIDException {
         super(id);
         this.setAddress(address);
         this.setName(name);
@@ -86,14 +86,17 @@ public class Candidate extends Model {
     }
 
     @Override
-    public void setId(String id) {
+    public void setId(String id) throws InvalidIDException {
         boolean onlyNumbers = Pattern.matches("\\d",id);
-        if(id.length() == 11 && onlyNumbers){
-            boolean dateValid = dateValidationID(id.substring(0,6));//[0-1]Year, [2-3]Month, [4-5]Day, [6]Century
-            if(dateValid){
-                boolean genderValid = genderValidateID(id.charAt(9));
-            }
-        }
+        if(onlyNumbers) {
+            if(id.length() == 11){
+                boolean dateValid = dateValidationID(id.substring(0, 6));//[0-1]Year, [2-3]Month, [4-5]Day, [6]Century
+                if (dateValid) {
+                    boolean genderValid = genderValidateID(id.charAt(9));
+                    if(!genderValid) throw new InvalidIDException(id + " Is not a valid ID: error during validation of digit[9]");
+                } else throw new InvalidIDException(id + " Is not a valid ID: error during validation of digit [1-7]");
+            }else throw new InvalidIDException(id + " Is not a valid ID: must have 11 digits");
+        }else throw new InvalidIDException(id + " Is not a valid ID: must only contain numbers");
     }
 
     private boolean dateValidationID(String idDate){
@@ -131,6 +134,6 @@ public class Candidate extends Model {
     private boolean genderValidateID(char idGender){
         int gender = Integer.parseInt(String.valueOf(idGender));
         Gender idG = gender % 2 == 0? Gender.MASCULINE : Gender.FEMININE;
-        return this.getGender().equals(idG) || this.getGender() == null;
+        return this.getGender() == idG || this.getGender() == null;
     }
 }

@@ -1,5 +1,7 @@
 package quantity.glasswindow.core;
 
+import quantity.glasswindow.core.customExceptions.InvalidIDException;
+
 import java.util.Date;
 
 public class Interview extends Model {
@@ -8,7 +10,7 @@ public class Interview extends Model {
     private String company;
     private String jobPost;
 
-    public Interview(String id, Date date, String candidate, String company, String jobPost) {
+    public Interview(String id, Date date, String candidate, String company, String jobPost) throws InvalidIDException {
         super(id);
         this.setDate(date);
         this.setCandidate(candidate);

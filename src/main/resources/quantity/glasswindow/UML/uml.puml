@@ -25,10 +25,11 @@ class Agency implements IDataBase{
     +getObject(String, String[]):Model
     +deleteObject(String):void
     +insertObject(Model object):void
-    +getObjectList(String, OrderBy, HashMap<String, Object>)
+    +getObjectList(String, OrderBy, HashMap<String, Object>):<ArrayList<Model>
+    +gerObjectListIDs(String,OrderBy, HashMap<String, Object>):ArrayList<String>
     -order_ID(String):ArrayList<Model>
     -order_creationDate(String):ArrayList<Model>
-    -filterOrderedList(HashMap<String, Object>, ArrayList<Model>)
+    -filterOrderedList(HashMap<String, Object>, ArrayList<Model>):<ArrayList<Model>
 }
 
 class Model<<abstract>>{
