@@ -2,6 +2,7 @@ package quantity.glasswindow.core;
 
 import quantity.glasswindow.core.customExceptions.IdNotFoundException;
 import quantity.glasswindow.core.customExceptions.InvalidIDException;
+import quantity.glasswindow.core.customExceptions.InvalidSalaryException;
 
 import java.util.ArrayList;
 
@@ -17,7 +18,7 @@ public class JobPost extends Model implements ICascadeDelete {
 
     public JobPost(String id, Branch branch, float salary, Status status, String description,
                    String company, ArrayList<String> interviewList, Scholarship scholarship,
-                    Specialty specialty) throws InvalidIDException {
+                    Specialty specialty) throws InvalidIDException, InvalidSalaryException {
         super(id);
         this.setBranch(branch);
         this.setSalary(salary);
@@ -68,8 +69,10 @@ public class JobPost extends Model implements ICascadeDelete {
         return salary;
     }
 
-    public void setSalary(float salary) {
-        this.salary = salary;
+    public void setSalary(float salary) throws InvalidSalaryException {
+        if(salary < 0)
+            this.salary = salary;
+        else throw new InvalidSalaryException("Invalid salary: " + salary);
     }
 
     public Status getStatus() {

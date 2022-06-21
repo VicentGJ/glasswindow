@@ -3,6 +3,8 @@ package quantity.glasswindow.core;
 import java.util.ArrayList;
 import java.util.regex.*;
 import quantity.glasswindow.core.customExceptions.InvalidIDException;
+import quantity.glasswindow.core.customExceptions.InvalidNameException;
+
 public class Candidate extends Model {
     private String name;
     private Gender gender;
@@ -13,7 +15,7 @@ public class Candidate extends Model {
     private Branch sector;
     private ArrayList<IAdditionalInfo> addtionalInfo;
     public Candidate(String id, String name, Gender gender, String address, String phone, Scholarship scholarship,
-                     Specialty specialty, Branch sector) throws InvalidIDException {
+                     Specialty specialty, Branch sector) throws InvalidIDException, InvalidNameException {
         super(id);
         this.setAddress(address);
         this.setName(name);
@@ -29,8 +31,15 @@ public class Candidate extends Model {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String name) throws InvalidNameException {
+      /*StringUtils.isBlank(null)      = true
+        StringUtils.isBlank("")        = true
+        StringUtils.isBlank(" ")       = true
+        StringUtils.isBlank("bob")     = false
+        StringUtils.isBlank("  bob  ") = false*/
+        if(!name.isBlank())
+            this.name = name;
+        else throw new InvalidNameException("Invalid name for Candidate: name cant be empty or be only spaces");
     }
 
     public Gender getGender() {
