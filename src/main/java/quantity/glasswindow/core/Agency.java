@@ -2,6 +2,7 @@ package quantity.glasswindow.core;
 
 import quantity.glasswindow.core.customExceptions.IdNotFoundException;
 import quantity.glasswindow.core.customExceptions.IncorrectTypeException;
+import quantity.glasswindow.core.customExceptions.InvalidDateException;
 import quantity.glasswindow.core.customExceptions.InvalidIDException;
 
 import java.security.KeyException;
@@ -368,7 +369,7 @@ public class Agency implements IDataBase {
         }
         return null;
      }
-    public void initTestData() throws InvalidIDException {
+    public void initTestData() throws InvalidIDException, InvalidDateException {
         ArrayList<Model> models = new ArrayList<>();
         //candidates
         Candidate candidate1 = new Candidate("candidate-001","Bruce Banner", Gender.MASCULINE,"New York",
