@@ -1,6 +1,7 @@
 package quantity.glasswindow;
 
 import quantity.glasswindow.core.*;
+import quantity.glasswindow.core.customExceptions.InvalidDateException;
 import quantity.glasswindow.core.customExceptions.InvalidIDException;
 
 import java.time.Month;
@@ -13,7 +14,7 @@ public class Main {
         Agency agency = Agency.create();
         try {
             agency.initTestData();
-        }catch (InvalidIDException e){
+        }catch (InvalidIDException | InvalidDateException e){
             System.out.println(e.getMessage());
             System.exit(1);
         }
