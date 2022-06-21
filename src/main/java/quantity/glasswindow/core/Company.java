@@ -1,5 +1,6 @@
 package quantity.glasswindow.core;
 
+import quantity.glasswindow.core.customExceptions.IdNotFoundException;
 import quantity.glasswindow.core.customExceptions.InvalidIDException;
 
 import java.util.ArrayList;
@@ -30,7 +31,7 @@ public class Company extends Model implements ICascadeDelete {
             }
             a.deleteObject(this.id);
         }
-        catch (Exception e) {
+        catch (IdNotFoundException e) {
             System.exit(1);
         }
     }
