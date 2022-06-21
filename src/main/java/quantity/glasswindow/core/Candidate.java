@@ -1,7 +1,8 @@
 package quantity.glasswindow.core;
 
 import java.util.ArrayList;
-
+import java.util.regex.*;
+import quantity.glasswindow.core.customExceptions.InvalidIDException;
 public class Candidate extends Model {
     private String name;
     private Gender gender;
@@ -10,10 +11,9 @@ public class Candidate extends Model {
     private Scholarship scholarship;
     private Specialty specialty;
     private Branch sector;
-
     private ArrayList<IAdditionalInfo> addtionalInfo;
     public Candidate(String id, String name, Gender gender, String address, String phone, Scholarship scholarship,
-                     Specialty specialty, Branch sector) {
+                     Specialty specialty, Branch sector) throws InvalidIDException {
         super(id);
         this.setAddress(address);
         this.setName(name);
@@ -83,5 +83,57 @@ public class Candidate extends Model {
 
     public ArrayList<IAdditionalInfo> getAddtionalInfo() {
         return addtionalInfo;
+    }
+
+    @Override
+    public void setId(String id) throws InvalidIDException {
+        boolean onlyNumbers = Pattern.matches("\\d",id);
+        if(onlyNumbers) {
+            if(id.length() == 11){
+                boolean dateValid = dateValidationID(id.substring(0, 6));//[0-1]Year, [2-3]Month, [4-5]Day, [6]Century
+                if (dateValid) {
+                    boolean genderValid = genderValidateID(id.charAt(9));
+                    if(!genderValid) throw new InvalidIDException(id + " Is not a valid ID: error during validation of digit[9]");
+                } else throw new InvalidIDException(id + " Is not a valid ID: error during validation of digit [1-7]");
+            }else throw new InvalidIDException(id + " Is not a valid ID: must have 11 digits");
+        }else throw new InvalidIDException(id + " Is not a valid ID: must only contain numbers");
+    }
+
+    private boolean dateValidationID(String idDate){
+        boolean isValidYear = true;//no way to validate this with 2 digits
+        boolean isValidMonth = true;
+        boolean isValidDay = false;
+        boolean isValidCentury = true;//depends on year, so no way to validate this
+        //int year = Integer.parseInt(idDate.substring(0,1));
+        int month = Integer.parseInt(idDate.substring(2,3));
+        int day = Integer.parseInt(idDate.substring(4,5));
+        //int century = Integer.parseInt(String.valueOf(idDate.charAt(6)));
+        if(day > 0)
+            switch (month){
+                case 1:case 3:case 5:case 7:
+                case 8:case 10:case 12:
+                    if(day <= 31)
+                        isValidDay = true;
+                    break;
+                case 4:case 6:
+                case 9:case 11:
+                    if(day <= 30)
+                        isValidDay = true;
+                    break;
+                case 2:
+                    if(day <= 29)
+                        isValidDay = true;
+                    break;
+                default:
+                    isValidMonth = false;
+                    break;
+            }
+        return (isValidYear && isValidMonth && isValidDay && isValidCentury);
+    }
+
+    private boolean genderValidateID(char idGender){
+        int gender = Integer.parseInt(String.valueOf(idGender));
+        Gender idG = gender % 2 == 0? Gender.MASCULINE : Gender.FEMININE;
+        return this.getGender() == idG || this.getGender() == null;
     }
 }
