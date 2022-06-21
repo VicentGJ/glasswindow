@@ -96,16 +96,22 @@ public class Candidate extends Model {
 
     @Override
     public void setId(String id) throws InvalidIDException {
-        boolean onlyNumbers = Pattern.matches("\\d",id);
-        if(onlyNumbers) {
-            if(id.length() == 11){
-                boolean dateValid = dateValidationID(id.substring(0, 6));//[0-1]Year, [2-3]Month, [4-5]Day, [6]Century
-                if (dateValid) {
-                    boolean genderValid = genderValidateID(id.charAt(9));
-                    if(!genderValid) throw new InvalidIDException(id + " Is not a valid ID: error during validation of digit[9]");
-                } else throw new InvalidIDException(id + " Is not a valid ID: error during validation of digit [1-7]");
-            }else throw new InvalidIDException(id + " Is not a valid ID: must have 11 digits");
-        }else throw new InvalidIDException(id + " Is not a valid ID: must only contain numbers");
+        if(Agency.create().modelExists(id))
+            throw new InvalidIDException("Cant create Candidate with ID:" + id + "because it already exists.");
+        else {
+            boolean onlyNumbers = Pattern.matches("\\d", id);
+            if (onlyNumbers) {
+                if (id.length() == 11) {
+                    boolean dateValid = dateValidationID(id.substring(0, 6));//[0-1]Year, [2-3]Month, [4-5]Day, [6]Century
+                    if (dateValid) {
+                        boolean genderValid = genderValidateID(id.charAt(9));
+                        if (!genderValid)
+                            throw new InvalidIDException(id + " Is not a valid ID: error during validation of digit[9]");
+                    } else
+                        throw new InvalidIDException(id + " Is not a valid ID: error during validation of digit [1-7]");
+                } else throw new InvalidIDException(id + " Is not a valid ID: must have 11 digits");
+            } else throw new InvalidIDException(id + " Is not a valid ID: must only contain numbers");
+        }
     }
 
     private boolean dateValidationID(String idDate){

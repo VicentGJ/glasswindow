@@ -365,7 +365,12 @@ public class Agency implements IDataBase {
         }
         return null;
      }
-
+    public boolean modelExists(String id){
+        for(Model m : models)
+            if(m.getId().equals(id))
+                return true;
+        return false;
+    }
     public void initTestData()
             throws InvalidIDException, InvalidDateException, InvalidNameException, InvalidSalaryException {
         ArrayList<Model> models = new ArrayList<>();
