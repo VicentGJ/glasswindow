@@ -16,6 +16,7 @@ public abstract class Model{
     public String getType() {
         return this.getClass().getSimpleName();
     }
+
     public void setId(String id) throws InvalidIDException {
         this.id = id;
     }

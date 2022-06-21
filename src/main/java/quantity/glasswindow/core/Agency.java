@@ -1,5 +1,7 @@
 package quantity.glasswindow.core;
 
+import quantity.glasswindow.core.customExceptions.IdNotFoundException;
+import quantity.glasswindow.core.customExceptions.IncorrectTypeException;
 import quantity.glasswindow.core.customExceptions.InvalidIDException;
 
 import java.security.KeyException;
@@ -34,7 +36,7 @@ public class Agency implements IDataBase {
 
     //from interface
     @Override
-    public Model getObject(String id) throws Exception {
+    public Model getObject(String id) throws IdNotFoundException {
         int i = 0;
         while (i < models.size()) {
             Model current = models.get(i);
@@ -42,12 +44,12 @@ public class Agency implements IDataBase {
                 return current;
             i++;
         }
-        throw new Exception("ID not found");
+        throw new IdNotFoundException("ID not found");
 
     }
 
     @Override
-    public void deleteObject(String id) throws Exception {
+    public void deleteObject(String id) throws IdNotFoundException {
         int i = 0;
         boolean found = false;
         while (i < models.size() && !found) {
@@ -59,7 +61,7 @@ public class Agency implements IDataBase {
             i++;
         }
         if (!found)
-            throw new Exception("ID not found");
+            throw new IdNotFoundException("ID not found");
     }
 
     @Override
@@ -77,7 +79,7 @@ public class Agency implements IDataBase {
                 orderedList = order_ID(type);
             else if (order == OrderBy.CREATION_DATE)
                 orderedList = order_creationDate(type);
-        } catch (Exception e) {
+        } catch (IncorrectTypeException e) {
             System.out.println(e.getMessage());
         }
         try {
@@ -94,7 +96,7 @@ public class Agency implements IDataBase {
             filteredID.add(m.getId());
         return filteredID;
     }
-    private ArrayList<Model> order_ID(String type) throws Exception {
+    private ArrayList<Model> order_ID(String type) throws IncorrectTypeException {
         ArrayList<String> ids = new ArrayList<>();
         ArrayList<Model> result = new ArrayList<>();
         boolean typeCorrect = false;
@@ -109,11 +111,11 @@ public class Agency implements IDataBase {
                 for (Model m : models)
                     if (id.equals(m.getId()))
                         result.add(m);
-        } else throw new Exception("Incorrect type: \"" + type + "\".");
+        } else throw new IncorrectTypeException("Incorrect type: \"" + type + "\".");
         return result;
     }
 
-    private ArrayList<Model> order_creationDate(String type) throws Exception {//creation date is the same as the original list order
+    private ArrayList<Model> order_creationDate(String type) throws IncorrectTypeException {//creation date is the same as the original list order
         ArrayList<Model> result = new ArrayList<>();
         boolean typeCorrect = false;
         for (Model m : models)
@@ -122,7 +124,7 @@ public class Agency implements IDataBase {
                 typeCorrect = true;
             }
         if (!typeCorrect)
-            throw new Exception("Incorrect type: \"" + type + "\".");
+            throw new IncorrectTypeException("Incorrect type: \"" + type + "\".");
         return result;
     }
 
@@ -330,7 +332,7 @@ public class Agency implements IDataBase {
                 else result.get(index).add(interview);
             }
         }
-        catch (Exception e) {
+        catch (IdNotFoundException e) {
             System.out.println(e.getMessage());
             System.exit(1);
         }

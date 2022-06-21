@@ -1,5 +1,6 @@
 package quantity.glasswindow.core;
 
+import quantity.glasswindow.core.customExceptions.IdNotFoundException;
 import quantity.glasswindow.core.customExceptions.InvalidIDException;
 
 import java.util.ArrayList;
@@ -34,7 +35,7 @@ public class JobPost extends Model implements ICascadeDelete {
         try {
             agency.deleteObject(this.id);
         }
-        catch (Exception e) {
+        catch (IdNotFoundException e) {
             System.exit(1);
         }
     }
