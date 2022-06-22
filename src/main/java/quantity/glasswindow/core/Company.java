@@ -1,6 +1,9 @@
 package quantity.glasswindow.core;
 
+import quantity.glasswindow.core.customExceptions.DuplicatedIDException;
+import quantity.glasswindow.core.customExceptions.IdNotFoundException;
 import quantity.glasswindow.core.customExceptions.InvalidIDException;
+import quantity.glasswindow.core.customExceptions.InvalidNameException;
 
 import java.util.ArrayList;
 
@@ -12,7 +15,7 @@ public class Company extends Model implements ICascadeDelete {
     private ArrayList<String> jobPostList;
 
     public Company(String id, String name, String address, ArrayList<String> phoneList,
-                   Branch sector, ArrayList<String> jobPostList) throws InvalidIDException {
+                   Branch sector, ArrayList<String> jobPostList) throws InvalidIDException, InvalidNameException, DuplicatedIDException {
         super(id);
         this.setAddress(address);
         this.setName(name);
@@ -30,7 +33,7 @@ public class Company extends Model implements ICascadeDelete {
             }
             a.deleteObject(this.id);
         }
-        catch (Exception e) {
+        catch (IdNotFoundException e) {
             System.exit(1);
         }
     }
@@ -39,8 +42,10 @@ public class Company extends Model implements ICascadeDelete {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String name) throws InvalidNameException {
+        if(!name.isBlank())
+            this.name = name;
+        else throw new InvalidNameException("Invalid name for Company: name cant be empty");
     }
 
     public String getAddress() {

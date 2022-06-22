@@ -1,19 +1,18 @@
 package quantity.glasswindow;
 
 import quantity.glasswindow.core.*;
+import quantity.glasswindow.core.customExceptions.InvalidDateException;
 import quantity.glasswindow.core.customExceptions.InvalidIDException;
-
-import java.time.Month;
+import quantity.glasswindow.core.customExceptions.InvalidNameException;
+import quantity.glasswindow.core.customExceptions.InvalidSalaryException;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Objects;
 
 public class Main {
     public static void main(String[] args) {
         Agency agency = Agency.create();
         try {
             agency.initTestData();
-        }catch (InvalidIDException e){
+        }catch (InvalidIDException | InvalidDateException | InvalidNameException | InvalidSalaryException e){
             System.out.println(e.getMessage());
             System.exit(1);
         }
