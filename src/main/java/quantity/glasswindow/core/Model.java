@@ -1,11 +1,12 @@
 package quantity.glasswindow.core;
 
+import quantity.glasswindow.core.customExceptions.DuplicatedIDException;
 import quantity.glasswindow.core.customExceptions.InvalidIDException;
 
 public abstract class Model{
     protected String id;
 
-    public Model(String id) throws InvalidIDException {
+    public Model(String id) throws InvalidIDException, DuplicatedIDException {
         this.setId(id);
     }
 
@@ -17,9 +18,9 @@ public abstract class Model{
         return this.getClass().getSimpleName();
     }
 
-    public void setId(String id) throws InvalidIDException {
+    public void setId(String id) throws InvalidIDException, DuplicatedIDException {
         if(Agency.create().modelExists(id))
-            throw new InvalidIDException("Cant create "+getType()+" with ID:" + id + "because it already exists.");
+            throw new DuplicatedIDException(id);
         this.id = id;
     }
 }

@@ -42,7 +42,7 @@ public class Agency implements IDataBase {
                 return current;
             i++;
         }
-        throw new IdNotFoundException("ID not found");
+        throw new IdNotFoundException(id);
 
     }
 
@@ -59,7 +59,7 @@ public class Agency implements IDataBase {
             i++;
         }
         if (!found)
-            throw new IdNotFoundException("ID not found");
+            throw new IdNotFoundException(id);
     }
 
     @Override
@@ -108,7 +108,7 @@ public class Agency implements IDataBase {
                 for (Model m : models)
                     if (id.equals(m.getId()))
                         result.add(m);
-        } else throw new IncorrectTypeException("Incorrect type: \"" + type + "\".");
+        } else throw new IncorrectTypeException(type);
         return result;
     }
 
@@ -121,7 +121,7 @@ public class Agency implements IDataBase {
                 typeCorrect = true;
             }
         if (!typeCorrect)
-            throw new IncorrectTypeException("Incorrect type: \"" + type + "\".");
+            throw new IncorrectTypeException(type);
         return result;
     }
 
@@ -372,20 +372,20 @@ public class Agency implements IDataBase {
         return false;
     }
     public void initTestData()
-            throws InvalidIDException, InvalidDateException, InvalidNameException, InvalidSalaryException {
+            throws InvalidIDException, InvalidDateException, InvalidNameException, InvalidSalaryException, DuplicatedIDException {
         ArrayList<Model> models = new ArrayList<>();
         //candidates
-        Candidate candidate1 = new Candidate("candidate-001","Bruce Banner", Gender.MASCULINE,"New York",
+        Candidate candidate1 = new Candidate("010412667229","Bruce Banner", Gender.MASCULINE,"New York",
                 "05158899", Scholarship.PHD, Specialty.SCIENTIST, Branch.INDUSTRY);
-        Candidate candidate2 = new Candidate("candidate-002","Tonny Stark", Gender.MASCULINE,"New York",
+        Candidate candidate2 = new Candidate("01060568481","Tonny Stark", Gender.MASCULINE,"New York",
                 "05155229", Scholarship.PHD, Specialty.ECONOMIST,Branch.INDUSTRY);
-        Candidate candidate3 = new Candidate("candidate-003","Clark Kent", Gender.MASCULINE,"Kansas",
+        Candidate candidate3 = new Candidate("01060568482","Clark Kent", Gender.MASCULINE,"Kansas",
                 "33156899", Scholarship.BASIC, Specialty.ECONOMIST,Branch.SERVICES);
-        Candidate candidate4 = new Candidate("candidate-004","Bruce Wayne", Gender.MASCULINE,"Gotham",
+        Candidate candidate4 = new Candidate("01022068706","Bruce Wayne", Gender.MASCULINE,"Gotham",
                 "05675799", Scholarship.PHD, Specialty.ARCHITECT,Branch.INDUSTRY);
-        Candidate candidate5 = new Candidate("candidate-005","Carol Danvers", Gender.FEMININE, "Outer Space",
+        Candidate candidate5 = new Candidate("02061766497","Carol Danvers", Gender.FEMININE, "Outer Space",
                 "05133339", Scholarship.MASTER, Specialty.ENGINEER,Branch.TOURISM);
-        Candidate candidate6 = new Candidate("candidate-006","Felicia Hardy", Gender.FEMININE,"New York",
+        Candidate candidate6 = new Candidate("01091368466","Felicia Hardy", Gender.FEMININE,"New York",
                 "05158449", Scholarship.GRADE, Specialty.TRANSLATOR,Branch.TOURISM);
         //companies
         Company company1 = new Company("company-001","Last Quarter","Nebraska",
