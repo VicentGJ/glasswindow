@@ -1,25 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<VBox prefHeight="406.0" prefWidth="469.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="quantity.glasswindow.ui.CompanyEditController">
+<VBox prefHeight="406.0" prefWidth="469.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="quantity.glasswindow.ui.CompanyEditController">
    <children>
       <HBox alignment="CENTER" fillHeight="false" prefHeight="45.0" prefWidth="469.0">
          <children>
             <HBox alignment="CENTER" prefHeight="62.0" prefWidth="427.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CompanyName">
+                  <Text fx:id="companyName" strokeType="OUTSIDE" strokeWidth="0.0" text="CompanyName">
                      <font>
                         <Font size="22.0" />
                      </font>
@@ -49,7 +41,7 @@
                      </font>
                   </Label>
                   <Pane prefHeight="63.0" prefWidth="22.0" />
-                  <TextArea prefHeight="64.0" prefWidth="309.0" promptText="description" wrapText="true">
+                  <TextArea fx:id="description" prefHeight="64.0" prefWidth="309.0" promptText="description" wrapText="true">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
@@ -67,7 +59,7 @@
                      </font>
                   </Label>
                   <Pane prefHeight="49.0" prefWidth="50.0" />
-                  <TextArea prefHeight="50.0" prefWidth="307.0" promptText="address" wrapText="true">
+                  <TextArea fx:id="address" prefHeight="50.0" prefWidth="307.0" promptText="address" wrapText="true">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
@@ -85,7 +77,7 @@
                      </font>
                   </Label>
                   <Pane prefHeight="29.0" prefWidth="67.0" />
-                  <TextField prefHeight="29.0" prefWidth="305.0" promptText="phone" />
+                  <TextField fx:id="phone" prefHeight="29.0" prefWidth="305.0" promptText="phone" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="245.0">
@@ -96,7 +88,7 @@
                      </font>
                   </Label>
                   <Pane prefHeight="14.0" prefWidth="65.0" />
-                  <ComboBox prefWidth="150.0" promptText="Sectors" />
+                  <ComboBox fx:id="sectors" prefWidth="150.0" promptText="Sectors" />
                </children>
             </HBox>
          </children>
