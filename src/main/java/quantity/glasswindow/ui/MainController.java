@@ -10,18 +10,15 @@ public class MainController extends TransitionController implements Initializabl
 
     @FXML
     private ListView<String> mainList;
+    private Agency agency;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Agency agency = Agency.create();
+        this.agency = Agency.create();
         try {
-            ArrayList<Model> list = new ArrayList<>(agency.getObjectList("Company", OrderBy.ID, new HashMap<>()));
-
-            ArrayList<String> ids = new ArrayList<>();
-            for (Model i: list) {
-                ids.add(i.getId());
-            }
-            mainList.setItems(FXCollections.observableArrayList(ids));
+            this.agency.initTestData();
+            ArrayList<String> list = new ArrayList<>(agency.gerObjectListIDs("Company", OrderBy.ID, new HashMap<>()));
+            mainList.setItems(FXCollections.observableArrayList(list));
             System.out.println(this.mainList.getItems());
         }
         catch (Exception e) {
