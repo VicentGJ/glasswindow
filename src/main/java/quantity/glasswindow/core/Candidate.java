@@ -2,6 +2,7 @@ package quantity.glasswindow.core;
 
 import java.util.ArrayList;
 import java.util.regex.*;
+import quantity.glasswindow.core.customExceptions.DuplicatedIDException;
 import quantity.glasswindow.core.customExceptions.InvalidIDException;
 import quantity.glasswindow.core.customExceptions.InvalidNameException;
 
@@ -15,7 +16,7 @@ public class Candidate extends Model {
     private Branch sector;
     private ArrayList<IAdditionalInfo> addtionalInfo;
     public Candidate(String id, String name, Gender gender, String address, String phone, Scholarship scholarship,
-                     Specialty specialty, Branch sector) throws InvalidIDException, InvalidNameException {
+                     Specialty specialty, Branch sector) throws InvalidIDException, InvalidNameException, DuplicatedIDException {
         super(id);
         this.setAddress(address);
         this.setName(name);
@@ -39,7 +40,7 @@ public class Candidate extends Model {
         StringUtils.isBlank("  bob  ") = false*/
         if(!name.isBlank())
             this.name = name;
-        else throw new InvalidNameException("Invalid name for Candidate: name cant be empty or be only spaces");
+        else throw new InvalidNameException(getType());
     }
 
     public Gender getGender() {
@@ -94,10 +95,14 @@ public class Candidate extends Model {
         return addtionalInfo;
     }
 
+    public void addAdditionalInfo(IAdditionalInfo info){
+        this.addtionalInfo.add(info);
+    }
+
     @Override
-    public void setId(String id) throws InvalidIDException {
+    public void setId(String id) throws InvalidIDException, DuplicatedIDException {
         if(Agency.create().modelExists(id))
-            throw new InvalidIDException("Cant create Candidate with ID:" + id + "because it already exists.");
+            throw new DuplicatedIDException(id);
         else {
             boolean onlyNumbers = Pattern.matches("\\d", id);
             if (onlyNumbers) {
@@ -106,11 +111,11 @@ public class Candidate extends Model {
                     if (dateValid) {
                         boolean genderValid = genderValidateID(id.charAt(9));
                         if (!genderValid)
-                            throw new InvalidIDException(id + " Is not a valid ID: error during validation of digit[9]");
+                            throw new InvalidIDException(id, "Error during validation of digit 10");
                     } else
-                        throw new InvalidIDException(id + " Is not a valid ID: error during validation of digit [1-7]");
-                } else throw new InvalidIDException(id + " Is not a valid ID: must have 11 digits");
-            } else throw new InvalidIDException(id + " Is not a valid ID: must only contain numbers");
+                        throw new InvalidIDException(id, "Error during validation of digits 1-7");
+                } else throw new InvalidIDException(id, "Error during validation of ID length, must be 11 digits");
+            } else throw new InvalidIDException(id, "Error during validation of ID: must be only numbers");
         }
     }
 

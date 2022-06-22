@@ -1,5 +1,6 @@
 package quantity.glasswindow.core;
 
+import quantity.glasswindow.core.customExceptions.DuplicatedIDException;
 import quantity.glasswindow.core.customExceptions.IdNotFoundException;
 import quantity.glasswindow.core.customExceptions.InvalidIDException;
 import quantity.glasswindow.core.customExceptions.InvalidSalaryException;
@@ -18,7 +19,7 @@ public class JobPost extends Model implements ICascadeDelete {
 
     public JobPost(String id, Branch branch, float salary, Status status, String description,
                    String company, ArrayList<String> interviewList, Scholarship scholarship,
-                    Specialty specialty) throws InvalidIDException, InvalidSalaryException {
+                    Specialty specialty) throws InvalidIDException, InvalidSalaryException, DuplicatedIDException {
         super(id);
         this.setBranch(branch);
         this.setSalary(salary);
@@ -72,7 +73,7 @@ public class JobPost extends Model implements ICascadeDelete {
     public void setSalary(float salary) throws InvalidSalaryException {
         if(salary < 0)
             this.salary = salary;
-        else throw new InvalidSalaryException("Invalid salary: " + salary);
+        else throw new InvalidSalaryException(salary);
     }
 
     public Status getStatus() {

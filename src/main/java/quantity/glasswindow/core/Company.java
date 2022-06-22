@@ -1,5 +1,6 @@
 package quantity.glasswindow.core;
 
+import quantity.glasswindow.core.customExceptions.DuplicatedIDException;
 import quantity.glasswindow.core.customExceptions.IdNotFoundException;
 import quantity.glasswindow.core.customExceptions.InvalidIDException;
 import quantity.glasswindow.core.customExceptions.InvalidNameException;
@@ -14,7 +15,7 @@ public class Company extends Model implements ICascadeDelete {
     private ArrayList<String> jobPostList;
 
     public Company(String id, String name, String address, ArrayList<String> phoneList,
-                   Branch sector, ArrayList<String> jobPostList) throws InvalidIDException, InvalidNameException {
+                   Branch sector, ArrayList<String> jobPostList) throws InvalidIDException, InvalidNameException, DuplicatedIDException {
         super(id);
         this.setAddress(address);
         this.setName(name);
