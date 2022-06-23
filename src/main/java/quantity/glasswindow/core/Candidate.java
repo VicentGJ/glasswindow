@@ -6,6 +6,10 @@ import quantity.glasswindow.core.customExceptions.DuplicatedIDException;
 import quantity.glasswindow.core.customExceptions.InvalidIDException;
 import quantity.glasswindow.core.customExceptions.InvalidNameException;
 import quantity.glasswindow.core.customExceptions.InvalidPhoneException;
+import quantity.glasswindow.core.enumerations.Branch;
+import quantity.glasswindow.core.enumerations.Gender;
+import quantity.glasswindow.core.enumerations.Scholarship;
+import quantity.glasswindow.core.enumerations.Specialty;
 
 public class Candidate extends Model {
     private String name;

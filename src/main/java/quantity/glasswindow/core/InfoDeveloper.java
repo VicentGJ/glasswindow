@@ -1,5 +1,8 @@
 package quantity.glasswindow.core;
 
+import quantity.glasswindow.core.enumerations.ProgrammingLang;
+import quantity.glasswindow.core.enumerations.Specialty;
+
 import java.util.ArrayList;
 
 public class InfoDeveloper implements IAdditionalInfo{

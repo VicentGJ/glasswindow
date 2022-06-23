@@ -4,6 +4,10 @@ import quantity.glasswindow.core.customExceptions.DuplicatedIDException;
 import quantity.glasswindow.core.customExceptions.IdNotFoundException;
 import quantity.glasswindow.core.customExceptions.InvalidIDException;
 import quantity.glasswindow.core.customExceptions.InvalidSalaryException;
+import quantity.glasswindow.core.enumerations.Branch;
+import quantity.glasswindow.core.enumerations.Scholarship;
+import quantity.glasswindow.core.enumerations.Specialty;
+import quantity.glasswindow.core.enumerations.Status;
 
 import java.util.ArrayList;
 
