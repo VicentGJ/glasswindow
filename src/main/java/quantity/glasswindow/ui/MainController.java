@@ -1,17 +1,13 @@
 package quantity.glasswindow.ui;
 
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableArray;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import quantity.glasswindow.core.Agency;
-import quantity.glasswindow.core.Company;
-import quantity.glasswindow.core.Model;
-import quantity.glasswindow.core.OrderBy;
+import quantity.glasswindow.core.enumerations.OrderBy;
 import quantity.glasswindow.utils.WindowLoader;
 
 import java.io.IOException;
