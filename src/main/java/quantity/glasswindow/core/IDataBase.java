@@ -1,5 +1,7 @@
 package quantity.glasswindow.core;
 
+import quantity.glasswindow.core.enumerations.OrderBy;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 

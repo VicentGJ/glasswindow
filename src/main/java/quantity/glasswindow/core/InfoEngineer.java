@@ -1,5 +1,8 @@
 package quantity.glasswindow.core;
 
+import quantity.glasswindow.core.enumerations.EngineerSpec;
+import quantity.glasswindow.core.enumerations.Specialty;
+
 public class InfoEngineer implements IAdditionalInfo{
     private EngineerSpec specialization;
 

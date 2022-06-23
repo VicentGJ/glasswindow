@@ -1,5 +1,7 @@
 package quantity.glasswindow.core;
 
+import quantity.glasswindow.core.enumerations.Branch;
+
 public class InfoTourism implements IAdditionalInfo{
     private boolean hasLicence;
 

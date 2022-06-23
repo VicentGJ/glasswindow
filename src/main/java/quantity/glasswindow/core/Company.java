@@ -1,6 +1,7 @@
 package quantity.glasswindow.core;
 
 import quantity.glasswindow.core.customExceptions.*;
+import quantity.glasswindow.core.enumerations.Branch;
 
 import java.util.ArrayList;
 

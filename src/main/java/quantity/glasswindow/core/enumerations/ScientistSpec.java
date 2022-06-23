@@ -1,4 +1,4 @@
-package quantity.glasswindow.core;
+package quantity.glasswindow.core.enumerations;
 
 public enum ScientistSpec {
     ECOLOGY,

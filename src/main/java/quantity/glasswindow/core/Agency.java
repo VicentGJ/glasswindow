@@ -1,6 +1,7 @@
 package quantity.glasswindow.core;
 
 import quantity.glasswindow.core.customExceptions.*;
+import quantity.glasswindow.core.enumerations.*;
 
 import java.security.KeyException;
 import java.time.Month;
