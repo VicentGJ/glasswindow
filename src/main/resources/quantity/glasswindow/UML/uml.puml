@@ -451,6 +451,6 @@ InfoScientist"1" -->"1..* "ScientistSpec
 InfoDoctor"1" --> "1 "DoctorSpec
 InfoEngineer"1" --> "1 "EngineerSpec
 Agency"1 " *--"1..*"Model
-Agency "1" *-- "   1" Agency
+Agency "1" --> "   1" Agency
 Candidate *-- IAdditionalInfo
 @enduml
