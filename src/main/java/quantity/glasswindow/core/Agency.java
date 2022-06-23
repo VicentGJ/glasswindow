@@ -120,6 +120,70 @@ public class Agency implements IDataBase {
         }
     }
 
+    private void removeCandidate(Candidate c) throws ModelNotFoundException {
+        if (!candidateList.isEmpty()) {
+            boolean found = false;
+            int i = 0;
+            while (i < candidateList.size() && !found) {
+                Candidate current = candidateList.get(i);
+                if (current.getId().equals(c.getId())) {
+                    found = true;
+                    candidateList.remove(current);
+                }
+                i++;
+            }
+            if (!found) throw new ModelNotFoundException(c);
+        }
+    }
+
+    private void removeCompany(Company c) throws ModelNotFoundException {
+        if (!companyList.isEmpty()) {
+            boolean found = false;
+            int i = 0;
+            while (i < companyList.size() && !found) {
+                Company current = companyList.get(i);
+                if (current.getId().equals(c.getId())) {
+                    found = true;
+                    companyList.remove(current);
+                }
+                i++;
+            }
+            if (!found) throw new ModelNotFoundException(c);
+        }
+    }
+
+    private void removeJobPost(JobPost j) throws ModelNotFoundException {
+        if (!jobPostList.isEmpty()) {
+            boolean found = false;
+            int i = 0;
+            while (i < jobPostList.size() && !found) {
+                JobPost current = jobPostList.get(i);
+                if (current.getId().equals(j.getId())) {
+                    found = true;
+                    jobPostList.remove(current);
+                }
+                i++;
+            }
+            if (!found) throw new ModelNotFoundException(j);
+        }
+    }
+
+    private void removeInterview(Interview interview) throws ModelNotFoundException {
+        if (!interviewList.isEmpty()) {
+            boolean found = false;
+            int i = 0;
+            while (i < interviewList.size() && !found) {
+                Interview current = interviewList.get(i);
+                if (current.getId().equals(interview.getId())) {
+                    found = true;
+                    interviewList.remove(current);
+                }
+                i++;
+            }
+            if (!found) throw new ModelNotFoundException(interview);
+        }
+    }
+
     public void simpleAdd(Model m){
         if (m instanceof Candidate)
             addCandidate((Candidate)m);
@@ -131,6 +195,7 @@ public class Agency implements IDataBase {
             addInterview((Interview)m);
     }
 
+    //method overloading
     public void simpleRemove(String id) throws IdNotFoundException {
         Model m = getModelWithID(id);
         if (m instanceof Candidate)
@@ -141,6 +206,16 @@ public class Agency implements IDataBase {
             removeJobPost(m.getId());
         else if(m instanceof Interview)
             removeInterview(m.getId());
+    }
+    public void simpleRemove(Model m) throws ModelNotFoundException {
+        if (m instanceof Candidate)
+            removeCandidate((Candidate) m);
+        else if(m instanceof Company)
+            removeCompany((Company) m);
+        else if(m instanceof JobPost)
+            removeJobPost((JobPost) m);
+        else if(m instanceof Interview)
+            removeInterview((Interview) m);
     }
 
 
