@@ -169,12 +169,7 @@ public class Agency implements IDataBase {
                             if ((m instanceof Candidate && !((Candidate) m).getPhone().toLowerCase().contains(filter_phone.toLowerCase())))
                                 result.remove(m);
                             else if (m instanceof Company) {
-                                boolean match_found = false;
-                                for (String s : ((Company) m).getPhoneList())
-                                    if (s.contains(filter_phone)) {
-                                        match_found = true;
-                                        break;
-                                    }
+                                boolean match_found = ((Company)m).getPhone().contains(filter_phone);
                                 if (!match_found)
                                     result.remove(m);
                             }
@@ -391,17 +386,17 @@ public class Agency implements IDataBase {
                 "05158449", Scholarship.GRADE, Specialty.TRANSLATOR,Branch.TOURISM);
         //companies
         Company company1 = new Company("company-001","Last Quarter","Nebraska",
-                new ArrayList<>(), Branch.INDUSTRY, new ArrayList<>());
+                "", Branch.INDUSTRY, new ArrayList<>());
         Company company2 = new Company("company-002","Avenue Studios","New York",
-                new ArrayList<>(), Branch.TOURISM, new ArrayList<>());
+                "", Branch.TOURISM, new ArrayList<>());
         Company company3 = new Company("company-003","Icy Mountain","London",
-                new ArrayList<>(), Branch.SERVICES, new ArrayList<>());
+                "", Branch.SERVICES, new ArrayList<>());
         Company company4 = new Company("company-004","Gravy Table","Moscu",
-                new ArrayList<>(), Branch.EDUCATION, new ArrayList<>());
+                "", Branch.EDUCATION, new ArrayList<>());
         Company company5 = new Company("company-005","Flappy Touch","Brazil",
-                new ArrayList<>(), Branch.HEALTH, new ArrayList<>());
+               "", Branch.HEALTH, new ArrayList<>());
         Company company6 = new Company("company-006","AMD","Some Place",
-                new ArrayList<>(), Branch.INDUSTRY, new ArrayList<>());
+                "", Branch.INDUSTRY, new ArrayList<>());
         //jobposts
         JobPost jb1 = new JobPost("jobpost-001",Branch.INDUSTRY,2000,Status.OPEN,"default jobpost",
                 company1.getId(), new ArrayList<>(), Scholarship.PHD, Specialty.SCIENTIST);
