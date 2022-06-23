@@ -75,7 +75,7 @@ public class JobPost extends Model implements ICascadeDelete {
     }
 
     public void setSalary(float salary) throws InvalidSalaryException {
-        if(salary < 0)
+        if(salary > 0)
             this.salary = salary;
         else throw new InvalidSalaryException(salary);
     }
