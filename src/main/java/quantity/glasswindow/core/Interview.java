@@ -25,14 +25,9 @@ public class Interview extends Model {
         return date;
     }
     public void setDate(Date date) throws InvalidDateException {
-        Calendar today = Calendar.getInstance();
-        if(date.getYear() >= today.get(Calendar.YEAR)) {
-            if (date.getMonth() >= today.get(Calendar.MONTH)) {
-                if (date.getDay() >= today.get(Calendar.DAY_OF_MONTH)) {
-                    this.date = date;
-                } else throw new InvalidDateException("Invalid day: " + date.getDay());
-            } else throw new InvalidDateException("Invalid month: " + date.getMonth());
-        }else throw new InvalidDateException("Invalid year: " + date.getYear());
+        if(validateDate(date)) {
+            this.date = date;
+        } else throw new InvalidDateException(date);
     }
 
     public String getCandidate() {
@@ -57,5 +52,11 @@ public class Interview extends Model {
 
     public void setJobPost(String jobPost) {
         this.jobPost = jobPost;
+    }
+
+    private boolean validateDate(Date date){//TODO: add to uml
+        Calendar today_calendar = Calendar.getInstance();
+        Date today_date = new Date(today_calendar.get(Calendar.YEAR),today_calendar.get(Calendar.MONTH),today_calendar.get(Calendar.DAY_OF_MONTH));
+        return date.after(today_date);
     }
 }

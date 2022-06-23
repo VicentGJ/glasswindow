@@ -19,7 +19,7 @@ public class Main {
         // but we were already playing and learning about it.
         // Report 1
         try {
-            Candidate candidate = (Candidate) agency.getObject("candidate-001");
+            Candidate candidate = (Candidate) agency.getObject("01041266729");
             ArrayList<JobPost> qualifiedJobPostList = agency.getQualifiedJobPostList(candidate);
             for (JobPost i: qualifiedJobPostList) {
                 System.out.println(i.getId() + ": " + i.getDescription());

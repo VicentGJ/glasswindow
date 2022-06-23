@@ -378,7 +378,7 @@ public class Agency implements IDataBase {
             InvalidSalaryException, DuplicatedIDException, InvalidPhoneException {
         ArrayList<Model> models = new ArrayList<>();
         //candidates
-        Candidate candidate1 = new Candidate("010412667229","Bruce Banner", Gender.MASCULINE,"New York",
+        Candidate candidate1 = new Candidate("01041266729","Bruce Banner", Gender.MASCULINE,"New York",
                 "05158899", Scholarship.PHD, Specialty.SCIENTIST, Branch.INDUSTRY);
         Candidate candidate2 = new Candidate("01060568481","Tonny Stark", Gender.MASCULINE,"New York",
                 "05155229", Scholarship.PHD, Specialty.ECONOMIST,Branch.INDUSTRY);
@@ -424,17 +424,17 @@ public class Agency implements IDataBase {
         company6.addJobPostToList(jb6.getId());
 
         //interviews
-        Interview interview1 = new Interview("interview-001",new Date(),candidate1.getId(),company1.getId(),jb1.getId());
+        Interview interview1 = new Interview("interview-001",new Date(2022,Calendar.DECEMBER,12),candidate1.getId(),company1.getId(),jb1.getId());
         jb1.addInterview(interview1.getId());
-        Interview interview2 = new Interview("interview-002",new Date(),candidate2.getId(),company2.getId(),jb2.getId());
+        Interview interview2 = new Interview("interview-002",new Date(2022,Calendar.DECEMBER,13),candidate2.getId(),company2.getId(),jb2.getId());
         jb2.addInterview(interview2.getId());
-        Interview interview3 = new Interview("interview-003",new Date(),candidate3.getId(),company3.getId(),jb3.getId());
+        Interview interview3 = new Interview("interview-003",new Date(2022,Calendar.DECEMBER,14),candidate3.getId(),company3.getId(),jb3.getId());
         jb3.addInterview(interview3.getId());
-        Interview interview4 = new Interview("interview-004",new Date(),candidate4.getId(),company4.getId(),jb4.getId());
+        Interview interview4 = new Interview("interview-004",new Date(2022,Calendar.DECEMBER,15),candidate4.getId(),company4.getId(),jb4.getId());
         jb4.addInterview(interview4.getId());
-        Interview interview5 = new Interview("interview-005",new Date(),candidate5.getId(),company5.getId(),jb5.getId());
+        Interview interview5 = new Interview("interview-005",new Date(2022,Calendar.DECEMBER,16),candidate5.getId(),company5.getId(),jb5.getId());
         jb5.addInterview(interview5.getId());
-        Interview interview6 = new Interview("interview-006",new Date(),candidate6.getId(),company6.getId(),jb6.getId());
+        Interview interview6 = new Interview("interview-006",new Date(2022,Calendar.DECEMBER,17),candidate6.getId(),company6.getId(),jb6.getId());
         jb6.addInterview(interview6.getId());
 
         //add all to models
