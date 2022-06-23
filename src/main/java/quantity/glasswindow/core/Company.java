@@ -1,9 +1,6 @@
 package quantity.glasswindow.core;
 
-import quantity.glasswindow.core.customExceptions.DuplicatedIDException;
-import quantity.glasswindow.core.customExceptions.IdNotFoundException;
-import quantity.glasswindow.core.customExceptions.InvalidIDException;
-import quantity.glasswindow.core.customExceptions.InvalidNameException;
+import quantity.glasswindow.core.customExceptions.*;
 
 import java.util.ArrayList;
 
@@ -15,7 +12,8 @@ public class Company extends Model implements ICascadeDelete {
     private ArrayList<String> jobPostList;
 
     public Company(String id, String name, String address, ArrayList<String> phoneList,
-                   Branch sector, ArrayList<String> jobPostList) throws InvalidIDException, InvalidNameException, DuplicatedIDException {
+                   Branch sector, ArrayList<String> jobPostList)
+            throws InvalidIDException, InvalidNameException, DuplicatedIDException, InvalidPhoneException {
         super(id);
         this.setAddress(address);
         this.setName(name);
@@ -60,8 +58,9 @@ public class Company extends Model implements ICascadeDelete {
         return phoneList;
     }
 
-    public void setPhoneList(ArrayList<String> phoneList) {
-        this.phoneList = phoneList;
+    public void setPhoneList(ArrayList<String> phoneList) throws InvalidPhoneException {
+        if(validatePhoneList(phoneList))
+            this.phoneList = phoneList;
     }
 
     public Branch getSector() {
@@ -81,5 +80,13 @@ public class Company extends Model implements ICascadeDelete {
     }
     public void setJobPostList(ArrayList<String> jobPostList) {
         this.jobPostList = jobPostList;
+    }
+
+    private boolean validatePhoneList(ArrayList<String> phoneList) throws InvalidPhoneException {
+        for(String p : this.phoneList){
+            if(p.length() != 8 && !p.isBlank())
+                throw new InvalidPhoneException(p);
+        }
+        return true;
     }
 }

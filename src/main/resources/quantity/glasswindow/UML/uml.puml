@@ -91,6 +91,7 @@ class Company extends Model implements ICascadeDelete{
     +addJobPostToList(JobPost):void
     +setJobPostList(ArrayList<JobPost>):void
     +deleteNode():void
+    -validatePhoneList(ArrayList<String>):boolean
 }
 
 
