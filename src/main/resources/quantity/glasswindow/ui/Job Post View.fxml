@@ -5,8 +5,11 @@
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -38,98 +41,63 @@
             <Insets left="50.0" right="50.0" />
          </padding>
       </Separator>
-      <VBox fillWidth="false" spacing="5.0">
+      <GridPane prefHeight="333.0" prefWidth="438.0">
+        <columnConstraints>
+          <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="220.0" minWidth="10.0" prefWidth="99.0" />
+          <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="339.0" minWidth="10.0" prefWidth="290.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="111.0" minHeight="80.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="115.0" minHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="98.0" minHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="78.0" minHeight="10.0" vgrow="SOMETIMES" />
+        </rowConstraints>
          <children>
             <Label text="Description">
                <font>
                   <Font size="17.0" />
                </font>
             </Label>
-            <Text fontSmoothingType="LCD" smooth="false" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="A sample Job Post description would go here but i dont know what to explain about a testing job post, and scene builder doesnt have Lorem Ipsum text as html does so this will be this job post's description have a nice day and #stayhome" wrappingWidth="409.6305694580078">
-               <VBox.margin>
-                  <Insets left="10.0" />
-               </VBox.margin>
+            <Text fontSmoothingType="LCD" smooth="false" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="A sample Job Post description would go here but i dont know what to explain about a testing job post, and scene builder doesnt have Lorem Ipsum text as html does so this will be this job post's description have a nice day and #stayhome" wrappingWidth="280.6305694580078" GridPane.columnIndex="1" GridPane.valignment="CENTER">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-         </children>
-         <padding>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-         </padding>
-         <VBox.margin>
-            <Insets left="5.0" right="5.0" top="5.0" />
-         </VBox.margin>
-      </VBox>
-      <VBox fillWidth="false" prefHeight="72.0" prefWidth="261.0" spacing="5.0">
-         <children>
-            <Label text="Salary">
+            <Label text="Salary" GridPane.rowIndex="2">
                <font>
                   <Font size="17.0" />
                </font>
             </Label>
-            <Text fill="#102110" fontSmoothingType="LCD" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="\$0.0" wrappingWidth="198.85574340820312">
-               <VBox.margin>
-                  <Insets left="10.0" />
-               </VBox.margin>
+            <Text fill="#102110" fontSmoothingType="LCD" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="\$0.0" wrappingWidth="198.85574340820312" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font size="24.0" />
                </font>
             </Text>
-         </children>
-         <padding>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-         </padding>
-         <VBox.margin>
-            <Insets left="5.0" right="5.0" top="5.0" />
-         </VBox.margin>
-      </VBox>
-      <VBox>
-         <VBox.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" />
-         </VBox.margin>
-         <children>
-            <Label text="Company">
+            <Label text="Company" GridPane.rowIndex="1">
                <font>
                   <Font size="17.0" />
                </font>
             </Label>
-            <Hyperlink prefHeight="33.0" prefWidth="167.0" text="CompanyName">
+            <Hyperlink prefHeight="33.0" prefWidth="167.0" text="CompanyName" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font size="19.0" />
                </font>
-               <VBox.margin>
-                  <Insets left="10.0" />
-               </VBox.margin>
             </Hyperlink>
-         </children>
-         <padding>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-         </padding>
-      </VBox>
-      <VBox fillWidth="false" layoutX="15.0" layoutY="169.0" prefHeight="72.0" prefWidth="261.0" spacing="5.0">
-         <children>
-            <Label text="Branch">
+            <Label text="Branch" GridPane.rowIndex="3">
                <font>
                   <Font size="17.0" />
                </font>
             </Label>
-            <Text fontSmoothingType="LCD" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Job Post's branch goes here" wrappingWidth="418.62098693847656">
-               <VBox.margin>
-                  <Insets left="10.0" />
-               </VBox.margin>
+            <Text fontSmoothingType="LCD" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Job Post's branch goes here" wrappingWidth="418.62098693847656" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
          </children>
-         <padding>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-         </padding>
          <VBox.margin>
-            <Insets left="5.0" right="5.0" />
+            <Insets bottom="50.0" />
          </VBox.margin>
-      </VBox>
+      </GridPane>
       <HBox alignment="CENTER" prefHeight="31.0" prefWidth="452.0">
          <children>
             <Button mnemonicParsing="false" onAction="#onApplyButton" prefHeight="25.0" prefWidth="70.0" text="Apply">
@@ -146,6 +114,6 @@
       </HBox>
    </children>
    <padding>
-      <Insets bottom="10.0" left="10.0" right="10.0" />
+      <Insets bottom="10.0" left="40.0" right="40.0" />
    </padding>
 </VBox>
