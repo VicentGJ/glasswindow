@@ -84,10 +84,11 @@ public class Company extends Model implements ICascadeDelete {
     }
 
     private boolean validatePhoneList(ArrayList<String> phoneList) throws InvalidPhoneException {
-        for(String p : this.phoneList){
-            if(p.length() != 8 && !p.isBlank())
-                throw new InvalidPhoneException(p);
-        }
+        if (!phoneList.isEmpty())
+            for(String p : this.phoneList){
+                if(p.length() != 8 && !p.isBlank())
+                    throw new InvalidPhoneException(p);
+            }
         return true;
     }
 }
