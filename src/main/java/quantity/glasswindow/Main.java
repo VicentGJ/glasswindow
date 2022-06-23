@@ -15,7 +15,7 @@ public class Main {
             System.out.println(e.getMessage());
             System.exit(1);
         }
-        // Please ignore exception handling it´s not a requirement for this delivery,
+        // Please ignore exception handling it´s not a requirement for this delivery, TODO:remove this comment
         // but we were already playing and learning about it.
         // Report 1
         try {

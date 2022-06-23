@@ -1,7 +1,7 @@
 package quantity.glasswindow.core.customExceptions;
 
-public class IncorrectTypeException extends Exception{
-    public IncorrectTypeException(String type) {
+public class InvalidTypeException extends Exception{
+    public InvalidTypeException(String type) {
         super("Incorrect type: " + type + ".");
     }
 }
