@@ -1,10 +1,18 @@
 package quantity.glasswindow.ui;
 
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.control.ListView;
+import quantity.glasswindow.core.Agency;
+import quantity.glasswindow.core.enumerations.OrderBy;
 import quantity.glasswindow.utils.WindowLoader;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.*;
 
 public class MainController extends TransitionController implements Initializable {
 
@@ -48,15 +56,15 @@ public class MainController extends TransitionController implements Initializabl
     }
     @FXML
     protected void onCompaniesSection(ActionEvent event) throws IOException {
-        this.transition("main_companies.fxml", event);
+        
     }
     @FXML
     protected void onCandidatesSection(ActionEvent event) throws IOException {
-        this.transition("main_candidates.fxml", event);
+        
     }
     @FXML
     protected void onJobPotsSection(ActionEvent event) throws IOException {
-        this.transition("main_job_posts.fxml", event);
+        
     }
     @FXML
     protected void onEntityLink(ActionEvent event) throws IOException {}
