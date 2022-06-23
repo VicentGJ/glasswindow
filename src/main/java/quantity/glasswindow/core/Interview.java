@@ -54,7 +54,7 @@ public class Interview extends Model {
         this.jobPost = jobPost;
     }
 
-    private boolean validateDate(Date date){//TODO: add to uml
+    private boolean validateDate(Date date){
         Calendar today_calendar = Calendar.getInstance();
         Date today_date = new Date(today_calendar.get(Calendar.YEAR),today_calendar.get(Calendar.MONTH),today_calendar.get(Calendar.DAY_OF_MONTH));
         return date.after(today_date);
