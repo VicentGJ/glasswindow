@@ -8,11 +8,11 @@ import java.util.ArrayList;
 public class Company extends Model implements ICascadeDelete {
     private String name;
     private String address;
-    private String phone;//TODO: change from arraylist to single string
+    private String phone;
     private Branch sector;
     private ArrayList<String> jobPostList;
 
-    public Company(String id, String name, String address, String phone,//TODO fix in uml
+    public Company(String id, String name, String address, String phone,
                    Branch sector, ArrayList<String> jobPostList)
             throws InvalidIDException, InvalidNameException, DuplicatedIDException, InvalidPhoneException {
         super(id);
@@ -57,9 +57,9 @@ public class Company extends Model implements ICascadeDelete {
 
     public String getPhone() {
         return phone;
-    }//TODO: uml
+    }
 
-    public void setPhone(String phone) throws InvalidPhoneException {//TODO:uml
+    public void setPhone(String phone) throws InvalidPhoneException {
         if(phoneValidation(phone))
             this.phone = phone;
         else throw new InvalidPhoneException(phone);

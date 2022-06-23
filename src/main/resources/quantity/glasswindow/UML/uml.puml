@@ -78,20 +78,20 @@ class Company extends Model implements ICascadeDelete{
     -phoneList:ArrayList<String>
     -sector:Branch
     -jobPostList:ArrayList<JobPost>
-    +Company(String,String,String,ArrayList<String>,Branch,ArrayList<JobPost>)
+    +Company(String,String,String,String,Branch,ArrayList<JobPost>)
     +getName() :String
     +setName(String):void
     +getAddress():String
     +setAddress(String):void
-    +getPhoneList():ArrayList<String>
-    +setPhoneList(ArrayList<String>):void
+    +getPhone():String
+    +setPhone(String):void
     +getSector():Branch
     +setSector(Branch):void
     +getJobPostList():ArrayList<JobPost>
     +addJobPostToList(JobPost):void
     +setJobPostList(ArrayList<JobPost>):void
     +deleteNode():void
-    -validatePhoneList(ArrayList<String>):boolean
+    -validatePhone(String):boolean
 }
 
 
