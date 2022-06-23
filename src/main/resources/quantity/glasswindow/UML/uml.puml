@@ -109,6 +109,7 @@ class Interview extends Model{
     +setCompany(String):void
     +getJobPost():String
     +setJobPost(String):void
+    -validateDate(Date):boolean
 }
 
 class JobPost extends Model implements ICascadeDelete{
