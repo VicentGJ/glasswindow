@@ -57,7 +57,7 @@
                      </HBox.margin>
                   </Label>
                   <Pane prefHeight="23.0" prefWidth="45.0" />
-                  <Text fontSmoothingType="LCD" smooth="false" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="usernameFulano" wrappingWidth="227.78956604003906">
+                  <Text fontSmoothingType="LCD" smooth="false" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="ASampleUsername" wrappingWidth="227.78956604003906">
                      <font>
                         <Font size="14.0" />
                      </font>
