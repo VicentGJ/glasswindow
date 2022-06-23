@@ -8,18 +8,18 @@ import java.util.ArrayList;
 public class Company extends Model implements ICascadeDelete {
     private String name;
     private String address;
-    private ArrayList<String> phoneList;
+    private String phone;//TODO: change from arraylist to single string
     private Branch sector;
     private ArrayList<String> jobPostList;
 
-    public Company(String id, String name, String address, ArrayList<String> phoneList,
+    public Company(String id, String name, String address, String phone,//TODO fix in uml
                    Branch sector, ArrayList<String> jobPostList)
             throws InvalidIDException, InvalidNameException, DuplicatedIDException, InvalidPhoneException {
         super(id);
         this.setAddress(address);
         this.setName(name);
         this.setSector(sector);
-        this.setPhoneList(phoneList);
+        this.setPhone(phone);
         this.setJobPostList(jobPostList);
     }
 
@@ -55,13 +55,14 @@ public class Company extends Model implements ICascadeDelete {
         this.address = address;
     }
 
-    public ArrayList<String> getPhoneList() {
-        return phoneList;
-    }
+    public String getPhone() {
+        return phone;
+    }//TODO: uml
 
-    public void setPhoneList(ArrayList<String> phoneList) throws InvalidPhoneException {
-        if(validatePhoneList(phoneList))
-            this.phoneList = phoneList;
+    public void setPhone(String phone) throws InvalidPhoneException {//TODO:uml
+        if(phoneValidation(phone))
+            this.phone = phone;
+        else throw new InvalidPhoneException(phone);
     }
 
     public Branch getSector() {
@@ -83,12 +84,8 @@ public class Company extends Model implements ICascadeDelete {
         this.jobPostList = jobPostList;
     }
 
-    private boolean validatePhoneList(ArrayList<String> phoneList) throws InvalidPhoneException {
-        if (!phoneList.isEmpty())
-            for(String p : this.phoneList){
-                if(p.length() != 8 && !p.isBlank())
-                    throw new InvalidPhoneException(p);
-            }
-        return true;
+    private boolean phoneValidation(String phone){
+        return phone.length() == 8 || phone.isBlank();
     }
+
 }
