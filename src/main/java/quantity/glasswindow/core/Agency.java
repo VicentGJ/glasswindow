@@ -372,7 +372,8 @@ public class Agency implements IDataBase {
         return false;
     }
     public void initTestData()
-            throws InvalidIDException, InvalidDateException, InvalidNameException, InvalidSalaryException, DuplicatedIDException {
+            throws InvalidIDException, InvalidDateException, InvalidNameException,
+            InvalidSalaryException, DuplicatedIDException, InvalidPhoneException {
         ArrayList<Model> models = new ArrayList<>();
         //candidates
         Candidate candidate1 = new Candidate("010412667229","Bruce Banner", Gender.MASCULINE,"New York",

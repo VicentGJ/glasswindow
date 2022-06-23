@@ -5,6 +5,7 @@ import java.util.regex.*;
 import quantity.glasswindow.core.customExceptions.DuplicatedIDException;
 import quantity.glasswindow.core.customExceptions.InvalidIDException;
 import quantity.glasswindow.core.customExceptions.InvalidNameException;
+import quantity.glasswindow.core.customExceptions.InvalidPhoneException;
 
 public class Candidate extends Model {
     private String name;
@@ -16,7 +17,7 @@ public class Candidate extends Model {
     private Branch sector;
     private ArrayList<IAdditionalInfo> addtionalInfo;
     public Candidate(String id, String name, Gender gender, String address, String phone, Scholarship scholarship,
-                     Specialty specialty, Branch sector) throws InvalidIDException, InvalidNameException, DuplicatedIDException {
+                     Specialty specialty, Branch sector) throws InvalidIDException, InvalidNameException, DuplicatedIDException, InvalidPhoneException {
         super(id);
         this.setAddress(address);
         this.setName(name);
@@ -63,8 +64,10 @@ public class Candidate extends Model {
         return phone;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setPhone(String phone) throws InvalidPhoneException {
+        if(phoneValidation(phone))
+            this.phone = phone;
+        else throw new InvalidPhoneException(phone);
     }
 
     public Scholarship getScholarship() {
@@ -120,10 +123,10 @@ public class Candidate extends Model {
     }
 
     private boolean dateValidationID(String idDate){
-        boolean isValidYear = true;//no way to validate this with 2 digits
+        //boolean isValidYear = true;//no way to validate this with 2 digits
         boolean isValidMonth = true;
         boolean isValidDay = false;
-        boolean isValidCentury = true;//depends on year, so no way to validate this
+        //boolean isValidCentury = true;//depends on year, so no way to validate this
         //int year = Integer.parseInt(idDate.substring(0,1));
         int month = Integer.parseInt(idDate.substring(2,3));
         int day = Integer.parseInt(idDate.substring(4,5));
@@ -148,12 +151,16 @@ public class Candidate extends Model {
                     isValidMonth = false;
                     break;
             }
-        return (isValidYear && isValidMonth && isValidDay && isValidCentury);
+        return (/*isValidYear &&*/  isValidMonth && isValidDay  /*&& isValidCentury*/);
     }
 
     private boolean genderValidateID(char idGender){
         int gender = Integer.parseInt(String.valueOf(idGender));
         Gender idG = gender % 2 == 0? Gender.MASCULINE : Gender.FEMININE;
         return this.getGender() == idG || this.getGender() == null;
+    }
+
+    private boolean phoneValidation(String phone){
+        return phone.length() == 8 || phone.isBlank();
     }
 }

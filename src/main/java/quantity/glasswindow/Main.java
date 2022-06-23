@@ -1,10 +1,8 @@
 package quantity.glasswindow;
 
 import quantity.glasswindow.core.*;
-import quantity.glasswindow.core.customExceptions.InvalidDateException;
-import quantity.glasswindow.core.customExceptions.InvalidIDException;
-import quantity.glasswindow.core.customExceptions.InvalidNameException;
-import quantity.glasswindow.core.customExceptions.InvalidSalaryException;
+import quantity.glasswindow.core.customExceptions.*;
+
 import java.util.ArrayList;
 
 public class Main {
@@ -12,7 +10,8 @@ public class Main {
         Agency agency = Agency.create();
         try {
             agency.initTestData();
-        }catch (InvalidIDException | InvalidDateException | InvalidNameException | InvalidSalaryException e){
+        }catch (InvalidIDException | InvalidDateException | InvalidNameException | InvalidSalaryException |
+                DuplicatedIDException | InvalidPhoneException e){
             System.out.println(e.getMessage());
             System.exit(1);
         }

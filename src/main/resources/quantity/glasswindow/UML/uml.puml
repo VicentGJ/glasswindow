@@ -69,6 +69,7 @@ class Candidate extends Model{
     +setId(String):void
     -dateValidationID(String):boolean
     -genderValidationID(String):boolean
+    -phoneValidation(String):boolean
 }
 
 class Company extends Model implements ICascadeDelete{
