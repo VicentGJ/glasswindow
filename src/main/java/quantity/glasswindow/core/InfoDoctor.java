@@ -1,5 +1,8 @@
 package quantity.glasswindow.core;
 
+import quantity.glasswindow.core.enumerations.DoctorSpec;
+import quantity.glasswindow.core.enumerations.Specialty;
+
 public class InfoDoctor implements IAdditionalInfo {
     private DoctorSpec specialization;
 

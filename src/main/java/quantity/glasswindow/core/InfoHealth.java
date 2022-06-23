@@ -1,5 +1,7 @@
 package quantity.glasswindow.core;
 
+import quantity.glasswindow.core.enumerations.Branch;
+
 public class InfoHealth implements IAdditionalInfo {
     private boolean hasCertificate;
 

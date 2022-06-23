@@ -1,5 +1,8 @@
 package quantity.glasswindow.core;
 
+import quantity.glasswindow.core.customExceptions.*;
+import quantity.glasswindow.core.enumerations.Branch;
+
 import java.util.ArrayList;
 
 public class Company extends Model implements ICascadeDelete {
@@ -9,7 +12,9 @@ public class Company extends Model implements ICascadeDelete {
     private Branch sector;
     private ArrayList<String> jobPostList;
 
-    public Company(String id, String name, String address, ArrayList<String> phoneList, Branch sector, ArrayList<String> jobPostList) {
+    public Company(String id, String name, String address, ArrayList<String> phoneList,
+                   Branch sector, ArrayList<String> jobPostList)
+            throws InvalidIDException, InvalidNameException, DuplicatedIDException, InvalidPhoneException {
         super(id);
         this.setAddress(address);
         this.setName(name);
@@ -27,7 +32,7 @@ public class Company extends Model implements ICascadeDelete {
             }
             a.deleteObject(this.id);
         }
-        catch (Exception e) {
+        catch (IdNotFoundException e) {
             System.exit(1);
         }
     }
@@ -36,8 +41,10 @@ public class Company extends Model implements ICascadeDelete {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String name) throws InvalidNameException {
+        if(!name.isBlank())
+            this.name = name;
+        else throw new InvalidNameException("Invalid name for Company: name cant be empty");
     }
 
     public String getAddress() {
@@ -52,8 +59,9 @@ public class Company extends Model implements ICascadeDelete {
         return phoneList;
     }
 
-    public void setPhoneList(ArrayList<String> phoneList) {
-        this.phoneList = phoneList;
+    public void setPhoneList(ArrayList<String> phoneList) throws InvalidPhoneException {
+        if(validatePhoneList(phoneList))
+            this.phoneList = phoneList;
     }
 
     public Branch getSector() {
@@ -73,5 +81,13 @@ public class Company extends Model implements ICascadeDelete {
     }
     public void setJobPostList(ArrayList<String> jobPostList) {
         this.jobPostList = jobPostList;
+    }
+
+    private boolean validatePhoneList(ArrayList<String> phoneList) throws InvalidPhoneException {
+        for(String p : this.phoneList){
+            if(p.length() != 8 && !p.isBlank())
+                throw new InvalidPhoneException(p);
+        }
+        return true;
     }
 }

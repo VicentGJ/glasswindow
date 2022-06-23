@@ -1,5 +1,14 @@
 package quantity.glasswindow.core;
 
+import quantity.glasswindow.core.customExceptions.DuplicatedIDException;
+import quantity.glasswindow.core.customExceptions.IdNotFoundException;
+import quantity.glasswindow.core.customExceptions.InvalidIDException;
+import quantity.glasswindow.core.customExceptions.InvalidSalaryException;
+import quantity.glasswindow.core.enumerations.Branch;
+import quantity.glasswindow.core.enumerations.Scholarship;
+import quantity.glasswindow.core.enumerations.Specialty;
+import quantity.glasswindow.core.enumerations.Status;
+
 import java.util.ArrayList;
 
 public class JobPost extends Model implements ICascadeDelete {
@@ -14,7 +23,7 @@ public class JobPost extends Model implements ICascadeDelete {
 
     public JobPost(String id, Branch branch, float salary, Status status, String description,
                    String company, ArrayList<String> interviewList, Scholarship scholarship,
-                    Specialty specialty) {
+                    Specialty specialty) throws InvalidIDException, InvalidSalaryException, DuplicatedIDException {
         super(id);
         this.setBranch(branch);
         this.setSalary(salary);
@@ -32,7 +41,7 @@ public class JobPost extends Model implements ICascadeDelete {
         try {
             agency.deleteObject(this.id);
         }
-        catch (Exception e) {
+        catch (IdNotFoundException e) {
             System.exit(1);
         }
     }
@@ -65,8 +74,10 @@ public class JobPost extends Model implements ICascadeDelete {
         return salary;
     }
 
-    public void setSalary(float salary) {
-        this.salary = salary;
+    public void setSalary(float salary) throws InvalidSalaryException {
+        if(salary < 0)
+            this.salary = salary;
+        else throw new InvalidSalaryException(salary);
     }
 
     public Status getStatus() {

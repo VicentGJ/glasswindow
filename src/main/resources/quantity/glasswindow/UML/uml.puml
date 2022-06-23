@@ -24,11 +24,13 @@ class Agency implements IDataBase{
     +getModels():ArrayList<Model>
     +getObject(String, String[]):Model
     +deleteObject(String):void
-    +insertObject(Model object):void
-    +getObjectList(String, OrderBy, HashMap<String, Object>)
+    +insertObject(Model):void
+    +modelExists(String):boolean
+    +getObjectList(String, OrderBy, HashMap<String, Object>):<ArrayList<Model>
+    +gerObjectListIDs(String,OrderBy, HashMap<String, Object>):ArrayList<String>
     -order_ID(String):ArrayList<Model>
     -order_creationDate(String):ArrayList<Model>
-    -filterOrderedList(HashMap<String, Object>, ArrayList<Model>)
+    -filterOrderedList(HashMap<String, Object>, ArrayList<Model>):<ArrayList<Model>
 }
 
 class Model<<abstract>>{
@@ -64,6 +66,10 @@ class Candidate extends Model{
     +getSector():Branch
     +setSector():void
     +getAdditionalInfo():ArrayList<IAdditionalInfo>
+    +setId(String):void
+    -dateValidationID(String):boolean
+    -genderValidationID(String):boolean
+    -phoneValidation(String):boolean
 }
 
 class Company extends Model implements ICascadeDelete{
@@ -85,6 +91,7 @@ class Company extends Model implements ICascadeDelete{
     +addJobPostToList(JobPost):void
     +setJobPostList(ArrayList<JobPost>):void
     +deleteNode():void
+    -validatePhoneList(ArrayList<String>):boolean
 }
 
 
