@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="159.0" prefWidth="344.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="ERROR!" wrappingWidth="82.583984375">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="error meassge" wrappingWidth="306.583984375">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+      <HBox prefHeight="27.0" prefWidth="332.0">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="51.0" text="Ok" />
+         </children>
+         <padding>
+            <Insets right="40.0" />
+         </padding>
+         <VBox.margin>
+            <Insets bottom="10.0" top="30.0" />
+         </VBox.margin>
+      </HBox>
+   </children>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+</VBox>
