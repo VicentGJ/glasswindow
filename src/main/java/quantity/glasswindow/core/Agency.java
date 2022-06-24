@@ -11,10 +11,10 @@ import java.util.*;
 
 public class Agency implements IDataBase {
     //maybe add agency name and stuff like that
-    private final ArrayList<Candidate> candidateList;
-    private final ArrayList<Company> companyList;
-    private final ArrayList<JobPost> jobPostList;
-    private final ArrayList<Interview> interviewList;
+    private ArrayList<Candidate> candidateList;
+    private ArrayList<Company> companyList;
+    private ArrayList<JobPost> jobPostList;
+    private ArrayList<Interview> interviewList;
     private static Agency single_instance; //for singleton pattern
 
     private Agency() {//private constructor to ensure singleton pattern
