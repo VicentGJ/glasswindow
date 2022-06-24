@@ -11,7 +11,7 @@ public class Main {
         try {
             agency.initTestData();
         }catch (InvalidIDException | InvalidDateException | InvalidNameException | InvalidSalaryException |
-                DuplicatedIDException | InvalidPhoneException e){
+                DuplicatedIDException | InvalidPhoneException | InvalidYearsOfExpException | ModelNotFoundException e){
             System.out.println(e.getMessage());
             System.exit(1);
         }

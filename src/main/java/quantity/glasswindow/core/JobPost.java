@@ -1,9 +1,6 @@
 package quantity.glasswindow.core;
 
-import quantity.glasswindow.core.customExceptions.DuplicatedIDException;
-import quantity.glasswindow.core.customExceptions.IdNotFoundException;
-import quantity.glasswindow.core.customExceptions.InvalidIDException;
-import quantity.glasswindow.core.customExceptions.InvalidSalaryException;
+import quantity.glasswindow.core.customExceptions.*;
 import quantity.glasswindow.core.enumerations.Branch;
 import quantity.glasswindow.core.enumerations.Scholarship;
 import quantity.glasswindow.core.enumerations.Specialty;
@@ -23,7 +20,8 @@ public class JobPost extends Model implements ICascadeDelete {
 
     public JobPost(String id, Branch branch, float salary, Status status, String description,
                    String company, ArrayList<String> interviewList, Scholarship scholarship,
-                    Specialty specialty) throws InvalidIDException, InvalidSalaryException, DuplicatedIDException {
+                    Specialty specialty)
+            throws InvalidIDException, InvalidSalaryException, DuplicatedIDException, ModelNotFoundException {
         super(id);
         this.setBranch(branch);
         this.setSalary(salary);
@@ -100,8 +98,10 @@ public class JobPost extends Model implements ICascadeDelete {
         return company;
     }
 
-    public void setCompany(String company) {
-        this.company = company;
+    public void setCompany(String company) throws ModelNotFoundException {
+        if(Agency.getInstance().modelExists(company))
+            this.company = company;
+        else throw new ModelNotFoundException(company);
     }
 
     public ArrayList<String> getInterviewList() {

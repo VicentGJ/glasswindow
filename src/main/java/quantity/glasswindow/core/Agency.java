@@ -550,7 +550,8 @@ public class Agency implements IDataBase {
 
     public void initTestData()
             throws InvalidIDException, InvalidDateException, InvalidNameException,
-            InvalidSalaryException, DuplicatedIDException, InvalidPhoneException, InvalidYearsOfExpException {
+            InvalidSalaryException, DuplicatedIDException, InvalidPhoneException,
+            InvalidYearsOfExpException, ModelNotFoundException {
         ArrayList<Model> models = new ArrayList<>();
         //candidates
         Candidate candidate1 = new Candidate("01041266729","Bruce Banner", Gender.MASCULINE,"New York",
@@ -578,6 +579,14 @@ public class Agency implements IDataBase {
                 "", Branch.HEALTH, new ArrayList<>());
         Company company6 = new Company("company-006","AMD","Some Place",
                 "", Branch.INDUSTRY, new ArrayList<>());
+        models.add(company1);
+        models.add(company2);
+        models.add(company3);
+        models.add(company4);
+        models.add(company5);
+        models.add(company6);//need to add companies now because jobpost's setCompany() validation checks if the company exists
+        this.setModels(models);//setModels sends everything to its corresponding list
+        models.clear();
         //jobposts
         JobPost jb1 = new JobPost("jobpost-001",Branch.INDUSTRY,2000,Status.OPEN,"default jobpost",
                 company1.getId(), new ArrayList<>(), Scholarship.PHD, Specialty.SCIENTIST);
@@ -619,12 +628,6 @@ public class Agency implements IDataBase {
         models.add(candidate4);
         models.add(candidate5);
         models.add(candidate6);
-        models.add(company1);
-        models.add(company2);
-        models.add(company3);
-        models.add(company4);
-        models.add(company5);
-        models.add(company6);
         models.add(interview1);
         models.add(interview2);
         models.add(interview3);
@@ -637,7 +640,6 @@ public class Agency implements IDataBase {
         models.add(jb4);
         models.add(jb5);
         models.add(jb6);
-
         //add models to agency
         this.setModels(models);//setModels sends everything to its corresponding list
     }

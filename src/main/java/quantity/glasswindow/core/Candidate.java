@@ -132,7 +132,7 @@ public class Candidate extends Model {
     }
 
     public void setYearsOfExp(int yearsOfExp) throws InvalidYearsOfExpException {
-        if(yearsOfExp < 0)
+        if(yearsOfExp >= 0)
             this.yearsOfExp = yearsOfExp;
         else throw new InvalidYearsOfExpException(yearsOfExp);
     }
