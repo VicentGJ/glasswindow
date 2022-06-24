@@ -11,13 +11,12 @@ import java.util.*;
 
 public class Agency implements IDataBase {
     //maybe add agency name and stuff like that
-    private final ArrayList<Candidate> candidateList;//TODO: ADD NEW LIST-ATTRIBUTES TO UML
+    private final ArrayList<Candidate> candidateList;
     private final ArrayList<Company> companyList;
     private final ArrayList<JobPost> jobPostList;
     private final ArrayList<Interview> interviewList;
     private static Agency single_instance; //for singleton pattern
 
-    //constructor
     private Agency() {//private constructor to ensure singleton pattern
         companyList = new ArrayList<>();
         candidateList = new ArrayList<>();
@@ -30,9 +29,6 @@ public class Agency implements IDataBase {
             single_instance = new Agency();
         return single_instance;
     }
-
-    //REFACTORING...TODO:FIX UML
-
     public ArrayList<Candidate> getCandidateList() {
         return candidateList;
     }
@@ -208,7 +204,7 @@ public class Agency implements IDataBase {
         }
     }
 
-    private ArrayList<Model> getModels(){//TODO:UML
+    private ArrayList<Model> getModels(){
         ArrayList<Model> models = new ArrayList<>();
         models.addAll(candidateList);
         models.addAll(companyList);
@@ -250,6 +246,7 @@ public class Agency implements IDataBase {
             else if(m instanceof Interview)
                 removeInterview(m.getId());
     }
+
     public void deleteObject(Model m) throws ModelNotFoundException {
         if (m instanceof Candidate)
             removeCandidate((Candidate) m);
@@ -260,16 +257,19 @@ public class Agency implements IDataBase {
         else if(m instanceof Interview)
             removeInterview((Interview) m);
     }
+
     @Override
-    public void insertObject(Model m) {
-        if (m instanceof Candidate)
-            addCandidate((Candidate)m);
-        else if(m instanceof Company)
-            addCompany((Company)m);
-        else if(m instanceof JobPost)
-            addJobPost((JobPost)m);
-        else if(m instanceof Interview)
-            addInterview((Interview)m);
+    public void insertObject(Model m) throws DuplicatedIDException {
+        if(!modelExists(m.getId())) {
+            if (m instanceof Candidate)
+                addCandidate((Candidate) m);
+            else if (m instanceof Company)
+                addCompany((Company) m);
+            else if (m instanceof JobPost)
+                addJobPost((JobPost) m);
+            else if (m instanceof Interview)
+                addInterview((Interview) m);
+        }else throw new DuplicatedIDException(m.getId());
     }
 
     @Override

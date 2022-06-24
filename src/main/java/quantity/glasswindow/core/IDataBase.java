@@ -1,5 +1,6 @@
 package quantity.glasswindow.core;
 
+import quantity.glasswindow.core.customExceptions.DuplicatedIDException;
 import quantity.glasswindow.core.customExceptions.IdNotFoundException;
 import quantity.glasswindow.core.customExceptions.ModelNotFoundException;
 
@@ -10,6 +11,6 @@ public interface IDataBase {
     Model getObject(String id) throws IdNotFoundException;
     void deleteObject(String id) throws IdNotFoundException;
     void deleteObject(Model m) throws IdNotFoundException, ModelNotFoundException;
-    void insertObject(Model object);
+    void insertObject(Model object) throws DuplicatedIDException;
     ArrayList<Model> getObjectList(String type, HashMap<String, Object> filter) throws Exception;
 }
