@@ -25,7 +25,7 @@ public class Agency implements IDataBase {
         interviewList = new ArrayList<>();
     }
 
-    public static Agency create() {//method to create singleton object
+    public static Agency getInstance() {//method to create singleton object
         if (single_instance == null)
             single_instance = new Agency();
         return single_instance;
@@ -193,41 +193,6 @@ public class Agency implements IDataBase {
         }
     }
 
-    public void simpleAddModel(Model m){
-        if (m instanceof Candidate)
-            addCandidate((Candidate)m);
-        else if(m instanceof Company)
-            addCompany((Company)m);
-        else if(m instanceof JobPost)
-            addJobPost((JobPost)m);
-        else if(m instanceof Interview)
-            addInterview((Interview)m);
-    }
-
-    //method overloading
-    public void simpleRemoveModel(String id) throws IdNotFoundException {
-        Model m = getModelWithID(id);
-        if (m instanceof Candidate)
-            removeCandidate(m.getId());
-        else if(m instanceof Company)
-            removeCompany(m.getId());
-        else if(m instanceof JobPost)
-            removeJobPost(m.getId());
-        else if(m instanceof Interview)
-            removeInterview(m.getId());
-    }
-
-    public void simpleRemoveModel(Model m) throws ModelNotFoundException {
-        if (m instanceof Candidate)
-            removeCandidate((Candidate) m);
-        else if(m instanceof Company)
-            removeCompany((Company) m);
-        else if(m instanceof JobPost)
-            removeJobPost((JobPost) m);
-        else if(m instanceof Interview)
-            removeInterview((Interview) m);
-    }
-
     public void setModels(ArrayList<Model> models) {
         if(!models.isEmpty()){
             for(Model m : models){
@@ -251,7 +216,6 @@ public class Agency implements IDataBase {
         models.addAll(interviewList);
         return models;
     }
-    //from interface
 
     @Override
     public Model getObject(String id) throws IdNotFoundException {
@@ -276,12 +240,36 @@ public class Agency implements IDataBase {
 
     @Override
     public void deleteObject(String id) throws IdNotFoundException {
-        simpleRemoveModel(id);
+            Model m = getModelWithID(id);
+            if (m instanceof Candidate)
+                removeCandidate(m.getId());
+            else if(m instanceof Company)
+                removeCompany(m.getId());
+            else if(m instanceof JobPost)
+                removeJobPost(m.getId());
+            else if(m instanceof Interview)
+                removeInterview(m.getId());
     }
-
+    public void deleteObject(Model m) throws ModelNotFoundException {
+        if (m instanceof Candidate)
+            removeCandidate((Candidate) m);
+        else if(m instanceof Company)
+            removeCompany((Company) m);
+        else if(m instanceof JobPost)
+            removeJobPost((JobPost) m);
+        else if(m instanceof Interview)
+            removeInterview((Interview) m);
+    }
     @Override
-    public void insertObject(Model object) {
-        simpleAddModel(object);
+    public void insertObject(Model m) {
+        if (m instanceof Candidate)
+            addCandidate((Candidate)m);
+        else if(m instanceof Company)
+            addCompany((Company)m);
+        else if(m instanceof JobPost)
+            addJobPost((JobPost)m);
+        else if(m instanceof Interview)
+            addInterview((Interview)m);
     }
 
     @Override

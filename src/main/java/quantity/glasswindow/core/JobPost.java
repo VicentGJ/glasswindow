@@ -37,7 +37,7 @@ public class JobPost extends Model implements ICascadeDelete {
 
     @Override
     public void deleteNode() {
-        Agency agency = Agency.create();
+        Agency agency = Agency.getInstance();
         try {
             agency.deleteObject(this.id);
         }

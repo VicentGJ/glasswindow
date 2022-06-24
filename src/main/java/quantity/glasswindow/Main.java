@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        Agency agency = Agency.create();
+        Agency agency = Agency.getInstance();
         try {
             agency.initTestData();
         }catch (InvalidIDException | InvalidDateException | InvalidNameException | InvalidSalaryException |

@@ -108,7 +108,7 @@ public class Candidate extends Model {
 
     @Override
     public void setId(String id) throws InvalidIDException, DuplicatedIDException {
-        if(Agency.create().modelExists(id))
+        if(Agency.getInstance().modelExists(id))
             throw new DuplicatedIDException(id);
         else {
             boolean onlyNumbers = Pattern.matches("\\d+", id);

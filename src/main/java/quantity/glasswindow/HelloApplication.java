@@ -21,7 +21,7 @@ public class HelloApplication extends Application {
     }
 
     public static void main(String[] args) {
-        Agency agency = Agency.create();
+        Agency agency = Agency.getInstance();
         try {
             agency.initTestData();
         }

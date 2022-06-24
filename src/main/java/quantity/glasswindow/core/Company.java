@@ -26,7 +26,7 @@ public class Company extends Model implements ICascadeDelete {
     @Override
     public void deleteNode() {
         try {
-            Agency a = Agency.create();
+            Agency a = Agency.getInstance();
             for (String jobPost : jobPostList) {
                 ((JobPost) a.getModelWithID(jobPost)).deleteNode();
             }

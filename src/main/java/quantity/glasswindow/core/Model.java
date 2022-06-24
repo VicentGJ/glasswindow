@@ -19,7 +19,7 @@ public abstract class Model{
     }
 
     public void setId(String id) throws InvalidIDException, DuplicatedIDException {
-        if(Agency.create().modelExists(id))
+        if(Agency.getInstance().modelExists(id))
             throw new DuplicatedIDException(id);
         this.id = id;
     }
