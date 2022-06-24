@@ -550,21 +550,21 @@ public class Agency implements IDataBase {
 
     public void initTestData()
             throws InvalidIDException, InvalidDateException, InvalidNameException,
-            InvalidSalaryException, DuplicatedIDException, InvalidPhoneException {
+            InvalidSalaryException, DuplicatedIDException, InvalidPhoneException, InvalidYearsOfExpException {
         ArrayList<Model> models = new ArrayList<>();
         //candidates
         Candidate candidate1 = new Candidate("01041266729","Bruce Banner", Gender.MASCULINE,"New York",
-                "05158899", Scholarship.PHD, Specialty.SCIENTIST, Branch.INDUSTRY);
+                "05158899", Scholarship.PHD, Specialty.SCIENTIST, Branch.INDUSTRY,5);
         Candidate candidate2 = new Candidate("01060568481","Tonny Stark", Gender.MASCULINE,"New York",
-                "05155229", Scholarship.PHD, Specialty.ECONOMIST,Branch.INDUSTRY);
+                "05155229", Scholarship.PHD, Specialty.ECONOMIST,Branch.INDUSTRY,4);
         Candidate candidate3 = new Candidate("01060568482","Clark Kent", Gender.MASCULINE,"Kansas",
-                "33156899", Scholarship.BASIC, Specialty.ECONOMIST,Branch.SERVICES);
+                "33156899", Scholarship.BASIC, Specialty.ECONOMIST,Branch.SERVICES,5);
         Candidate candidate4 = new Candidate("01022068706","Bruce Wayne", Gender.MASCULINE,"Gotham",
-                "05675799", Scholarship.PHD, Specialty.ARCHITECT,Branch.INDUSTRY);
+                "05675799", Scholarship.PHD, Specialty.ARCHITECT,Branch.INDUSTRY,10);
         Candidate candidate5 = new Candidate("02061766497","Carol Danvers", Gender.FEMININE, "Outer Space",
-                "05133339", Scholarship.MASTER, Specialty.ENGINEER,Branch.TOURISM);
+                "05133339", Scholarship.MASTER, Specialty.ENGINEER,Branch.TOURISM,6);
         Candidate candidate6 = new Candidate("01091368466","Felicia Hardy", Gender.FEMININE,"New York",
-                "05158449", Scholarship.GRADE, Specialty.TRANSLATOR,Branch.TOURISM);
+                "05158449", Scholarship.GRADE, Specialty.TRANSLATOR,Branch.TOURISM,8);
         //companies
         Company company1 = new Company("company-001","Last Quarter","Nebraska",
                 "", Branch.INDUSTRY, new ArrayList<>());

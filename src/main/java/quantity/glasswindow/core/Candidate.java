@@ -2,10 +2,8 @@ package quantity.glasswindow.core;
 
 import java.util.ArrayList;
 import java.util.regex.*;
-import quantity.glasswindow.core.customExceptions.DuplicatedIDException;
-import quantity.glasswindow.core.customExceptions.InvalidIDException;
-import quantity.glasswindow.core.customExceptions.InvalidNameException;
-import quantity.glasswindow.core.customExceptions.InvalidPhoneException;
+
+import quantity.glasswindow.core.customExceptions.*;
 import quantity.glasswindow.core.enumerations.Branch;
 import quantity.glasswindow.core.enumerations.Gender;
 import quantity.glasswindow.core.enumerations.Scholarship;
@@ -19,9 +17,13 @@ public class Candidate extends Model {
     private Scholarship scholarship;
     private Specialty specialty;
     private Branch sector;
+
+    private int yearsOfExp;
     private ArrayList<IAdditionalInfo> addtionalInfo;
     public Candidate(String id, String name, Gender gender, String address, String phone, Scholarship scholarship,
-                     Specialty specialty, Branch sector) throws InvalidIDException, InvalidNameException, DuplicatedIDException, InvalidPhoneException {
+                     Specialty specialty, Branch sector, int yearsOfExp)
+            throws InvalidIDException, InvalidNameException, DuplicatedIDException, InvalidPhoneException,
+            InvalidYearsOfExpException {
         super(id);
         this.setAddress(address);
         this.setName(name);
@@ -30,6 +32,7 @@ public class Candidate extends Model {
         this.setSector(sector);
         this.setScholarship(scholarship);
         this.setSpecialty(specialty);
+        this.setYearsOfExp(yearsOfExp);
 
     }
 
@@ -122,6 +125,16 @@ public class Candidate extends Model {
                 } else throw new InvalidIDException(id, "Error during validation of ID length, must be 11 digits");
             } else throw new InvalidIDException(id, "Error during validation of ID: must be only numbers");
         }
+    }
+
+    public int getYearsOfExp() {
+        return yearsOfExp;
+    }
+
+    public void setYearsOfExp(int yearsOfExp) throws InvalidYearsOfExpException {
+        if(yearsOfExp < 0)
+            this.yearsOfExp = yearsOfExp;
+        else throw new InvalidYearsOfExpException(yearsOfExp);
     }
 
     private boolean dateValidationID(String idDate){
