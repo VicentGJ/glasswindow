@@ -4,6 +4,7 @@ import quantity.glasswindow.core.customExceptions.*;
 import quantity.glasswindow.core.enumerations.Branch;
 
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 public class Company extends Model implements ICascadeDelete {
     private String name;
@@ -85,7 +86,7 @@ public class Company extends Model implements ICascadeDelete {
     }
 
     private boolean phoneValidation(String phone){
-        return phone.length() == 8 || phone.isBlank();
+        return (phone.length() == 8 && Pattern.matches("\\d+", phone)) || phone.isBlank();
     }
 
 }

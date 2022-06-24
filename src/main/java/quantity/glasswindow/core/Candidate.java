@@ -43,7 +43,7 @@ public class Candidate extends Model {
         StringUtils.isBlank(" ")       = true
         StringUtils.isBlank("bob")     = false
         StringUtils.isBlank("  bob  ") = false*/
-        if(!name.isBlank())
+        if(nameValidation(name))
             this.name = name;
         else throw new InvalidNameException(getType());
     }
@@ -116,10 +116,7 @@ public class Candidate extends Model {
                 if (id.length() == 11) {
                     boolean dateValid = dateValidationID(id.substring(0, 7));//[0-1]Year, [2-3]Month, [4-5]Day, [6]Century
                     if (dateValid) {
-                        boolean genderValid = genderValidateID(id.charAt(9));
-                        if (genderValid) {
                             this.id = id;
-                        }else throw new InvalidIDException(id, "Error during validation of digit 10");
                     } else
                         throw new InvalidIDException(id, "Error during validation of digits 1-7");
                 } else throw new InvalidIDException(id, "Error during validation of ID length, must be 11 digits");
@@ -148,13 +145,11 @@ public class Candidate extends Model {
         return (/*isValidYear &&*/  isValidMonth && isValidDay  /*&& isValidCentury*/);
     }
 
-    private boolean genderValidateID(char idGender){
-        int gender = Integer.parseInt(String.valueOf(idGender));
-        Gender idG = gender % 2 == 0? Gender.MASCULINE : Gender.FEMININE;
-        return this.getGender() == idG || this.getGender() == null;
-    }
-
     private boolean phoneValidation(String phone){
         return phone.length() == 8 || phone.isBlank();
+    }
+
+    private boolean nameValidation(String name){//TODO add to uml
+        return !name.isBlank() && Pattern.matches("[a-zA-z ]+", name);
     }
 }
