@@ -337,6 +337,37 @@
                               </Separator>
                            </children>
                         </VBox>
+                        <VBox layoutX="30.0" layoutY="259.0" prefHeight="0.0" prefWidth="621.0">
+                           <children>
+                              <HBox alignment="CENTER">
+                                 <children>
+                                    <Hyperlink onAction="#onEntityLink" prefHeight="30.0" prefWidth="455.0" text="Company Name">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Hyperlink>
+                                    <Button mnemonicParsing="false" onAction="#onEditButton" prefHeight="22.0" prefWidth="56.0" text="Edit">
+                                       <HBox.margin>
+                                          <Insets left="5.0" right="5.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button layoutX="81.0" layoutY="10.0" mnemonicParsing="false" text="Delete">
+                                       <HBox.margin>
+                                          <Insets left="5.0" right="5.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                              <Separator opacity="0.34" prefWidth="200.0">
+                                 <padding>
+                                    <Insets left="40.0" right="40.0" />
+                                 </padding>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" top="10.0" />
+                                 </VBox.margin>
+                              </Separator>
+                           </children>
+                        </VBox>
                      </children>
                   </VBox>
                </content>

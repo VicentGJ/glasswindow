@@ -47,44 +47,56 @@
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
+            <RowConstraints minHeight="50.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="50.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="50.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="50.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="50.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="Description">
+            <Label text="Description" GridPane.rowIndex="1">
                <font>
                   <Font size="17.0" />
                </font>
             </Label>
-            <Label text="Address" GridPane.rowIndex="1">
+            <Label text="Address" GridPane.rowIndex="2">
                <font>
                   <Font size="17.0" />
                </font>
             </Label>
-            <Label text="Phone" GridPane.rowIndex="2">
+            <Label text="Phone" GridPane.rowIndex="3">
                <font>
                   <Font size="17.0" />
                </font>
             </Label>
-            <Label text="Sector" GridPane.rowIndex="3">
+            <Label text="Sector" GridPane.rowIndex="4">
                <font>
                   <Font size="17.0" />
                </font>
             </Label>
-            <TextArea prefHeight="64.0" prefWidth="309.0" promptText="description" wrapText="true" GridPane.columnIndex="1">
+            <TextArea prefHeight="64.0" prefWidth="309.0" promptText="description" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <padding>
                   <Insets right="2.0" />
                </padding>
             </TextArea>
-            <TextArea prefHeight="50.0" prefWidth="307.0" promptText="address" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <TextArea prefHeight="50.0" prefWidth="307.0" promptText="address" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <padding>
                   <Insets right="2.0" />
                </padding>
             </TextArea>
-            <TextField prefHeight="29.0" prefWidth="305.0" promptText="phone" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <ComboBox prefWidth="150.0" promptText="Sectors" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField prefHeight="29.0" prefWidth="305.0" promptText="phone" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <ComboBox prefWidth="150.0" promptText="Sectors" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label layoutX="10.0" layoutY="22.0" text="Description" GridPane.rowIndex="1">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="87.0" text="Name">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <TextField layoutX="215.0" layoutY="216.0" prefHeight="29.0" prefWidth="305.0" promptText="name" GridPane.columnIndex="1" />
          </children>
          <VBox.margin>
             <Insets bottom="50.0" top="30.0" />
