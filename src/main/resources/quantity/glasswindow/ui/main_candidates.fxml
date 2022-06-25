@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.*?>
 <?import javafx.geometry.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
@@ -58,16 +59,25 @@
                      <font>
                         <Font size="19.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </JFXButton>
                   <JFXButton buttonType="RAISED" layoutX="30.0" layoutY="30.0" text="Candidates" underline="true">
                      <font>
                         <Font size="19.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </JFXButton>
                   <JFXButton layoutX="30.0" layoutY="537.0" onAction="#onJobPotsSection" text="Job Posts">
                      <font>
                         <Font size="19.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </JFXButton>
                   <HBox />
                   <HBox />

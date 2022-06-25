@@ -59,7 +59,7 @@
                      <children>
                         <JFXButton onAction="#onCompaniesSection" text="Companies">
                            <cursor>
-                              <Cursor fx:constant="CLOSED_HAND" />
+                              <Cursor fx:constant="HAND" />
                            </cursor>
                            <font>
                               <Font size="19.0" />
@@ -71,7 +71,7 @@
                      <children>
                         <JFXButton onAction="#onCandidatesSection" text="Candidates">
                            <cursor>
-                              <Cursor fx:constant="CLOSED_HAND" />
+                              <Cursor fx:constant="HAND" />
                            </cursor>
                            <font>
                               <Font size="19.0" />
@@ -81,7 +81,7 @@
                   </HBox>
                   <JFXButton buttonType="RAISED" text="Job Posts" underline="true">
                      <cursor>
-                        <Cursor fx:constant="CLOSED_HAND" />
+                        <Cursor fx:constant="HAND" />
                      </cursor>
                      <font>
                         <Font size="19.0" />
