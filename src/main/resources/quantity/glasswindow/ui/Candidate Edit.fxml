@@ -149,8 +149,8 @@
       </VBox>
       <HBox alignment="CENTER" prefHeight="34.0" prefWidth="409.0" spacing="20.0">
          <children>
-            <JFXButton prefHeight="29.0" prefWidth="71.0" style="-fx-background-color: rgb(215,215,215);" text="Save" />
-            <JFXButton layoutX="179.0" layoutY="11.0" prefHeight="29.0" prefWidth="71.0" style="-fx-background-color: rgb(215,215,215);" text="Cancel" />
+            <JFXButton onAction="#onSaveButton" prefHeight="29.0" prefWidth="71.0" style="-fx-background-color: rgb(215,215,215);" text="Save" />
+            <JFXButton onAction="#onBackButton" layoutX="179.0" layoutY="11.0" prefHeight="29.0" prefWidth="71.0" style="-fx-background-color: rgb(215,215,215);" text="Cancel" />
          </children>
       </HBox>
    </children>
