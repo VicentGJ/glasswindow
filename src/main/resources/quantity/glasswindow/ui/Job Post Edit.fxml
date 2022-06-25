@@ -125,8 +125,8 @@
       </GridPane>
       <HBox alignment="CENTER" prefHeight="41.0" prefWidth="449.0" spacing="20.0">
          <children>
-            <JFXButton prefHeight="37.0" prefWidth="67.0" style="-fx-background-color: rgb(215,215,215);" text="Save" />
-            <JFXButton layoutX="201.0" layoutY="10.0" prefHeight="31.0" prefWidth="67.0" style="-fx-background-color: rgb(215,215,215);" text="Cancel" />
+            <JFXButton onAction="#onBackButton" prefHeight="37.0" prefWidth="67.0" style="-fx-background-color: rgb(215,215,215);" text="Save" />
+            <JFXButton onAction="#onBackButton" layoutX="201.0" layoutY="10.0" prefHeight="31.0" prefWidth="67.0" style="-fx-background-color: rgb(215,215,215);" text="Cancel" />
          </children>
       </HBox>
    </children>

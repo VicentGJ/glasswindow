@@ -9,7 +9,12 @@ import java.io.IOException;
 
 public class JobPostController extends TransitionController{
     @FXML
-    protected void onCancelButton(ActionEvent event) {
+    protected void onBackButton(ActionEvent event) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.close();
+    }
+    @FXML
+    protected void onEditButton(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.close();
     }

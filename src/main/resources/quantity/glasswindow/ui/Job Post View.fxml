@@ -100,9 +100,9 @@
       </GridPane>
       <HBox alignment="CENTER" prefHeight="31.0" prefWidth="452.0" spacing="20.0">
          <children>
-            <JFXButton prefHeight="38.0" prefWidth="66.0" style="-fx-background-color: rgb(215,215,215);" text="Apply" />
-            <JFXButton layoutX="338.0" layoutY="10.0" prefHeight="38.0" prefWidth="66.0" style="-fx-background-color: rgb(215,215,215);" text="Edit" />
-            <JFXButton layoutX="347.0" layoutY="10.0" prefHeight="38.0" prefWidth="66.0" style="-fx-background-color: rgb(215,215,215);" text="Back" />
+            <JFXButton onAction="#onApplyButton" prefHeight="38.0" prefWidth="66.0" style="-fx-background-color: rgb(215,215,215);" text="Apply" />
+            <JFXButton onAction="#onEditButton" layoutX="338.0" layoutY="10.0" prefHeight="38.0" prefWidth="66.0" style="-fx-background-color: rgb(215,215,215);" text="Edit" />
+            <JFXButton onAction="#onBackButton" layoutX="347.0" layoutY="10.0" prefHeight="38.0" prefWidth="66.0" style="-fx-background-color: rgb(215,215,215);" text="Back" />
          </children>
       </HBox>
    </children>
