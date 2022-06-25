@@ -44,8 +44,8 @@
       </Separator>
       <GridPane prefHeight="377.0" prefWidth="398.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="183.0" minWidth="10.0" prefWidth="88.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="292.0" minWidth="10.0" prefWidth="292.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="183.0" minWidth="10.0" prefWidth="99.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="292.0" minWidth="10.0" prefWidth="241.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
