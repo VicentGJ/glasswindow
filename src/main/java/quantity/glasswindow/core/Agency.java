@@ -588,29 +588,29 @@ public class Agency implements IDataBase {
         this.setModels(models);//setModels sends everything to its corresponding list
         models.clear();
         //jobposts
-        JobPost jb1 = new JobPost("jobpost-001",Branch.INDUSTRY,2000,Status.OPEN,"default jobpost",
+        JobPost jb1 = new JobPost("jobpost-001",Branch.INDUSTRY,2000,Status.OPEN,"auto initialized jobpost 1",
                 company1.getId(), new ArrayList<>(), Scholarship.PHD, Specialty.SCIENTIST);
         company1.addJobPostToList(jb1.getId());
-        JobPost jb2 = new JobPost("jobpost-002",Branch.SERVICES,1900,Status.APPLICATION_ACTIVE,"default jobpost",
+        JobPost jb2 = new JobPost("jobpost-002",Branch.SERVICES,1900,Status.APPLICATION_ACTIVE,"auto initialized jobpost 2",
                 company2.getId(), new ArrayList<>(),Scholarship.PHD, Specialty.ACCOUNTANT);
         company2.addJobPostToList(jb2.getId());
-        JobPost jb3 = new JobPost("jobpost-003",Branch.EDUCATION,20000,Status.CLOSED,"default jobpost",
+        JobPost jb3 = new JobPost("jobpost-003",Branch.EDUCATION,20000,Status.CLOSED,"auto initialized jobpost 3",
                 company3.getId(), new ArrayList<>(), Scholarship.GRADE, Specialty.MANAGER);
         company3.addJobPostToList(jb3.getId());
-        JobPost jb4 = new JobPost("jobpost-004",Branch.HEALTH,1000,Status.OPEN,"default jobpost",
+        JobPost jb4 = new JobPost("jobpost-004",Branch.HEALTH,1000,Status.OPEN,"auto initialized jobpost 4",
                 company4.getId(), new ArrayList<>(), Scholarship.MASTER, Specialty.ENGINEER);
         company4.addJobPostToList(jb4.getId());
-        JobPost jb5 = new JobPost("jobpost-005",Branch.TOURISM,999,Status.OPEN,"default jobpost",
+        JobPost jb5 = new JobPost("jobpost-005",Branch.TOURISM,999,Status.OPEN,"auto initialized jobpost 5",
                 company5.getId(), new ArrayList<>(), Scholarship.PHD, Specialty.SCIENTIST);
         company5.addJobPostToList(jb5.getId());
-        JobPost jb6 = new JobPost("jobpost-006",Branch.AGRICULTURE,10000,Status.OPEN,"default jobpost",
+        JobPost jb6 = new JobPost("jobpost-006",Branch.AGRICULTURE,10000,Status.OPEN,"auto initialized jobpost 6",
                 company6.getId(), new ArrayList<>(), Scholarship.PHD, Specialty.TRANSLATOR);
         company6.addJobPostToList(jb6.getId());
 
         //interviews
-        Interview interview1 = new Interview("interview-001",new Date(2022,Calendar.DECEMBER,12),candidate1.getId(),company1.getId(),jb1.getId());
+        Interview interview1 = new Interview("interview-001",new Date(2022,Calendar.DECEMBER,12,112,40),candidate1.getId(),company1.getId(),jb1.getId());
         jb1.addInterview(interview1.getId());
-        Interview interview2 = new Interview("interview-002",new Date(2022,Calendar.JULY,13),candidate2.getId(),company2.getId(),jb2.getId());
+        Interview interview2 = new Interview("interview-002",new Date(2022,Calendar.JULY,13,15,15),candidate2.getId(),company2.getId(),jb2.getId());
         jb2.addInterview(interview2.getId());
         Interview interview3 = new Interview("interview-003",new Date(2022,Calendar.NOVEMBER,14),candidate3.getId(),company3.getId(),jb3.getId());
         jb3.addInterview(interview3.getId());

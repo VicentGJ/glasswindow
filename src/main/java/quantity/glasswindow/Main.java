@@ -30,7 +30,7 @@ public class Main {
             System.exit(1);
         }
         // Report 2
-        try {
+        try {//TODO: check on this
             Company c1 = (Company) agency.getObject("company-001");
             ArrayList<Candidate> appliances = agency.getAppliances(c1.getId(), 6);
             for (Candidate i: appliances) {

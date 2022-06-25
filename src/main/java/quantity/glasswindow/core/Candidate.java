@@ -33,6 +33,7 @@ public class Candidate extends Model {
         this.setScholarship(scholarship);
         this.setSpecialty(specialty);
         this.setYearsOfExp(yearsOfExp);
+        this.addtionalInfo = new ArrayList<>();
 
     }
 
