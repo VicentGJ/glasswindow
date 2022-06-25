@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
@@ -98,23 +98,11 @@
             <Insets bottom="50.0" />
          </VBox.margin>
       </GridPane>
-      <HBox alignment="CENTER" prefHeight="31.0" prefWidth="452.0">
+      <HBox alignment="CENTER" prefHeight="31.0" prefWidth="452.0" spacing="20.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#onApplyButton" prefHeight="34.0" prefWidth="70.0" text="Apply">
-               <HBox.margin>
-                  <Insets right="15.0" />
-               </HBox.margin>
-            </Button>
-            <Button layoutX="116.0" layoutY="13.0" mnemonicParsing="false" onAction="#onApplyButton" prefHeight="43.0" prefWidth="70.0" text="Edit">
-               <HBox.margin>
-                  <Insets left="15.0" right="15.0" />
-               </HBox.margin>
-            </Button>
-            <Button layoutX="205.0" layoutY="10.0" mnemonicParsing="false" onAction="#onCancelButton" prefHeight="34.0" prefWidth="78.0" text="Back">
-               <HBox.margin>
-                  <Insets left="15.0" />
-               </HBox.margin>
-            </Button>
+            <JFXButton prefHeight="38.0" prefWidth="66.0" style="-fx-background-color: rgb(215,215,215);" text="Apply" />
+            <JFXButton layoutX="338.0" layoutY="10.0" prefHeight="38.0" prefWidth="66.0" style="-fx-background-color: rgb(215,215,215);" text="Edit" />
+            <JFXButton layoutX="347.0" layoutY="10.0" prefHeight="38.0" prefWidth="66.0" style="-fx-background-color: rgb(215,215,215);" text="Back" />
          </children>
       </HBox>
    </children>

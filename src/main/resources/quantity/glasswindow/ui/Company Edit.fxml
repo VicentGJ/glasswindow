@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
@@ -41,7 +41,7 @@
             <Insets left="50.0" right="50.0" />
          </padding>
       </Separator>
-      <GridPane vgap="15.0">
+      <GridPane prefHeight="306.0" prefWidth="409.0" vgap="15.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -98,17 +98,10 @@
             <Insets bottom="50.0" top="30.0" />
          </VBox.margin>
       </GridPane>
-      <HBox alignment="CENTER" prefHeight="30.0" prefWidth="450.0">
+      <HBox alignment="CENTER" prefHeight="50.0" prefWidth="409.0" spacing="20.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#onButtonBack" prefHeight="32.0" prefWidth="75.0" text="Save">
-               <HBox.margin>
-                  <Insets left="5.0" right="5.0" />
-               </HBox.margin></Button>
-            <Button layoutX="197.0" layoutY="24.0" mnemonicParsing="false" onAction="#onButtonBack" prefHeight="32.0" prefWidth="75.0" text="Cancel">
-               <HBox.margin>
-                  <Insets left="5.0" right="5.0" />
-               </HBox.margin>
-            </Button>
+            <JFXButton prefHeight="30.0" prefWidth="64.0" style="-fx-background-color: rgb(215,215,215);" text="Save" />
+            <JFXButton layoutX="183.0" layoutY="10.0" prefHeight="30.0" prefWidth="64.0" style="-fx-background-color: rgb(215,215,215);" text="Cancel" />
          </children>
          <VBox.margin>
             <Insets top="20.0" />

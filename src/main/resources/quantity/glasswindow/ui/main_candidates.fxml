@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="quantity.glasswindow.ui.MainCandidatesController">
+<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="quantity.glasswindow.ui.MainCandidatesController">
    <children>
       <MenuBar>
          <menus>
@@ -55,7 +65,7 @@
          <items>
             <VBox spacing="40.0">
                <children>
-                  <JFXButton onAction="#onCompaniesSection" text="Companies">
+                  <JFXButton onAction="#onCompaniesSection" style="-fx-background-color: rgb(215,215,215);" text="Companies">
                      <font>
                         <Font size="19.0" />
                      </font>
@@ -63,7 +73,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="30.0" layoutY="30.0" text="Candidates" underline="true">
+                  <JFXButton buttonType="RAISED" layoutX="30.0" layoutY="30.0" style="-fx-background-color: rgb(215,215,215);" text="Candidates">
                      <font>
                         <Font size="19.0" />
                      </font>
@@ -71,7 +81,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </JFXButton>
-                  <JFXButton layoutX="30.0" layoutY="537.0" onAction="#onJobPotsSection" text="Job Posts">
+                  <JFXButton layoutX="30.0" layoutY="537.0" onAction="#onJobPotsSection" style="-fx-background-color: rgb(215,215,215);" text="Job Posts">
                      <font>
                         <Font size="19.0" />
                      </font>
@@ -101,11 +111,7 @@
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </padding>
                               </TextField>
-                              <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="70.0" text="Search">
-                                 <HBox.margin>
-                                    <Insets left="4.0" />
-                                 </HBox.margin>
-                              </Button>
+                              <JFXButton prefHeight="27.0" prefWidth="69.0" style="-fx-background-color: rgb(215,215,215);" text="Search" />
                            </children>
                         </HBox>
                         <Separator prefWidth="200.0">

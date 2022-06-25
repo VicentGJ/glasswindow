@@ -32,14 +32,22 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
-<?import com.jfoenix.controls.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="quantity.glasswindow.ui.MainCompaniesController">
+<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="quantity.glasswindow.ui.MainCompaniesController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -89,7 +97,7 @@
                <children>
                   <HBox>
                      <children>
-                        <JFXButton buttonType="RAISED" onAction="#onCandidatesSection" text="Companies" underline="true">
+                        <JFXButton buttonType="RAISED" onAction="#onCandidatesSection" style="-fx-background-color: rgb(215,215,215);" text="Companies">
                            <font>
                               <Font size="19.0" />
                            </font>
@@ -99,7 +107,7 @@
                         </JFXButton>
                      </children>
                   </HBox>
-                  <JFXButton onAction="#onCandidatesSection" text="Candidates">
+                  <JFXButton onAction="#onCandidatesSection" style="-fx-background-color: rgb(215,215,215);" text="Candidates">
                      <font>
                         <Font size="19.0" />
                      </font>
@@ -107,7 +115,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </JFXButton>
-                  <JFXButton onAction="#onJobPotsSection" text="Job Posts">
+                  <JFXButton onAction="#onJobPotsSection" style="-fx-background-color: rgb(215,215,215);" text="Job Posts">
                      <font>
                         <Font size="19.0" />
                      </font>
@@ -134,14 +142,7 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
                         </TextField>
-                        <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="70.0" text="Search">
-                           <HBox.margin>
-                              <Insets left="4.0" />
-                           </HBox.margin>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
+                        <JFXButton prefHeight="27.0" prefWidth="69.0" style="-fx-background-color: rgb(215,215,215);" text="Search" />
                      </children>
                   </HBox>
                   <Separator prefWidth="200.0">
@@ -154,16 +155,12 @@
                   </Separator>
                   <ListView prefHeight="423.0" prefWidth="631.0" />
                   <HBox alignment="CENTER_RIGHT" prefHeight="53.0" prefWidth="631.0">
-                     <children>
-                        <Button disable="true" mnemonicParsing="false" prefHeight="27.0" prefWidth="127.0" text="Delete Selection">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
-                     </children>
                      <padding>
                         <Insets right="5.0" />
                      </padding>
+                     <children>
+                        <JFXButton disable="true" prefHeight="31.0" prefWidth="123.0" style="-fx-background-color: rgb(215,215,215);" text="Delete Selection" />
+                     </children>
                   </HBox>
                </children>
             </VBox>

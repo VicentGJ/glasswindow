@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
@@ -39,7 +39,7 @@
             <Insets left="50.0" right="50.0" />
          </padding>
       </Separator>
-      <GridPane prefHeight="377.0" prefWidth="398.0">
+      <GridPane prefHeight="204.0" prefWidth="309.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="183.0" minWidth="10.0" prefWidth="132.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="292.0" minWidth="10.0" prefWidth="208.0" />
@@ -85,45 +85,12 @@
             <Insets left="20.0" top="30.0" />
          </VBox.margin>
       </GridPane>
-      <VBox prefHeight="113.0" prefWidth="330.0" spacing="30.0">
+      <HBox alignment="CENTER" prefHeight="42.0" prefWidth="340.0" spacing="20.0">
          <children>
-            <HBox alignment="CENTER_LEFT">
-               <children>
-                  <VBox />
-               </children>
-               <VBox.margin>
-                  <Insets bottom="10.0" top="10.0" />
-               </VBox.margin>
-            </HBox>
-            <VBox alignment="CENTER_LEFT" />
-            <VBox prefHeight="200.0" prefWidth="100.0" />
-            <HBox alignment="CENTER" prefHeight="11.0" prefWidth="367.0">
-               <children>
-                  <Button mnemonicParsing="false" onAction="#onOkButton" prefHeight="30.0" prefWidth="76.0" text="Ok">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="69.0" layoutY="10.0" mnemonicParsing="false" onAction="#onOkButton" prefHeight="31.0" prefWidth="78.0" text="Edit">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="15.0" right="15.0" />
-                     </HBox.margin>
-                  </Button>
-                  <Button mnemonicParsing="false" onAction="#onCancelButton" prefHeight="28.0" prefWidth="76.0" text="Back">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-               </children>
-            </HBox>
+            <JFXButton prefHeight="30.0" prefWidth="74.0" style="-fx-background-color: rgb(215,215,215);" text="Edit" />
+            <JFXButton layoutX="143.0" layoutY="16.0" prefHeight="30.0" prefWidth="74.0" style="-fx-background-color: rgb(215,215,215);" text="Back" />
          </children>
-         <VBox.margin>
-            <Insets left="10.0" />
-         </VBox.margin>
-      </VBox>
+      </HBox>
    </children>
    <padding>
       <Insets bottom="10.0" left="30.0" right="30.0" />

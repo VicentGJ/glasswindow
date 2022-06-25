@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.gluonhq.charm.glisten.control.TextField?>
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
@@ -37,7 +37,7 @@
             <Insets />
          </VBox.margin>
       </Separator>
-      <VBox alignment="CENTER_LEFT" spacing="10.0">
+      <VBox alignment="CENTER_LEFT" prefHeight="501.0" prefWidth="409.0" spacing="10.0">
          <children>
             <GridPane vgap="15.0">
                <columnConstraints>
@@ -147,17 +147,10 @@
             </GridPane>
          </children>
       </VBox>
-      <HBox alignment="CENTER" prefHeight="28.0" prefWidth="410.0">
+      <HBox alignment="CENTER" prefHeight="34.0" prefWidth="409.0" spacing="20.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#onSaveButton" prefHeight="32.0" prefWidth="72.0" text="Save">
-               <HBox.margin>
-                  <Insets left="5.0" right="15.0" />
-               </HBox.margin></Button>
-            <Button layoutX="179.0" layoutY="15.0" mnemonicParsing="false" onAction="#onSaveButton" prefHeight="32.0" prefWidth="72.0" text="Cancel">
-               <HBox.margin>
-                  <Insets left="15.0" right="5.0" />
-               </HBox.margin>
-            </Button>
+            <JFXButton prefHeight="29.0" prefWidth="71.0" style="-fx-background-color: rgb(215,215,215);" text="Save" />
+            <JFXButton layoutX="179.0" layoutY="11.0" prefHeight="29.0" prefWidth="71.0" style="-fx-background-color: rgb(215,215,215);" text="Cancel" />
          </children>
       </HBox>
    </children>
