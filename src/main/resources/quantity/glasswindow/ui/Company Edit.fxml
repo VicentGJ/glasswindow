@@ -79,11 +79,6 @@
                   <Insets right="2.0" />
                </padding>
             </TextArea>
-            <TextArea prefHeight="50.0" prefWidth="307.0" promptText="address" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
-               <padding>
-                  <Insets right="2.0" />
-               </padding>
-            </TextArea>
             <TextField prefHeight="29.0" prefWidth="305.0" promptText="phone" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <ComboBox prefWidth="150.0" promptText="Sectors" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <Label layoutX="10.0" layoutY="22.0" text="Description" GridPane.rowIndex="1">
@@ -97,6 +92,7 @@
                </font>
             </Label>
             <TextField layoutX="215.0" layoutY="216.0" prefHeight="29.0" prefWidth="305.0" promptText="name" GridPane.columnIndex="1" />
+            <TextField layoutX="215.0" layoutY="216.0" prefHeight="29.0" prefWidth="305.0" promptText="address" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
          <VBox.margin>
             <Insets bottom="50.0" top="30.0" />
