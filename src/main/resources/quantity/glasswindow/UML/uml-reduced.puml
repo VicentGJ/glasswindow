@@ -12,7 +12,7 @@ class MainJobPostsController extends MainController {}
 class TransitionController {}
 
 interface IDataBase<<interface>>{}
-interface IAdditionalInfo <<interface>>{}
+interface IAdditionalInfo<<interface>>{}
 
 class Agency implements IDataBase{}
 
