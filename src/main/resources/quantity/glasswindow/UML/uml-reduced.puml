@@ -1,0 +1,55 @@
+@startuml
+skinparam classAttributeIconSize 0
+!pragma layout smetana
+
+
+class InterviewController {}
+class JobPostController extends TransitionController{}
+class MainCandidatesController extends MainController {}
+class MainCompaniesController extends  MainController{}
+class MainController extends TransitionController{}
+class MainJobPostsController extends MainController {}
+class TransitionController {}
+
+interface IDataBase<<interface>>{}
+interface IAdditionalInfo <<interface>>{}
+
+class Agency implements IDataBase{}
+
+class Model<<abstract>>{}
+
+class Candidate{}
+Candidate --|> Model
+
+class Company{}
+Company --|> Model
+
+class Interview{}
+Interview --|> Model
+
+class JobPost{}
+JobPost --|> Model
+
+
+class InfoDeveloper implements IAdditionalInfo{}
+class InfoDoctor implements IAdditionalInfo{}
+class InfoEngineer implements IAdditionalInfo{}
+class InfoHealth{}
+class InfoTourism{}
+class InfoTranslator{}
+class InfoScientist{}
+
+
+Agency"1 "*--"1..*"Candidate
+Agency"1 "*--"1..*"Company
+Agency"1 "*--"1..*"JobPost
+Agency"1 "*--"1..*"Interview
+
+InfoHealth ..|> IAdditionalInfo
+InfoScientist ..|> IAdditionalInfo
+InfoTourism ..|> IAdditionalInfo
+InfoTranslator ..|> IAdditionalInfo
+
+Agency "1" --> "   1" Agency
+Candidate"1" *-- "1..*"IAdditionalInfo
+@enduml

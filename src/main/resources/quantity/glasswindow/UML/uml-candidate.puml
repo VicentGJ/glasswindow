@@ -1,0 +1,115 @@
+@startuml
+skinparam classAttributeIconSize 0
+!pragma layout smetana
+
+interface IAdditionalInfo <<interface>>{
+    +getType():Enum
+}
+class Model<<abstract>>{
+    #id:String
+    +Model(String)
+    +getId():String
+    +getType():String
+    +setId(String):void
+}
+
+class Candidate extends Model{
+    -String name
+    -gender: Gender
+    -address:String
+    -phone:String
+    -scholarship:Scholarship
+    -specialty: Specialty
+    -sector:Branch
+    -additionalInfo:ArrayList<IAdditionalInfo>
+    +Candidate(String,String,Gender,String,String,Scholarship,Specialty,Branch)
+    +getName():String
+    +setName():void
+    +getGender():Gender
+    +setGender():void
+    +getAddress():String
+    +setAddress():void
+    +getPhone():String
+    +setPhone():void
+    +getScholarship():Scholarship
+    +setScholarship():void
+    +getSpecialty():Specialty
+    +setSpecialty():void
+    +getSector():Branch
+    +setSector():void
+    +getAdditionalInfo():ArrayList<IAdditionalInfo>
+    +setId(String):void
+    + addAdditionalInfo(IAdditionalInfo):void
+    -dateValidationID(String):boolean
+    -genderValidationID(String):boolean
+    -phoneValidation(String):boolean
+}
+
+
+class InfoDeveloper implements IAdditionalInfo{
+    -languages:ArrayList<ProgrammingLang>
+    +InfoDeveloper(ArrayList<ProgrammingLang>)
+    +getLanguages():ArrayList<ProgrammingLang>
+    +setLanguages(ArrayList<ProgrammingLang> languages):void
+    +addLanguage(ProgrammingLang newLang):void
+    +removeLanguage(ProgrammingLang lang):void
+    +getType():Enum<Specialty>
+}
+
+class InfoDoctor implements IAdditionalInfo{
+    -specialization:DoctorSpec
+    +InfoDoctor(DoctorSpec)
+    +getSpecialization():DoctorSpec
+    +setSpecialization(DoctorSpec specialization):void
+    +getType():Enum<Specialty>
+}
+
+class InfoEngineer implements IAdditionalInfo{
+    -specialization:EngineerSpec
+    +InfoEngineer(EngineerSpec)
+    +getSpecialization():EngineerSpec
+    +setSpecialization(EngineerSpec):void
+    +getType() :Enum<Specialty>
+}
+
+class InfoHealth{
+    -hasCertificate:boolean
+    +InfoHealth(boolean)
+    +hasCertificate():boolean
+    +setCertificate(boolean):void
+    +getType():Enum<Branch>
+}
+class InfoTourism{
+    -hasLicence:boolean
+    +InfoTourism(boolean)
+    +hasLicence:boolean():boolean
+    +setLicence(boolean):void
+    +getType():Enum<Branch>
+}
+
+class InfoTranslator{
+    -langs:ArrayList<Languages>
+    +InfoTranslator(ArrayList<Languages>)
+    +getLangs():ArrayList<Languages>
+    +setLangs(ArrayList<Languages>):void
+    +addLang(Languages):void
+    +removeLang(Languages)void
+}
+
+class InfoScientist{
+    -specialization:ArrayList<ScientistSpec>
+    +InfoScientist(ArrayList<ScientistSpec>)
+    +getSpecialization():ArrayList<ScientistSpec>
+    +setSpecialization(ArrayList<ScientistSpec>):void
+    +addSpec(ScientistSpec spec):void
+    +removeSpec(ScientistSpec):void
+    +getType():Enum<Specialty>
+}
+
+InfoHealth ..|> IAdditionalInfo
+InfoScientist ..|> IAdditionalInfo
+InfoTourism ..|> IAdditionalInfo
+InfoTranslator ..|> IAdditionalInfo
+
+Candidate"1" *-- "1..*"IAdditionalInfo
+@enduml

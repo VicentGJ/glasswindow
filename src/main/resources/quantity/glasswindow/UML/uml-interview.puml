@@ -1,0 +1,31 @@
+@startuml
+skinparam classAttributeIconSize 0
+!pragma layout smetana
+
+
+class Model<<abstract>>{
+    #id:String
+    +Model(String)
+    +getId():String
+    +getType():String
+    +setId(String):void
+}
+class Interview extends Model{
+    -date:Date
+    -candidate:String
+    -company:String
+    -jobPost:String
+    +Interview(String, Date, String, String, String)
+    +getDate():Date
+    +setDate(Date):void
+    +getCandidate():String
+    +setCandidate(String):void
+    +getCompany():String
+    +setCompany(String):void
+    +getJobPost():String
+    +setJobPost(String):void
+    -validateDate(Date):boolean
+}
+
+
+@enduml

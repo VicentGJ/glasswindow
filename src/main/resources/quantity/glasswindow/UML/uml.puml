@@ -5,6 +5,7 @@ skinparam classAttributeIconSize 0
 interface IDataBase<<interface>>{
     +getObject(String, String[]):Model
     +deleteObject(String):void
+    +deleteObject(Model):void
     +insertObject(Model):void
 
 }
@@ -242,7 +243,7 @@ class LoginController extends TransitionController {
 class MainCandidatesController extends MainController {
     #onEntityLink(ActionEvent):void
     #onEditButton(ActionEvent):void
-    #onDeleteButton(ActionEvent):void 
+    #onDeleteButton(ActionEvent):void
     #onSearchButton():void
 }
 
@@ -255,7 +256,7 @@ class MainCompaniesController extends  MainController{
 class MainController extends TransitionController{
     #onNewCompany(ActionEvent):void
     #onNewCandidate(ActionEvent):void
-    #onNewJobPost(ActionEvent):void 
+    #onNewJobPost(ActionEvent):void
     #onQuit(ActionEvent):void
     #onProfileLink(ActionEvent):void
     #onCompaniesSection(ActionEvent):void
@@ -263,7 +264,7 @@ class MainController extends TransitionController{
     #onJobPotsSection(ActionEvent):void
     #onEntityLink(ActionEvent):void
     #onEditButton(ActionEvent):void
-    #onDeleteButton(ActionEvent):void 
+    #onDeleteButton(ActionEvent):void
     #onSearchButton()
 }
 

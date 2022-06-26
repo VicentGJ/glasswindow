@@ -1,0 +1,65 @@
+@startuml
+skinparam classAttributeIconSize 0
+!pragma layout smetana
+
+class InterviewController {
+    #onCancelButton(ActionEvent):void
+    #onOkButton(ActionEvent):void
+}
+
+class JobPostController extends TransitionController{
+    #onCancelButton(ActionEvent):void
+    #onApplyButton(ActionEvent):void
+}
+
+class LoginController extends TransitionController {
+    #onLoginButton(ActionEvent):void
+    #onSignUpLink(ActionEvent):void
+}
+
+class MainCandidatesController extends MainController {
+    #onEntityLink(ActionEvent):void
+    #onEditButton(ActionEvent):void
+    #onDeleteButton(ActionEvent):void
+    #onSearchButton():void
+}
+
+class MainCompaniesController extends  MainController{
+    #onEditButton(ActionEvent):void
+    #onDeleteButton(ActionEvent):void
+    #onEntityLink(ActionEvent):void
+    #onSearchButton()
+}
+class MainController extends TransitionController{
+    #onNewCompany(ActionEvent):void
+    #onNewCandidate(ActionEvent):void
+    #onNewJobPost(ActionEvent):void
+    #onQuit(ActionEvent):void
+    #onProfileLink(ActionEvent):void
+    #onCompaniesSection(ActionEvent):void
+    #onCandidatesSection(ActionEvent):void
+    #onJobPotsSection(ActionEvent):void
+    #onEntityLink(ActionEvent):void
+    #onEditButton(ActionEvent):void
+    #onDeleteButton(ActionEvent):void
+    #onSearchButton()
+}
+
+class SignUpController extends TransitionController{
+    #onSignUpButton(ActionEvent):void
+    #onLoginLink(ActionEvent):void
+}
+
+class MainJobPostsController extends MainController {
+    #onEntityLink(ActionEvent):void
+    #onEditButton(ActionEvent):void
+    #onDeleteButton(ActionEvent):void
+    #onSearchButton():void
+}
+
+class TransitionController {
+    #transition(String, ActionEvent):void
+}
+
+
+@enduml

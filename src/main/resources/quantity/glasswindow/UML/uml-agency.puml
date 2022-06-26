@@ -1,0 +1,60 @@
+@startuml
+skinparam classAttributeIconSize 0
+!pragma layout smetana
+
+
+interface IDataBase<<interface>>{
+    +getObject(String, String[]):Model
+    +deleteObject(String):void
+    +deleteObject(Model):void
+    +insertObject(Model):void
+}
+
+class Agency implements IDataBase{
+    - candidateList:ArrayList<Candidate>
+    - companyList:ArrayList<Company>
+    - jobPostList:ArrayList<JobPost>
+    - interviewList:ArrayList<Interview>
+    - {static}single_instance:Agency
+    - Agency()
+    + {static}create():Agency
+    + getCandidateList():ArrayList<Candidate>
+    + getCompanyList():ArrayList<Company>
+    + getJobPostList():ArrayList<JobPost>
+    + getInterviewList():ArrayList<Interview>
+    - addCandidate(Candidate):void
+    - addCompany(Company):void
+    - addJobPost(JobPost):void
+    - addInterview(Interview):void
+    - removeCandidate(String):void
+    - removeCompany(String):void
+    - removeJobPost(String):void
+    - removeInterview(String):void
+    - removeCandidate(Candidate):void
+    - removeCompany(Company) void
+    - removeJobPost(JobPost):void
+    - removeInterview(Interview):void
+    + setModels(ArrayList<Model>):void
+    - getModels():ArrayList<Model>
+    + getObject(String):Model
+    + deleteObject(String):void
+    + deleteObject(Model):void
+    + insertObject(Model):void
+    + getObjectList(String, HashMap<String, Object>):ArrayList<Model>
+    + gerObjectListIDs(String, HashMap<String, Object>):ArrayList<String>
+    - filterList(HashMap<String, Object>, ArrayList<Model>):ArrayList<Model>
+    + getQualifiedJobPostList (Candidate):ArrayList<JobPost>
+    + getAppliances(String, int):ArrayList<Candidate>
+    + getInterviewsMonth (String,int):ArrayList<ArrayList<Interview>>
+    + getCompanyInterviews(Company):ArrayList<ArrayList<Interview>>
+    + Model getModelWithID(String):Model
+    + modelExists(String):boolean
+    + initTestData():void
+}
+
+Candidate"1..*" --* "1 "Agency
+Company"1..*" --* "1 "Agency
+JobPost"1..*" --* "1 "Agency
+Interview"1..*" --* "1 "Agency
+Agency "1" --> "   1" Agency
+@enduml

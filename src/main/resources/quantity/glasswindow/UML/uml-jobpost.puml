@@ -1,0 +1,43 @@
+@startuml
+skinparam classAttributeIconSize 0
+!pragma layout smetana
+
+class JobPost extends Model{
+    -branch:Branch
+    -salary:float
+    -status:Status
+    -description:String
+    -company:String
+    -interviewList:ArrayList<String>
+    -scholarship:Scholarship
+    -specialty:Specialty
+    +JobPost(String,Branch,float,Status,String,String,ArrayList<String>,Scholarship,Specialty)
+    +getSpecialty():Specialty
+    +setSpecialty(Specialty):void
+    +getScholarship():Scholarship
+    +setScholarship(Scholarship) :void
+    +getBranch():Branch
+    +setBranch(Branch):void
+    +getSalary():float
+    +setSalary(float):void
+    +getStatus():Status
+    +setStatus(Status):void
+    +getDescription():String
+    +setDescription(String):void
+    +getCompany():String
+    +setCompany(String):void
+    +getInterviewList() :ArrayList<String>
+    +setInterviewList(ArrayList<String>):void
+    +addInterview(String):void
+    deleteNode():void
+}
+
+class Model<<abstract>>{
+    #id:String
+    +Model(String)
+    +getId():String
+    +getType():String
+    +setId(String):void
+}
+
+@enduml
