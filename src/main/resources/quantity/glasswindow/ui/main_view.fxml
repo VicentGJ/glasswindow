@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="quantity.glasswindow.ui.MainCompaniesController">
+<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="quantity.glasswindow.ui.MainController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -121,7 +121,7 @@
                         <Insets left="40.0" right="40.0" />
                      </padding>
                   </Separator>
-                  <ListView prefHeight="423.0" prefWidth="631.0" />
+                  <ListView fx:id="mainList" prefHeight="423.0" prefWidth="631.0" />
                   <HBox alignment="CENTER_RIGHT" prefHeight="53.0" prefWidth="631.0">
                      <padding>
                         <Insets right="5.0" />

@@ -1,12 +1,39 @@
 package quantity.glasswindow.ui;
 
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.control.ListView;
+import quantity.glasswindow.core.Agency;
+import quantity.glasswindow.core.enumerations.OrderBy;
 import quantity.glasswindow.utils.WindowLoader;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.*;
 
-public abstract class MainController extends TransitionController{
+public class MainController extends TransitionController implements Initializable {
+
+    @FXML
+    private ListView<String> mainList;
+    private Agency agency;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        this.agency = Agency.create();
+        try {
+            this.agency.initTestData();
+            ArrayList<String> list = new ArrayList<>(agency.gerObjectListIDs("Company", OrderBy.ID, new HashMap<>()));
+            mainList.setItems(FXCollections.observableArrayList(list));
+            System.out.println(this.mainList.getItems());
+        }
+        catch (Exception e) {
+            System.out.println("Lola");
+        }
+    }
+
     @FXML
     protected void onNewCompany(ActionEvent event) throws IOException {
         WindowLoader.loadWindow(getClass().getResource("Company Edit.fxml"), "New Company", null);
@@ -29,25 +56,25 @@ public abstract class MainController extends TransitionController{
     }
     @FXML
     protected void onCompaniesSection(ActionEvent event) throws IOException {
-        this.transition("main_companies.fxml", event);
+        
     }
     @FXML
     protected void onCandidatesSection(ActionEvent event) throws IOException {
-        this.transition("main_candidates.fxml", event);
+        
     }
     @FXML
     protected void onJobPotsSection(ActionEvent event) throws IOException {
-        this.transition("main_job_posts.fxml", event);
+        
     }
     @FXML
-    protected abstract void onEntityLink(ActionEvent event) throws IOException;
+    protected void onEntityLink(ActionEvent event) throws IOException {}
 
     @FXML
-    protected abstract void onEditButton(ActionEvent event) throws IOException;
+    protected void onEditButton(ActionEvent event) throws IOException {}
 
     @FXML
-    protected abstract void onDeleteButton(ActionEvent event) throws IOException;
+    protected void onDeleteButton(ActionEvent event) throws IOException {}
 
     @FXML
-    protected abstract void onSearchButton() throws  IOException;
+    protected void onSearchButton() throws  IOException {}
 }
