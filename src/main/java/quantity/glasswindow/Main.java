@@ -4,6 +4,7 @@ import quantity.glasswindow.core.*;
 import quantity.glasswindow.core.customExceptions.*;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class Main {
     public static void main(String[] args) {
@@ -42,7 +43,7 @@ public class Main {
             System.exit(1);
         }
         // Report 3
-        ArrayList<ArrayList<Interview>> monthInterviews = agency.getInterviewsMonth("company-001", 6);
+        ArrayList<ArrayList<Interview>> monthInterviews = agency.getInterviewsMonth("company-002", 6);
         System.out.println(monthInterviews);
         // Report 4
         try {

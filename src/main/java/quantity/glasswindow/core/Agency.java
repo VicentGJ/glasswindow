@@ -451,7 +451,6 @@ public class Agency implements IDataBase {
     }
 
     public ArrayList<Candidate> getAppliances (String company, int month) throws IdNotFoundException {
-        month--;
         ArrayList<Candidate> result = new ArrayList<>();
         Company c = (Company)getModelWithID(company);
         ArrayList<String> jobPosts = new ArrayList<>(c.getJobPostList());
@@ -487,7 +486,7 @@ public class Agency implements IDataBase {
             else {
                 filter.put("candidate", object);
             }
-            filter.put("date", month-1);
+            filter.put("date", month);
             ArrayList<Model> monthInterviews = new ArrayList<>(this.getObjectList(
                     "Interview", filter)
             );
@@ -606,9 +605,9 @@ public class Agency implements IDataBase {
         company6.addJobPostToList(jb6.getId());
 
         //interviews
-        Interview interview1 = new Interview("interview-001",new Date(2022,Calendar.DECEMBER,12,112,40),candidate1.getId(),company1.getId(),jb1.getId());
+        Interview interview1 = new Interview("interview-001",new Date(2022,Calendar.JUNE,30,112,40),candidate1.getId(),company1.getId(),jb1.getId());
         jb1.addInterview(interview1.getId());
-        Interview interview2 = new Interview("interview-002",new Date(2022,Calendar.JULY,13,15,15),candidate2.getId(),company2.getId(),jb2.getId());
+        Interview interview2 = new Interview("interview-002",new Date(2022,Calendar.JULY,6,15,15),candidate2.getId(),company2.getId(),jb2.getId());
         jb2.addInterview(interview2.getId());
         Interview interview3 = new Interview("interview-003",new Date(2022,Calendar.NOVEMBER,14),candidate3.getId(),company3.getId(),jb3.getId());
         jb3.addInterview(interview3.getId());
