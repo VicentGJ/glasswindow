@@ -6,7 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import quantity.glasswindow.core.Agency;
-import quantity.glasswindow.utils.WindowLoader;
+import quantity.glasswindow.utils.ViewLoader;
 
 import java.io.IOException;
 import java.net.URL;
@@ -33,15 +33,15 @@ public class MainController extends TransitionController implements Initializabl
 
     @FXML
     protected void onNewCompany(ActionEvent event) throws IOException {
-        WindowLoader.loadWindow(getClass().getResource("Company Edit.fxml"), "New Company", null);
+        ViewLoader.newWindow(getClass().getResource("Company New.fxml"), "New Company", null);
     }
     @FXML
     protected void onNewCandidate(ActionEvent event) throws IOException {
-        WindowLoader.loadWindow(getClass().getResource("Candidate Edit.fxml"), "New Candidate", null);
+        ViewLoader.newWindow(getClass().getResource("Candidate Edit.fxml"), "New Candidate", null);
     }
     @FXML
     protected void onNewJobPost(ActionEvent event) throws IOException {
-        WindowLoader.loadWindow(getClass().getResource("Job Post Edit.fxml"), "New Job Post", null);
+        ViewLoader.newWindow(getClass().getResource("Job Post Edit.fxml"), "New Job Post", null);
     }
     @FXML
     protected void onQuit(ActionEvent event) {
@@ -49,7 +49,7 @@ public class MainController extends TransitionController implements Initializabl
     }
     @FXML
     protected void onProfileLink(ActionEvent event) throws IOException {
-        WindowLoader.loadWindow(getClass().getResource("Profile View.fxml"), "User Profile", null);
+        ViewLoader.newWindow(getClass().getResource("Profile View.fxml"), "User Profile", null);
     }
     @FXML
     protected void onCompaniesSection(ActionEvent event) throws IOException {
@@ -57,7 +57,7 @@ public class MainController extends TransitionController implements Initializabl
     }
     @FXML
     protected void onCandidatesSection(ActionEvent event) throws IOException {
-        
+        ViewLoader.thisWindow(getClass().getResource("Calendar View.fxml"), event);
     }
     @FXML
     protected void onJobPotsSection(ActionEvent event) throws IOException {
