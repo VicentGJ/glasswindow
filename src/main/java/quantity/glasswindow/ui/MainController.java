@@ -3,11 +3,9 @@ package quantity.glasswindow.ui;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import quantity.glasswindow.core.Agency;
-import quantity.glasswindow.core.enumerations.OrderBy;
 import quantity.glasswindow.utils.WindowLoader;
 
 import java.io.IOException;
@@ -22,10 +20,9 @@ public class MainController extends TransitionController implements Initializabl
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        this.agency = Agency.create();
+        this.agency = Agency.getInstance();
         try {
-            this.agency.initTestData();
-            ArrayList<String> list = new ArrayList<>(agency.gerObjectListIDs("Company", OrderBy.ID, new HashMap<>()));
+            ArrayList<String> list = new ArrayList<>(agency.gerObjectListIDs("Company", new HashMap<>()));
             mainList.setItems(FXCollections.observableArrayList(list));
             System.out.println(this.mainList.getItems());
         }

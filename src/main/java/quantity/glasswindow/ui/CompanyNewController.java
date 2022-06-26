@@ -20,7 +20,7 @@ public class CompanyNewController {
     private TextField phoneField;
 
     public CompanyNewController () {
-        this.agency = Agency.create();
+        this.agency = Agency.getInstance();
     }
     public void onCancelButton(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
