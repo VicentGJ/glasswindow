@@ -236,15 +236,15 @@ public class Agency implements IDataBase {
 
     @Override
     public void deleteObject(String id) throws IdNotFoundException {
-            Model m = getModelWithID(id);
-            if (m instanceof Candidate)
-                removeCandidate(m.getId());
-            else if(m instanceof Company)
-                removeCompany(m.getId());
-            else if(m instanceof JobPost)
-                removeJobPost(m.getId());
-            else if(m instanceof Interview)
-                removeInterview(m.getId());
+        Model m = getModelWithID(id);
+        if (m instanceof Candidate)
+            removeCandidate(m.getId());
+        else if(m instanceof Company)
+            removeCompany(m.getId());
+        else if(m instanceof JobPost)
+            removeJobPost(m.getId());
+        else if(m instanceof Interview)
+            removeInterview(m.getId());
     }
 
     public void deleteObject(Model m) throws ModelNotFoundException {
@@ -450,7 +450,7 @@ public class Agency implements IDataBase {
         return result;
     }
 
-    public ArrayList<Candidate> getAppliances (String company, int month) {
+    public ArrayList<Candidate> getAppliances (String company, int month) throws IdNotFoundException {
         month--;
         ArrayList<Candidate> result = new ArrayList<>();
         Company c = (Company)getModelWithID(company);
@@ -509,7 +509,7 @@ public class Agency implements IDataBase {
         return result;
     }
 
-    public ArrayList<ArrayList<Interview>> getCompanyInterviews(Company company) {
+    public ArrayList<ArrayList<Interview>> getCompanyInterviews(Company company) throws IdNotFoundException {
         ArrayList<ArrayList<Interview>> result = new ArrayList<>(
                 Collections.nCopies(company.getJobPostList().size(), null)
         );
@@ -529,15 +529,13 @@ public class Agency implements IDataBase {
         return result;
     }
 
-    public Model getModelWithID(String id){
+    public Model getModelWithID(String id) throws IdNotFoundException {
         ArrayList<Model> models = getModels();
-        if(!models.isEmpty()){
-            for(Model model:models){
-                if(model.getId().equals(id))
-                    return model;
-            }
+        for(Model model:models){
+            if(model.getId().equals(id))
+                return model;
         }
-        return null;
+        throw new IdNotFoundException(id);
     }
 
     public boolean modelExists(String id){

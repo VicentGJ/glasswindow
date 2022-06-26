@@ -12,29 +12,50 @@ interface IAdditionalInfo <<interface>>{
     +getType():Enum
 }
 
-interface ICascadeDelete <<interface>>{
-    +deleteNode():void
+Agency ..|> IDataBase
+class Agency {
+    - candidateList:ArrayList<Candidate>
+    - companyList:ArrayList<Company>
+    - jobPostList:ArrayList<JobPost>
+    - interviewList:ArrayList<Interview>
+    - {static}single_instance:Agency
+    - Agency()
+    + {static}create():Agency
+    + getCandidateList():ArrayList<Candidate>
+    + getCompanyList():ArrayList<Company>
+    + getJobPostList():ArrayList<JobPost>
+    + getInterviewList():ArrayList<Interview>
+    - addCandidate(Candidate):void
+    - addCompany(Company):void
+    - addJobPost(JobPost):void
+    - addInterview(Interview):void
+    - removeCandidate(String):void
+    - removeCompany(String):void
+    - removeJobPost(String):void
+    - removeInterview(String):void
+    - removeCandidate(Candidate):void
+    - removeCompany(Company) void
+    - removeJobPost(JobPost):void
+    - removeInterview(Interview):void
+    + setModels(ArrayList<Model>):void
+    - getModels():ArrayList<Model>
+    + getObject(String):Model
+    + deleteObject(String):void
+    + deleteObject(Model):void
+    + insertObject(Model):void
+    + getObjectList(String, HashMap<String, Object>):ArrayList<Model>
+    + gerObjectListIDs(String, HashMap<String, Object>):ArrayList<String>
+    - filterList(HashMap<String, Object>, ArrayList<Model>):ArrayList<Model>
+    + getQualifiedJobPostList (Candidate):ArrayList<JobPost>
+    + getAppliances(String, int):ArrayList<Candidate>
+    + getInterviewsMonth (String,int):ArrayList<ArrayList<Interview>>
+    + getCompanyInterviews(Company):ArrayList<ArrayList<Interview>>
+    + Model getModelWithID(String):Model
+    + modelExists(String):boolean
+    + initTestData():void
 }
-class Agency implements IDataBase{
-    -models : ArrayList<Model>
-    -single_instance : Agency
-    -Agency()
-    +create() : Agency
-    +setModels(ArrayList<Model>)
-    +getModels():ArrayList<Model>
-    +getObject(String, String[]):Model
-    +deleteObject(String):void
-    +insertObject(Model):void
-    +modelExists(String):boolean
-    +getObjectList(String, OrderBy, HashMap<String, Object>):<ArrayList<Model>
-    +gerObjectListIDs(String,OrderBy, HashMap<String, Object>):ArrayList<String>
-    -order_ID(String):ArrayList<Model>
-    -order_creationDate(String):ArrayList<Model>
-    -filterOrderedList(HashMap<String, Object>, ArrayList<Model>):<ArrayList<Model>
-}
-
 class Model<<abstract>>{
-    # id : String
+    #id:String
     +Model(String)
     +getId():String
     +getType():String
@@ -67,12 +88,13 @@ class Candidate extends Model{
     +setSector():void
     +getAdditionalInfo():ArrayList<IAdditionalInfo>
     +setId(String):void
+    + addAdditionalInfo(IAdditionalInfo):void
     -dateValidationID(String):boolean
     -genderValidationID(String):boolean
     -phoneValidation(String):boolean
 }
 
-class Company extends Model implements ICascadeDelete{
+class Company extends Model{
     -name:String
     -address:String
     -phoneList:ArrayList<String>
@@ -112,7 +134,7 @@ class Interview extends Model{
     -validateDate(Date):boolean
 }
 
-class JobPost extends Model implements ICascadeDelete{
+class JobPost extends Model{
     -branch:Branch
     -salary:float
     -status:Status
@@ -142,7 +164,6 @@ class JobPost extends Model implements ICascadeDelete{
     deleteNode():void
 }
 
-
 class InfoDeveloper implements IAdditionalInfo{
     -languages:ArrayList<ProgrammingLang>
     +InfoDeveloper(ArrayList<ProgrammingLang>)
@@ -169,14 +190,14 @@ class InfoEngineer implements IAdditionalInfo{
     +getType() :Enum<Specialty>
 }
 
-class InfoHealth implements IAdditionalInfo{
+class InfoHealth{
     -hasCertificate:boolean
     +InfoHealth(boolean)
     +hasCertificate():boolean
     +setCertificate(boolean):void
     +getType():Enum<Branch>
 }
-class InfoTourism implements IAdditionalInfo{
+class InfoTourism{
     -hasLicence:boolean
     +InfoTourism(boolean)
     +hasLicence:boolean():boolean
@@ -184,7 +205,7 @@ class InfoTourism implements IAdditionalInfo{
     +getType():Enum<Branch>
 }
 
-class InfoTranslator implements IAdditionalInfo{
+class InfoTranslator{
     -langs:ArrayList<Languages>
     +InfoTranslator(ArrayList<Languages>)
     +getLangs():ArrayList<Languages>
@@ -193,7 +214,7 @@ class InfoTranslator implements IAdditionalInfo{
     +removeLang(Languages)void
 }
 
-class InfoScientist implements IAdditionalInfo{
+class InfoScientist{
     -specialization:ArrayList<ScientistSpec>
     +InfoScientist(ArrayList<ScientistSpec>)
     +getSpecialization():ArrayList<ScientistSpec>
@@ -261,196 +282,17 @@ class MainJobPostsController extends MainController {
 class TransitionController {
     #transition(String, ActionEvent):void
 }
-enum Branch <<enumeration>>{
-    AGRICULTURE
-    TOURISM
-    HEALTH
-    EDUCATION
-    SERVICES
-    INDUSTRY
-}
 
-enum DoctorSpec <<enumeration>>{
-    ALLERGIST
-    IMMUNOLOGIST
-    DERMATOLOGIST
-    RADIOLOGIST
-    EMERGENCY_MED
-    FAMILY_MED
-    GENETICS
-    NEUROLOGIST
-    GYNECOLOGIST
-    OPHTHALMOLOGIST
-    PATHOLOGIST
-    PREVENTIVE_MED
-    REHAB_MED
-    PSYCHIATRIST
-    SURGEON
-    UROLOGIST
-}
+Candidate"1..*" --* "1 "Agency
+Company"1..*" --* "1 "Agency
+JobPost"1..*" --* "1 "Agency
+Interview"1..*" --* "1 "Agency
 
-enum EngineerSpec <<enumeration>>{
-    CIVIL
-    INDUSTRIAL
-    BIOMEDICAL
-    TELECOMMUNICATIONS
-    INFORMATIC
-    AUTOMATIC
-    ELECTRONIC
-    MECHANIC
-}
+InfoHealth ..|> IAdditionalInfo
+InfoScientist ..|> IAdditionalInfo
+InfoTourism ..|> IAdditionalInfo
+InfoTranslator ..|> IAdditionalInfo
 
-enum Gender <<enumeration>>{
-    MASCULINE
-    FEMININE
-}
-
-enum Languages <<enumeration>>{
-    AFRIKAANS
-    ALBANIAN
-    AMHARIC
-    ARABIC
-    ARMENIAN
-    BASQUE
-    BENGALI
-    BELORUSSIAN
-    BURMESE
-    BULGARIAN
-    CATALAN
-    CHINESE
-    CROATIAN
-    DANISH
-    DUTCH
-    ENGLISH
-    ESPERANTO
-    ESTONIAN
-    FARSI
-    FINNISH
-    FRENCH
-    GAELIC
-    GERMAN
-    GREEK
-    HEBREW
-    HINDI
-    HUNGARIAN
-    ICELANDIC
-    INDONESIAN
-    ITALIAN
-    JAPANESE
-    KOREAN
-    KURDISH
-    LAOTIAN
-    LATVIAN
-    LITHUANIAN
-    MACEDONIAN
-    MALAY
-    MALTESE
-    NEPALI
-    NORWEGIAN
-    POLISH
-    PORTUGUESE
-    ROMANIAN
-    RUSSIAN
-    SCOTS
-    SERBIAN
-    SLOVAK
-    SLOVENIAN
-    SOMALI
-    SPANISH
-    SWEDISH
-    SWAHILI
-    TIBETAN
-    TURKISH
-    UKRAINIAN
-    UZBEK
-    VIETNAMESE
-    WELSH
-}
-
-enum ProgrammingLang <<enumeration>>{
-    PYTHON
-    C
-    CPP
-    CSHARP
-    JAVA
-    GDSCRIPT
-    PHP
-    HTML
-    CSS
-    JS
-    RUBY
-    PERL
-    RUST
-    TYPESCRIPT
-    SQL
-}
-
-enum Scholarship <<enumeration>>{
-    BASIC
-    GRADE
-    MASTER
-    PHD
-}
-
-enum ScientistSpec <<enumeration>>{
-    ECOLOGY
-    BIOLOGY
-    CHEMISTRY
-    MATHEMATICIAN
-    MEDICAL_SCI
-    PSYCHOLOGY
-    GEOLOGY
-    PALEONTOLOGY
-    STATISTIC
-    PHARMACOLOGY
-    NEUROSCIENCE
-    COMPUTER_SCI
-    OCEANOGRAPHY
-    MICROBIOLOGY
-    PHYSICS
-    FORENSIC
-}
-
-enum Specialty <<enumeration>>{
-    ENGINEER
-    DEVELOPER
-    DOCTOR
-    TRANSLATOR
-    DESIGNER
-    ARCHITECT
-    SCIENTIST
-    ECONOMIST
-    ACCOUNTANT
-    MANAGER
-    CONSULTANT
-    GUARD
-}
-
-enum  Status <<enumeration>>{
-    OPEN
-    APPLICATION_ACTIVE
-    CLOSED
-}
-
-Candidate"1      " --> "1"Gender
-Candidate"1" --> "1"Scholarship
-Candidate"1" --> "     1"Specialty
-Candidate"1   " --> "1 "Branch
-InfoHealth"1  "--> "1 "Branch
-InfoTourism"1  " --> "1 "Branch
-JobPost"1 " --> "1  "Branch
-JobPost"1" --> "1  "Status
-JobPost"1"--> "1  "Scholarship
-JobPost"1" --> "1  "Specialty
-Company"1" --> "1      "Branch
-
-InfoDeveloper"1" --> "1..* "ProgrammingLang
-InfoTranslator"1" -->"1..* "Languages
-InfoScientist"1" -->"1..* "ScientistSpec
-
-InfoDoctor"1" --> "1 "DoctorSpec
-InfoEngineer"1" --> "1 "EngineerSpec
-Agency"1 " *--"1..*"Model
 Agency "1" --> "   1" Agency
-Candidate *-- IAdditionalInfo
+Candidate"1" *-- "1..*"IAdditionalInfo
 @enduml
