@@ -11,6 +11,7 @@ module quantity.glasswindow {
     exports quantity.glasswindow;
     exports quantity.glasswindow.core;
     exports quantity.glasswindow.core.customExceptions;
+    exports quantity.glasswindow.core.enumerations;
     exports quantity.glasswindow.utils;
     exports quantity.glasswindow.ui;
 }
