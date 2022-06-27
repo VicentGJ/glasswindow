@@ -56,7 +56,7 @@ public class Interview extends Model {
 
     private boolean validateDate(Date date){
         Calendar today_calendar = Calendar.getInstance();
-        Date today_date = new Date(today_calendar.get(Calendar.YEAR),today_calendar.get(Calendar.MONTH),today_calendar.get(Calendar.DAY_OF_MONTH));
+        Date today_date = new Date(today_calendar.get(Calendar.YEAR),(today_calendar.get(Calendar.MONTH)+1),today_calendar.get(Calendar.DAY_OF_MONTH));
         return date.after(today_date);
     }
 }

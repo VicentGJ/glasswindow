@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class InvalidDateException extends Exception{
     public InvalidDateException(Date date) {
-        super("Invalid date to set interview: "+date.getDay()+"/"+date.getMonth()+"/"+date.getYear());
+        super("Invalid date to set interview: "+date.getDate()+"/"+date.getMonth()+"/"+date.getYear());
     }
 
 }
