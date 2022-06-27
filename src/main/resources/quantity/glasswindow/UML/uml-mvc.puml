@@ -1,0 +1,42 @@
+@startuml
+skinparam classAttributeIconSize 0
+!pragma layout smetana
+class CompanyNewController<<Controller>>{
+- agency:Agency
+- nameField:TextField
+- descriptionField:TextField
+- addressField:TextField
+- phoneField:TextField
++ CompanyNewController ()
++ onCancelButton(ActionEvent):void
++ onSaveButton(ActionEvent):void
+}
+
+class Company<<Model>>{
+    -name:String
+    -address:String
+    -phoneList:ArrayList<String>
+    -sector:Branch
+    -jobPostList:ArrayList<JobPost>
+    +Company(String,String,String,String,Branch,ArrayList<JobPost>)
+    +getName() :String
+    +setName(String):void
+    +getAddress():String
+    +setAddress(String):void
+    +getPhone():String
+    +setPhone(String):void
+    +getSector():Branch
+    +setSector(Branch):void
+    +getJobPostList():ArrayList<JobPost>
+    +addJobPostToList(JobPost):void
+    +setJobPostList(ArrayList<JobPost>):void
+    +deleteNode():void
+    -validatePhone(String):boolean
+}
+
+class CompanyNew<< (F,#FF7700) FXML View >>
+
+CompanyNew --> CompanyNewController
+CompanyNewController --> Company
+
+@enduml
