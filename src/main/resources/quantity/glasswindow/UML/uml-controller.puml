@@ -2,40 +2,29 @@
 skinparam classAttributeIconSize 0
 !pragma layout smetana
 
-class InterviewController {
-    #onCancelButton(ActionEvent):void
-    #onOkButton(ActionEvent):void
+class ViewLoader{
++newWindow(URL,String,Stage):void
++thisWindow(URL,ActionEvent):void
 }
 
-class JobPostController extends TransitionController{
-    #onCancelButton(ActionEvent):void
-    #onApplyButton(ActionEvent):void
+class FXMLLoader{
++load(URL):Parent
 }
 
-class LoginController extends TransitionController {
-    #onLoginButton(ActionEvent):void
-    #onSignUpLink(ActionEvent):void
+class Stage{
++setTitle(String):void
++setScene(Scene):void
++show():void
 }
 
-class MainCandidatesController extends MainController {
-    #onEntityLink(ActionEvent):void
-    #onEditButton(ActionEvent):void
-    #onDeleteButton(ActionEvent):void
-    #onSearchButton():void
-}
+class Scene{}
+class Parent{}
 
-class MainCompaniesController extends  MainController{
-    #onEditButton(ActionEvent):void
-    #onDeleteButton(ActionEvent):void
-    #onEntityLink(ActionEvent):void
-    #onSearchButton()
-}
-class MainController extends TransitionController{
+class MainController{
     #onNewCompany(ActionEvent):void
     #onNewCandidate(ActionEvent):void
     #onNewJobPost(ActionEvent):void
     #onQuit(ActionEvent):void
-    #onProfileLink(ActionEvent):void
     #onCompaniesSection(ActionEvent):void
     #onCandidatesSection(ActionEvent):void
     #onJobPotsSection(ActionEvent):void
@@ -45,21 +34,56 @@ class MainController extends TransitionController{
     #onSearchButton()
 }
 
-class SignUpController extends TransitionController{
-    #onSignUpButton(ActionEvent):void
-    #onLoginLink(ActionEvent):void
+class CandidateProfileController{
+#onBackButton():void
+#onEditButton():void
+}
+class CandidateProfileEditController{
+#onBackButton():void
+#onSaveButton():void
+}
+class CompanyEditController{
+#onBackButton():void
+#onSaveButton():void
+}
+class CompanyNewController{
+- agency:Agency
+- nameField:TextField
+- descriptionField:TextField
+- addressField:TextField
+- phoneField:TextField
++ CompanyNewController ()
++ onCancelButton(ActionEvent):void
++ onSaveButton(ActionEvent):void
+}
+class CompanyViewController{
+#onBackButton():void
+#onEditButton():void
+}
+class InterviewController {
+#onCancelButton():void
+#onOkButton():void
+}
+class JobPostController{
+#onBackButton():void
+#onEditButton():void
+#onApplyButton():void
 }
 
-class MainJobPostsController extends MainController {
-    #onEntityLink(ActionEvent):void
-    #onEditButton(ActionEvent):void
-    #onDeleteButton(ActionEvent):void
-    #onSearchButton():void
-}
 
-class TransitionController {
-    #transition(String, ActionEvent):void
-}
 
+MainController --> ViewLoader
+CandidateProfileController --> ViewLoader
+CandidateProfileEditController --> ViewLoader
+InterviewController --> ViewLoader
+ViewLoader <-- JobPostController
+ViewLoader <-- CompanyNewController
+ViewLoader <-- CompanyEditController
+CompanyViewController --> ViewLoader
+
+ViewLoader --> FXMLLoader
+ViewLoader --> Stage
+ViewLoader --> Scene
+ViewLoader --> Parent
 
 @enduml

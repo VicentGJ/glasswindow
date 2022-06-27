@@ -29,6 +29,37 @@ public class Agency implements IDataBase {
             single_instance = new Agency();
         return single_instance;
     }
+
+    public Candidate createCandidate(String id, String name, Gender gender, String address, String phone, Scholarship scholarship,
+                                Specialty specialty, Branch sector, int yearsOfExp)
+            throws InvalidPhoneException, InvalidNameException, InvalidIDException, DuplicatedIDException, InvalidYearsOfExpException {
+
+        Candidate newCandidate = new Candidate(id,name,gender,address,phone,scholarship,specialty,sector,yearsOfExp);
+        return newCandidate;
+    }
+
+    public Company newCompany(String id, String name, String address, String phone,
+                              Branch sector, ArrayList<String> jobPostList)
+            throws InvalidPhoneException, InvalidNameException, InvalidIDException, DuplicatedIDException {
+        Company newCompany = new Company(id,name,address,phone,sector,jobPostList);
+        return newCompany;
+    }
+
+    public JobPost createJobPost(String id, Branch branch, float salary, Status status, String description,
+                                 String company, ArrayList<String> interviewList, Scholarship scholarship,
+                                 Specialty specialty)
+            throws InvalidSalaryException, ModelNotFoundException, InvalidIDException, DuplicatedIDException {
+        JobPost newJobPost = new JobPost(id,branch,salary,status,description,company,interviewList,scholarship,specialty);
+        return newJobPost;
+    }
+
+    public Interview createInterview(String id, Date date, String candidate,
+                                     String company, String jobPost)
+            throws InvalidDateException, InvalidIDException, DuplicatedIDException {
+        Interview newInterview = new Interview(id,date,candidate,company,jobPost);
+        return newInterview;
+    }
+
     public ArrayList<Candidate> getCandidateList() {
         return candidateList;
     }

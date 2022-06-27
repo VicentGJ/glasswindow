@@ -1,0 +1,19 @@
+@startuml
+skinparam classAttributeIconSize 0
+class Candidate{
+    +Candidate(String, String,Gender,String,String
+               Scholarship, Specialty, Branch, int):void
+    +setID(String):void
+}
+
+class Agency{
++createCandidate(String, String,Gender,String,String
+Scholarship, Specialty, Branch, int):Candidate
+}
+
+class  CandidateController{}
+
+Candidate --> Agency : "exception"
+Agency --> CandidateController: "exception"
+
+@enduml

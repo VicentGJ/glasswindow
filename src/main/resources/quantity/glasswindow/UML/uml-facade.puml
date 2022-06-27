@@ -1,0 +1,42 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class ViewLoader{
++newWindow(URL,String,Stage):void
++thisWindow(URL,ActionEvent):void
+}
+
+class FXMLLoader{
++load(URL):Parent
+}
+
+class Stage{
++setTitle(String):void
++setScene(Scene):void
++show():void
+}
+
+class Scene{}
+class Parent{}
+
+class MainController{
+    #onNewCompany(ActionEvent):void
+    #onNewCandidate(ActionEvent):void
+    #onNewJobPost(ActionEvent):void
+    #onQuit(ActionEvent):void
+    #onCompaniesSection(ActionEvent):void
+    #onCandidatesSection(ActionEvent):void
+    #onJobPotsSection(ActionEvent):void
+    #onEntityLink(ActionEvent):void
+    #onEditButton(ActionEvent):void
+    #onDeleteButton(ActionEvent):void
+    #onSearchButton()
+
+}
+
+ViewLoader --> FXMLLoader
+ViewLoader --> Stage
+ViewLoader --> Scene
+ViewLoader --> Parent
+MainController --> ViewLoader
+@enduml
