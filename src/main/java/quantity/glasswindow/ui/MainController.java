@@ -47,10 +47,7 @@ public class MainController extends TransitionController implements Initializabl
     protected void onQuit(ActionEvent event) {
         System.exit(0);
     }
-    @FXML
-    protected void onProfileLink(ActionEvent event) throws IOException {
-        ViewLoader.newWindow(getClass().getResource("Profile View.fxml"), "User Profile", null);
-    }
+
     @FXML
     protected void onCompaniesSection(ActionEvent event) throws IOException {
         

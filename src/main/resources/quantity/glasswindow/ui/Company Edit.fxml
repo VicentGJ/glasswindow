@@ -100,7 +100,7 @@
       </GridPane>
       <HBox alignment="CENTER" prefHeight="50.0" prefWidth="409.0" spacing="20.0">
          <children>
-            <JFXButton onAction="#onButtonBack" prefHeight="30.0" prefWidth="64.0" style="-fx-background-color: rgb(215,215,215);" text="Save" />
+            <JFXButton onAction="#onButtonSave" prefHeight="30.0" prefWidth="64.0" style="-fx-background-color: rgb(215,215,215);" text="Save" />
             <JFXButton onAction="#onButtonBack" layoutX="183.0" layoutY="10.0" prefHeight="30.0" prefWidth="64.0" style="-fx-background-color: rgb(215,215,215);" text="Cancel" />
          </children>
          <VBox.margin>

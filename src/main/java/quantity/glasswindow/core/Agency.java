@@ -606,17 +606,17 @@ public class Agency implements IDataBase {
         company6.addJobPostToList(jb6.getId());
 
         //interviews
-        Interview interview1 = new Interview("interview-001",new Date(2022,Calendar.JUNE,30,112,40),candidate1.getId(),company1.getId(),jb1.getId());
+        Interview interview1 = new Interview("interview-001",new Date(2022,6,30,12,40),candidate1.getId(),company1.getId(),jb1.getId());
         jb1.addInterview(interview1.getId());
-        Interview interview2 = new Interview("interview-002",new Date(2022,Calendar.JULY,6,15,15),candidate2.getId(),company2.getId(),jb2.getId());
+        Interview interview2 = new Interview("interview-002",new Date(2022,7,6,15,15),candidate2.getId(),company2.getId(),jb2.getId());
         jb2.addInterview(interview2.getId());
-        Interview interview3 = new Interview("interview-003",new Date(2022,Calendar.NOVEMBER,14),candidate3.getId(),company3.getId(),jb3.getId());
+        Interview interview3 = new Interview("interview-003",new Date(2022,11,14,16,30),candidate3.getId(),company3.getId(),jb3.getId());
         jb3.addInterview(interview3.getId());
-        Interview interview4 = new Interview("interview-004",new Date(2022,Calendar.AUGUST,15),candidate4.getId(),company4.getId(),jb4.getId());
+        Interview interview4 = new Interview("interview-004",new Date(2022,8,15,10,00),candidate4.getId(),company4.getId(),jb4.getId());
         jb4.addInterview(interview4.getId());
-        Interview interview5 = new Interview("interview-005",new Date(2022,Calendar.SEPTEMBER,16),candidate5.getId(),company5.getId(),jb5.getId());
+        Interview interview5 = new Interview("interview-005",new Date(2022,9,16,14,00),candidate5.getId(),company5.getId(),jb5.getId());
         jb5.addInterview(interview5.getId());
-        Interview interview6 = new Interview("interview-006",new Date(2022,Calendar.DECEMBER,17),candidate6.getId(),company6.getId(),jb6.getId());
+        Interview interview6 = new Interview("interview-006",new Date(2022,12,17,15,15),candidate6.getId(),company6.getId(),jb6.getId());
         jb6.addInterview(interview6.getId());
 
         //add all to models
