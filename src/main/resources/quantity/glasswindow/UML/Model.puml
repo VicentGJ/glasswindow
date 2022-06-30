@@ -1,0 +1,115 @@
+@startuml
+'https://plantuml.com/class-diagram
+skinparam classAttributeIconSize 0
+
+class Model<<abstract>>{
+    #id:String
+    +Model(String)
+    +getId():String
+    +getType():String
+    +setId(String):void
+}
+
+
+class JobPost extends Model{
+    -branch:Branch
+    -salary:float
+    -status:Status
+    -description:String
+    -company:String
+    -interviewList:ArrayList<String>
+    -scholarship:Scholarship
+    -specialty:Specialty
+    +JobPost(String,Branch,float,Status,String,String,ArrayList<String>,Scholarship,Specialty)
+    +getSpecialty():Specialty
+    +setSpecialty(Specialty):void
+    +getScholarship():Scholarship
+    +setScholarship(Scholarship) :void
+    +getBranch():Branch
+    +setBranch(Branch):void
+    +getSalary():float
+    +setSalary(float):void
+    +getStatus():Status
+    +setStatus(Status):void
+    +getDescription():String
+    +setDescription(String):void
+    +getCompany():String
+    +setCompany(String):void
+    +getInterviewList() :ArrayList<String>
+    +setInterviewList(ArrayList<String>):void
+    +addInterview(String):void
+    deleteNode():void
+}
+
+class Interview extends Model{
+    -date:Date
+    -candidate:String
+    -company:String
+    -jobPost:String
+    +Interview(String, Date, String, String, String)
+    +getDate():Date
+    +setDate(Date):void
+    +getCandidate():String
+    +setCandidate(String):void
+    +getCompany():String
+    +setCompany(String):void
+    +getJobPost():String
+    +setJobPost(String):void
+    -validateDate(Date):boolean
+}
+
+class Candidate{
+    -String name
+    -gender: Gender
+    -address:String
+    -phone:String
+    -scholarship:Scholarship
+    -specialty: Specialty
+    -sector:Branch
+    -additionalInfo:ArrayList<IAdditionalInfo>
+    +Candidate(String,String,Gender,String,String,Scholarship,Specialty,Branch)
+    +getName():String
+    +setName():void
+    +getGender():Gender
+    +setGender():void
+    +getAddress():String
+    +setAddress():void
+    +getPhone():String
+    +setPhone():void
+    +getScholarship():Scholarship
+    +setScholarship():void
+    +getSpecialty():Specialty
+    +setSpecialty():void
+    +getSector():Branch
+    +setSector():void
+    +getAdditionalInfo():ArrayList<IAdditionalInfo>
+    +setId(String):void
+    + addAdditionalInfo(IAdditionalInfo):void
+    -dateValidationID(String):boolean
+    -genderValidationID(String):boolean
+    -phoneValidation(String):boolean
+}
+class Company{
+    -name:String
+    -address:String
+    -phoneList:ArrayList<String>
+    -sector:Branch
+    -jobPostList:ArrayList<JobPost>
+    +Company(String,String,String,String,Branch,ArrayList<JobPost>)
+    +getName() :String
+    +setName(String):void
+    +getAddress():String
+    +setAddress(String):void
+    +getPhone():String
+    +setPhone(String):void
+    +getSector():Branch
+    +setSector(Branch):void
+    +getJobPostList():ArrayList<JobPost>
+    +addJobPostToList(JobPost):void
+    +setJobPostList(ArrayList<JobPost>):void
+    +deleteNode():void
+    -validatePhone(String):boolean
+}
+Company--|>Model
+Candidate --|> Model
+@enduml

@@ -10,8 +10,8 @@ class InterviewTest {
     @Test
     public void validateDate(){
         Date date_previous = new Date(2022,6,25);
-        Date date_equals = new Date(2022,6,26);
-        Date date_after = new Date(2022,6,27);
+        Date date_equals = new Date(2022,6,27);
+        Date date_after = new Date(2022,6,30);
         Calendar today_calendar = Calendar.getInstance();
         Date today_date = new Date(today_calendar.get(Calendar.YEAR),today_calendar.get(Calendar.MONTH)+1,
                 today_calendar.get(Calendar.DAY_OF_MONTH));

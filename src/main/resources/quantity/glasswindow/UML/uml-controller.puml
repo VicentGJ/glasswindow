@@ -2,6 +2,7 @@
 skinparam classAttributeIconSize 0
 !pragma layout smetana
 
+
 class ViewLoader{
 +newWindow(URL,String,Stage):void
 +thisWindow(URL,ActionEvent):void
@@ -34,18 +35,84 @@ class MainController{
     #onSearchButton()
 }
 
-class CandidateProfileController{
-#onBackButton():void
-#onEditButton():void
-}
+
 class CandidateProfileEditController{
-#onBackButton():void
-#onSaveButton():void
+- agency:Agency
+- id:TextField
+- nameField:TextField
+- genderField:ComboBox
+- addressField:TextField
+- phoneField:TextField
+- scolarshipField:ComboBox
+- specialtyField:ComboBox
+- branchField:ComboBox
+- yearsOfExpField:Spinner
+- otherDataField:TextField
++ CandidateNewController ()
++ onCancelButton(ActionEvent):void
++ onSaveButton(ActionEvent):void
 }
 class CompanyEditController{
-#onBackButton():void
-#onSaveButton():void
+- agency:Agency
+- nameField:TextField
+- descriptionField:TextField
+- addressField:TextField
+- phoneField:TextField
++ CompanyNewController ()
++ onCancelButton(ActionEvent):void
++ onSaveButton(ActionEvent):void
 }
+class JobPostEditController{
+- agency:Agency
+- companyField:TextField
+- descriptionField:TextArea
+- salaryField:Spinner
+- branchField:ComboBox
+- specialtyField:ComboBox
++ JobPostNewController ()
++ onCancelButton(ActionEvent):void
++ onSaveButton(ActionEvent):void
+}
+class CandidateNewController{
+- agency:Agency
+- id:TextField
+- nameField:TextField
+- genderField:ComboBox
+- addressField:TextField
+- phoneField:TextField
+- scolarshipField:ComboBox
+- specialtyField:ComboBox
+- branchField:ComboBox
+- yearsOfExpField:Spinner
+- otherDataField:TextField
++ CandidateNewController ()
++ onCancelButton(ActionEvent):void
++ onSaveButton(ActionEvent):void
+}
+
+class JobPostNewController{
+- agency:Agency
+- companyField:TextField
+- descriptionField:TextArea
+- salaryField:Spinner
+- branchField:ComboBox
+- specialtyField:ComboBox
++ JobPostNewController ()
++ onCancelButton(ActionEvent):void
++ onSaveButton(ActionEvent):void
+}
+class InterviewNewController{
+- agency:Agency
+- candidateField:ComboBox
+- dateField:DatePicker
+- hoursField:Spinner
+- minutesField:Spinner
+- timeField:ComboBox
++ InterviewNewController ()
++ onCancelButton(ActionEvent):void
++ onSaveButton(ActionEvent):void
+}
+
 class CompanyNewController{
 - agency:Agency
 - nameField:TextField
@@ -69,21 +136,38 @@ class JobPostController{
 #onEditButton():void
 #onApplyButton():void
 }
+class CandidateProfileController{
+#onBackButton():void
+#onEditButton():void
+}
+MainController --> Agency
+CompanyNewController --> Agency
+CandidateNewController --> Agency
+JobPostNewController --> Agency
+InterviewNewController --> Agency
+CompanyViewController --> Agency
+CompanyEditController --> Agency
+JobPostController --> Agency
+JobPostEditController --> Agency
+InterviewController --> Agency
+CandidateProfileEditController --> Agency
+CandidateProfileController --> Agency
 
-
-
-MainController --> ViewLoader
-CandidateProfileController --> ViewLoader
-CandidateProfileEditController --> ViewLoader
-InterviewController --> ViewLoader
+ViewLoader <-- MainController
+ViewLoader <-- CandidateProfileController
+ViewLoader <-- CandidateProfileEditController
+ViewLoader <-- InterviewController
 ViewLoader <-- JobPostController
+ViewLoader <-- JobPostEditController
 ViewLoader <-- CompanyNewController
+ViewLoader <-- CandidateNewController
+ViewLoader <-- JobPostNewController
+ViewLoader <-- InterviewNewController
 ViewLoader <-- CompanyEditController
-CompanyViewController --> ViewLoader
-
-ViewLoader --> FXMLLoader
-ViewLoader --> Stage
-ViewLoader --> Scene
-ViewLoader --> Parent
+ViewLoader <-- CompanyViewController
+FXMLLoader <-- ViewLoader
+Stage <-- ViewLoader
+Scene <-- ViewLoader
+Parent <-- ViewLoader
 
 @enduml

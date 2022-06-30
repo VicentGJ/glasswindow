@@ -231,23 +231,30 @@ class InfoScientist{
     +getType():Enum<Specialty>
 }
 
-class InterviewController {
-    #onCancelButton(ActionEvent):void
-    #onOkButton(ActionEvent):void
+
+class ViewLoader{
++newWindow(URL,String,Stage):void
++thisWindow(URL,ActionEvent):void
 }
 
-class JobPostController extends TransitionController{
-    #onCancelButton(ActionEvent):void
-    #onApplyButton(ActionEvent):void
+class FXMLLoader{
++load(URL):Parent
 }
 
+class Stage{
++setTitle(String):void
++setScene(Scene):void
++show():void
+}
 
-class MainController extends TransitionController{
+class Scene{}
+class Parent{}
+
+class MainController{
     #onNewCompany(ActionEvent):void
     #onNewCandidate(ActionEvent):void
     #onNewJobPost(ActionEvent):void
     #onQuit(ActionEvent):void
-    #onProfileLink(ActionEvent):void
     #onCompaniesSection(ActionEvent):void
     #onCandidatesSection(ActionEvent):void
     #onJobPotsSection(ActionEvent):void
@@ -258,9 +265,140 @@ class MainController extends TransitionController{
 }
 
 
-class TransitionController {
-    #transition(String, ActionEvent):void
+class CandidateProfileEditController{
+- agency:Agency
+- id:TextField
+- nameField:TextField
+- genderField:ComboBox
+- addressField:TextField
+- phoneField:TextField
+- scolarshipField:ComboBox
+- specialtyField:ComboBox
+- branchField:ComboBox
+- yearsOfExpField:Spinner
+- otherDataField:TextField
++ CandidateNewController ()
++ onCancelButton(ActionEvent):void
++ onSaveButton(ActionEvent):void
 }
+class CompanyEditController{
+- agency:Agency
+- nameField:TextField
+- descriptionField:TextField
+- addressField:TextField
+- phoneField:TextField
++ CompanyNewController ()
++ onCancelButton(ActionEvent):void
++ onSaveButton(ActionEvent):void
+}
+class JobPostEditController{
+- agency:Agency
+- companyField:TextField
+- descriptionField:TextArea
+- salaryField:Spinner
+- branchField:ComboBox
+- specialtyField:ComboBox
++ JobPostNewController ()
++ onCancelButton(ActionEvent):void
++ onSaveButton(ActionEvent):void
+}
+class CandidateNewController{
+- agency:Agency
+- id:TextField
+- nameField:TextField
+- genderField:ComboBox
+- addressField:TextField
+- phoneField:TextField
+- scolarshipField:ComboBox
+- specialtyField:ComboBox
+- branchField:ComboBox
+- yearsOfExpField:Spinner
+- otherDataField:TextField
++ CandidateNewController ()
++ onCancelButton(ActionEvent):void
++ onSaveButton(ActionEvent):void
+}
+
+class JobPostNewController{
+- agency:Agency
+- companyField:TextField
+- descriptionField:TextArea
+- salaryField:Spinner
+- branchField:ComboBox
+- specialtyField:ComboBox
++ JobPostNewController ()
++ onCancelButton(ActionEvent):void
++ onSaveButton(ActionEvent):void
+}
+class InterviewNewController{
+- agency:Agency
+- candidateField:ComboBox
+- dateField:DatePicker
+- hoursField:Spinner
+- minutesField:Spinner
+- timeField:ComboBox
++ InterviewNewController ()
++ onCancelButton(ActionEvent):void
++ onSaveButton(ActionEvent):void
+}
+
+class CompanyNewController{
+- agency:Agency
+- nameField:TextField
+- descriptionField:TextField
+- addressField:TextField
+- phoneField:TextField
++ CompanyNewController ()
++ onCancelButton(ActionEvent):void
++ onSaveButton(ActionEvent):void
+}
+class CompanyViewController{
+#onBackButton():void
+#onEditButton():void
+}
+class InterviewController {
+#onCancelButton():void
+#onOkButton():void
+}
+class JobPostController{
+#onBackButton():void
+#onEditButton():void
+#onApplyButton():void
+}
+class CandidateProfileController{
+#onBackButton():void
+#onEditButton():void
+}
+MainController --> Agency
+CompanyNewController --> Agency
+CandidateNewController --> Agency
+JobPostNewController --> Agency
+InterviewNewController --> Agency
+CompanyViewController --> Agency
+CompanyEditController --> Agency
+JobPostController --> Agency
+JobPostEditController --> Agency
+InterviewController --> Agency
+CandidateProfileEditController --> Agency
+CandidateProfileController --> Agency
+
+ViewLoader <-- MainController
+ViewLoader <-- CandidateProfileController
+ViewLoader <-- CandidateProfileEditController
+ViewLoader <-- InterviewController
+ViewLoader <-- JobPostController
+ViewLoader <-- JobPostEditController
+ViewLoader <-- CompanyNewController
+ViewLoader <-- CandidateNewController
+ViewLoader <-- JobPostNewController
+ViewLoader <-- InterviewNewController
+ViewLoader <-- CompanyEditController
+ViewLoader <-- CompanyViewController
+FXMLLoader <-- ViewLoader
+Stage <-- ViewLoader
+Scene <-- ViewLoader
+Parent <-- ViewLoader
+
 
 Candidate"1..*" --* "1 "Agency
 Company"1..*" --* "1 "Agency
