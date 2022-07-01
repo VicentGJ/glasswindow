@@ -3,15 +3,11 @@ package quantity.glasswindow.ui;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
-import javafx.scene.input.MouseEvent;
 import quantity.glasswindow.core.Agency;
-import quantity.glasswindow.core.Candidate;
-import quantity.glasswindow.core.Company;
 import quantity.glasswindow.core.Model;
 import quantity.glasswindow.core.customExceptions.IdNotFoundException;
 import quantity.glasswindow.core.customExceptions.InvalidTypeException;
@@ -19,7 +15,7 @@ import quantity.glasswindow.utils.ViewLoader;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.*;
+import java.util.ResourceBundle;
 
 public class MainController extends TransitionController implements Initializable {
 
@@ -159,7 +155,7 @@ public class MainController extends TransitionController implements Initializabl
                 if (cell.getItem() != null) {
                     Model c = cell.getItem();
                     try {
-                        CompanyViewController controller = (CompanyViewController) ViewLoader.newWindow(
+                        CandidateProfileController controller = (CandidateProfileController) ViewLoader.newWindow(
                                 getClass().getResource("Candidate View.fxml"), c.getId(), null
                         );
                         controller.loadViewInfo(c.getId());
@@ -195,8 +191,8 @@ public class MainController extends TransitionController implements Initializabl
                 if (cell.getItem() != null) {
                     Model c = cell.getItem();
                     try {
-                        CompanyViewController controller = (CompanyViewController) ViewLoader.newWindow(
-                                getClass().getResource("Company View.fxml"), c.getId(), null
+                        JobPostController controller = (JobPostController) ViewLoader.newWindow(
+                                getClass().getResource("Job Post View.fxml"), c.getId(), null
                         );
                         controller.loadViewInfo(c.getId());
                     } catch (IOException | IdNotFoundException ex) {

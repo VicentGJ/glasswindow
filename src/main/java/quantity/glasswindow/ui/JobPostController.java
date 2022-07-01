@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 import quantity.glasswindow.core.Agency;
 import quantity.glasswindow.core.JobPost;
 import quantity.glasswindow.core.customExceptions.IdNotFoundException;
+import quantity.glasswindow.utils.ViewLoader;
 
 import java.io.IOException;
 
@@ -36,6 +37,8 @@ public class JobPostController extends TransitionController{
     }
     @FXML
     protected void onApplyButton(ActionEvent event) throws IOException {
-        this.transition("JobPostController.fxml", event);
+        InterviewController controller = (InterviewController) ViewLoader.thisWindow(
+                getClass().getResource("Arrange Interview.fxml"), event);
+        /*controller.loadViewInfo(company.getId());*/
     }
 }
