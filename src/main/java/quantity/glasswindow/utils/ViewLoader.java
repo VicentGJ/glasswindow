@@ -24,12 +24,14 @@ public class ViewLoader {
         stage.show();
         return controller;
     }
-    public static void thisWindow(URL fxmlResource, ActionEvent event) throws IOException {
+    public static Object thisWindow(URL fxmlResource, ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(fxmlResource);
         Parent next_page_parent = loader.load();
+        Object controller = loader.getController();
         Scene next_page_scene = new Scene(next_page_parent);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(next_page_scene);
         app_stage.show();
+        return controller;
     }
 }

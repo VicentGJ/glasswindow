@@ -1,24 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<VBox prefHeight="443.0" prefWidth="469.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="quantity.glasswindow.ui.CompanyViewController">
+<VBox prefHeight="374.0" prefWidth="469.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="quantity.glasswindow.ui.CompanyViewController">
    <children>
       <HBox alignment="CENTER" fillHeight="false" prefHeight="45.0" prefWidth="469.0">
          <children>
             <HBox alignment="CENTER" prefHeight="62.0" prefWidth="427.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CompanyView">
+                  <Text fx:id="name" strokeType="OUTSIDE" strokeWidth="0.0" text="CompanyView">
                      <font>
                         <Font size="22.0" />
                      </font>
@@ -41,48 +35,37 @@
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="292.0" minWidth="10.0" prefWidth="292.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="165.0" minHeight="10.0" prefHeight="141.0" vgrow="SOMETIMES" />
           <RowConstraints maxHeight="172.0" minHeight="0.0" prefHeight="65.0" vgrow="SOMETIMES" />
           <RowConstraints maxHeight="180.0" minHeight="10.0" prefHeight="33.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="99.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="Description">
+            <Label text="Address">
                <font>
                   <Font size="17.0" />
                </font>
             </Label>
-            <Label text="Address" GridPane.rowIndex="1">
+            <Label text="Phone" GridPane.rowIndex="1">
                <font>
                   <Font size="17.0" />
                </font>
             </Label>
-            <Label text="Phone" GridPane.rowIndex="2">
+            <Label text="Sector" GridPane.rowIndex="2">
                <font>
                   <Font size="17.0" />
                </font>
             </Label>
-            <Label text="Sector" GridPane.rowIndex="3">
-               <font>
-                  <Font size="17.0" />
-               </font>
-            </Label>
-            <Text fontSmoothingType="LCD" smooth="false" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="A sample company description would go here but i dont know what to explain about a testing company, and scene builder doesnt have Lorem Ipsum text as html does so this will be this company's description have a nice day and #stayhome" wrappingWidth="287.7554417848587" GridPane.columnIndex="1">
+            <Text fx:id="address" fontSmoothingType="LCD" smooth="false" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="an adress sample" wrappingWidth="271.7778421640396" GridPane.columnIndex="1">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <Text fontSmoothingType="LCD" smooth="false" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="an adress sample" wrappingWidth="271.7778421640396" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Text fx:id="phone" fontSmoothingType="LCD" smooth="false" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="a phone sample" wrappingWidth="226.8258252236992" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <Text fontSmoothingType="LCD" smooth="false" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="a phone sample" wrappingWidth="226.8258252236992" GridPane.columnIndex="1" GridPane.rowIndex="2">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Text>
-            <Text fontSmoothingType="LCD" smooth="false" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="a sector" wrappingWidth="255.79492914676666" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <Text fx:id="sector" fontSmoothingType="LCD" smooth="false" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="a sector" wrappingWidth="255.79492914676666" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font size="14.0" />
                </font>
@@ -95,7 +78,7 @@
       <HBox alignment="CENTER" fillHeight="false" prefHeight="80.0" prefWidth="409.0" spacing="20.0">
          <children>
             <JFXButton onAction="#onEditButton" prefHeight="27.0" prefWidth="70.0" style="-fx-background-color: rgb(215,215,215);" text="Edit" />
-            <JFXButton onAction="#onBackButton" layoutX="180.0" layoutY="14.0" prefHeight="27.0" prefWidth="70.0" style="-fx-background-color: rgb(215,215,215);" text="Back" />
+            <JFXButton layoutX="180.0" layoutY="14.0" onAction="#onBackButton" prefHeight="27.0" prefWidth="70.0" style="-fx-background-color: rgb(215,215,215);" text="Back" />
          </children>
          <VBox.margin>
             <Insets top="20.0" />

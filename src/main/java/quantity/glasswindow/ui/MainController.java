@@ -12,6 +12,7 @@ import javafx.scene.input.MouseEvent;
 import quantity.glasswindow.core.Agency;
 import quantity.glasswindow.core.Company;
 import quantity.glasswindow.core.Model;
+import quantity.glasswindow.core.customExceptions.IdNotFoundException;
 import quantity.glasswindow.core.customExceptions.InvalidTypeException;
 import quantity.glasswindow.utils.ViewLoader;
 
@@ -53,8 +54,8 @@ public class MainController extends TransitionController implements Initializabl
                         CompanyViewController controller = (CompanyViewController) ViewLoader.newWindow(
                                 getClass().getResource("Company View.fxml"), c.getName(), null
                         );
-
-                    } catch (IOException ex) {
+                        controller.loadViewInfo(c.getId());
+                    } catch (IOException | IdNotFoundException ex) {
                         throw new RuntimeException(ex);
                     }
                 }
