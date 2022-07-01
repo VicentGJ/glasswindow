@@ -1,27 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="159.0" prefWidth="344.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<VBox fx:id="container" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="170.0" prefWidth="344.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="quantity.glasswindow.ui.ErrorMessageController">
    <children>
       <Text fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="ERROR!" wrappingWidth="82.583984375">
          <font>
             <Font size="22.0" />
          </font>
       </Text>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="error meassge" wrappingWidth="306.583984375">
+      <Text fx:id="messageField" strokeType="OUTSIDE" strokeWidth="0.0" text="error message" wrappingWidth="306.583984375">
          <font>
-            <Font size="19.0" />
+            <Font size="15.0" />
          </font>
       </Text>
       <HBox alignment="CENTER" prefHeight="27.0" prefWidth="332.0">
          <children>
-            <JFXButton prefHeight="25.0" prefWidth="70.0" style="-fx-background-color: rgb(215,215,215);" text="OK" />
+            <JFXButton onAction="#onOkButton" prefHeight="25.0" prefWidth="70.0" style="-fx-background-color: rgb(215,215,215);" text="OK" />
          </children>
          <VBox.margin>
             <Insets top="40.0" />

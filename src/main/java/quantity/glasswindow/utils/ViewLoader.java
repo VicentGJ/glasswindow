@@ -12,7 +12,7 @@ import java.net.URL;
 import java.util.Objects;
 
 public class ViewLoader {
-    public static void newWindow(URL loc, String title, Stage parentStage) throws IOException {
+    public static Object newWindow(URL loc, String title, Stage parentStage) throws IOException {
         Object controller = null;
         FXMLLoader loader = new FXMLLoader(loc);
         Parent parent = loader.load();
@@ -22,6 +22,7 @@ public class ViewLoader {
         stage.setTitle(title);
         stage.setScene(new Scene(parent));
         stage.show();
+        return controller;
     }
     public static void thisWindow(URL fxmlResource, ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(fxmlResource);
