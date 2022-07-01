@@ -64,10 +64,6 @@ public class CompanyNewController implements Initializable {
             Company company = new Company(nameField.getText(), nameField.getText(), addressField.getText(),
                     phoneField.getText(), Branch.values()[comboBoxItems.indexOf(comboBox.getValue())] );
             this.agency.insertObject(company);
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("main_view.fxml"));
-            Parent parent = loader.load();
-            MainController mainController = loader.getController();
-            mainController.updateListView(company.getId());
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.close();
         }
