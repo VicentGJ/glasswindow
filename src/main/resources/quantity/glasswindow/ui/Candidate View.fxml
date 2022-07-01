@@ -57,7 +57,7 @@
                   <Font size="17.0" />
                </font>
             </Label>
-            <Text fontSmoothingType="LCD" smooth="false" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Full candidate name" wrappingWidth="188.78956604003906" GridPane.columnIndex="1">
+            <Text fx:id="name" fontSmoothingType="LCD" smooth="false" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Full candidate name" wrappingWidth="188.78956604003906" GridPane.columnIndex="1">
                <font>
                   <Font size="14.0" />
                </font>
@@ -67,7 +67,7 @@
                   <Font size="17.0" />
                </font>
             </Label>
-            <Text fontSmoothingType="LCD" smooth="false" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Candidate Gender (Male, Female, Other)" wrappingWidth="184.78956604003906" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Text fx:id="gender" fontSmoothingType="LCD" smooth="false" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Candidate Gender (Male, Female, Other)" wrappingWidth="184.78956604003906" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font size="14.0" />
                </font>
@@ -77,7 +77,7 @@
                   <Font size="17.0" />
                </font>
             </Label>
-            <Text fontSmoothingType="LCD" smooth="false" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Candidate Address" wrappingWidth="260.78956604003906" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <Text fx:id="address" fontSmoothingType="LCD" smooth="false" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Candidate Address" wrappingWidth="260.78956604003906" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <font>
                   <Font size="14.0" />
                </font>
@@ -87,7 +87,7 @@
                   <Font size="17.0" />
                </font>
             </Label>
-            <Text fontSmoothingType="LCD" smooth="false" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Candidate Phone" wrappingWidth="260.78956604003906" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <Text fx:id="phone" fontSmoothingType="LCD" smooth="false" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Candidate Phone" wrappingWidth="260.78956604003906" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <font>
                   <Font size="14.0" />
                </font>
@@ -97,7 +97,7 @@
                   <Font size="17.0" />
                </font>
             </Label>
-            <Text fontSmoothingType="LCD" smooth="false" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="01060568481" wrappingWidth="129.92933654785156" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Text fx:id="id" fontSmoothingType="LCD" smooth="false" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="01060568481" wrappingWidth="129.92933654785156" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font size="14.0" />
                </font>
@@ -107,7 +107,7 @@
                   <Font size="17.0" />
                </font>
             </Label>
-            <Text fontSmoothingType="LCD" smooth="false" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Candidate Shcolarship" wrappingWidth="260.78956604003906" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <Text fx:id="scholarship" fontSmoothingType="LCD" smooth="false" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Candidate Shcolarship" wrappingWidth="260.78956604003906" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <font>
                   <Font size="14.0" />
                </font>
@@ -117,7 +117,7 @@
                   <Font size="17.0" />
                </font>
             </Label>
-            <Text fontSmoothingType="LCD" smooth="false" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Candidate specialty" wrappingWidth="260.78956604003906" GridPane.columnIndex="1" GridPane.rowIndex="6">
+            <Text fx:id="specialty" fontSmoothingType="LCD" smooth="false" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Candidate specialty" wrappingWidth="260.78956604003906" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <font>
                   <Font size="14.0" />
                </font>
@@ -127,7 +127,7 @@
                   <Font size="17.0" />
                </font>
             </Label>
-            <Text fontSmoothingType="LCD" smooth="false" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Candidate branch" wrappingWidth="260.78956604003906" GridPane.columnIndex="1" GridPane.rowIndex="7">
+            <Text fx:id="branch" fontSmoothingType="LCD" smooth="false" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Candidate branch" wrappingWidth="260.78956604003906" GridPane.columnIndex="1" GridPane.rowIndex="7">
                <font>
                   <Font size="14.0" />
                </font>
@@ -137,7 +137,7 @@
                   <Font size="17.0" />
                </font>
             </Label>
-            <Text fontSmoothingType="LCD" smooth="false" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Candidate years of exp" wrappingWidth="260.78956604003906" GridPane.columnIndex="1" GridPane.rowIndex="8">
+            <Text fx:id="yearsofexp" fontSmoothingType="LCD" smooth="false" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Candidate years of exp" wrappingWidth="260.78956604003906" GridPane.columnIndex="1" GridPane.rowIndex="8">
                <font>
                   <Font size="14.0" />
                </font>
@@ -160,7 +160,7 @@
       <HBox alignment="CENTER" prefHeight="37.0" prefWidth="409.0" spacing="20.0">
          <children>
             <JFXButton onAction="#onEditButton" prefHeight="28.0" prefWidth="60.0" style="-fx-background-color: rgb(215,215,215);" text="Edit" />
-            <JFXButton onAction="#onBackButton" layoutX="149.0" layoutY="10.0" prefHeight="28.0" prefWidth="60.0" style="-fx-background-color: rgb(215,215,215);" text="Back" />
+            <JFXButton layoutX="149.0" layoutY="10.0" onAction="#onBackButton" prefHeight="28.0" prefWidth="60.0" style="-fx-background-color: rgb(215,215,215);" text="Back" />
          </children>
       </HBox>
    </children>

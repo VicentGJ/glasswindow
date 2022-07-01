@@ -2,7 +2,6 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -58,7 +57,7 @@
                   <Font size="17.0" />
                </font>
             </Label>
-            <Text fontSmoothingType="LCD" smooth="false" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="A sample Job Post description would go here but i dont know what to explain about a testing job post, and scene builder doesnt have Lorem Ipsum text as html does so this will be this job post's description have a nice day and #stayhome" wrappingWidth="280.6305694580078" GridPane.columnIndex="1" GridPane.valignment="CENTER">
+            <Text fx:id="description" fontSmoothingType="LCD" smooth="false" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="A sample Job Post description would go here but i dont know what to explain about a testing job post, and scene builder doesnt have Lorem Ipsum text as html does so this will be this job post's description have a nice day and #stayhome" wrappingWidth="280.6305694580078" GridPane.columnIndex="1" GridPane.valignment="CENTER">
                <font>
                   <Font size="14.0" />
                </font>
@@ -68,7 +67,7 @@
                   <Font size="17.0" />
                </font>
             </Label>
-            <Text fill="#102110" fontSmoothingType="LCD" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="\$0.0" wrappingWidth="198.85574340820312" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Text fx:id="salary" fill="#102110" fontSmoothingType="LCD" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="\$0.0" wrappingWidth="198.85574340820312" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font size="24.0" />
                </font>
@@ -78,19 +77,19 @@
                   <Font size="17.0" />
                </font>
             </Label>
-            <Hyperlink prefHeight="33.0" prefWidth="167.0" text="CompanyName" GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <font>
-                  <Font size="19.0" />
-               </font>
-            </Hyperlink>
             <Label text="Branch" GridPane.rowIndex="3">
                <font>
                   <Font size="17.0" />
                </font>
             </Label>
-            <Text fontSmoothingType="LCD" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Job Post's branch goes here" wrappingWidth="418.62098693847656" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <Text fx:id="branch" fontSmoothingType="LCD" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Job Post's branch goes here" wrappingWidth="418.62098693847656" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <font>
                   <Font size="14.0" />
+               </font>
+            </Text>
+            <Text fx:id="company" fontSmoothingType="LCD" layoutX="109.0" layoutY="314.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="CompanyName" wrappingWidth="248.62098693847656" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font size="20.0" />
                </font>
             </Text>
          </children>
@@ -101,8 +100,8 @@
       <HBox alignment="CENTER" prefHeight="31.0" prefWidth="452.0" spacing="20.0">
          <children>
             <JFXButton onAction="#onApplyButton" prefHeight="38.0" prefWidth="66.0" style="-fx-background-color: rgb(215,215,215);" text="Apply" />
-            <JFXButton onAction="#onEditButton" layoutX="338.0" layoutY="10.0" prefHeight="38.0" prefWidth="66.0" style="-fx-background-color: rgb(215,215,215);" text="Edit" />
-            <JFXButton onAction="#onBackButton" layoutX="347.0" layoutY="10.0" prefHeight="38.0" prefWidth="66.0" style="-fx-background-color: rgb(215,215,215);" text="Back" />
+            <JFXButton layoutX="338.0" layoutY="10.0" onAction="#onEditButton" prefHeight="38.0" prefWidth="66.0" style="-fx-background-color: rgb(215,215,215);" text="Edit" />
+            <JFXButton layoutX="347.0" layoutY="10.0" onAction="#onBackButton" prefHeight="38.0" prefWidth="66.0" style="-fx-background-color: rgb(215,215,215);" text="Back" />
          </children>
       </HBox>
    </children>
