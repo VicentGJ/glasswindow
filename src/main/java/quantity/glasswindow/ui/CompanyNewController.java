@@ -14,10 +14,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import quantity.glasswindow.core.Agency;
 import quantity.glasswindow.core.Company;
-import quantity.glasswindow.core.customExceptions.DuplicatedIDException;
-import quantity.glasswindow.core.customExceptions.InvalidIDException;
-import quantity.glasswindow.core.customExceptions.InvalidNameException;
-import quantity.glasswindow.core.customExceptions.InvalidPhoneException;
+import quantity.glasswindow.core.customExceptions.*;
 import quantity.glasswindow.core.enumerations.Branch;
 import quantity.glasswindow.utils.ViewLoader;
 
@@ -57,7 +54,7 @@ public class CompanyNewController implements Initializable {
         stage.close();
     }
 
-    public void onSaveButton(ActionEvent event) throws IOException {
+    public void onSaveButton(ActionEvent event) throws IOException, InvalidTypeException {
         String name = nameField.getText();
         String description = descriptionField.getText();
         String address = addressField.getText();
@@ -70,7 +67,7 @@ public class CompanyNewController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("main_view.fxml"));
             Parent parent = loader.load();
             MainController mainController = loader.getController();
-            mainController.updateListView();
+            mainController.updateListView(company.getId());
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.close();
         }

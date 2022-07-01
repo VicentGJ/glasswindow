@@ -1,11 +1,16 @@
 package quantity.glasswindow.ui;
 
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import quantity.glasswindow.core.Agency;
+import quantity.glasswindow.core.Company;
+import quantity.glasswindow.core.Model;
+import quantity.glasswindow.core.customExceptions.InvalidTypeException;
 import quantity.glasswindow.utils.ViewLoader;
 
 import java.io.IOException;
@@ -15,15 +20,30 @@ import java.util.*;
 public class MainController extends TransitionController implements Initializable {
 
     @FXML
-    private ListView<String> mainList;
+    private ListView<Company> mainList;
     private Agency agency;
+
+    private ObservableList<String> mainListItems = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         this.agency = Agency.getInstance();
         try {
-            ArrayList<String> list = new ArrayList<>(agency.gerObjectListIDs("Company", new HashMap<>()));
-            mainList.setItems(FXCollections.observableArrayList(list));
+
+            mainList.setItems(agency.getCompanyList());
+            // Try to modify this in the future to work with Model abstract class instead of multiple concrete classes
+            mainList.setCellFactory(param -> new ListCell<Company>() {
+                @Override
+                protected void updateItem(Company item, boolean empty) {
+                    super.updateItem(item, empty);
+
+                    if (empty || item == null || item.getName() == null) {
+                        setText(null);
+                    } else {
+                        setText(item.getName());
+                    }
+                }
+            });
             System.out.println(this.mainList.getItems());
         }
         catch (Exception e) {
@@ -31,8 +51,15 @@ public class MainController extends TransitionController implements Initializabl
         }
     }
 
-    public void updateListView() {
-        System.out.println("lila");
+    public void updateListView(String id) throws InvalidTypeException{
+        mainListItems.add(id);
+        System.out.println(id);
+        //mainList.setItems(null);
+        //ArrayList<String> list = new ArrayList<>(agency.gerObjectListIDs("Company", new HashMap<>()));
+        //list.add("mike");
+        //mainList.setItems(FXCollections.observableArrayList(list));
+        //System.out.println(mainList.getItems());
+        //mainList.refresh();
     }
 
     @FXML
@@ -57,8 +84,8 @@ public class MainController extends TransitionController implements Initializabl
         
     }
     @FXML
-    protected void onCandidatesSection(ActionEvent event) throws IOException {
-        ViewLoader.thisWindow(getClass().getResource("Calendar View.fxml"), event);
+    protected void onCandidatesSection(ActionEvent event) throws InvalidTypeException {
+        this.updateListView(",ike");
     }
     @FXML
     protected void onJobPotsSection(ActionEvent event) throws IOException {
