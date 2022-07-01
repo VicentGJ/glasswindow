@@ -23,7 +23,7 @@ public class CompanyEditController extends TransitionController{
         name.setText(company.getName());
         address.setText(company.getAddress());
         phone.setText(company.getPhone());
-        sector.setPlaceholder(company.getSector());
+        //sector.set(company.getSector());
     }
     @FXML
     protected void onButtonBack(ActionEvent event) {
