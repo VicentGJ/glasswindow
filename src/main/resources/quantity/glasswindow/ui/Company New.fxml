@@ -99,7 +99,7 @@
                             </font>
                         </Label>
                         <Pane prefHeight="14.0" prefWidth="65.0" />
-                        <ComboBox fx:id="sectors" prefWidth="150.0" promptText="Sectors" />
+                        <ComboBox fx:id="comboBox" prefWidth="150.0" promptText="Sectors" />
                     </children>
                 </HBox>
             </children>
@@ -109,7 +109,7 @@
         </VBox>
         <HBox alignment="CENTER" prefHeight="30.0" prefWidth="450.0">
             <children>
-                <Button mnemonicParsing="false" onAction="#onButtonBack" prefHeight="32.0" prefWidth="75.0" text="Save">
+                <Button mnemonicParsing="false" onAction="#onSaveButton" prefHeight="32.0" prefWidth="75.0" text="Save">
                     <HBox.margin>
                         <Insets left="5.0" right="5.0" />
                     </HBox.margin></Button>

@@ -41,7 +41,7 @@ public class Agency implements IDataBase {
     public Company newCompany(String id, String name, String address, String phone,
                               Branch sector, ArrayList<String> jobPostList)
             throws InvalidPhoneException, InvalidNameException, InvalidIDException, DuplicatedIDException {
-        Company newCompany = new Company(id,name,address,phone,sector,jobPostList);
+        Company newCompany = new Company(id,name,address,phone,sector);
         return newCompany;
     }
 
@@ -597,17 +597,17 @@ public class Agency implements IDataBase {
                 "05158449", Scholarship.GRADE, Specialty.TRANSLATOR,Branch.TOURISM,8);
         //companies
         Company company1 = new Company("company-001","Last Quarter","Nebraska",
-                "", Branch.INDUSTRY, new ArrayList<>());
+                "", Branch.INDUSTRY);
         Company company2 = new Company("company-002","Avenue Studios","New York",
-                "", Branch.TOURISM, new ArrayList<>());
+                "", Branch.TOURISM);
         Company company3 = new Company("company-003","Icy Mountain","London",
-                "", Branch.SERVICES, new ArrayList<>());
+                "", Branch.SERVICES);
         Company company4 = new Company("company-004","Gravy Table","Moscu",
-                "", Branch.EDUCATION, new ArrayList<>());
+                "", Branch.EDUCATION);
         Company company5 = new Company("company-005","Flappy Touch","Brazil",
-                "", Branch.HEALTH, new ArrayList<>());
+                "", Branch.HEALTH);
         Company company6 = new Company("company-006","AMD","Some Place",
-                "", Branch.INDUSTRY, new ArrayList<>());
+                "", Branch.INDUSTRY);
         models.add(company1);
         models.add(company2);
         models.add(company3);
@@ -637,7 +637,7 @@ public class Agency implements IDataBase {
         company6.addJobPostToList(jb6.getId());
 
         //interviews
-        Interview interview1 = new Interview("interview-001",new Date(2022,6,30,12,40),candidate1.getId(),company1.getId(),jb1.getId());
+        Interview interview1 = new Interview("interview-001",new Date(2022,7,1,12,40),candidate1.getId(),company1.getId(),jb1.getId());
         jb1.addInterview(interview1.getId());
         Interview interview2 = new Interview("interview-002",new Date(2022,7,6,15,15),candidate2.getId(),company2.getId(),jb2.getId());
         jb2.addInterview(interview2.getId());

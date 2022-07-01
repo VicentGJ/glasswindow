@@ -31,6 +31,10 @@ public class MainController extends TransitionController implements Initializabl
         }
     }
 
+    public void updateListView() {
+        System.out.println("lila");
+    }
+
     @FXML
     protected void onNewCompany(ActionEvent event) throws IOException {
         ViewLoader.newWindow(getClass().getResource("Company New.fxml"), "New Company", null);

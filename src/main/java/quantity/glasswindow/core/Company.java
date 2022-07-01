@@ -14,14 +14,14 @@ public class Company extends Model implements ICascadeDelete {
     private ArrayList<String> jobPostList;
 
     public Company(String id, String name, String address, String phone,
-                   Branch sector, ArrayList<String> jobPostList)
+                   Branch sector)
             throws InvalidIDException, InvalidNameException, DuplicatedIDException, InvalidPhoneException {
         super(id);
         this.setAddress(address);
         this.setName(name);
         this.setSector(sector);
         this.setPhone(phone);
-        this.setJobPostList(jobPostList);
+        this.jobPostList = new ArrayList<>();
     }
 
     @Override
