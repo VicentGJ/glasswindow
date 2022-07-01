@@ -19,10 +19,10 @@ import java.util.ResourceBundle;
 public class CompanyViewController{
     @FXML
     private Text name, address, phone, sector;
-
+    private Company company;
     public void loadViewInfo(String id) throws IdNotFoundException {
         Agency agency = Agency.getInstance();
-        Company company = (Company) agency.getObject(id);
+        company = (Company) agency.getObject(id);
         name.setText(company.getName());
         address.setText(company.getAddress());
         phone.setText(company.getPhone());
@@ -35,8 +35,9 @@ public class CompanyViewController{
         stage.close();
     }
     @FXML
-    protected void onEditButton(ActionEvent event) throws  IOException{
+    protected void onEditButton(ActionEvent event) throws IOException, IdNotFoundException {
         CompanyEditController controller = (CompanyEditController) ViewLoader.thisWindow(
                 getClass().getResource("Company Edit.fxml"), event);
+        controller.loadViewInfo(company.getId());
     }
 }
