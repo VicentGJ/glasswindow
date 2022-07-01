@@ -31,7 +31,7 @@ public class Agency implements IDataBase {
     }
 
     public Candidate createCandidate(String id, String name, Gender gender, String address, String phone, Scholarship scholarship,
-                                Specialty specialty, Branch sector, int yearsOfExp)
+                                     Specialty specialty, Branch sector, int yearsOfExp)
             throws InvalidPhoneException, InvalidNameException, InvalidIDException, DuplicatedIDException, InvalidYearsOfExpException {
 
         Candidate newCandidate = new Candidate(id,name,gender,address,phone,scholarship,specialty,sector,yearsOfExp);
@@ -682,5 +682,11 @@ public class Agency implements IDataBase {
         this.setModels(models);//setModels sends everything to its corresponding list
     }
 
-
+    public void resetData(){
+        candidateList.clear();
+        companyList.clear();
+        jobPostList.clear();
+        interviewList.clear();
+        single_instance = null;
+    }
 }
