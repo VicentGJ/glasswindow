@@ -1,5 +1,7 @@
 package quantity.glasswindow.core;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import quantity.glasswindow.core.customExceptions.*;
 import quantity.glasswindow.core.enumerations.*;
 
@@ -11,17 +13,17 @@ import java.util.*;
 
 public class Agency implements IDataBase {
     //maybe add agency name and stuff like that
-    private ArrayList<Candidate>candidateList;
-    private ArrayList<Company>companyList;
-    private ArrayList<JobPost>jobPostList;
-    private ArrayList<Interview>interviewList;
+    private ObservableList<Candidate> candidateList;
+    private ObservableList<Company> companyList;
+    private ObservableList<JobPost> jobPostList;
+    private ObservableList<Interview> interviewList;
     private static Agency single_instance; //for singleton pattern
 
     private Agency() {//private constructor to ensure singleton pattern
-        companyList = new ArrayList<>();
-        candidateList = new ArrayList<>();
-        jobPostList = new ArrayList<>();
-        interviewList = new ArrayList<>();
+        companyList = FXCollections.observableArrayList();
+        candidateList = FXCollections.observableArrayList();
+        jobPostList = FXCollections.observableArrayList();
+        interviewList = FXCollections.observableArrayList();
     }
 
     public static Agency getInstance() {//method to create singleton object
@@ -60,19 +62,19 @@ public class Agency implements IDataBase {
         return newInterview;
     }
 
-    public ArrayList<Candidate> getCandidateList() {
+    public ObservableList<Candidate> getCandidateList() {
         return candidateList;
     }
 
-    public ArrayList<Company> getCompanyList() {
+    public ObservableList<Company> getCompanyList() {
         return companyList;
     }
 
-    public ArrayList<JobPost> getJobPostList() {
+    public ObservableList<JobPost> getJobPostList() {
         return jobPostList;
     }
 
-    public ArrayList<Interview> getInterviewList() {
+    public ObservableList<Interview> getInterviewList() {
         return interviewList;
     }
 
