@@ -3,10 +3,12 @@ package quantity.glasswindow.ui;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.input.MouseEvent;
 import quantity.glasswindow.core.Agency;
 import quantity.glasswindow.core.Company;
 import quantity.glasswindow.core.Model;
@@ -28,11 +30,10 @@ public class MainController extends TransitionController implements Initializabl
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         this.agency = Agency.getInstance();
-        try {
-
-            mainList.setItems(agency.getCompanyList());
-            // Try to modify this in the future to work with Model abstract class instead of multiple concrete classes
-            mainList.setCellFactory(param -> new ListCell<Company>() {
+        mainList.setItems(agency.getCompanyList());
+        // Try to modify this in the future to work with Model abstract class instead of multiple concrete classes
+        mainList.setCellFactory(param -> {
+            ListCell<Company> cell = new ListCell<Company>() {
                 @Override
                 protected void updateItem(Company item, boolean empty) {
                     super.updateItem(item, empty);
@@ -42,13 +43,25 @@ public class MainController extends TransitionController implements Initializabl
                     } else {
                         setText(item.getName());
                     }
+
+                }
+            };
+            cell.setOnMouseClicked(e -> {
+                if (cell.getItem() != null) {
+                    Company c = cell.getItem();
+                    try {
+                        CompanyViewController controller = (CompanyViewController) ViewLoader.newWindow(
+                                getClass().getResource("Company View.fxml"), c.getName(), null
+                        );
+
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
                 }
             });
-            System.out.println(this.mainList.getItems());
-        }
-        catch (Exception e) {
-            System.out.println("Lola");
-        }
+            return cell;
+        });
+        System.out.println(this.mainList.getItems());
     }
 
     public void updateListView(String id) throws InvalidTypeException{
