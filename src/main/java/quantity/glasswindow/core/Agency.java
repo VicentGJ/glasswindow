@@ -2,6 +2,7 @@ package quantity.glasswindow.core;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
 import quantity.glasswindow.core.customExceptions.*;
 import quantity.glasswindow.core.enumerations.*;
 
@@ -17,6 +18,8 @@ public class Agency implements IDataBase {
     private ObservableList<Company> companyList;
     private ObservableList<JobPost> jobPostList;
     private ObservableList<Interview> interviewList;
+
+    private ObservableList<Model> activeModels;
     private static Agency single_instance; //for singleton pattern
 
     private Agency() {//private constructor to ensure singleton pattern
@@ -24,12 +27,27 @@ public class Agency implements IDataBase {
         candidateList = FXCollections.observableArrayList();
         jobPostList = FXCollections.observableArrayList();
         interviewList = FXCollections.observableArrayList();
+        activeModels = FXCollections.observableArrayList();
     }
 
     public static Agency getInstance() {//method to create singleton object
         if (single_instance == null)
             single_instance = new Agency();
         return single_instance;
+    }
+
+    public ObservableList<Model> getActiveModels(String type) throws InvalidTypeException {
+        activeModels.clear();
+        if (type.equalsIgnoreCase("Company")) {
+            activeModels.addAll(companyList);
+        } else if (type.equalsIgnoreCase("Candidate")) {
+            activeModels.addAll(candidateList);
+        } else if (type.equalsIgnoreCase("JobPost")) {
+            activeModels.addAll(jobPostList);
+        } else {
+            throw new InvalidTypeException(type);
+        }
+        return activeModels;
     }
 
     public Candidate createCandidate(String id, String name, Gender gender, String address, String phone, Scholarship scholarship,

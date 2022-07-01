@@ -10,6 +10,7 @@ import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import quantity.glasswindow.core.Agency;
+import quantity.glasswindow.core.Candidate;
 import quantity.glasswindow.core.Company;
 import quantity.glasswindow.core.Model;
 import quantity.glasswindow.core.customExceptions.IdNotFoundException;
@@ -23,7 +24,7 @@ import java.util.*;
 public class MainController extends TransitionController implements Initializable {
 
     @FXML
-    private ListView<Company> mainList;
+    private ListView<Model> mainList;
     private Agency agency;
 
     private ObservableList<String> mainListItems = FXCollections.observableArrayList();
@@ -31,28 +32,32 @@ public class MainController extends TransitionController implements Initializabl
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         this.agency = Agency.getInstance();
-        mainList.setItems(agency.getCompanyList());
+        try {
+            mainList.setItems(agency.getActiveModels("Company"));
+        } catch (InvalidTypeException e) {
+            throw new RuntimeException(e);
+        }
         // Try to modify this in the future to work with Model abstract class instead of multiple concrete classes
         mainList.setCellFactory(param -> {
-            ListCell<Company> cell = new ListCell<Company>() {
+            ListCell<Model> cell = new ListCell<Model>() {
                 @Override
-                protected void updateItem(Company item, boolean empty) {
+                protected void updateItem(Model item, boolean empty) {
                     super.updateItem(item, empty);
 
-                    if (empty || item == null || item.getName() == null) {
+                    if (empty || item == null || item.getId() == null) {
                         setText(null);
                     } else {
-                        setText(item.getName());
+                        setText(item.getId());
                     }
 
                 }
             };
             cell.setOnMouseClicked(e -> {
                 if (cell.getItem() != null) {
-                    Company c = cell.getItem();
+                    Model c = cell.getItem();
                     try {
                         CompanyViewController controller = (CompanyViewController) ViewLoader.newWindow(
-                                getClass().getResource("Company View.fxml"), c.getName(), null
+                                getClass().getResource("Company View.fxml"), c.getId(), null
                         );
                         controller.loadViewInfo(c.getId());
                     } catch (IOException | IdNotFoundException ex) {
@@ -94,16 +99,115 @@ public class MainController extends TransitionController implements Initializabl
     }
 
     @FXML
-    protected void onCompaniesSection(ActionEvent event) throws IOException {
-        
+    protected void onCompaniesSection(ActionEvent event) throws IOException, InvalidTypeException {
+        this.updateListView(",ike");
+        mainList.setItems(null);
+        mainList.setItems(agency.getActiveModels("Company"));
+        mainList.setCellFactory(param -> {
+            ListCell<Model> cell = new ListCell<Model>() {
+                @Override
+                protected void updateItem(Model item, boolean empty) {
+                    super.updateItem(item, empty);
+
+                    if (empty || item == null || item.getId() == null) {
+                        setText(null);
+                    } else {
+                        setText(item.getId());
+                    }
+
+                }
+            };
+            cell.setOnMouseClicked(e -> {
+                if (cell.getItem() != null) {
+                    Model c = cell.getItem();
+                    try {
+                        CompanyViewController controller = (CompanyViewController) ViewLoader.newWindow(
+                                getClass().getResource("Job Post View.fxml"), c.getId(), null
+                        );
+                        controller.loadViewInfo(c.getId());
+                    } catch (IOException | IdNotFoundException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                }
+            });
+            return cell;
+        });
+        System.out.println(this.mainList.getItems());
+
+
     }
     @FXML
     protected void onCandidatesSection(ActionEvent event) throws InvalidTypeException {
         this.updateListView(",ike");
+        mainList.setItems(null);
+        mainList.setItems(agency.getActiveModels("Candidate"));
+        mainList.setCellFactory(param -> {
+            ListCell<Model> cell = new ListCell<Model>() {
+                @Override
+                protected void updateItem(Model item, boolean empty) {
+                    super.updateItem(item, empty);
+
+                    if (empty || item == null || item.getId() == null) {
+                        setText(null);
+                    } else {
+                        setText(item.getId());
+                    }
+
+                }
+            };
+            cell.setOnMouseClicked(e -> {
+                if (cell.getItem() != null) {
+                    Model c = cell.getItem();
+                    try {
+                        CompanyViewController controller = (CompanyViewController) ViewLoader.newWindow(
+                                getClass().getResource("Candidate View.fxml"), c.getId(), null
+                        );
+                        controller.loadViewInfo(c.getId());
+                    } catch (IOException | IdNotFoundException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                }
+            });
+            return cell;
+        });
+        System.out.println(this.mainList.getItems());
+
     }
     @FXML
-    protected void onJobPotsSection(ActionEvent event) throws IOException {
-        
+    protected void onJobPotsSection(ActionEvent event) throws IOException, InvalidTypeException {
+        mainList.setItems(null);
+        mainList.setItems(agency.getActiveModels("JobPost"));
+        mainList.setCellFactory(param -> {
+            ListCell<Model> cell = new ListCell<Model>() {
+                @Override
+                protected void updateItem(Model item, boolean empty) {
+                    super.updateItem(item, empty);
+
+                    if (empty || item == null || item.getId() == null) {
+                        setText(null);
+                    } else {
+                        setText(item.getId());
+                    }
+
+                }
+            };
+            cell.setOnMouseClicked(e -> {
+                if (cell.getItem() != null) {
+                    Model c = cell.getItem();
+                    try {
+                        CompanyViewController controller = (CompanyViewController) ViewLoader.newWindow(
+                                getClass().getResource("Company View.fxml"), c.getId(), null
+                        );
+                        controller.loadViewInfo(c.getId());
+                    } catch (IOException | IdNotFoundException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                }
+            });
+            return cell;
+        });
+        System.out.println(this.mainList.getItems());
+
     }
     @FXML
     protected void onEntityLink(ActionEvent event) throws IOException {}
