@@ -1,13 +1,13 @@
 package quantity.glasswindow.core;
 
-import java.util.ArrayList;
-import java.util.regex.*;
-
 import quantity.glasswindow.core.customExceptions.*;
 import quantity.glasswindow.core.enumerations.Branch;
 import quantity.glasswindow.core.enumerations.Gender;
 import quantity.glasswindow.core.enumerations.Scholarship;
 import quantity.glasswindow.core.enumerations.Specialty;
+
+import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 public class Candidate extends Model {
     private String name;
@@ -159,8 +159,8 @@ public class Candidate extends Model {
         return (/*isValidYear &&*/  isValidMonth && isValidDay  /*&& isValidCentury*/);
     }
 
-    private boolean phoneValidation(String phone){
-        return phone.length() == 8 || phone.isBlank();
+    private boolean phoneValidation(String phone){//length=8 and only numbers, or totally blank
+        return phone.length() == 8 &&  Pattern.matches("\\d+",phone) || phone.isBlank();
     }
 
     private boolean nameValidation(String name){//TODO add to uml

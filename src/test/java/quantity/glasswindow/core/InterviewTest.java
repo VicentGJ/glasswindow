@@ -1,3 +1,5 @@
+package quantity.glasswindow.core;
+
 import org.junit.jupiter.api.Test;
 
 import java.util.Calendar;
@@ -9,9 +11,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class InterviewTest {
     @Test
     public void validateDate(){
+        System.out.println("---validateDate()---");
         Date date_previous = new Date(2022,6,25);
-        Date date_equals = new Date(2022,6,27);
-        Date date_after = new Date(2022,6,30);
+        Date date_equals = new Date(2022,7,1);
+        Date date_after = new Date(2022,7,2);
         Calendar today_calendar = Calendar.getInstance();
         Date today_date = new Date(today_calendar.get(Calendar.YEAR),today_calendar.get(Calendar.MONTH)+1,
                 today_calendar.get(Calendar.DAY_OF_MONTH));
@@ -24,7 +27,11 @@ class InterviewTest {
         System.out.println("date after: "+ date_after.getYear()+"/"+date_after.getMonth()+"/"+date_after.getDate());
 
         assertTrue(date_after.after(today_date));
+        System.out.println("Test 1 succeed");
         assertFalse(date_previous.after(today_date));
+        System.out.println("Test 2 succeed");
         assertFalse(date_equals.after(today_date));
+        System.out.println("Test 3 succeed");
+
     }
 }

@@ -643,9 +643,9 @@ public class Agency implements IDataBase {
         jb2.addInterview(interview2.getId());
         Interview interview3 = new Interview("interview-003",new Date(2022,11,14,16,30),candidate3.getId(),company3.getId(),jb3.getId());
         jb3.addInterview(interview3.getId());
-        Interview interview4 = new Interview("interview-004",new Date(2022,8,15,10,00),candidate4.getId(),company4.getId(),jb4.getId());
+        Interview interview4 = new Interview("interview-004",new Date(2022,8,15,10,0),candidate4.getId(),company4.getId(),jb4.getId());
         jb4.addInterview(interview4.getId());
-        Interview interview5 = new Interview("interview-005",new Date(2022,9,16,14,00),candidate5.getId(),company5.getId(),jb5.getId());
+        Interview interview5 = new Interview("interview-005",new Date(2022,9,16,14,0),candidate5.getId(),company5.getId(),jb5.getId());
         jb5.addInterview(interview5.getId());
         Interview interview6 = new Interview("interview-006",new Date(2022,8,17,15,15),candidate6.getId(),company6.getId(),jb6.getId());
         jb6.addInterview(interview6.getId());
@@ -653,8 +653,8 @@ public class Agency implements IDataBase {
         jb6.addInterview(interview7.getId());
         Interview interview8 = new Interview("interview-008",new Date(2022,8,11,11,15),candidate1.getId(),company6.getId(),jb6.getId());
         jb6.addInterview(interview8.getId());
-        Interview interview9 = new Interview("interview-009",new Date(2022,7,25,11,15),candidate3.getId(),company2.getId(),jb2.getId());
-        jb6.addInterview(interview9.getId());
+        Interview interview9 = new Interview("interview-009",new Date(2022,8,25,11,15),candidate3.getId(),company4.getId(),jb4.getId());
+        jb4.addInterview(interview9.getId());
 
         //add all to models
         models.add(candidate1);
