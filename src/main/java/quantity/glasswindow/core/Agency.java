@@ -639,7 +639,7 @@ public class Agency implements IDataBase {
         company6.addJobPostToList(jb6.getId());
 
         //interviews
-        Interview interview1 = new Interview("interview-001",new Date(2022,7,1,12,40),candidate1.getId(),company1.getId(),jb1.getId());
+        Interview interview1 = new Interview("interview-001",new Date(2022,7,17,12,40),candidate1.getId(),company1.getId(),jb1.getId());
         jb1.addInterview(interview1.getId());
         Interview interview2 = new Interview("interview-002",new Date(2022,7,6,15,15),candidate2.getId(),company2.getId(),jb2.getId());
         jb2.addInterview(interview2.getId());

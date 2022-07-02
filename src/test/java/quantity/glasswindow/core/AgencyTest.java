@@ -177,7 +177,7 @@ public class AgencyTest {
                     "", "", Scholarship.GRADE, Specialty.ENGINEER, Branch.INDUSTRY, 3);
             a.insertObject(carlos);
 
-            Company qISq = new Company("company-t","Quantity is Quality","Earth","",Branch.INDUSTRY,new ArrayList<>());
+            Company qISq = new Company("company-t","Quantity is Quality","Earth","",Branch.INDUSTRY);
             a.insertObject(qISq);
 
             JobPost jpSoftwareDev = new JobPost("jobpost-t",Branch.SERVICES,50000, Status.OPEN,"","company-t",new ArrayList<>(),

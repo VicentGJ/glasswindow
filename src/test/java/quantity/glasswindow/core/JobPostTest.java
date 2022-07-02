@@ -20,8 +20,7 @@ class JobPostTest {
     void setUp(){
         try {
             a = Agency.getInstance();
-            Company c = new Company("cid","qISq","","",Branch.INDUSTRY,
-                    new ArrayList<>());
+            Company c = new Company("cid","qISq","","",Branch.INDUSTRY);
             a.insertObject(c);//so jobpost constructor passes validation
             jp = new JobPost("jpbpost-t", Branch.INDUSTRY,200, Status.APPLICATION_ACTIVE,"",
                     "cid",new ArrayList<>(), Scholarship.MASTER, Specialty.ENGINEER);

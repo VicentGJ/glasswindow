@@ -10,8 +10,8 @@ module quantity.glasswindow {
     opens quantity.glasswindow.ui to javafx.fxml;
     exports quantity.glasswindow;
     exports quantity.glasswindow.core;
-    exports quantity.glasswindow.core.customExceptions;
-    exports quantity.glasswindow.core.enumerations;
     exports quantity.glasswindow.utils;
     exports quantity.glasswindow.ui;
+    exports quantity.glasswindow.core.customExceptions;
+    exports quantity.glasswindow.core.enumerations;
 }
