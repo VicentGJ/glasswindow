@@ -28,7 +28,7 @@
       </HBox>
       <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="600.0" spacing="150.0">
          <children>
-            <ComboBox fx:id="companyComboBox" prefWidth="150.0" />
+            <ComboBox fx:id="companyComboBox" onAction="#onCompanyComboBox" prefWidth="150.0" />
             <ComboBox fx:id="monthComboBox" layoutX="10.0" layoutY="10.0" prefWidth="150.0" />
          </children>
          <padding>
