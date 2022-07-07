@@ -206,10 +206,9 @@ public class MainController extends TransitionController implements Initializabl
 
     }
     @FXML
-    protected void onEntityLink(ActionEvent event) throws IOException {}
-
-    @FXML
-    protected void onEditButton(ActionEvent event) throws IOException {}
+    protected void onReport3(ActionEvent event) throws IOException {
+        ViewLoader.newWindow(getClass().getResource("Report3.fxml"), "Month Interviews by Company", null);
+    }
 
     @FXML
     protected void onDeleteButton(ActionEvent event) throws IOException {}
