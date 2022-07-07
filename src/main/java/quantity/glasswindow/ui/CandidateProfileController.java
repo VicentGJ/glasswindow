@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 import quantity.glasswindow.core.Agency;
 import quantity.glasswindow.core.Candidate;
 import quantity.glasswindow.core.customExceptions.IdNotFoundException;
+import quantity.glasswindow.utils.ViewLoader;
 
 import java.io.IOException;
 
@@ -42,7 +43,16 @@ public class CandidateProfileController extends TransitionController{
     }
 
     @FXML
-    protected void onDeleteButton(ActionEvent event) {
+    protected void onDeleteButton(ActionEvent event) throws IOException {
+        Agency agency = Agency.getInstance();
+        try {
+            agency.deleteObject(candidate.getId());
+        } catch (IdNotFoundException e) {
+            ErrorMessageController controller = (ErrorMessageController) ViewLoader.newWindow(getClass().getResource(
+                    "Error Message.fxml"), e.getMessage(), null);
+            controller.setErrorMessage();
+            e.printStackTrace();
+        }
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.close();
     }

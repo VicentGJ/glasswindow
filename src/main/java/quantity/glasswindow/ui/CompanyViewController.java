@@ -22,7 +22,6 @@ public class CompanyViewController{
         name.setText(company.getName());
         address.setText(company.getAddress());
         phone.setText(company.getPhone());
-        System.out.println(company.getPhone());
         sector.setText(company.getSector().name());
     }
     @FXML
@@ -38,7 +37,16 @@ public class CompanyViewController{
     }
 
     @FXML
-    protected void onDeleteButton(ActionEvent event) {
+    protected void onDeleteButton(ActionEvent event) throws IOException {
+        Agency agency = Agency.getInstance();
+        try {
+            agency.deleteObject(company.getId());
+        } catch (IdNotFoundException e) {
+            ErrorMessageController controller = (ErrorMessageController) ViewLoader.newWindow(getClass().getResource(
+                    "Error Message.fxml"), e.getMessage(), null);
+            controller.setErrorMessage();
+            e.printStackTrace();
+        }
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.close();
     }

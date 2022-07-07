@@ -67,7 +67,7 @@
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </GridPane.margin>
                <children>
-                  <TextArea prefHeight="72.0" prefWidth="249.0" promptText="description" wrapText="true" />
+                  <TextArea fx:id="descriptionField" prefHeight="72.0" prefWidth="249.0" promptText="description" wrapText="true" />
                </children>
             </HBox>
             <HBox alignment="CENTER" GridPane.rowIndex="2">
@@ -77,7 +77,7 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
-                  <Spinner editable="true" prefHeight="26.0" prefWidth="163.0" />
+                  <Spinner fx:id="salaryField" editable="true" prefHeight="26.0" prefWidth="163.0" />
                   <Label text="\$">
                      <font>
                         <Font size="21.0" />
@@ -92,7 +92,7 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <children>
-                  <ComboBox prefWidth="150.0" promptText="Branches" />
+                  <ComboBox fx:id="branchField" prefWidth="150.0" promptText="Branches" />
                </children>
             </HBox>
             <HBox alignment="CENTER" GridPane.rowIndex="4">
@@ -102,7 +102,7 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <children>
-                  <ComboBox prefWidth="150.0" promptText="Specialties" />
+                  <ComboBox fx:id="specialtyField" prefWidth="150.0" promptText="Specialties" />
                </children>
             </HBox>
             <HBox alignment="CENTER">
@@ -112,7 +112,7 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" GridPane.columnIndex="1">
                <children>
-                  <TextField prefHeight="25.0" prefWidth="250.0" promptText="company name">
+                  <TextField fx:id="companyField" prefHeight="25.0" prefWidth="250.0" promptText="company name">
                      <padding>
                         <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                      </padding></TextField>
@@ -126,7 +126,7 @@
       <HBox alignment="CENTER" prefHeight="41.0" prefWidth="449.0" spacing="20.0">
          <children>
             <JFXButton onAction="#onBackButton" prefHeight="37.0" prefWidth="67.0" style="-fx-background-color: rgb(215,215,215);" text="Save" />
-            <JFXButton onAction="#onBackButton" layoutX="201.0" layoutY="10.0" prefHeight="31.0" prefWidth="67.0" style="-fx-background-color: rgb(215,215,215);" text="Cancel" />
+            <JFXButton layoutX="201.0" layoutY="10.0" onAction="#onBackButton" prefHeight="31.0" prefWidth="67.0" style="-fx-background-color: rgb(215,215,215);" text="Cancel" />
          </children>
       </HBox>
    </children>

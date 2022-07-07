@@ -118,7 +118,7 @@ public class MainController extends TransitionController implements Initializabl
                     Model c = cell.getItem();
                     try {
                         CompanyViewController controller = (CompanyViewController) ViewLoader.newWindow(
-                                getClass().getResource("Job Post View.fxml"), c.getId(), null
+                                getClass().getResource("Company View.fxml"), c.getId(), null
                         );
                         controller.loadViewInfo(c.getId());
                     } catch (IOException | IdNotFoundException ex) {
