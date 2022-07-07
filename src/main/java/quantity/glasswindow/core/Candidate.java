@@ -124,7 +124,7 @@ public class Candidate extends Model {
                 if (dni.length() == 11) {
                     boolean dateValid = dateValidationDNI(dni.substring(0, 7));//[0-1]Year, [2-3]Month, [4-5]Day, [6]Century
                     if (dateValid) {
-                        this.id = dni;
+                        this.dni = dni;
                     } else
                         throw new InvalidIDException(dni, "Error during validation of digits 1-7");
                 } else throw new InvalidIDException(dni, "Error during validation of ID length, must be 11 digits");
