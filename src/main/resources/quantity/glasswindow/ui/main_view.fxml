@@ -57,7 +57,7 @@
                <children>
                   <HBox>
                      <children>
-                        <JFXButton buttonType="RAISED" onAction="#onCompaniesSection" style="-fx-background-color: rgb(215,215,215);" text="Companies">
+                        <JFXButton onAction="#onCompaniesSection" style="-fx-background-color: rgb(215,215,215);" text="Companies">
                            <font>
                               <Font size="19.0" />
                            </font>
