@@ -101,6 +101,7 @@
          <children>
             <JFXButton onAction="#onApplyButton" prefHeight="38.0" prefWidth="66.0" style="-fx-background-color: rgb(215,215,215);" text="Apply" />
             <JFXButton layoutX="338.0" layoutY="10.0" onAction="#onEditButton" prefHeight="38.0" prefWidth="66.0" style="-fx-background-color: rgb(215,215,215);" text="Edit" />
+            <JFXButton layoutX="172.0" layoutY="10.0" onAction="#onEditButton" prefHeight="38.0" prefWidth="66.0" style="-fx-background-color: rgb(215,215,215);" text="Delete" />
             <JFXButton layoutX="347.0" layoutY="10.0" onAction="#onBackButton" prefHeight="38.0" prefWidth="66.0" style="-fx-background-color: rgb(215,215,215);" text="Back" />
          </children>
       </HBox>

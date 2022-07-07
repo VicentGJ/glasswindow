@@ -2,7 +2,6 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -75,11 +74,11 @@
                   <Font size="20.0" />
                </font>
             </Text>
-            <Hyperlink text="CandidateName" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Text layoutX="132.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CandidateName" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font size="20.0" />
                </font>
-            </Hyperlink>
+            </Text>
          </children>
          <VBox.margin>
             <Insets left="20.0" top="30.0" />
@@ -88,6 +87,7 @@
       <HBox alignment="CENTER" prefHeight="42.0" prefWidth="340.0" spacing="20.0">
          <children>
             <JFXButton prefHeight="30.0" prefWidth="74.0" style="-fx-background-color: rgb(215,215,215);" text="Edit" />
+            <JFXButton layoutX="96.0" layoutY="16.0" prefHeight="30.0" prefWidth="74.0" style="-fx-background-color: rgb(215,215,215);" text="Delete" />
             <JFXButton layoutX="143.0" layoutY="16.0" prefHeight="30.0" prefWidth="74.0" style="-fx-background-color: rgb(215,215,215);" text="Back" />
          </children>
       </HBox>

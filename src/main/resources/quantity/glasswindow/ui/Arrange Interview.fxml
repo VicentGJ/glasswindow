@@ -7,6 +7,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
@@ -57,7 +58,7 @@
                   <Font size="17.0" />
                </font>
             </Label>
-            <DatePicker editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <DatePicker fx:id="dateField" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Label prefHeight="25.0" prefWidth="111.0" text="Time" GridPane.rowIndex="2">
                <font>
                   <Font size="17.0" />
@@ -65,14 +66,14 @@
             </Label>
             <HBox alignment="CENTER_LEFT" prefHeight="32.0" prefWidth="233.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
-                  <Spinner prefHeight="28.0" prefWidth="65.0" />
+                  <Spinner fx:id="hoursField" prefHeight="28.0" prefWidth="65.0" />
                   <Text fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text=":" textAlignment="CENTER" wrappingWidth="11.220683574676514">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Text>
-                  <Spinner layoutX="10.0" layoutY="10.0" prefHeight="28.0" prefWidth="65.0" />
-                  <ComboBox prefHeight="28.0" prefWidth="67.0" promptText="AM">
+                  <Spinner fx:id="minutesField" layoutX="10.0" layoutY="10.0" prefHeight="28.0" prefWidth="65.0" />
+                  <ComboBox fx:id="ampmField" prefHeight="28.0" prefWidth="67.0" promptText="AM">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>
@@ -84,7 +85,7 @@
                   <Font size="17.0" />
                </font>
             </Label>
-            <ComboBox prefHeight="28.0" prefWidth="190.0" promptText="Candidates" GridPane.columnIndex="1" />
+            <TextField fx:id="candidateField" GridPane.columnIndex="1" />
          </children>
          <VBox.margin>
             <Insets top="15.0" />

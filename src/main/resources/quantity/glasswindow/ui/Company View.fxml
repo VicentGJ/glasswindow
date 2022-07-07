@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<VBox prefHeight="374.0" prefWidth="469.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="quantity.glasswindow.ui.CompanyViewController">
+<VBox prefHeight="374.0" prefWidth="469.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="quantity.glasswindow.ui.CompanyViewController">
    <children>
       <HBox alignment="CENTER" fillHeight="false" prefHeight="45.0" prefWidth="469.0">
          <children>
@@ -78,6 +84,7 @@
       <HBox alignment="CENTER" fillHeight="false" prefHeight="80.0" prefWidth="409.0" spacing="20.0">
          <children>
             <JFXButton onAction="#onEditButton" prefHeight="27.0" prefWidth="70.0" style="-fx-background-color: rgb(215,215,215);" text="Edit" />
+            <JFXButton layoutX="135.0" layoutY="10.0" onAction="#onEditButton" prefHeight="27.0" prefWidth="70.0" style="-fx-background-color: rgb(215,215,215);" text="Delete" />
             <JFXButton layoutX="180.0" layoutY="14.0" onAction="#onBackButton" prefHeight="27.0" prefWidth="70.0" style="-fx-background-color: rgb(215,215,215);" text="Back" />
          </children>
          <VBox.margin>

@@ -36,9 +36,9 @@ public class JobPostController extends TransitionController{
         stage.close();
     }
     @FXML
-    protected void onApplyButton(ActionEvent event) throws IOException {
+    protected void onApplyButton(ActionEvent event) throws IOException, IdNotFoundException {
         InterviewController controller = (InterviewController) ViewLoader.thisWindow(
                 getClass().getResource("Arrange Interview.fxml"), event);
-        /*controller.loadViewInfo(company.getId());*/
+        controller.loadViewInfo(jp.getId());
     }
 }
