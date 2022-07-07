@@ -14,13 +14,13 @@ import java.io.IOException;
 
 public class CandidateProfileController extends TransitionController{
     @FXML
-    private Text name,id,gender, address, phone,scholarship,branch, specialty,yearsofexp;
+    private Text name,dni,gender, address, phone,scholarship,branch, specialty,yearsofexp;
     private Candidate candidate;
 
     public void loadViewInfo(String id) throws IdNotFoundException {
         Agency agency = Agency.getInstance();
         candidate = (Candidate) agency.getObject(id);
-        this.id.setText(candidate.getId());
+        this.dni.setText(candidate.getId());
         candidate = (Candidate) agency.getObject(id);
         name.setText(candidate.getName());
         gender.setText(candidate.getGender().name());

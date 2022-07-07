@@ -12,8 +12,8 @@ public class Interview extends Model {
     private String company;
     private String jobPost;
 
-    public Interview(String id, LocalDate date, String candidate,
-                     String company, String jobPost) throws InvalidIDException, InvalidDateException, DuplicatedIDException {
+    public Interview(String id, LocalDate date, String candidate, String company, String jobPost)
+            throws InvalidIDException, InvalidDateException, DuplicatedIDException {
         super(id);
         this.setDate(date);
         this.setCandidate(candidate);

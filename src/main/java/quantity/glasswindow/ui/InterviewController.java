@@ -10,10 +10,7 @@ import quantity.glasswindow.core.Agency;
 import quantity.glasswindow.core.Company;
 import quantity.glasswindow.core.Interview;
 import quantity.glasswindow.core.JobPost;
-import quantity.glasswindow.core.customExceptions.DuplicatedIDException;
-import quantity.glasswindow.core.customExceptions.IdNotFoundException;
-import quantity.glasswindow.core.customExceptions.InvalidDateException;
-import quantity.glasswindow.core.customExceptions.InvalidIDException;
+import quantity.glasswindow.core.customExceptions.*;
 import quantity.glasswindow.utils.ViewLoader;
 
 import java.io.IOException;
@@ -28,7 +25,6 @@ public class InterviewController {
     private DatePicker dateField;
     @FXML
     private TextField candidateField;
-    /*add h m ampm*/
 
     public void loadViewInfo(String jpID) throws IdNotFoundException {
         a = Agency.getInstance();
@@ -44,10 +40,10 @@ public class InterviewController {
     @FXML
     protected void onOkButton(ActionEvent event) throws IOException {
         try {
-            String candidate = a.getObject(candidateField.getText()).getId();
+            String candidate = a.getCandidateByDNI(candidateField.getText()).getId();
             LocalDate date = dateField.getValue();
             Interview interview = new Interview(String.valueOf(date.getDayOfMonth()),date,candidate,company.getId(),jp.getId());
-        }catch (IdNotFoundException | InvalidDateException | InvalidIDException | DuplicatedIDException e){
+        }catch (DNINotFoundException | InvalidDateException | InvalidIDException | DuplicatedIDException e){
             ErrorMessageController controller = (ErrorMessageController) ViewLoader.newWindow(getClass().getResource(
                     "Error Message.fxml"), e.getMessage(), null);
             controller.setErrorMessage();

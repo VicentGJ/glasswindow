@@ -86,12 +86,12 @@
                   <Font size="14.0" />
                </font>
             </Text>
-            <Label prefHeight="25.0" prefWidth="111.0" text="Candidate ID" GridPane.rowIndex="1">
+            <Label prefHeight="25.0" prefWidth="111.0" text="Candidate DNI" GridPane.rowIndex="1">
                <font>
                   <Font size="17.0" />
                </font>
             </Label>
-            <Text fx:id="id" fontSmoothingType="LCD" smooth="false" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="01060568481" wrappingWidth="129.92933654785156" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Text fx:id="dni" fontSmoothingType="LCD" smooth="false" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="01060568481" wrappingWidth="129.92933654785156" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font size="14.0" />
                </font>
