@@ -1,13 +1,15 @@
 package quantity.glasswindow.core;
 
-import quantity.glasswindow.core.customExceptions.*;
+import quantity.glasswindow.core.customExceptions.DuplicatedIDException;
+import quantity.glasswindow.core.customExceptions.InvalidIDException;
+import quantity.glasswindow.core.customExceptions.InvalidNameException;
+import quantity.glasswindow.core.customExceptions.InvalidPhoneException;
 import quantity.glasswindow.core.enumerations.Branch;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 
-public class Company extends Model implements ICascadeDelete {
+public class Company extends Model {
     private String name;
     private String address;
     private String phone;
@@ -23,20 +25,6 @@ public class Company extends Model implements ICascadeDelete {
         this.setSector(sector);
         this.setPhone(phone);
         this.jobPostList = new ArrayList<>();
-    }
-
-    @Override
-    public void deleteNode() {
-        try {
-            Agency a = Agency.getInstance();
-            for (String jobPost : jobPostList) {
-                ((JobPost) a.getObject(jobPost)).deleteNode();
-            }
-            a.deleteObject(this.id);
-        }
-        catch (IdNotFoundException e) {
-            System.exit(1);
-        }
     }
 
     public String getName() {

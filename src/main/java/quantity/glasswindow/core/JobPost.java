@@ -8,7 +8,7 @@ import quantity.glasswindow.core.enumerations.Status;
 
 import java.util.ArrayList;
 
-public class JobPost extends Model implements ICascadeDelete {
+public class JobPost extends Model {
     private Branch branch;
     private float salary;
     private Status status;
@@ -31,17 +31,6 @@ public class JobPost extends Model implements ICascadeDelete {
         this.setInterviewList(interviewList);
         this.setScholarship(scholarship);
         this.setSpecialty(specialty);
-    }
-
-    @Override
-    public void deleteNode() {
-        Agency agency = Agency.getInstance();
-        try {
-            agency.deleteObject(this.id);
-        }
-        catch (IdNotFoundException e) {
-            System.exit(1);
-        }
     }
 
     public Specialty getSpecialty() {

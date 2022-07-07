@@ -216,4 +216,7 @@ public class MainController extends TransitionController implements Initializabl
 
     @FXML
     protected void onSearchButton() throws  IOException {}
+
+    public void onAboutGlassWindow(ActionEvent actionEvent) {
+    }
 }
