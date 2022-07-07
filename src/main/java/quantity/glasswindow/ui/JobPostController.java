@@ -41,4 +41,9 @@ public class JobPostController extends TransitionController{
                 getClass().getResource("Arrange Interview.fxml"), event);
         controller.loadViewInfo(jp.getId());
     }
+    @FXML
+    protected void onDeleteButton(ActionEvent event) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.close();
+    }
 }

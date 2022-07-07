@@ -2,19 +2,15 @@ package quantity.glasswindow.ui;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import quantity.glasswindow.core.Agency;
 import quantity.glasswindow.core.Company;
 import quantity.glasswindow.core.customExceptions.IdNotFoundException;
-import quantity.glasswindow.core.enumerations.Branch;
 import quantity.glasswindow.utils.ViewLoader;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class CompanyViewController{
     @FXML
@@ -39,5 +35,11 @@ public class CompanyViewController{
         CompanyEditController controller = (CompanyEditController) ViewLoader.thisWindow(
                 getClass().getResource("Company Edit.fxml"), event);
         controller.loadViewInfo(company.getId());
+    }
+
+    @FXML
+    protected void onDeleteButton(ActionEvent event) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.close();
     }
 }

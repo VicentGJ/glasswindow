@@ -40,4 +40,10 @@ public class CandidateProfileController extends TransitionController{
     protected void onEditButton(ActionEvent event) throws IOException{
         this.transition("Candidate Edit.fxml", event);
     }
+
+    @FXML
+    protected void onDeleteButton(ActionEvent event) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.close();
+    }
 }

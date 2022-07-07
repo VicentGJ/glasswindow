@@ -1,10 +1,10 @@
 package quantity.glasswindow.core.customExceptions;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class InvalidDateException extends Exception{
-    public InvalidDateException(Date date) {
-        super("Invalid date to set interview: "+date.getDate()+"/"+date.getMonth()+"/"+date.getYear());
+    public InvalidDateException(LocalDate date) {
+        super("Invalid date to set interview: "+date.getDayOfMonth()+"/"+date.getMonth()+"/"+date.getYear());
     }
 
 }

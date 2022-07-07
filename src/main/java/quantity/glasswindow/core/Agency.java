@@ -2,14 +2,16 @@ package quantity.glasswindow.core;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
 import quantity.glasswindow.core.customExceptions.*;
 import quantity.glasswindow.core.enumerations.*;
 
 import java.security.KeyException;
+import java.time.LocalDate;
 import java.time.Month;
 import java.time.Year;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 
 
 public class Agency implements IDataBase {
@@ -54,30 +56,26 @@ public class Agency implements IDataBase {
                                      Specialty specialty, Branch sector, int yearsOfExp)
             throws InvalidPhoneException, InvalidNameException, InvalidIDException, DuplicatedIDException, InvalidYearsOfExpException {
 
-        Candidate newCandidate = new Candidate(id,name,gender,address,phone,scholarship,specialty,sector,yearsOfExp);
-        return newCandidate;
+        return new Candidate(id,name,gender,address,phone,scholarship,specialty,sector,yearsOfExp);
     }
 
     public Company newCompany(String id, String name, String address, String phone,
                               Branch sector, ArrayList<String> jobPostList)
             throws InvalidPhoneException, InvalidNameException, InvalidIDException, DuplicatedIDException {
-        Company newCompany = new Company(id,name,address,phone,sector);
-        return newCompany;
+        return new Company(id,name,address,phone,sector);
     }
 
     public JobPost createJobPost(String id, Branch branch, float salary, Status status, String description,
                                  String company, ArrayList<String> interviewList, Scholarship scholarship,
                                  Specialty specialty)
             throws InvalidSalaryException, ModelNotFoundException, InvalidIDException, DuplicatedIDException {
-        JobPost newJobPost = new JobPost(id,branch,salary,status,description,company,interviewList,scholarship,specialty);
-        return newJobPost;
+        return new JobPost(id,branch,salary,status,description,company,interviewList,scholarship,specialty);
     }
 
-    public Interview createInterview(String id, Date date, String candidate,
+    public Interview createInterview(String id, LocalDate date, String candidate,
                                      String company, String jobPost)
             throws InvalidDateException, InvalidIDException, DuplicatedIDException {
-        Interview newInterview = new Interview(id,date,candidate,company,jobPost);
-        return newInterview;
+        return new Interview(id,date,candidate,company,jobPost);
     }
 
     public ObservableList<Candidate> getCandidateList() {
@@ -455,7 +453,7 @@ public class Agency implements IDataBase {
                         // TODO: Right now this is specific to getAppliances(), need to refactor to work more generally later
                         int filter_month = (int) filter.get(key);
                         for (Model m : lists)
-                            if (m instanceof Interview && !(((Interview) m).getDate().getMonth() == filter_month))
+                            if (m instanceof Interview && !(((Interview) m).getDate().lengthOfMonth() == filter_month))
                                 result.remove(m);
                     }
                     case "candidate" -> {
@@ -513,7 +511,7 @@ public class Agency implements IDataBase {
             interviews = tempJP.getInterviewList();
             for (String i: interviews) {
                 Interview interview = (Interview) getModelWithID(i);
-                if (interview.getDate().getMonth() == month) {
+                if (interview.getDate().lengthOfMonth() == month) {
                     Candidate candidate = (Candidate)getModelWithID(interview.getCandidate());
                     result.add(candidate);
                 }
@@ -544,7 +542,7 @@ public class Agency implements IDataBase {
             );
             for (Model i: monthInterviews) {
                 Interview interview = (Interview) i;
-                int index = interview.getDate().getDate() - 1;
+                int index = interview.getDate().getDayOfMonth()-1;
                 if (result.get(index) == null){
                     ArrayList<Interview> temp = new ArrayList<>();
                     temp.add(interview);
@@ -657,23 +655,23 @@ public class Agency implements IDataBase {
         company6.addJobPostToList(jb6.getId());
 
         //interviews
-        Interview interview1 = new Interview("interview-001",new Date(2022,7,17,12,40),candidate1.getId(),company1.getId(),jb1.getId());
+        Interview interview1 = new Interview("interview-001", LocalDate.of(2022,8,19),candidate1.getId(),company1.getId(),jb1.getId());
         jb1.addInterview(interview1.getId());
-        Interview interview2 = new Interview("interview-002",new Date(2022,7,6,15,15),candidate2.getId(),company2.getId(),jb2.getId());
+        Interview interview2 = new Interview("interview-002",LocalDate.of(2022,8,6),candidate2.getId(),company2.getId(),jb2.getId());
         jb2.addInterview(interview2.getId());
-        Interview interview3 = new Interview("interview-003",new Date(2022,11,14,16,30),candidate3.getId(),company3.getId(),jb3.getId());
+        Interview interview3 = new Interview("interview-003",LocalDate.of(2022,11,14),candidate3.getId(),company3.getId(),jb3.getId());
         jb3.addInterview(interview3.getId());
-        Interview interview4 = new Interview("interview-004",new Date(2022,8,15,10,0),candidate4.getId(),company4.getId(),jb4.getId());
+        Interview interview4 = new Interview("interview-004",LocalDate.of(2022,8,15),candidate4.getId(),company4.getId(),jb4.getId());
         jb4.addInterview(interview4.getId());
-        Interview interview5 = new Interview("interview-005",new Date(2022,9,16,14,0),candidate5.getId(),company5.getId(),jb5.getId());
+        Interview interview5 = new Interview("interview-005",LocalDate.of(2022,9,6),candidate5.getId(),company5.getId(),jb5.getId());
         jb5.addInterview(interview5.getId());
-        Interview interview6 = new Interview("interview-006",new Date(2022,8,17,15,15),candidate6.getId(),company6.getId(),jb6.getId());
+        Interview interview6 = new Interview("interview-006",LocalDate.of(2022,10,17),candidate6.getId(),company6.getId(),jb6.getId());
         jb6.addInterview(interview6.getId());
-        Interview interview7 = new Interview("interview-007",new Date(2022,8,10,15,15),candidate2.getId(),company6.getId(),jb6.getId());
+        Interview interview7 = new Interview("interview-007",LocalDate.of(2022,10,10),candidate2.getId(),company6.getId(),jb6.getId());
         jb6.addInterview(interview7.getId());
-        Interview interview8 = new Interview("interview-008",new Date(2022,8,11,11,15),candidate1.getId(),company6.getId(),jb6.getId());
+        Interview interview8 = new Interview("interview-008",LocalDate.of(2022,8,11),candidate1.getId(),company6.getId(),jb6.getId());
         jb6.addInterview(interview8.getId());
-        Interview interview9 = new Interview("interview-009",new Date(2022,8,25,11,15),candidate3.getId(),company4.getId(),jb4.getId());
+        Interview interview9 = new Interview("interview-009",LocalDate.of(2022,8,25),candidate3.getId(),company4.getId(),jb4.getId());
         jb4.addInterview(interview9.getId());
 
         //add all to models

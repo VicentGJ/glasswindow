@@ -3,16 +3,18 @@ import quantity.glasswindow.core.customExceptions.DuplicatedIDException;
 import quantity.glasswindow.core.customExceptions.InvalidDateException;
 import quantity.glasswindow.core.customExceptions.InvalidIDException;
 
+import java.time.LocalDate;
+import java.time.chrono.ChronoLocalDate;
 import java.util.Calendar;
 import java.util.Date;
 
 public class Interview extends Model {
-    private Date date;
+    private LocalDate date;
     private String candidate;
     private String company;
     private String jobPost;
 
-    public Interview(String id, Date date, String candidate,
+    public Interview(String id, LocalDate date, String candidate,
                      String company, String jobPost) throws InvalidIDException, InvalidDateException, DuplicatedIDException {
         super(id);
         this.setDate(date);
@@ -21,10 +23,10 @@ public class Interview extends Model {
         this.setJobPost(jobPost);
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
-    public void setDate(Date date) throws InvalidDateException {
+    public void setDate(LocalDate date) throws InvalidDateException {
         if(validateDate(date)) {
             this.date = date;
         } else throw new InvalidDateException(date);
@@ -54,9 +56,8 @@ public class Interview extends Model {
         this.jobPost = jobPost;
     }
 
-    private boolean validateDate(Date date){
-        Calendar today_calendar = Calendar.getInstance();
-        Date today_date = new Date(today_calendar.get(Calendar.YEAR),(today_calendar.get(Calendar.MONTH)+1),today_calendar.get(Calendar.DAY_OF_MONTH));
-        return date.after(today_date);
+    private boolean validateDate(LocalDate date){
+        LocalDate today_date = LocalDate.now();
+        return date.isAfter(today_date);
     }
 }

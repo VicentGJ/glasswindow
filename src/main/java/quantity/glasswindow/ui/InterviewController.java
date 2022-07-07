@@ -18,7 +18,6 @@ import quantity.glasswindow.utils.ViewLoader;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.Date;
 
 public class InterviewController {
     private Company company;
@@ -46,9 +45,8 @@ public class InterviewController {
     protected void onOkButton(ActionEvent event) throws IOException {
         try {
             String candidate = a.getObject(candidateField.getText()).getId();
-            LocalDate d = dateField.getValue();
-            Date date = new Date(d.getYear(),d.getMonth().getValue()+1,d.getDayOfMonth());
-            Interview interview = new Interview(String.valueOf(d.getDayOfMonth()),date,candidate,company.getId(),jp.getId());
+            LocalDate date = dateField.getValue();
+            Interview interview = new Interview(String.valueOf(date.getDayOfMonth()),date,candidate,company.getId(),jp.getId());
         }catch (IdNotFoundException | InvalidDateException | InvalidIDException | DuplicatedIDException e){
             ErrorMessageController controller = (ErrorMessageController) ViewLoader.newWindow(getClass().getResource(
                     "Error Message.fxml"), e.getMessage(), null);
