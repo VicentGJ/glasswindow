@@ -601,6 +601,20 @@ public class Agency extends Generator implements IDataBase {
         }
         return false;
     }
+    public Candidate getCandidateByDNI(String dni) throws DNINotFoundException {
+        for(Candidate c : candidateList)
+            if(c.getDni().equals(dni))
+                return c;
+        throw new DNINotFoundException(dni);
+    }
+
+    public Company getCompanyByName(String name) throws NameNotFoundException {
+        for(Company c : companyList)
+            if(c.getName().equalsIgnoreCase(name))
+                return c;
+        throw new NameNotFoundException(name);
+    }
+
     public void initTestData()
             throws InvalidIDException, InvalidDateException, InvalidNameException,
             InvalidSalaryException, DuplicatedIDException, InvalidPhoneException,
@@ -609,8 +623,6 @@ public class Agency extends Generator implements IDataBase {
         //candidates
         Candidate candidate1 = createCandidate("01041266729","Bruce Banner", Gender.MASCULINE,"New York",
                 "05158899", Scholarship.PHD, Specialty.SCIENTIST, Branch.INDUSTRY,5);
-        System.out.println(candidate1.getDni());
-        System.out.println(candidate1.getId());
         Candidate candidate2 = createCandidate("01060568481","Tonny Stark", Gender.MASCULINE,"New York",
                 "05155229", Scholarship.PHD, Specialty.ECONOMIST,Branch.INDUSTRY,4);
         Candidate candidate3 = createCandidate("01060568482","Clark Kent", Gender.MASCULINE,"Kansas",
