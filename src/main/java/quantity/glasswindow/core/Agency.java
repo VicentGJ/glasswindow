@@ -74,7 +74,11 @@ public class Agency implements IDataBase {
 
     public Interview createInterview(String id, LocalDate date, String candidate,
                                      String company, String jobPost)
-            throws InvalidDateException, InvalidIDException, DuplicatedIDException {
+            throws InvalidDateException, InvalidIDException, DuplicatedIDException, IdNotFoundException {
+        for(Interview i : interviewList){
+            if((i.getDate().getMonth() == date.getMonth()) && (i.getDate().getDayOfMonth() == date.getDayOfMonth()) && (i.getCandidate().equalsIgnoreCase(candidate)))
+                throw new InvalidDateException(date,"Because candidate with id:"+ candidate + "already has interview that day");
+        }
         return new Interview(id,date,candidate,company,jobPost);
     }
 
