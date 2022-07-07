@@ -31,9 +31,11 @@ public class JobPostController extends TransitionController{
         stage.close();
     }
     @FXML
-    protected void onEditButton(ActionEvent event) {
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.close();
+    protected void onEditButton(ActionEvent event) throws IOException, IdNotFoundException {
+        JobPostEditController controller = (JobPostEditController) ViewLoader.thisWindow(
+                getClass().getResource("Job Post Edit.fxml"), event);
+        controller.loadViewInfo(jp.getId());
+
     }
     @FXML
     protected void onApplyButton(ActionEvent event) throws IOException, IdNotFoundException {
