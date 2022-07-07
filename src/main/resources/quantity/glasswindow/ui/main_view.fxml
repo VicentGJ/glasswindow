@@ -17,7 +17,7 @@
                      <items>
                         <MenuItem mnemonicParsing="false" onAction="#onNewCompany" text="Company" />
                         <MenuItem mnemonicParsing="false" text="Candidate" />
-                        <MenuItem mnemonicParsing="false" text="Job Post" />
+                        <MenuItem mnemonicParsing="false" onAction="#onNewJobPost" text="Job Post" />
                      </items>
                   </Menu>
             <MenuItem mnemonicParsing="false" text="Open…" />

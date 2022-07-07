@@ -67,8 +67,7 @@ public class Agency extends Generator implements IDataBase {
     }
 
     public JobPost createJobPost(Branch branch, float salary, Status status, String description,
-                                 String company, Scholarship scholarship,
-                                 Specialty specialty)
+                                 String company, Scholarship scholarship, Specialty specialty)
             throws InvalidSalaryException, ModelNotFoundException, InvalidIDException, DuplicatedIDException, InvalidTypeException {
         return new JobPost(genID("jobpost"),branch,salary,status,description,company,scholarship,specialty);
     }

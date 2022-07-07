@@ -60,9 +60,8 @@ public class CompanyNewController implements Initializable {
         String address = addressField.getText();
         String phone = phoneField.getText();
         try{
-            // TODO: Implement proper IDs
-            Company company = new Company(nameField.getText(), nameField.getText(), addressField.getText(),
-                    phoneField.getText(), Branch.values()[comboBoxItems.indexOf(comboBox.getValue())] );
+            Company company = agency.createCompany(nameField.getText(),addressField.getText(),phoneField.getText(),
+                    Branch.values()[comboBoxItems.indexOf(comboBox.getValue())]);
             this.agency.insertObject(company);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.close();
