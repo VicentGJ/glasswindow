@@ -3,6 +3,7 @@ package quantity.glasswindow.core;
 import quantity.glasswindow.core.customExceptions.*;
 import quantity.glasswindow.core.enumerations.Branch;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 
@@ -29,7 +30,7 @@ public class Company extends Model implements ICascadeDelete {
         try {
             Agency a = Agency.getInstance();
             for (String jobPost : jobPostList) {
-                ((JobPost) a.getModelWithID(jobPost)).deleteNode();
+                ((JobPost) a.getObject(jobPost)).deleteNode();
             }
             a.deleteObject(this.id);
         }
@@ -81,9 +82,9 @@ public class Company extends Model implements ICascadeDelete {
     public void addJobPostToList(String jobPost){
         jobPostList.add(jobPost);
     }
-    public void setJobPostList(ArrayList<String> jobPostList) {
+/*    public void setJobPostList(ArrayList<String> jobPostList) {
         this.jobPostList = jobPostList;
-    }
+    }*/
 
     private boolean phoneValidation(String phone){
         return (phone.length() == 8 && Pattern.matches("\\d+", phone)) || phone.isBlank();

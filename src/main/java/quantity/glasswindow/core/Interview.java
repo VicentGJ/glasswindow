@@ -1,12 +1,10 @@
 package quantity.glasswindow.core;
+
 import quantity.glasswindow.core.customExceptions.DuplicatedIDException;
 import quantity.glasswindow.core.customExceptions.InvalidDateException;
 import quantity.glasswindow.core.customExceptions.InvalidIDException;
 
 import java.time.LocalDate;
-import java.time.chrono.ChronoLocalDate;
-import java.util.Calendar;
-import java.util.Date;
 
 public class Interview extends Model {
     private LocalDate date;
@@ -37,6 +35,7 @@ public class Interview extends Model {
     }
 
     public void setCandidate(String candidate) {
+
         this.candidate = candidate;
     }
 

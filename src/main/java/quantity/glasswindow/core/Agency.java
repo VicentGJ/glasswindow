@@ -60,7 +60,7 @@ public class Agency implements IDataBase {
     }
 
     public Company newCompany(String id, String name, String address, String phone,
-                              Branch sector, ArrayList<String> jobPostList)
+                              Branch sector)
             throws InvalidPhoneException, InvalidNameException, InvalidIDException, DuplicatedIDException {
         return new Company(id,name,address,phone,sector);
     }
@@ -285,7 +285,7 @@ public class Agency implements IDataBase {
 
     @Override
     public void deleteObject(String id) throws IdNotFoundException {
-        Model m = getModelWithID(id);
+        Model m = getObject(id);
         if (m instanceof Candidate)
             removeCandidate(m.getId());
         else if(m instanceof Company)
@@ -502,17 +502,17 @@ public class Agency implements IDataBase {
 
     public ArrayList<Candidate> getAppliances (String company, int month) throws IdNotFoundException {
         ArrayList<Candidate> result = new ArrayList<>();
-        Company c = (Company)getModelWithID(company);
+        Company c = (Company)getObject(company);
         ArrayList<String> jobPosts = new ArrayList<>(c.getJobPostList());
         ArrayList<String> interviews;
         JobPost tempJP;
         for (String j: jobPosts) {
-            tempJP = (JobPost)getModelWithID(j);
+            tempJP = (JobPost)getObject(j);
             interviews = tempJP.getInterviewList();
             for (String i: interviews) {
-                Interview interview = (Interview) getModelWithID(i);
+                Interview interview = (Interview) getObject(i);
                 if (interview.getDate().lengthOfMonth() == month) {
-                    Candidate candidate = (Candidate)getModelWithID(interview.getCandidate());
+                    Candidate candidate = (Candidate)getObject(interview.getCandidate());
                     result.add(candidate);
                 }
             }
@@ -564,10 +564,10 @@ public class Agency implements IDataBase {
         );
         ArrayList<String> jpList = company.getJobPostList();
         for(String jp : jpList){
-            JobPost jobPost = ((JobPost)(getModelWithID(jp)));
+            JobPost jobPost = ((JobPost)(getObject(jp)));
             ArrayList<String> interviews = jobPost.getInterviewList();
             for(String interview: interviews){
-                Interview i = (Interview)getModelWithID(interview);
+                Interview i = (Interview)getObject(interview);
                 if(result.get(jpList.indexOf(jp)) == null){
                     ArrayList<Interview> temp = new ArrayList<>();
                     temp.add(i);
@@ -577,15 +577,7 @@ public class Agency implements IDataBase {
         }
         return result;
     }
-
-    public Model getModelWithID(String id) throws IdNotFoundException {
-        ArrayList<Model> models = getModels();
-        for(Model model:models){
-            if(model.getId().equals(id))
-                return model;
-        }
-        throw new IdNotFoundException(id);
-    }
+    
 
     public boolean modelExists(String id){
         ArrayList<Model> models = getModels();
