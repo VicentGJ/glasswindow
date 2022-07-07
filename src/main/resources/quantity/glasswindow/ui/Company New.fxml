@@ -1,130 +1,146 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<VBox prefHeight="406.0" prefWidth="469.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="quantity.glasswindow.ui.CompanyNewController">
-    <children>
-        <HBox alignment="CENTER" fillHeight="false" prefHeight="45.0" prefWidth="469.0">
-            <children>
-                <HBox alignment="CENTER" prefHeight="62.0" prefWidth="427.0">
-                    <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="New Company">
-                            <font>
-                                <Font size="22.0" />
-                            </font>
-                        </Text>
-                    </children>
-                    <HBox.margin>
-                        <Insets top="15.0" />
-                    </HBox.margin>
-                </HBox>
-            </children>
-            <VBox.margin>
-                <Insets />
-            </VBox.margin>
-        </HBox>
-        <Separator prefHeight="49.0" prefWidth="450.0">
-            <padding>
-                <Insets left="50.0" right="50.0" />
-            </padding>
-        </Separator>
-        <VBox alignment="CENTER_LEFT" spacing="20.0">
-            <children>
-            <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="175.0">
-               <children>
-                  <Label text="Name">
-                     <font>
-                        <Font size="17.0" />
-                     </font>
-                  </Label>
-                  <Pane prefHeight="29.0" prefWidth="67.0" />
-                  <TextField fx:id="nameField" prefHeight="26.0" prefWidth="312.0" promptText="name" />
-               </children>
-            </HBox>
-                <HBox alignment="CENTER_LEFT">
-                    <children>
-                        <Label text="Description">
-                            <font>
-                                <Font size="17.0" />
-                            </font>
-                        </Label>
-                        <Pane prefHeight="63.0" prefWidth="22.0" />
-                        <TextArea fx:id="descriptionField" prefHeight="64.0" prefWidth="309.0" promptText="description" wrapText="true">
-                            <HBox.margin>
-                                <Insets />
-                            </HBox.margin>
-                            <padding>
-                                <Insets right="2.0" />
-                            </padding>
-                        </TextArea>
-                    </children>
-                </HBox>
-                <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="20.0">
-                    <children>
-                        <Label text="Address">
-                            <font>
-                                <Font size="17.0" />
-                            </font>
-                        </Label>
-                        <Pane prefHeight="49.0" prefWidth="50.0" />
-                        <TextArea fx:id="addressField" prefHeight="50.0" prefWidth="307.0" promptText="address" wrapText="true">
-                            <HBox.margin>
-                                <Insets />
-                            </HBox.margin>
-                            <padding>
-                                <Insets right="2.0" />
-                            </padding>
-                        </TextArea>
-                    </children>
-                </HBox>
-                <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="198.0">
-                    <children>
-                        <Label text="Phone">
-                            <font>
-                                <Font size="17.0" />
-                            </font>
+
+<AnchorPane xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="quantity.glasswindow.ui.CompanyNewController">
+   <children>
+      <VBox prefHeight="406.0" prefWidth="469.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+          <children>
+              <HBox alignment="CENTER" fillHeight="false" prefHeight="45.0" prefWidth="469.0">
+                  <children>
+                      <HBox alignment="CENTER" prefHeight="62.0" prefWidth="427.0">
+                          <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="New Company">
+                                  <font>
+                                      <Font size="22.0" />
+                                  </font>
+                              </Text>
+                          </children>
+                          <HBox.margin>
+                              <Insets top="15.0" />
+                          </HBox.margin>
+                      </HBox>
+                  </children>
+                  <VBox.margin>
+                      <Insets />
+                  </VBox.margin>
+              </HBox>
+              <Separator prefHeight="49.0" prefWidth="450.0">
+                  <padding>
+                      <Insets left="50.0" right="50.0" />
+                  </padding>
+              </Separator>
+              <VBox alignment="CENTER_LEFT" spacing="20.0">
+                  <children>
+                  <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="175.0">
+                     <children>
+                        <Label text="Name">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
                         </Label>
                         <Pane prefHeight="29.0" prefWidth="67.0" />
-                        <TextField fx:id="phoneField" prefHeight="29.0" prefWidth="305.0" promptText="phone" />
-                    </children>
-                </HBox>
-                <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="245.0">
-                    <children>
-                        <Label text="Sector">
-                            <font>
-                                <Font size="17.0" />
-                            </font>
-                        </Label>
-                        <Pane prefHeight="14.0" prefWidth="65.0" />
-                        <ComboBox fx:id="comboBox" prefWidth="150.0" promptText="Sectors" />
-                    </children>
-                </HBox>
-            </children>
-            <padding>
-                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-            </padding>
-        </VBox>
-        <HBox alignment="CENTER" prefHeight="30.0" prefWidth="450.0">
-            <children>
-                <Button mnemonicParsing="false" onAction="#onSaveButton" prefHeight="32.0" prefWidth="75.0" text="Save">
-                    <HBox.margin>
-                        <Insets left="5.0" right="5.0" />
-                    </HBox.margin></Button>
-                <Button layoutX="197.0" layoutY="24.0" mnemonicParsing="false" onAction="#onCancelButton" prefHeight="32.0" prefWidth="75.0" text="Cancel">
-                    <HBox.margin>
-                        <Insets left="5.0" right="5.0" />
-                    </HBox.margin>
-                </Button>
-            </children>
-            <VBox.margin>
-                <Insets top="20.0" />
-            </VBox.margin>
-        </HBox>
-    </children>
-    <padding>
-        <Insets bottom="10.0" left="10.0" right="10.0" />
-    </padding>
-</VBox>
+                        <TextField fx:id="nameField" prefHeight="26.0" prefWidth="312.0" promptText="name" />
+                     </children>
+                  </HBox>
+                      <HBox alignment="CENTER_LEFT">
+                          <children>
+                              <Label text="Description">
+                                  <font>
+                                      <Font size="17.0" />
+                                  </font>
+                              </Label>
+                              <Pane prefHeight="63.0" prefWidth="22.0" />
+                              <TextArea fx:id="descriptionField" prefHeight="64.0" prefWidth="309.0" promptText="description" wrapText="true">
+                                  <HBox.margin>
+                                      <Insets />
+                                  </HBox.margin>
+                                  <padding>
+                                      <Insets right="2.0" />
+                                  </padding>
+                              </TextArea>
+                          </children>
+                      </HBox>
+                      <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="20.0">
+                          <children>
+                              <Label text="Address">
+                                  <font>
+                                      <Font size="17.0" />
+                                  </font>
+                              </Label>
+                              <Pane prefHeight="49.0" prefWidth="50.0" />
+                              <TextArea fx:id="addressField" prefHeight="50.0" prefWidth="307.0" promptText="address" wrapText="true">
+                                  <HBox.margin>
+                                      <Insets />
+                                  </HBox.margin>
+                                  <padding>
+                                      <Insets right="2.0" />
+                                  </padding>
+                              </TextArea>
+                          </children>
+                      </HBox>
+                      <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="198.0">
+                          <children>
+                              <Label text="Phone">
+                                  <font>
+                                      <Font size="17.0" />
+                                  </font>
+                              </Label>
+                              <Pane prefHeight="29.0" prefWidth="67.0" />
+                              <TextField fx:id="phoneField" prefHeight="29.0" prefWidth="305.0" promptText="phone" />
+                          </children>
+                      </HBox>
+                      <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="245.0">
+                          <children>
+                              <Label text="Sector">
+                                  <font>
+                                      <Font size="17.0" />
+                                  </font>
+                              </Label>
+                              <Pane prefHeight="14.0" prefWidth="65.0" />
+                              <ComboBox fx:id="comboBox" prefWidth="150.0" promptText="Sectors" />
+                          </children>
+                      </HBox>
+                  </children>
+                  <padding>
+                      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  </padding>
+              </VBox>
+              <HBox alignment="CENTER" prefHeight="30.0" prefWidth="450.0" spacing="50.0">
+                  <VBox.margin>
+                      <Insets top="20.0" />
+                  </VBox.margin>
+               <children>
+                  <JFXButton onAction="#onSaveButton" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: rgb(215,215,215);" text="Save">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+                  <JFXButton layoutX="195.0" layoutY="10.0" onAction="#onCancelButton" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: rgb(215,215,215);" text="Cancel">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+               </children>
+              </HBox>
+          </children>
+          <padding>
+              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+          </padding>
+      </VBox>
+   </children>
+</AnchorPane>
