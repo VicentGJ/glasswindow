@@ -1,7 +1,5 @@
 package quantity.glasswindow.core;
 
-import quantity.glasswindow.core.customExceptions.DuplicatedIDException;
-import quantity.glasswindow.core.customExceptions.InvalidIDException;
 import quantity.glasswindow.core.customExceptions.InvalidNameException;
 import quantity.glasswindow.core.customExceptions.InvalidPhoneException;
 import quantity.glasswindow.core.enumerations.Branch;
@@ -18,7 +16,7 @@ public class Company extends Model {
 
     public Company(String id, String name, String address, String phone,
                    Branch sector)
-            throws InvalidIDException, InvalidNameException, DuplicatedIDException, InvalidPhoneException {
+            throws InvalidNameException, InvalidPhoneException {
         super(id);
         this.setAddress(address);
         this.setName(name);

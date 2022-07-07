@@ -13,10 +13,12 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class CandidateTest {
     private Candidate candidate;
+    private Agency agency;
     @BeforeEach
     public void setUp(){
+        agency = Agency.getInstance();
         try {
-            this.candidate = new Candidate("01060568481","Carlos Vilaseca", Gender.MASCULINE,"","72710053",
+            this.candidate = new Candidate(agency.genID("candidate"), "01060568481","Carlos Vilaseca", Gender.MASCULINE,"","72710053",
                     Scholarship.GRADE, Specialty.ACCOUNTANT, Branch.AGRICULTURE,3);
         }catch (Exception e){
             throw new RuntimeException(e.getMessage());

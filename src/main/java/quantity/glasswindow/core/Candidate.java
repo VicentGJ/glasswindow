@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 public class Candidate extends Model {
+
+    private String dni;
     private String name;
     private Gender gender;
     private String address;
@@ -17,19 +19,20 @@ public class Candidate extends Model {
     private Scholarship scholarship;
     private Specialty specialty;
     private Branch sector;
-
     private int yearsOfExp;
     private ArrayList<IAdditionalInfo> addtionalInfo;
-    public Candidate(String id, String name, Gender gender, String address, String phone, Scholarship scholarship,
+
+    public Candidate(String id, String dni, String name, Gender gender, String address, String phone, Scholarship scholarship,
                      Specialty specialty, Branch sector, int yearsOfExp)
             throws InvalidIDException, InvalidNameException, DuplicatedIDException, InvalidPhoneException,
             InvalidYearsOfExpException {
         super(id);
-        this.setAddress(address);
         this.setName(name);
+        this.setDNI(dni);
         this.setGender(gender);
         this.setPhone(phone);
         this.setSector(sector);
+        this.setAddress(address);
         this.setScholarship(scholarship);
         this.setSpecialty(specialty);
         this.setYearsOfExp(yearsOfExp);
@@ -110,22 +113,23 @@ public class Candidate extends Model {
         this.addtionalInfo.add(info);
     }
 
-    @Override
-    public void setId(String id) throws InvalidIDException, DuplicatedIDException {
-        if(Agency.getInstance().modelExists(id))
-            throw new DuplicatedIDException(id);
-        else {
-            boolean onlyNumbers = Pattern.matches("\\d+", id);
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDNI(String dni) throws InvalidIDException, DuplicatedIDException {
+        if(!Agency.getInstance().candidateDNIExists(dni)) {
+            boolean onlyNumbers = Pattern.matches("\\d+", dni);
             if (onlyNumbers) {
-                if (id.length() == 11) {
-                    boolean dateValid = dateValidationID(id.substring(0, 7));//[0-1]Year, [2-3]Month, [4-5]Day, [6]Century
+                if (dni.length() == 11) {
+                    boolean dateValid = dateValidationDNI(dni.substring(0, 7));//[0-1]Year, [2-3]Month, [4-5]Day, [6]Century
                     if (dateValid) {
-                            this.id = id;
+                        this.id = dni;
                     } else
-                        throw new InvalidIDException(id, "Error during validation of digits 1-7");
-                } else throw new InvalidIDException(id, "Error during validation of ID length, must be 11 digits");
-            } else throw new InvalidIDException(id, "Error during validation of ID: must be only numbers");
-        }
+                        throw new InvalidIDException(dni, "Error during validation of digits 1-7");
+                } else throw new InvalidIDException(dni, "Error during validation of ID length, must be 11 digits");
+            } else throw new InvalidIDException(dni, "Error during validation of ID: must be only numbers");
+        }else throw new DuplicatedIDException(dni);
     }
 
     public int getYearsOfExp() {
@@ -138,7 +142,7 @@ public class Candidate extends Model {
         else throw new InvalidYearsOfExpException(yearsOfExp);
     }
 
-    private boolean dateValidationID(String idDate){
+    private boolean dateValidationDNI(String idDate){
         //boolean isValidYear = true;//no way to validate this with 2 digits
         boolean isValidMonth = true;
         boolean isValidDay = false;

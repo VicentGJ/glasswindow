@@ -14,7 +14,7 @@ import java.util.Collections;
 import java.util.HashMap;
 
 
-public class Agency implements IDataBase {
+public class Agency extends Generator implements IDataBase {
     //maybe add agency name and stuff like that
     private ObservableList<Candidate> candidateList;
     private ObservableList<Company> companyList;
@@ -25,6 +25,7 @@ public class Agency implements IDataBase {
     private static Agency single_instance; //for singleton pattern
 
     private Agency() {//private constructor to ensure singleton pattern
+        super.reset();
         companyList = FXCollections.observableArrayList();
         candidateList = FXCollections.observableArrayList();
         jobPostList = FXCollections.observableArrayList();
@@ -33,8 +34,9 @@ public class Agency implements IDataBase {
     }
 
     public static Agency getInstance() {//method to create singleton object
-        if (single_instance == null)
+        if (single_instance == null) {
             single_instance = new Agency();
+        }
         return single_instance;
     }
 
@@ -52,34 +54,35 @@ public class Agency implements IDataBase {
         return activeModels;
     }
 
-    public Candidate createCandidate(String id, String name, Gender gender, String address, String phone, Scholarship scholarship,
+    public Candidate createCandidate(String dni, String name, Gender gender, String address, String phone, Scholarship scholarship,
                                      Specialty specialty, Branch sector, int yearsOfExp)
-            throws InvalidPhoneException, InvalidNameException, InvalidIDException, DuplicatedIDException, InvalidYearsOfExpException {
-
-        return new Candidate(id,name,gender,address,phone,scholarship,specialty,sector,yearsOfExp);
+            throws InvalidPhoneException, InvalidNameException, InvalidIDException, DuplicatedIDException, InvalidYearsOfExpException, InvalidTypeException {
+        return new Candidate(genID("candidate"),dni,name,gender,address,phone,scholarship,specialty,sector,yearsOfExp);
     }
 
-    public Company newCompany(String id, String name, String address, String phone,
+    public Company createCompany(String name, String address, String phone,
                               Branch sector)
-            throws InvalidPhoneException, InvalidNameException, InvalidIDException, DuplicatedIDException {
-        return new Company(id,name,address,phone,sector);
+            throws InvalidPhoneException, InvalidNameException, InvalidTypeException {
+        return new Company(genID("company"),name,address,phone,sector);
     }
 
-    public JobPost createJobPost(String id, Branch branch, float salary, Status status, String description,
-                                 String company, ArrayList<String> interviewList, Scholarship scholarship,
+    public JobPost createJobPost(Branch branch, float salary, Status status, String description,
+                                 String company, Scholarship scholarship,
                                  Specialty specialty)
-            throws InvalidSalaryException, ModelNotFoundException, InvalidIDException, DuplicatedIDException {
-        return new JobPost(id,branch,salary,status,description,company,interviewList,scholarship,specialty);
+            throws InvalidSalaryException, ModelNotFoundException, InvalidIDException, DuplicatedIDException, InvalidTypeException {
+        return new JobPost(genID("jobpost"),branch,salary,status,description,company,scholarship,specialty);
     }
 
-    public Interview createInterview(String id, LocalDate date, String candidate,
+    public Interview createInterview(LocalDate date, String candidate,
                                      String company, String jobPost)
-            throws InvalidDateException, InvalidIDException, DuplicatedIDException, IdNotFoundException {
-        for(Interview i : interviewList){
-            if((i.getDate().getMonth() == date.getMonth()) && (i.getDate().getDayOfMonth() == date.getDayOfMonth()) && (i.getCandidate().equalsIgnoreCase(candidate)))
-                throw new InvalidDateException(date,"Because candidate with id:"+ candidate + "already has interview that day");
-        }
-        return new Interview(id,date,candidate,company,jobPost);
+            throws InvalidDateException, InvalidIDException, DuplicatedIDException, InvalidTypeException {
+
+        for(Interview i : interviewList)
+            if((i.getDate().getMonth() == date.getMonth()) &&
+                (i.getDate().getDayOfMonth() == date.getDayOfMonth()) &&
+                (i.getCandidate().equalsIgnoreCase(candidate)))
+                throw new InvalidDateException(date,"Because candidate with id: "+ candidate + " already has interview that day.");
+        return new Interview(genID("interview"),date,candidate,company,jobPost);
     }
 
     public ObservableList<Candidate> getCandidateList() {
@@ -269,9 +272,10 @@ public class Agency implements IDataBase {
     @Override
     public Model getObject(String id) throws IdNotFoundException {
         if (!candidateList.isEmpty())
-            for(Candidate c : candidateList)
-                if(c.getId().equals(id))
+            for(Candidate c : candidateList) {
+                if (c.getId().equals(id))
                     return c;
+            }
         if(!companyList.isEmpty())
             for (Company c : companyList)
                 if (c.getId().equals(id))
@@ -312,7 +316,7 @@ public class Agency implements IDataBase {
     }
 
     @Override
-    public void insertObject(Model m) throws DuplicatedIDException {
+    public void insertObject(Model m) {
         if(!modelExists(m.getId())) {
             if (m instanceof Candidate)
                 addCandidate((Candidate) m);
@@ -322,7 +326,7 @@ public class Agency implements IDataBase {
                 addJobPost((JobPost) m);
             else if (m instanceof Interview)
                 addInterview((Interview) m);
-        }else throw new DuplicatedIDException(m.getId());
+        }
     }
 
     // TODO: Fix exceptions
@@ -581,7 +585,7 @@ public class Agency implements IDataBase {
         }
         return result;
     }
-    
+
 
     public boolean modelExists(String id){
         ArrayList<Model> models = getModels();
@@ -590,38 +594,40 @@ public class Agency implements IDataBase {
                 return true;
         return false;
     }
-
+    public boolean candidateDNIExists(String dni){
+        for(Candidate c : candidateList){
+            if (c.getDni().equals(dni))
+                return true;
+        }
+        return false;
+    }
     public void initTestData()
             throws InvalidIDException, InvalidDateException, InvalidNameException,
             InvalidSalaryException, DuplicatedIDException, InvalidPhoneException,
-            InvalidYearsOfExpException, ModelNotFoundException {
+            InvalidYearsOfExpException, ModelNotFoundException, InvalidTypeException {
         ArrayList<Model> models = new ArrayList<>();
         //candidates
-        Candidate candidate1 = new Candidate("01041266729","Bruce Banner", Gender.MASCULINE,"New York",
+        Candidate candidate1 = createCandidate("01041266729","Bruce Banner", Gender.MASCULINE,"New York",
                 "05158899", Scholarship.PHD, Specialty.SCIENTIST, Branch.INDUSTRY,5);
-        Candidate candidate2 = new Candidate("01060568481","Tonny Stark", Gender.MASCULINE,"New York",
+        System.out.println(candidate1.getDni());
+        System.out.println(candidate1.getId());
+        Candidate candidate2 = createCandidate("01060568481","Tonny Stark", Gender.MASCULINE,"New York",
                 "05155229", Scholarship.PHD, Specialty.ECONOMIST,Branch.INDUSTRY,4);
-        Candidate candidate3 = new Candidate("01060568482","Clark Kent", Gender.MASCULINE,"Kansas",
+        Candidate candidate3 = createCandidate("01060568482","Clark Kent", Gender.MASCULINE,"Kansas",
                 "33156899", Scholarship.BASIC, Specialty.ECONOMIST,Branch.SERVICES,5);
-        Candidate candidate4 = new Candidate("01022068706","Bruce Wayne", Gender.MASCULINE,"Gotham",
+        Candidate candidate4 = createCandidate("01022068706","Bruce Wayne", Gender.MASCULINE,"Gotham",
                 "05675799", Scholarship.PHD, Specialty.ARCHITECT,Branch.INDUSTRY,10);
-        Candidate candidate5 = new Candidate("02061766497","Carol Danvers", Gender.FEMININE, "Outer Space",
+        Candidate candidate5 = createCandidate("02061766497","Carol Danvers", Gender.FEMININE, "Outer Space",
                 "05133339", Scholarship.MASTER, Specialty.ENGINEER,Branch.TOURISM,6);
-        Candidate candidate6 = new Candidate("01091368466","Felicia Hardy", Gender.FEMININE,"New York",
+        Candidate candidate6 = createCandidate("01091368466","Felicia Hardy", Gender.FEMININE,"New York",
                 "05158449", Scholarship.GRADE, Specialty.TRANSLATOR,Branch.TOURISM,8);
         //companies
-        Company company1 = new Company("company-001","Last Quarter","Nebraska",
-                "", Branch.INDUSTRY);
-        Company company2 = new Company("company-002","Avenue Studios","New York",
-                "", Branch.TOURISM);
-        Company company3 = new Company("company-003","Icy Mountain","London",
-                "", Branch.SERVICES);
-        Company company4 = new Company("company-004","Gravy Table","Moscu",
-                "", Branch.EDUCATION);
-        Company company5 = new Company("company-005","Flappy Touch","Brazil",
-                "", Branch.HEALTH);
-        Company company6 = new Company("company-006","AMD","Some Place",
-                "", Branch.INDUSTRY);
+        Company company1 = createCompany("Last Quarter","Nebraska","12334123", Branch.INDUSTRY);
+        Company company2 = createCompany("Avenue Studios","New York","98734512", Branch.TOURISM);
+        Company company3 = createCompany("Icy Mountain","London","41749636", Branch.SERVICES);
+        Company company4 = createCompany("Gravy Table","Moscu","96361457", Branch.EDUCATION);
+        Company company5 = createCompany("Flappy Touch","Brazil","63614375", Branch.HEALTH);
+        Company company6 = createCompany("AMD","Some Place","25476925", Branch.INDUSTRY);
         models.add(company1);
         models.add(company2);
         models.add(company3);
@@ -631,43 +637,43 @@ public class Agency implements IDataBase {
         this.setModels(models);//setModels sends everything to its corresponding list
         models.clear();
         //jobposts
-        JobPost jb1 = new JobPost("jobpost-001",Branch.INDUSTRY,2000,Status.OPEN,"auto initialized jobpost 1",
-                company1.getId(), new ArrayList<>(), Scholarship.PHD, Specialty.SCIENTIST);
+        JobPost jb1 = createJobPost(Branch.INDUSTRY,2000,Status.OPEN,"auto initialized jobpost 1",
+                company1.getId(), Scholarship.PHD, Specialty.SCIENTIST);
         company1.addJobPostToList(jb1.getId());
-        JobPost jb2 = new JobPost("jobpost-002",Branch.SERVICES,1900,Status.APPLICATION_ACTIVE,"auto initialized jobpost 2",
-                company2.getId(), new ArrayList<>(),Scholarship.PHD, Specialty.ACCOUNTANT);
+        JobPost jb2 = createJobPost(Branch.SERVICES,1900,Status.APPLICATION_ACTIVE,"auto initialized jobpost 2",
+                company2.getId(), Scholarship.PHD, Specialty.ACCOUNTANT);
         company2.addJobPostToList(jb2.getId());
-        JobPost jb3 = new JobPost("jobpost-003",Branch.EDUCATION,20000,Status.CLOSED,"auto initialized jobpost 3",
-                company3.getId(), new ArrayList<>(), Scholarship.GRADE, Specialty.MANAGER);
+        JobPost jb3 = createJobPost(Branch.EDUCATION,20000,Status.CLOSED,"auto initialized jobpost 3",
+                company3.getId(), Scholarship.GRADE, Specialty.MANAGER);
         company3.addJobPostToList(jb3.getId());
-        JobPost jb4 = new JobPost("jobpost-004",Branch.HEALTH,1000,Status.OPEN,"auto initialized jobpost 4",
-                company4.getId(), new ArrayList<>(), Scholarship.MASTER, Specialty.ENGINEER);
+        JobPost jb4 =createJobPost(Branch.HEALTH,1000,Status.OPEN,"auto initialized jobpost 4",
+                company4.getId(), Scholarship.MASTER, Specialty.ENGINEER);
         company4.addJobPostToList(jb4.getId());
-        JobPost jb5 = new JobPost("jobpost-005",Branch.TOURISM,999,Status.OPEN,"auto initialized jobpost 5",
-                company5.getId(), new ArrayList<>(), Scholarship.PHD, Specialty.SCIENTIST);
+        JobPost jb5 =createJobPost(Branch.TOURISM,999,Status.OPEN,"auto initialized jobpost 5",
+                company5.getId(), Scholarship.PHD, Specialty.SCIENTIST);
         company5.addJobPostToList(jb5.getId());
-        JobPost jb6 = new JobPost("jobpost-006",Branch.AGRICULTURE,10000,Status.OPEN,"auto initialized jobpost 6",
-                company6.getId(), new ArrayList<>(), Scholarship.PHD, Specialty.TRANSLATOR);
+        JobPost jb6 = createJobPost(Branch.AGRICULTURE,10000,Status.OPEN,"auto initialized jobpost 6",
+                company6.getId(), Scholarship.PHD, Specialty.TRANSLATOR);
         company6.addJobPostToList(jb6.getId());
 
         //interviews
-        Interview interview1 = new Interview("interview-001", LocalDate.of(2022,8,19),candidate1.getId(),company1.getId(),jb1.getId());
+        Interview interview1 = createInterview(LocalDate.of(2022,8,19),candidate1.getId(),company1.getId(),jb1.getId());
         jb1.addInterview(interview1.getId());
-        Interview interview2 = new Interview("interview-002",LocalDate.of(2022,8,6),candidate2.getId(),company2.getId(),jb2.getId());
+        Interview interview2 = createInterview(LocalDate.of(2022,8,6),candidate2.getId(),company2.getId(),jb2.getId());
         jb2.addInterview(interview2.getId());
-        Interview interview3 = new Interview("interview-003",LocalDate.of(2022,11,14),candidate3.getId(),company3.getId(),jb3.getId());
+        Interview interview3 = createInterview(LocalDate.of(2022,11,14),candidate3.getId(),company3.getId(),jb3.getId());
         jb3.addInterview(interview3.getId());
-        Interview interview4 = new Interview("interview-004",LocalDate.of(2022,8,15),candidate4.getId(),company4.getId(),jb4.getId());
+        Interview interview4 = createInterview(LocalDate.of(2022,8,15),candidate4.getId(),company4.getId(),jb4.getId());
         jb4.addInterview(interview4.getId());
-        Interview interview5 = new Interview("interview-005",LocalDate.of(2022,9,6),candidate5.getId(),company5.getId(),jb5.getId());
+        Interview interview5 = createInterview(LocalDate.of(2022,9,6),candidate5.getId(),company5.getId(),jb5.getId());
         jb5.addInterview(interview5.getId());
-        Interview interview6 = new Interview("interview-006",LocalDate.of(2022,10,17),candidate6.getId(),company6.getId(),jb6.getId());
+        Interview interview6 = createInterview(LocalDate.of(2022,10,17),candidate6.getId(),company6.getId(),jb6.getId());
         jb6.addInterview(interview6.getId());
-        Interview interview7 = new Interview("interview-007",LocalDate.of(2022,10,10),candidate2.getId(),company6.getId(),jb6.getId());
+        Interview interview7 = createInterview(LocalDate.of(2022,10,10),candidate2.getId(),company6.getId(),jb6.getId());
         jb6.addInterview(interview7.getId());
-        Interview interview8 = new Interview("interview-008",LocalDate.of(2022,8,11),candidate1.getId(),company6.getId(),jb6.getId());
+        Interview interview8 = createInterview(LocalDate.of(2022,8,11),candidate1.getId(),company6.getId(),jb6.getId());
         jb6.addInterview(interview8.getId());
-        Interview interview9 = new Interview("interview-009",LocalDate.of(2022,8,25),candidate3.getId(),company4.getId(),jb4.getId());
+        Interview interview9 = createInterview(LocalDate.of(2022,8,25),candidate3.getId(),company4.getId(),jb4.getId());
         jb4.addInterview(interview9.getId());
 
         //add all to models
@@ -697,6 +703,7 @@ public class Agency implements IDataBase {
     }
 
     public void resetData(){
+        super.reset();
         candidateList.clear();
         companyList.clear();
         jobPostList.clear();

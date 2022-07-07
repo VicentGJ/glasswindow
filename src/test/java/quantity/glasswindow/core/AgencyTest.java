@@ -3,12 +3,13 @@ package quantity.glasswindow.core;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import quantity.glasswindow.core.customExceptions.*;
+import quantity.glasswindow.core.customExceptions.IdNotFoundException;
 import quantity.glasswindow.core.enumerations.*;
 
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -94,15 +95,15 @@ public class AgencyTest {
             a.resetData();
             this.a = Agency.getInstance();
             //test for empty list of models
-            Exception ex = assertThrows(IdNotFoundException.class, () -> a.getModelWithID("01060568482"));
+            Exception ex = assertThrows(IdNotFoundException.class, () -> a.getObject("01060568482"));
             System.out.println("Test 1 succeed");
-            Candidate carlos = new Candidate("01060568481", "Carlos Daniel Vilaseca", Gender.MASCULINE,
+            Candidate carlos = new Candidate(a.genID("candidate"), "01060568481", "Carlos Daniel Vilaseca", Gender.MASCULINE,
                     "", "", Scholarship.GRADE, Specialty.ENGINEER, Branch.INDUSTRY, 3);
-            Candidate vicente = new Candidate("12121268489", "Vicente Samuel Garofalo", Gender.MASCULINE,
+            Candidate vicente = new Candidate(a.genID("candidate"),"12121268489", "Vicente Samuel Garofalo", Gender.MASCULINE,
                     "", "", Scholarship.GRADE, Specialty.ENGINEER, Branch.INDUSTRY, 4);
-            Candidate joseph = new Candidate("88012678561", "Joseph Woodburn", Gender.MASCULINE,
+            Candidate joseph = new Candidate(a.genID("candidate"),"88012678561", "Joseph Woodburn", Gender.MASCULINE,
                     "", "", Scholarship.MASTER, Specialty.SCIENTIST, Branch.EDUCATION, 15);
-            Candidate rupert = new Candidate("79060201801", "Ruppert Goodacre", Gender.MASCULINE, "",
+            Candidate rupert = new Candidate(a.genID("candidate"),"79060201801", "Ruppert Goodacre", Gender.MASCULINE, "",
                     "", Scholarship.GRADE, Specialty.ACCOUNTANT, Branch.AGRICULTURE, 20);
             //insert models to the list
             a.insertObject(carlos);
@@ -112,14 +113,14 @@ public class AgencyTest {
             //current list: [carlos,vicente,joseph,rupert]
 
             //test method for a non-empty list
-            assertEquals(carlos, a.getModelWithID("01060568481"));
+            assertEquals(carlos, a.getObject("01060568481"));
             System.out.println("Test 2 succeed");
             //test method for a non-empty list but searching a model that is not on the list
-            ex = assertThrows(IdNotFoundException.class, () -> a.getModelWithID("01060568482"));
+            ex = assertThrows(IdNotFoundException.class, () -> a.getObject("01060568482"));
             System.out.println("Test 3 succeed");
-            assertEquals(joseph, a.getModelWithID("88012678561"));//finding a model somewhere in the list
+            assertEquals(joseph, a.getObject("88012678561"));//finding a model somewhere in the list
             System.out.println("Test 4 succeed");
-            assertEquals(rupert, a.getModelWithID("79060201801"));//finding a model in the end of the list
+            assertEquals(rupert, a.getObject("79060201801"));//finding a model in the end of the list
         } catch (Exception e) {
             throw new RuntimeException(e.getMessage());
         }
@@ -142,24 +143,24 @@ public class AgencyTest {
 
             //only one appliance in September for Flappy Table's jobposts
             appliances = a.getAppliances("company-005", 9); //Danvers has interview in september for a Flappy Touch jobpost
-            expectedResponse.add((Candidate) a.getModelWithID("02061766497"));//[Carol Danvers]
+            expectedResponse.add((Candidate) a.getObject("02061766497"));//[Carol Danvers]
             assertEquals(expectedResponse, appliances);
             System.out.println("Test 3 succeed");
             expectedResponse.clear();//[]
 
             //there are 2 appliances for an Avenue Studios jobposts in July.
             appliances = a.getAppliances("company-004", 8);//[Bruce Wayne, Clark Kent]
-            expectedResponse.add((Candidate) a.getModelWithID("01022068706"));//bruce
-            expectedResponse.add((Candidate) a.getModelWithID("01060568482"));//clark
+            expectedResponse.add((Candidate) a.getObject("01022068706"));//bruce
+            expectedResponse.add((Candidate) a.getObject("01060568482"));//clark
             assertEquals(expectedResponse, appliances);
             System.out.println("Test 4 succeed");
 
             expectedResponse.clear();
             //there are 3 appliances for AMD's jobposts in August
             appliances = a.getAppliances("company-006", 8); //[Felicia Hardy, Tonny Stark, Bruce Banner]
-            expectedResponse.add((Candidate) a.getModelWithID("01091368466"));//felicia
-            expectedResponse.add((Candidate) a.getModelWithID("01060568481"));//tonny
-            expectedResponse.add((Candidate) a.getModelWithID("01041266729"));//bruce
+            expectedResponse.add((Candidate) a.getObject("01091368466"));//felicia
+            expectedResponse.add((Candidate) a.getObject("01060568481"));//tonny
+            expectedResponse.add((Candidate) a.getObject("01041266729"));//bruce
             assertEquals(expectedResponse, appliances);//test for 3 appliances for AMD's jobposts in August
             System.out.println("Test 5 succeed");
         }catch (Exception e){
@@ -173,18 +174,18 @@ public class AgencyTest {
         a.resetData();
         this.a = Agency.getInstance();
         try {
-            Candidate carlos = new Candidate("01060568481", "Carlos Daniel Vilaseca", Gender.MASCULINE,
+            Candidate carlos = new Candidate(a.genID("candidate"),"01060568481", "Carlos Daniel Vilaseca", Gender.MASCULINE,
                     "", "", Scholarship.GRADE, Specialty.ENGINEER, Branch.INDUSTRY, 3);
             a.insertObject(carlos);
 
-            Company qISq = new Company("company-t","Quantity is Quality","Earth","",Branch.INDUSTRY);
+            Company qISq = new Company(a.genID("company"),"Quantity is Quality","Earth","",Branch.INDUSTRY);
             a.insertObject(qISq);
 
-            JobPost jpSoftwareDev = new JobPost("jobpost-t",Branch.SERVICES,50000, Status.OPEN,"","company-t",new ArrayList<>(),
+            JobPost jpSoftwareDev = new JobPost(a.genID("jobpost"),Branch.SERVICES,50000, Status.OPEN,"","company-t",
                     Scholarship.MASTER,Specialty.ENGINEER);
             a.insertObject(jpSoftwareDev);
             Calendar c = Calendar.getInstance();
-            Interview interview1 = new Interview("interview-t",new Date(c.get(Calendar.YEAR),c.get(Calendar.MONTH),c.get(Calendar.DAY_OF_MONTH+1)),
+            Interview interview1 = new Interview(a.genID("interview)"), LocalDate.of(2023, Month.DECEMBER,15),
                     "01060568481","company-t","jobpost-t");
             //date is set to tomorrow, so it passes the date validation
             a.insertObject(interview1);

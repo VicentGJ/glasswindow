@@ -4,17 +4,17 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import quantity.glasswindow.core.Agency;
 import quantity.glasswindow.core.Company;
-import quantity.glasswindow.core.customExceptions.*;
+import quantity.glasswindow.core.customExceptions.InvalidNameException;
+import quantity.glasswindow.core.customExceptions.InvalidPhoneException;
+import quantity.glasswindow.core.customExceptions.InvalidTypeException;
 import quantity.glasswindow.core.enumerations.Branch;
 import quantity.glasswindow.utils.ViewLoader;
 
@@ -67,7 +67,7 @@ public class CompanyNewController implements Initializable {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.close();
         }
-        catch (DuplicatedIDException | InvalidIDException | InvalidNameException | InvalidPhoneException e) {
+        catch (InvalidNameException | InvalidPhoneException e) {
             ErrorMessageController controller = (ErrorMessageController) ViewLoader.newWindow(getClass().getResource(
                     "Error Message.fxml"), e.getMessage(), null);
             controller.setErrorMessage();

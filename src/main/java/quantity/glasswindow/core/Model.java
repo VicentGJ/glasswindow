@@ -1,15 +1,11 @@
 package quantity.glasswindow.core;
 
-import quantity.glasswindow.core.customExceptions.DuplicatedIDException;
-import quantity.glasswindow.core.customExceptions.InvalidIDException;
-
 public abstract class Model{
     protected String id;
 
-    public Model(String id) throws InvalidIDException, DuplicatedIDException {
+    public Model(String id){
         this.setId(id);
     }
-
     public String getId() {
         return this.id;
     }
@@ -18,9 +14,7 @@ public abstract class Model{
         return this.getClass().getSimpleName();
     }
 
-    public void setId(String id) throws InvalidIDException, DuplicatedIDException {
-        if(Agency.getInstance().modelExists(id))
-            throw new DuplicatedIDException(id);
+    public void setId(String id){
         this.id = id;
     }
 }

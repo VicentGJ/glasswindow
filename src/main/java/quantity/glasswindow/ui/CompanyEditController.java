@@ -64,7 +64,7 @@ public class CompanyEditController extends TransitionController{
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.close();
         }
-        catch (DuplicatedIDException | InvalidIDException | InvalidNameException | InvalidPhoneException e) {
+        catch (InvalidNameException | InvalidPhoneException e) {
             ErrorMessageController controller = (ErrorMessageController) ViewLoader.newWindow(getClass().getResource(
                     "Error Message.fxml"), e.getMessage(), null);
             controller.setErrorMessage();

@@ -19,7 +19,7 @@ public class JobPost extends Model {
     private Specialty specialty;
 
     public JobPost(String id, Branch branch, float salary, Status status, String description,
-                   String company, ArrayList<String> interviewList, Scholarship scholarship,
+                   String company, Scholarship scholarship,
                     Specialty specialty)
             throws InvalidIDException, InvalidSalaryException, DuplicatedIDException, ModelNotFoundException {
         super(id);
@@ -28,6 +28,7 @@ public class JobPost extends Model {
         this.setStatus(status);
         this.setDescription(description);
         this.setCompany(company);
+        this.interviewList = new ArrayList<>();
         this.setInterviewList(interviewList);
         this.setScholarship(scholarship);
         this.setSpecialty(specialty);
