@@ -3,6 +3,7 @@ package quantity.glasswindow;
 import quantity.glasswindow.core.*;
 import quantity.glasswindow.core.customExceptions.*;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Main {
@@ -32,7 +33,7 @@ public class Main {
         // Report 2
         try {//TODO: check on this
             Company c1 = (Company) agency.getObject("company-1");
-            ArrayList<Candidate> appliances = agency.getAppliances(c1.getId(), 6);
+            ArrayList<Candidate> appliances = agency.getAppliances(c1.getId(), LocalDate.of(2022, 8, 24));
             for (Candidate i: appliances) {
                 System.out.println(i.getName());
             }

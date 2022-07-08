@@ -29,7 +29,7 @@
             <Menu mnemonicParsing="false" text="Reports">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#onReport1" text="Report #1" />
-                  <MenuItem mnemonicParsing="false" text="Report #2" />
+                  <MenuItem mnemonicParsing="false" onAction="#onReport2" text="Report #2" />
                   <MenuItem mnemonicParsing="false" onAction="#onReport3" text="Report #3" />
                   <MenuItem mnemonicParsing="false" text="Report #4" />
                </items>
