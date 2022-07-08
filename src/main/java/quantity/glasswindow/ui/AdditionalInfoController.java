@@ -187,7 +187,7 @@ public class AdditionalInfoController {
             ArrayList<ProgrammingLang> programmingLangs = new ArrayList<>();
             for(CheckBox checkBox : checkBoxes){
                 if (checkBox.isSelected()){
-                    programmingLangs.add(ProgrammingLang.values()[developer.indexOf(checkBox)]);
+                    programmingLangs.add(ProgrammingLang.values()[developer.indexOf(checkBox.getText())]);
                 }
             }
             InfoDeveloper infoDeveloper = new InfoDeveloper(programmingLangs);
@@ -196,7 +196,7 @@ public class AdditionalInfoController {
             ArrayList<ScientistSpec> scientistSpecs = new ArrayList<>();
             for(CheckBox checkBox : checkBoxes){
                 if (checkBox.isSelected()){
-                    scientistSpecs.add(ScientistSpec.values()[scientist.indexOf(checkBox)]);
+                    scientistSpecs.add(ScientistSpec.values()[scientist.indexOf(checkBox.getText())]);
                 }
             }
             InfoScientist infoScientist = new InfoScientist(scientistSpecs);
