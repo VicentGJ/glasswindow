@@ -71,6 +71,7 @@ public class CandidateProfileNewController implements Initializable {
         this.specialtyField.setItems(comboBoxItemsSpecialty);
         this.scholarshipField.setItems(comboBoxItemsScholarship);
         this.genderField.setItems(comboBoxItemsGender);
+        header.setText("New Candidate");
     }
     @FXML
     protected void onSaveButton(ActionEvent event) throws IOException {

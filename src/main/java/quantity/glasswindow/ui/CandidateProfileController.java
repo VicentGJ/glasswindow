@@ -3,7 +3,9 @@ package quantity.glasswindow.ui;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import quantity.glasswindow.core.Agency;
@@ -39,6 +41,17 @@ public class CandidateProfileController extends TransitionController{
         phone.setText(candidate.getPhone());
         header.setText(candidate.getName());
         ArrayList<IAdditionalInfo> additionalInfo = candidate.getAddtionalInfo();
+        Label label = new Label("Additional Information");
+        Text text = new Text();
+        if(additionalInfo.size()>0){
+            text.setText("Has additional info set");
+        }else {
+            text.setText("Doesn't additional info set");
+        }
+        label.setFont(Font.font(17));
+        text.setFont(Font.font(14));
+        grid.add(label,0,9);
+        grid.add(text,1,9);
     }
 
     @FXML
