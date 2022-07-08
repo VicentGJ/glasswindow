@@ -95,8 +95,9 @@ public class CandidateProfileEditController extends TransitionController{
                 candidate.setSpecialty(Specialty.values()[comboBoxItemsSpecialty.indexOf(specialtyField.getValue())]);
             if (scholarshipField.getValue() != null)
                 candidate.setScholarship(Scholarship.values()[comboBoxItemsScholarship.indexOf(scholarshipField.getValue())]);
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.close();
+            AdditionalInfoController controller = (AdditionalInfoController) ViewLoader.thisWindow(
+                    getClass().getResource("Additional Info.fxml"), event);
+            controller.loadViewInfo(candidate);
         }
         catch (InvalidNameException | InvalidPhoneException | InvalidIDException | DuplicatedIDException |
                InvalidYearsOfExpException e) {
@@ -110,8 +111,6 @@ public class CandidateProfileEditController extends TransitionController{
                     getClass().getResource("Error Message.fxml"), "No sector selected", null);
             controller.setErrorMessage("You must select one of the options in the dropdown menu");
         }
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.close();
     }
     @FXML
     protected void onBackButton(ActionEvent event) throws IOException{

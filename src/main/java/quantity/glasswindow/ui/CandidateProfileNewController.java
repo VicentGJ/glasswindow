@@ -86,8 +86,9 @@ public class CandidateProfileNewController implements Initializable {
             Scholarship scholarship = Scholarship.values()[comboBoxItemsScholarship.indexOf(scholarshipField.getValue())];
             Candidate candidate = agency.createCandidate(dni,name,gender,address,phone,scholarship,specialty,branch,yearsofexp);
             agency.insertObject(candidate);
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.close();
+            AdditionalInfoController controller = (AdditionalInfoController) ViewLoader.thisWindow(
+                    getClass().getResource("Additional Info.fxml"), event);
+            controller.loadViewInfo(candidate);
         }
         catch (ArrayIndexOutOfBoundsException e) {
             ErrorMessageController controller = (ErrorMessageController) ViewLoader.newWindow(
@@ -105,5 +106,10 @@ public class CandidateProfileNewController implements Initializable {
     protected void onBackButton(ActionEvent event) throws IOException{
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.close();
+    }
+    @FXML
+    protected void onAdditionalInfoButton(ActionEvent event) throws IOException{
+        AdditionalInfoController controller = (AdditionalInfoController) ViewLoader.thisWindow(
+                getClass().getResource("Additional Info.fxml"), event);
     }
 }
