@@ -181,6 +181,7 @@ public class AdditionalInfoController {
     protected void onSaveButton(ActionEvent event){
         Specialty specialty = candidate.getSpecialty();
         if(specialty.equals(Specialty.ENGINEER)){
+            System.out.println(comboBox.getValue());
             InfoEngineer infoEngineer = new InfoEngineer(EngineerSpec.values()[engineer.indexOf(comboBox.getValue())]);
             candidate.addAdditionalInfo(infoEngineer);
         }else if(specialty.equals(Specialty.DOCTOR)){
@@ -203,6 +204,7 @@ public class AdditionalInfoController {
                 }
             }
             InfoScientist infoScientist = new InfoScientist(scientistSpecs);
+            System.out.println(infoScientist.getSpecialization());
             candidate.addAdditionalInfo(infoScientist);
         }
         Branch branch = candidate.getSector();

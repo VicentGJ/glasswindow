@@ -221,6 +221,11 @@ public class MainController extends TransitionController implements Initializabl
     protected void onReport2() throws IOException {
         ViewLoader.newWindow(getClass().getResource("Report2.fxml"), "Appliances by Company", null);
     }
+
+    @FXML
+    protected void onReport4() throws IOException {
+        ViewLoader.newWindow(getClass().getResource("Report4.fxml"), "All Interviews for a Company", null);
+    }
     @FXML
     protected void onDeleteButton(ActionEvent event) throws IOException {}
 

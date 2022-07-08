@@ -7,6 +7,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import quantity.glasswindow.core.Agency;
 import quantity.glasswindow.core.Candidate;
+import quantity.glasswindow.core.InfoDeveloper;
 import quantity.glasswindow.core.JobPost;
 import quantity.glasswindow.core.customExceptions.IdNotFoundException;
 import quantity.glasswindow.core.customExceptions.InvalidTypeException;
@@ -34,6 +35,7 @@ public class CandidateProfileController extends TransitionController{
         yearsofexp.setText(String.valueOf(candidate.getYearsOfExp()));
         phone.setText(candidate.getPhone());
         header.setText(candidate.getName());
+        System.out.println(((InfoDeveloper)(candidate.getAddtionalInfo().get(0))).getLanguages());
     }
 
     @FXML
