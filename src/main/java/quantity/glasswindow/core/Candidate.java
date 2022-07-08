@@ -28,7 +28,7 @@ public class Candidate extends Model {
             InvalidYearsOfExpException {
         super(id);
         this.setName(name);
-        this.setDNI(dni);
+        this.setDNI(dni,false);
         this.setGender(gender);
         this.setPhone(phone);
         this.setSector(sector);
@@ -117,19 +117,19 @@ public class Candidate extends Model {
         return dni;
     }
 
-    public void setDNI(String dni) throws InvalidIDException, DuplicatedIDException {
-        if(!Agency.getInstance().candidateDNIExists(dni)) {
-            boolean onlyNumbers = Pattern.matches("\\d+", dni);
-            if (onlyNumbers) {
-                if (dni.length() == 11) {
-                    boolean dateValid = dateValidationDNI(dni.substring(0, 7));//[0-1]Year, [2-3]Month, [4-5]Day, [6]Century
-                    if (dateValid) {
-                        this.dni = dni;
-                    } else
-                        throw new InvalidIDException(dni, "Error during validation of digits 1-7");
-                } else throw new InvalidIDException(dni, "Error during validation of ID length, must be 11 digits");
-            } else throw new InvalidIDException(dni, "Error during validation of ID: must be only numbers");
-        }else throw new DuplicatedIDException(dni);
+    public void setDNI(String dni, boolean editing) throws InvalidIDException, DuplicatedIDException {
+        if(!editing && Agency.getInstance().candidateDNIExists(dni))
+            throw new DuplicatedIDException(dni);
+        boolean onlyNumbers = Pattern.matches("\\d+", dni);
+        if (onlyNumbers) {
+            if (dni.length() == 11) {
+                boolean dateValid = dateValidationDNI(dni.substring(0, 7));//[0-1]Year, [2-3]Month, [4-5]Day, [6]Century
+                if (dateValid) {
+                    this.dni = dni;
+                } else
+                    throw new InvalidIDException(dni, "Error during validation of digits 1-7");
+            } else throw new InvalidIDException(dni, "Error during validation of ID length, must be 11 digits");
+        } else throw new InvalidIDException(dni, "Error during validation of ID: must be only numbers");
     }
 
     public int getYearsOfExp() {

@@ -154,8 +154,8 @@
       <HBox alignment="CENTER" prefHeight="37.0" prefWidth="409.0" spacing="20.0">
          <children>
             <JFXButton onAction="#onEditButton" prefHeight="28.0" prefWidth="60.0" style="-fx-background-color: rgb(215,215,215);" text="Edit" />
-            <JFXButton layoutX="145.0" layoutY="10.0" onAction="#onDeleteButton" prefHeight="28.0" prefWidth="60.0" style="-fx-background-color: rgb(215,215,215);" text="Delete" />
-            <JFXButton layoutX="149.0" layoutY="10.0" onAction="#onBackButton" prefHeight="28.0" prefWidth="60.0" style="-fx-background-color: rgb(215,215,215);" text="Back" />
+            <JFXButton onAction="#onDeleteButton" layoutX="145.0" layoutY="10.0"  prefHeight="28.0" prefWidth="60.0" style="-fx-background-color: rgb(215,215,215);" text="Delete" />
+            <JFXButton onAction="#onBackButton" layoutX="149.0" layoutY="10.0"  prefHeight="28.0" prefWidth="60.0" style="-fx-background-color: rgb(215,215,215);" text="Back" />
          </children>
       </HBox>
    </children>

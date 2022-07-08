@@ -53,8 +53,6 @@ public class CompanyEditController extends TransitionController{
         String address = addressField.getText();
         String phone = phoneField.getText();
         try{
-            // TODO: Implement proper IDs
-            company.setId(name);
             company.setName(name);
             company.setAddress(address);
             company.setPhone(phone);

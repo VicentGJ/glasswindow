@@ -83,7 +83,7 @@ public class MainController extends TransitionController implements Initializabl
     }
     @FXML
     protected void onNewCandidate(ActionEvent event) throws IOException {
-        ViewLoader.newWindow(getClass().getResource("Candidate Edit.fxml"), "New Candidate", null);
+        ViewLoader.newWindow(getClass().getResource("Candidate New.fxml"), "New Candidate", null);
     }
     @FXML
     protected void onNewJobPost(ActionEvent event) throws IOException {

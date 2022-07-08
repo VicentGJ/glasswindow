@@ -38,8 +38,10 @@ public class CandidateProfileController extends TransitionController{
         stage.close();
     }
     @FXML
-    protected void onEditButton(ActionEvent event) throws IOException{
-        this.transition("Candidate Edit.fxml", event);
+    protected void onEditButton(ActionEvent event) throws IOException, IdNotFoundException {
+        CandidateProfileEditController controller = (CandidateProfileEditController) ViewLoader.thisWindow(
+                getClass().getResource("Candidate Edit.fxml"), event);
+        controller.loadViewInfo(candidate.getId());
     }
 
     @FXML
