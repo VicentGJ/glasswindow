@@ -706,6 +706,10 @@ public class Agency extends Generator implements IDataBase {
         jb6.addInterview(interview8.getId());
         Interview interview9 = createInterview(LocalDate.of(2022,8,25),candidate3.getId(),company4.getId(),jb4.getId());
         jb4.addInterview(interview9.getId());
+        Interview interview10 = createInterview(LocalDate.of(2022,7,22),candidate3.getId(),company1.getId(),jb1.getId());
+        jb1.addInterview(interview10.getId());
+        Interview interview11 = createInterview(LocalDate.of(2022,7,23),candidate6.getId(),company1.getId(),jb1.getId());
+        jb1.addInterview(interview11.getId());
 
         //add all to models
         models.add(candidate1);
@@ -723,6 +727,8 @@ public class Agency extends Generator implements IDataBase {
         models.add(interview7);
         models.add(interview8);
         models.add(interview9);
+        models.add(interview10);
+        models.add(interview11);
         models.add(jb1);
         models.add(jb2);
         models.add(jb3);
