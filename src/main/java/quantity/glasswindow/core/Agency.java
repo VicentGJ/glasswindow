@@ -303,6 +303,7 @@ public class Agency extends Generator implements IDataBase {
             removeInterview(m.getId());
     }
 
+    @Override
     public void deleteObject(Model m) throws ModelNotFoundException {
         if (m instanceof Candidate)
             removeCandidate((Candidate) m);
@@ -327,6 +328,26 @@ public class Agency extends Generator implements IDataBase {
                 addInterview((Interview) m);
         }
     }
+    public void onWIllDelete(String modelId) throws DNINotFoundException, NameNotFoundException, IdNotFoundException {
+        Model m = getObject(modelId);
+        ArrayList<String> toDelete = new ArrayList<>();
+        if(!(m instanceof Interview)) {
+            for (Interview i : interviewList) {
+                if (i.getCandidate().equals(m.getId()) || i.getCompany().equals(m.getId()) ||
+                        i.getJobPost().equals(m.getId()))
+                    toDelete.add(m.getId());
+            }
+            if (m instanceof Company) {
+                Company company = getCompanyByName(((Company) m).getName());
+                for (JobPost current : jobPostList)
+                    if (current.getCompany().equals(company.getId()))
+                        toDelete.add(current.getId());
+            }
+        }
+        for (String id : toDelete)
+            deleteObject(id);
+    }
+
 
     // TODO: Fix exceptions
     @Override
@@ -585,7 +606,6 @@ public class Agency extends Generator implements IDataBase {
         return result;
     }
 
-
     public boolean modelExists(String id){
         ArrayList<Model> models = getModels();
         for(Model m : models)
@@ -606,7 +626,6 @@ public class Agency extends Generator implements IDataBase {
                 return c;
         throw new DNINotFoundException(dni);
     }
-
     public Company getCompanyByName(String name) throws NameNotFoundException {
         for(Company c : companyList)
             if(c.getName().equalsIgnoreCase(name))
