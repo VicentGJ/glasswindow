@@ -95,9 +95,14 @@ public class CandidateProfileEditController extends TransitionController{
                 candidate.setSpecialty(Specialty.values()[comboBoxItemsSpecialty.indexOf(specialtyField.getValue())]);
             if (scholarshipField.getValue() != null)
                 candidate.setScholarship(Scholarship.values()[comboBoxItemsScholarship.indexOf(scholarshipField.getValue())]);
-            AdditionalInfoController controller = (AdditionalInfoController) ViewLoader.thisWindow(
-                    getClass().getResource("Additional Info.fxml"), event);
-            controller.loadViewInfo(candidate);
+            if(candidate.getSpecialty().equals(Specialty.DOCTOR) || candidate.getSpecialty().equals(Specialty.ENGINEER)|| candidate.getSpecialty().equals(Specialty.TRANSLATOR) || candidate.getSpecialty().equals(Specialty.DEVELOPER) || candidate.getSector().equals(Branch.HEALTH) || candidate.getSector().equals(Branch.TOURISM)) {
+                AdditionalInfoController controller = (AdditionalInfoController) ViewLoader.thisWindow(
+                        getClass().getResource("Additional Info.fxml"), event);
+                controller.loadViewInfo(candidate);
+            }else {
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.close();
+            }
         }
         catch (InvalidNameException | InvalidPhoneException | InvalidIDException | DuplicatedIDException |
                InvalidYearsOfExpException e) {

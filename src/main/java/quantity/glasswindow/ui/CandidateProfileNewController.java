@@ -87,9 +87,14 @@ public class CandidateProfileNewController implements Initializable {
             Scholarship scholarship = Scholarship.values()[comboBoxItemsScholarship.indexOf(scholarshipField.getValue())];
             Candidate candidate = agency.createCandidate(dni,name,gender,address,phone,scholarship,specialty,branch,yearsofexp);
             agency.insertObject(candidate);
-            AdditionalInfoController controller = (AdditionalInfoController) ViewLoader.thisWindow(
-                    getClass().getResource("Additional Info.fxml"), event);
-            controller.loadViewInfo(candidate);
+            if(candidate.getSpecialty().equals(Specialty.DOCTOR) || candidate.getSpecialty().equals(Specialty.ENGINEER)|| candidate.getSpecialty().equals(Specialty.TRANSLATOR) || candidate.getSpecialty().equals(Specialty.DEVELOPER) || candidate.getSector().equals(Branch.HEALTH) || candidate.getSector().equals(Branch.TOURISM)) {
+                AdditionalInfoController controller = (AdditionalInfoController) ViewLoader.thisWindow(
+                        getClass().getResource("Additional Info.fxml"), event);
+                controller.loadViewInfo(candidate);
+            }else {
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.close();
+            }
         }
         catch (ArrayIndexOutOfBoundsException e) {
             ErrorMessageController controller = (ErrorMessageController) ViewLoader.newWindow(
