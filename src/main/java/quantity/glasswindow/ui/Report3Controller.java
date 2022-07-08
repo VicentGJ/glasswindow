@@ -59,7 +59,7 @@ public class Report3Controller implements Initializable {
             }
             else {
                 for (Interview i : interviewsMonth.get(j)) {
-                    InterviewDay day = new InterviewDay(i.getCandidate(), i.getJobPost(), j);
+                    InterviewDay day = new InterviewDay(i.getCandidate(), i.getJobPost(), j+1);
                     interviewList.add(day);
                 }
             }

@@ -7,18 +7,21 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import quantity.glasswindow.core.Agency;
 import quantity.glasswindow.core.Candidate;
+import quantity.glasswindow.core.JobPost;
 import quantity.glasswindow.core.customExceptions.IdNotFoundException;
+import quantity.glasswindow.core.customExceptions.InvalidTypeException;
 import quantity.glasswindow.utils.ViewLoader;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class CandidateProfileController extends TransitionController{
     @FXML
     private Text name,dni,gender, address, phone,scholarship,branch, specialty,yearsofexp;
     private Candidate candidate;
+    Agency agency = Agency.getInstance();
 
     public void loadViewInfo(String id) throws IdNotFoundException {
-        Agency agency = Agency.getInstance();
         candidate = (Candidate) agency.getObject(id);
         this.dni.setText(candidate.getId());
         candidate = (Candidate) agency.getObject(id);
@@ -33,19 +36,19 @@ public class CandidateProfileController extends TransitionController{
     }
 
     @FXML
-    protected void onBackButton(ActionEvent event) {
+    public void onBackButton(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.close();
     }
     @FXML
-    protected void onEditButton(ActionEvent event) throws IOException, IdNotFoundException {
+    public void onEditButton(ActionEvent event) throws IOException, IdNotFoundException {
         CandidateProfileEditController controller = (CandidateProfileEditController) ViewLoader.thisWindow(
                 getClass().getResource("Candidate Edit.fxml"), event);
         controller.loadViewInfo(candidate.getId());
     }
 
     @FXML
-    protected void onDeleteButton(ActionEvent event) throws IOException {
+    public void onDeleteButton(ActionEvent event) throws IOException {
         Agency agency = Agency.getInstance();
         try {
             agency.deleteObject(candidate.getId());
@@ -57,5 +60,22 @@ public class CandidateProfileController extends TransitionController{
         }
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.close();
+    }
+
+    @FXML
+    public void onSeekButton() {
+        try {
+            ArrayList<JobPost> jobPosts = agency.getQualifiedJobPostList(candidate);
+            if (jobPosts.isEmpty()) {
+                ErrorMessageController controller = (ErrorMessageController) ViewLoader.newWindow(getClass().getResource(
+                        "Error Message.fxml"), "No Job Posts", null
+                );
+                controller.setErrorMessage("No Job Posts available for this candidate");
+            } else {
+                System.out.println(jobPosts);
+            }
+        } catch (InvalidTypeException | IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
