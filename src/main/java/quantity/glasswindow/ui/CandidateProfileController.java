@@ -3,11 +3,12 @@ package quantity.glasswindow.ui;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import quantity.glasswindow.core.Agency;
 import quantity.glasswindow.core.Candidate;
-import quantity.glasswindow.core.InfoDeveloper;
+import quantity.glasswindow.core.IAdditionalInfo;
 import quantity.glasswindow.core.JobPost;
 import quantity.glasswindow.core.customExceptions.IdNotFoundException;
 import quantity.glasswindow.core.customExceptions.InvalidTypeException;
@@ -19,6 +20,8 @@ import java.util.ArrayList;
 public class CandidateProfileController extends TransitionController{
     @FXML
     private Text name,dni,gender, address, phone,scholarship,branch, specialty,yearsofexp,header;
+    @FXML
+    private GridPane grid;
     private Candidate candidate;
     Agency agency = Agency.getInstance();
 
@@ -35,7 +38,7 @@ public class CandidateProfileController extends TransitionController{
         yearsofexp.setText(String.valueOf(candidate.getYearsOfExp()));
         phone.setText(candidate.getPhone());
         header.setText(candidate.getName());
-        System.out.println(((InfoDeveloper)(candidate.getAddtionalInfo().get(0))).getLanguages());
+        ArrayList<IAdditionalInfo> additionalInfo = candidate.getAddtionalInfo();
     }
 
     @FXML

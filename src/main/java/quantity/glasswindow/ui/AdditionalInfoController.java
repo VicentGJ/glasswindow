@@ -18,7 +18,8 @@ public class AdditionalInfoController {
     @FXML
     private GridPane grid, grid2;
     ComboBox comboBox;
-    private ArrayList<CheckBox> checkBoxes;
+    private ArrayList<CheckBox> checkBoxesSpec;
+    private ArrayList<CheckBox> checkBoxesBranch;
     private Candidate candidate;
     private final ObservableList<String> developer = FXCollections.observableArrayList(
             "PYTHON",
@@ -107,7 +108,8 @@ public class AdditionalInfoController {
         this.candidate = newcandidate;
         Specialty specialty = candidate.getSpecialty();
         Branch branch = candidate.getSector();
-        checkBoxes = new ArrayList<>() ;
+        checkBoxesSpec = new ArrayList<>() ;
+        checkBoxesBranch = new ArrayList<>() ;
         if (specialty.equals(Specialty.ENGINEER)) {
             grid.setVisible(true);
             comboBox = new ComboBox<>(engineer);
@@ -117,13 +119,13 @@ public class AdditionalInfoController {
             grid.setVisible(true);
             for(String s:developer) {
                 CheckBox checkBox = new CheckBox(s);
-                checkBoxes.add(checkBox);
+                checkBoxesSpec.add(checkBox);
             }
             int count = 0;
-            for(int i = 0; i < 3; i++){
-                for(int j=0; j < 4; j++){
-                    if(count < checkBoxes.size())
-                        grid.add(checkBoxes.get(count),i,j);
+            for(int i = 0; i < 4; i++){
+                for(int j=0; j < 5; j++){
+                    if(count < checkBoxesSpec.size())
+                        grid.add(checkBoxesSpec.get(count),i,j);
                     count++;
                 }
             }
@@ -131,13 +133,13 @@ public class AdditionalInfoController {
             grid.setVisible(true);
             for(String s:scientist) {
                 CheckBox checkBox = new CheckBox(s);
-                checkBoxes.add(checkBox);
+                checkBoxesSpec.add(checkBox);
             }
             int count = 0;
             for(int i = 0; i < 5; i++){
                 for(int j=0; j < 4; j++){
-                    if(count < checkBoxes.size())
-                        grid.add(checkBoxes.get(count),i,j);
+                    if(count < checkBoxesSpec.size())
+                        grid.add(checkBoxesSpec.get(count),i,j);
                     count++;}
             }
 
@@ -149,13 +151,13 @@ public class AdditionalInfoController {
             grid.setVisible(true);
             for(String s:translator) {
                 CheckBox checkBox = new CheckBox(s);
-                checkBoxes.add(checkBox);
+                checkBoxesSpec.add(checkBox);
             }
             int count = 0;
             for(int i = 0; i < 5; i++){
                 for(int j=0; j < 4; j++){
-                    if(count < checkBoxes.size())
-                        grid.add(checkBoxes.get(count),i,j);
+                    if(count < checkBoxesSpec.size())
+                        grid.add(checkBoxesSpec.get(count),i,j);
                     count++;
                 }
             }
@@ -168,12 +170,13 @@ public class AdditionalInfoController {
         if (branch.equals(Branch.HEALTH)){
             grid2.setVisible(true);
             CheckBox checkBox = new CheckBox("Has certificate correct");
+            checkBoxesBranch.add(checkBox);
             grid2.add(checkBox,1,1);
         } else if (branch.equals(Branch.TOURISM)) {
             grid2.setVisible(true);
             CheckBox checkBox = new CheckBox("Has licence correct");
+            checkBoxesBranch.add(checkBox);
             grid2.add(checkBox,1,1);
-
         }
     }
 
@@ -189,16 +192,25 @@ public class AdditionalInfoController {
             candidate.addAdditionalInfo(infoDoctor);
         }else if(specialty.equals(Specialty.DEVELOPER)){
             ArrayList<ProgrammingLang> programmingLangs = new ArrayList<>();
-            for(CheckBox checkBox : checkBoxes){
+            for(CheckBox checkBox : checkBoxesSpec){
                 if (checkBox.isSelected()){
                     programmingLangs.add(ProgrammingLang.values()[developer.indexOf(checkBox.getText())]);
                 }
             }
             InfoDeveloper infoDeveloper = new InfoDeveloper(programmingLangs);
             candidate.addAdditionalInfo(infoDeveloper);
+        }else if(specialty.equals(Specialty.TRANSLATOR)){
+            ArrayList<Languages> languages = new ArrayList<>();
+            for(CheckBox checkBox : checkBoxesSpec){
+                if (checkBox.isSelected()){
+                    languages.add(Languages.values()[translator.indexOf(checkBox.getText())]);
+                }
+            }
+            InfoTranslator infoTranslator = new InfoTranslator(languages);
+            candidate.addAdditionalInfo(infoTranslator);
         }else if(specialty.equals(Specialty.SCIENTIST)){
             ArrayList<ScientistSpec> scientistSpecs = new ArrayList<>();
-            for(CheckBox checkBox : checkBoxes){
+            for(CheckBox checkBox : checkBoxesSpec){
                 if (checkBox.isSelected()){
                     scientistSpecs.add(ScientistSpec.values()[scientist.indexOf(checkBox.getText())]);
                 }
@@ -209,13 +221,12 @@ public class AdditionalInfoController {
         }
         Branch branch = candidate.getSector();
         if(branch.equals(Branch.HEALTH)){
-            InfoHealth infoHealth = new InfoHealth(checkBoxes.get(0).isSelected());
+            InfoHealth infoHealth = new InfoHealth(checkBoxesBranch.get(0).isSelected());
             candidate.addAdditionalInfo(infoHealth);
         } else if (branch.equals(Branch.TOURISM)) {
-            InfoTourism infoTourism = new InfoTourism(checkBoxes.get(0).isSelected());
+            InfoTourism infoTourism = new InfoTourism(checkBoxesBranch.get(0).isSelected());
             candidate.addAdditionalInfo(infoTourism);
         }
-        System.out.println(candidate);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.close();
     }
