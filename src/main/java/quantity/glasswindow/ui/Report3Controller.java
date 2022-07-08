@@ -44,7 +44,9 @@ public class Report3Controller implements Initializable {
             monthItems.add(m.name());
         }
         companyComboBox.setItems(companyComboBoxItems);
+        companyComboBox.setPromptText(companyComboBoxItems.get(0));
         monthComboBox.setItems(monthItems);
+        monthComboBox.setPromptText(Month.JULY.name());
 
         ArrayList<ArrayList<Interview>> interviewsMonth = new ArrayList<>(agency.getInterviewsMonth(
                 agency.getCompanyList().get(0).getId(), Month.JULY.getValue())
