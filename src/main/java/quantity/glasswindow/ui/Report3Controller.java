@@ -21,6 +21,7 @@ import java.time.Month;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.ResourceBundle;
+import quantity.glasswindow.utils.InterviewDay;
 
 public class Report3Controller implements Initializable {
     @FXML
@@ -31,7 +32,7 @@ public class Report3Controller implements Initializable {
 
     private ObservableList<String> companyComboBoxItems = FXCollections.observableArrayList(),
             monthItems = FXCollections.observableArrayList();
-    private ObservableList<Interview> interviewList = FXCollections.observableArrayList();
+    private ObservableList<InterviewDay> interviewList = FXCollections.observableArrayList();
     private Agency agency = Agency.getInstance();
 
     @Override
@@ -44,15 +45,31 @@ public class Report3Controller implements Initializable {
         }
         companyComboBox.setItems(companyComboBoxItems);
         monthComboBox.setItems(monthItems);
-        interviewList.addAll(agency.getInterviewList());
+
+        ArrayList<ArrayList<Interview>> interviewsMonth = new ArrayList<>(agency.getInterviewsMonth(
+                agency.getCompanyList().get(0).getId(), Month.JULY.getValue())
+        );
+        System.out.println(interviewsMonth);
+        for (int j = 0; j < interviewsMonth.size(); j++) {
+            if (interviewsMonth.get(j) == null) {
+                InterviewDay day = new InterviewDay("None", "None", j+1);
+                interviewList.add(day);
+            }
+            else {
+                for (Interview i : interviewsMonth.get(j)) {
+                    InterviewDay day = new InterviewDay(i.getCandidate(), i.getJobPost(), j);
+                    interviewList.add(day);
+                }
+            }
+        }
         interViewIDs.setCellValueFactory(
-                new PropertyValueFactory<Interview, String>("id")
+                new PropertyValueFactory<InterviewDay, String>("jobPost")
         );
         candidateIDs.setCellValueFactory(
-                new PropertyValueFactory<Interview, String>("candidate")
+                new PropertyValueFactory<InterviewDay, String>("candidate")
         );
         dates.setCellValueFactory(
-                new PropertyValueFactory<Interview, LocalDate>("date")
+                new PropertyValueFactory<InterviewDay, Integer>("day")
         );
         tableView.setItems(interviewList);
     }
