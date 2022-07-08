@@ -529,7 +529,7 @@ public class Agency extends Generator implements IDataBase {
         return result;
     }
 
-    public ArrayList<Candidate> getAppliances (String company, int month) throws IdNotFoundException {
+    public ArrayList<Candidate> getAppliances (String company, LocalDate date) throws IdNotFoundException {
         ArrayList<Candidate> result = new ArrayList<>();
         Company c = (Company)getObject(company);
         ArrayList<String> jobPosts = new ArrayList<>(c.getJobPostList());
@@ -540,7 +540,7 @@ public class Agency extends Generator implements IDataBase {
             interviews = tempJP.getInterviewList();
             for (String i: interviews) {
                 Interview interview = (Interview) getObject(i);
-                if (interview.getDate().lengthOfMonth() == month) {
+                if (interview.getDate().isBefore(date)) {
                     Candidate candidate = (Candidate)getObject(interview.getCandidate());
                     result.add(candidate);
                 }

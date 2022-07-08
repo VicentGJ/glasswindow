@@ -29,7 +29,7 @@
       <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="600.0" spacing="150.0">
          <children>
             <ComboBox fx:id="companyComboBox" onAction="#onCompanyComboBox" prefWidth="150.0" />
-            <ComboBox fx:id="monthComboBox" layoutX="10.0" layoutY="10.0" prefWidth="150.0" />
+            <ComboBox fx:id="monthComboBox" layoutX="10.0" layoutY="10.0" onAction="#onMonthComboBox" prefWidth="150.0" />
          </children>
          <padding>
             <Insets left="40.0" />
@@ -53,11 +53,12 @@
             </AnchorPane>
         </content>
       </ScrollPane>
-      <JFXButton onAction="#onBackButton" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: rgb(215,215,215);" text="Back">
-         <VBox.margin>
-            <Insets top="10.0" />
-         </VBox.margin>
-      </JFXButton>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+         <children>
+            <JFXButton onAction="#onRefreshButton" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: rgb(215,215,215);" text="Refresh" />
+            <JFXButton onAction="#onBackButton" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: rgb(215,215,215);" text="Back" />
+         </children>
+      </HBox>
    </children>
    <padding>
       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
