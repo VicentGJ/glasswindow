@@ -20,28 +20,10 @@
                         <MenuItem mnemonicParsing="false" onAction="#onNewJobPost" text="Job Post" />
                      </items>
                   </Menu>
-            <MenuItem mnemonicParsing="false" text="Open…" />
-            <Menu mnemonicParsing="false" text="Open Recent" />
             <SeparatorMenuItem mnemonicParsing="false" />
             <MenuItem mnemonicParsing="false" text="Revert" />
             <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Preferences…" />
-            <SeparatorMenuItem mnemonicParsing="false" />
             <MenuItem mnemonicParsing="false" text="Quit" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Edit">
-          <items>
-            <MenuItem mnemonicParsing="false" text="Undo" />
-            <MenuItem mnemonicParsing="false" text="Redo" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Cut" />
-            <MenuItem mnemonicParsing="false" text="Copy" />
-            <MenuItem mnemonicParsing="false" text="Paste" />
-            <MenuItem mnemonicParsing="false" text="Delete" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Select All" />
-            <MenuItem mnemonicParsing="false" text="Unselect All" />
           </items>
         </Menu>
             <Menu mnemonicParsing="false" text="Reports">
@@ -83,7 +65,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </JFXButton>
-                  <JFXButton onAction="#onJobPotsSection" style="-fx-background-color: rgb(215,215,215);" text="Job Posts">
+                  <JFXButton onAction="#onJobPotsSection" prefHeight="40.0" prefWidth="121.0" style="-fx-background-color: rgb(215,215,215);" text="Job Posts">
                      <font>
                         <Font size="19.0" />
                      </font>
@@ -103,33 +85,7 @@
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </padding>
                <children>
-                  <HBox>
-                     <children>
-                        <TextField prefHeight="25.0" prefWidth="549.0" promptText="search">
-                           <padding>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </padding>
-                        </TextField>
-                        <JFXButton prefHeight="27.0" prefWidth="69.0" style="-fx-background-color: rgb(215,215,215);" text="Search" />
-                     </children>
-                  </HBox>
-                  <Separator prefWidth="200.0">
-                     <VBox.margin>
-                        <Insets bottom="20.0" top="20.0" />
-                     </VBox.margin>
-                     <padding>
-                        <Insets left="40.0" right="40.0" />
-                     </padding>
-                  </Separator>
-                  <ListView fx:id="mainList" prefHeight="423.0" prefWidth="631.0" />
-                  <HBox alignment="CENTER_RIGHT" prefHeight="53.0" prefWidth="631.0">
-                     <padding>
-                        <Insets right="5.0" />
-                     </padding>
-                     <children>
-                        <JFXButton disable="true" prefHeight="31.0" prefWidth="123.0" style="-fx-background-color: rgb(215,215,215);" text="Delete Selection" />
-                     </children>
-                  </HBox>
+                  <ListView fx:id="mainList" prefHeight="541.0" prefWidth="630.0" />
                </children>
             </VBox>
       </items>
