@@ -53,7 +53,7 @@
                   <Font size="17.0" />
                </font>
             </Label>
-            <TextField fx:id="candidateField" GridPane.columnIndex="1" />
+            <ComboBox fx:id="candidateField" prefHeight="25.0" prefWidth="176.0" promptText="Select candidate" GridPane.columnIndex="1" />
          </children>
          <VBox.margin>
             <Insets top="10.0" />
