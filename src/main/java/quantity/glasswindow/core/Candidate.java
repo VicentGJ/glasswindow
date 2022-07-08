@@ -28,7 +28,7 @@ public class Candidate extends Model {
             InvalidYearsOfExpException {
         super(id);
         this.setName(name);
-        this.setDNI(dni,false);
+        this.setDNI(dni);
         this.setGender(gender);
         this.setPhone(phone);
         this.setSector(sector);
@@ -117,8 +117,8 @@ public class Candidate extends Model {
         return dni;
     }
 
-    public void setDNI(String dni, boolean editing) throws InvalidIDException, DuplicatedIDException {
-        if(!editing && Agency.getInstance().candidateDNIExists(dni))
+    public void setDNI(String dni) throws InvalidIDException, DuplicatedIDException {
+        if(Agency.getInstance().candidateDNIExists(dni))
             throw new DuplicatedIDException(dni);
         boolean onlyNumbers = Pattern.matches("\\d+", dni);
         if (onlyNumbers) {

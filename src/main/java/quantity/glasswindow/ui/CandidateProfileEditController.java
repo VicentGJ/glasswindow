@@ -82,7 +82,8 @@ public class CandidateProfileEditController extends TransitionController{
         String phone = phoneField.getText();
         String dni = dniField.getText();
         try{
-            candidate.setDNI(dni,true);
+            if(!candidate.getDni().equals(dni))
+                candidate.setDNI(dni);//do only if its edited, so it doesn't throw exception on no edition because dni already exists
             candidate.setPhone(phone);
             candidate.setAddress(address);
             candidate.setName(name);
