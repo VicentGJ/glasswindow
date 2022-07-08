@@ -22,6 +22,9 @@ public class Agency extends Generator implements IDataBase {
     private ObservableList<Interview> interviewList;
 
     private ObservableList<Model> activeModels;
+
+    private ArrayList<IListener> listeners;
+
     private static Agency single_instance; //for singleton pattern
 
     private Agency() {//private constructor to ensure singleton pattern
@@ -31,6 +34,7 @@ public class Agency extends Generator implements IDataBase {
         jobPostList = FXCollections.observableArrayList();
         interviewList = FXCollections.observableArrayList();
         activeModels = FXCollections.observableArrayList();
+        listeners = new ArrayList<>();
     }
 
     public static Agency getInstance() {//method to create singleton object
@@ -52,6 +56,20 @@ public class Agency extends Generator implements IDataBase {
             throw new InvalidTypeException(type);
         }
         return activeModels;
+    }
+
+    public void subscribe(IListener listener) {
+        listeners.add(listener);
+    }
+
+    public void unsubscribe(IListener listener) {
+        listeners.remove(listener);
+    }
+
+    public void notice() {
+        for (IListener listener: listeners) {
+            listener.update();
+        }
     }
 
     public Candidate createCandidate(String dni, String name, Gender gender, String address, String phone, Scholarship scholarship,
@@ -102,14 +120,17 @@ public class Agency extends Generator implements IDataBase {
 
     private void addCandidate(Candidate c){
         candidateList.add(c);
+        notice();
     }
 
     private void addCompany(Company c){
         companyList.add(c);
+        notice();
     }
 
     private void addJobPost(JobPost j){
         jobPostList.add(j);
+        notice();
     }
 
     private void addInterview(Interview i){
@@ -327,6 +348,7 @@ public class Agency extends Generator implements IDataBase {
             else if (m instanceof Interview)
                 addInterview((Interview) m);
         }
+        notice();
     }
     public void onWIllDelete(String modelId) throws DNINotFoundException, NameNotFoundException, IdNotFoundException {
         Model m = getObject(modelId);

@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import quantity.glasswindow.core.Agency;
+import quantity.glasswindow.core.IListener;
 import quantity.glasswindow.core.Model;
 import quantity.glasswindow.core.customExceptions.IdNotFoundException;
 import quantity.glasswindow.core.customExceptions.InvalidTypeException;
@@ -17,7 +18,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class MainController extends TransitionController implements Initializable {
+public class MainController extends TransitionController implements Initializable, IListener {
 
     @FXML
     private ListView<Model> mainList;
@@ -25,14 +26,27 @@ public class MainController extends TransitionController implements Initializabl
 
     private ObservableList<String> mainListItems = FXCollections.observableArrayList();
 
+    private String state;
+
+    @Override
+    public void update() {
+        try {
+            mainList.setItems(agency.getActiveModels(state));
+        } catch (InvalidTypeException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         this.agency = Agency.getInstance();
+        agency.subscribe(this);
         try {
             mainList.setItems(agency.getActiveModels("Company"));
         } catch (InvalidTypeException e) {
             throw new RuntimeException(e);
         }
+        state = "Company";
         // Try to modify this in the future to work with Model abstract class instead of multiple concrete classes
         mainList.setCellFactory(param -> {
             ListCell<Model> cell = new ListCell<Model>() {
@@ -85,6 +99,7 @@ public class MainController extends TransitionController implements Initializabl
 
     @FXML
     protected void onCompaniesSection(ActionEvent event) throws IOException, InvalidTypeException {
+        state = "Company";
         mainList.setItems(null);
         mainList.setItems(agency.getActiveModels("Company"));
         mainList.setCellFactory(param -> {
@@ -122,6 +137,7 @@ public class MainController extends TransitionController implements Initializabl
     }
     @FXML
     protected void onCandidatesSection(ActionEvent event) throws InvalidTypeException {
+        state = "Candidate";
         mainList.setItems(null);
         mainList.setItems(agency.getActiveModels("Candidate"));
         mainList.setCellFactory(param -> {
@@ -158,6 +174,7 @@ public class MainController extends TransitionController implements Initializabl
     }
     @FXML
     protected void onJobPotsSection(ActionEvent event) throws IOException, InvalidTypeException {
+        state = "JobPost";
         mainList.setItems(null);
         mainList.setItems(agency.getActiveModels("JobPost"));
         mainList.setCellFactory(param -> {
