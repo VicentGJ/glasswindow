@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="quantity.glasswindow.ui.AvailableJobPosts">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="quantity.glasswindow.ui.AvailableJobController">
    <children>
       <VBox layoutX="212.0" layoutY="110.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -29,10 +24,9 @@
                   <Insets left="40.0" right="40.0" />
                </padding>
             </Separator>
-            <ListView prefHeight="283.0" prefWidth="560.0" />
+            <ListView fx:id="listView" prefHeight="283.0" prefWidth="560.0" />
             <HBox alignment="CENTER" prefHeight="54.0" prefWidth="560.0" spacing="40.0">
                <children>
-                  <JFXButton onAction="#onApplyButton" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: rgb(215,215,215);" text="Apply" />
                   <JFXButton layoutX="294.0" layoutY="19.0" onAction="#onCancelButton" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: rgb(215,215,215);" text="Cancel" />
                </children>
             </HBox>

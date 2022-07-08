@@ -64,7 +64,7 @@ public class CandidateProfileController extends TransitionController{
     }
 
     @FXML
-    public void onSeekButton() {
+    public void onSeekButton(ActionEvent event) {
         try {
             ArrayList<JobPost> jobPosts = agency.getQualifiedJobPostList(candidate);
             if (jobPosts.isEmpty()) {
@@ -73,7 +73,9 @@ public class CandidateProfileController extends TransitionController{
                 );
                 controller.setErrorMessage("No Job Posts available for this candidate");
             } else {
-                System.out.println(jobPosts);
+                AvailableJobController controller = (AvailableJobController) ViewLoader.thisWindow(
+                        getClass().getResource("Available JobPosts.fxml"), event);
+                controller.loadInfo(candidate.getDni());
             }
         } catch (InvalidTypeException | IOException e) {
             throw new RuntimeException(e);
