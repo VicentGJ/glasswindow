@@ -12,6 +12,8 @@ import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 import quantity.glasswindow.core.*;
 import quantity.glasswindow.core.customExceptions.IdNotFoundException;
+import quantity.glasswindow.core.enumerations.Branch;
+import quantity.glasswindow.core.enumerations.Specialty;
 import quantity.glasswindow.utils.Helper;
 import quantity.glasswindow.utils.ViewLoader;
 
@@ -25,24 +27,16 @@ public class Report1Controller implements Initializable {
     @FXML
     private ComboBox<String> typeSelector;
     @FXML
-    private ComboBox<String> categorySelector;
+    private ComboBox<String> sectorSelector, specialtySelector;
     @FXML
     private ListView<Model> listView;
 
     private Agency agency = Agency.getInstance();
     private ObservableList<Model> itemList = FXCollections.observableArrayList();
     private HashMap<String, Integer> appliances = new HashMap<>();
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        typeSelector.setItems(FXCollections.observableArrayList(
-                "JobPost",
-                "Company"
-        ));
-        categorySelector.setItems(FXCollections.observableArrayList(
-                "Globally",
-                "Specialty",
-                "Sector"
-        ));
+
+    private void setAppliances() {
+        appliances.clear();
         int count = 0;
         for (JobPost j: agency.getJobPostList()) {
             for (Interview i: agency.getInterviewList()) {
@@ -62,9 +56,26 @@ public class Report1Controller implements Initializable {
                 }
             }
         }
-        typeSelector.setPromptText("JobPost");
-        categorySelector.setPromptText("Globally");
-        categorySelector.setDisable(true);
+    }
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        typeSelector.setItems(FXCollections.observableArrayList(
+                "JobPost",
+                "Company"
+        ));
+        ArrayList<String> sectors = new ArrayList<>();
+        for (Branch b: Branch.values()) {
+            sectors.add(b.name());
+        }
+        sectorSelector.setItems(FXCollections.observableArrayList(sectors));
+        ArrayList<String> specialties = new ArrayList<>();
+        for (Specialty s: Specialty.values()) {
+            specialties.add(s.name());
+        }
+        specialtySelector.setItems(FXCollections.observableArrayList(specialties));
+        setAppliances();
+        typeSelector.setValue("JobPost");
+        sectorSelector.setDisable(true);
         listView.setItems(itemList);
         listView.setCellFactory(param -> {
             ListCell<Model> cell = new ListCell<>() {
@@ -110,7 +121,8 @@ public class Report1Controller implements Initializable {
     }
 
     @FXML
-    public void onTypeSelector (ActionEvent event) throws IdNotFoundException {
+    public void onTypeSelector () throws IdNotFoundException {
+        setAppliances();
         itemList.clear();
         String selected = typeSelector.getValue();
         if (selected.equals("Company")) {
@@ -118,7 +130,7 @@ public class Report1Controller implements Initializable {
                 Model company = agency.getObject(((JobPost) agency.getObject(j)).getCompany());
                 itemList.add(company);
             }
-            categorySelector.setDisable(false);
+            sectorSelector.setDisable(false);
         } else if (selected.equals("JobPost")) {
             for (String id: appliances.keySet()) {
                 for (JobPost j: agency.getJobPostList()){
@@ -127,11 +139,61 @@ public class Report1Controller implements Initializable {
                     }
                 }
             }
-            categorySelector.setDisable(true);
+            sectorSelector.setValue(null);
+            sectorSelector.setDisable(true);
         }
     }
     @FXML
-    public void onCategorySelector (ActionEvent event) {
+    public void onSectorSelector() {
+        try {
+            this.onTypeSelector();
+        } catch (IdNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        String sector = sectorSelector.getValue();
+        ArrayList<Model> toFilterOut = new ArrayList<>();
+        for (Model model: itemList) {
+            Company c = (Company) model;
+            if (!c.getSector().name().equalsIgnoreCase(sector)) {
+                toFilterOut.add(c);
+            }
+        }
+        for (Model model: toFilterOut) {
+            itemList.remove(model);
+        }
+    }
 
+    @FXML
+    public void onSpecialtySelector() {
+        setAppliances();
+        String specialty = specialtySelector.getValue();
+        ArrayList<String> toFilterOut = new ArrayList<>();
+        for (String id: appliances.keySet()) {
+            for (JobPost j: agency.getJobPostList()){
+                if (j.getId().equals(id)) {
+                    if (!j.getSpecialty().name().equalsIgnoreCase(specialty)){
+                        toFilterOut.add(j.getId());
+                    }
+                }
+            }
+        }
+        for (String id: toFilterOut) {
+            appliances.remove(id);
+        }
+        try {
+            this.onTypeSelector();
+        } catch (IdNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    public void onRefreshButton() {
+        setAppliances();
+        try {
+            onTypeSelector();
+        } catch (IdNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

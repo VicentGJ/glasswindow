@@ -10,15 +10,21 @@
    <children>
       <HBox alignment="CENTER_LEFT" prefHeight="31.0" prefWidth="580.0">
          <children>
-            <Label text="See most popular ">
+            <Label prefHeight="26.0" prefWidth="141.0" text="See most popular ">
                <font>
                   <Font size="17.0" />
                </font>
             </Label>
-            <Pane prefHeight="42.0" prefWidth="164.0" />
-            <Label text="in">
+            <Pane prefHeight="29.0" prefWidth="76.0" />
+            <Label prefHeight="26.0" prefWidth="50.0" text="Sector">
                <font>
                   <Font size="17.0" />
+               </font>
+            </Label>
+            <Pane layoutX="187.0" layoutY="10.0" prefHeight="29.0" prefWidth="170.0" />
+            <Label text="Specialty">
+               <font>
+                  <Font size="18.0" />
                </font>
             </Label>
          </children>
@@ -26,10 +32,11 @@
             <Insets left="40.0" />
          </padding>
       </HBox>
-      <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="600.0" spacing="150.0">
+      <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="600.0" spacing="80.0">
          <children>
-            <ComboBox fx:id="typeSelector" onAction="#onTypeSelector" prefWidth="150.0" />
-            <ComboBox fx:id="categorySelector" layoutX="10.0" layoutY="10.0" prefWidth="150.0" />
+            <ComboBox fx:id="typeSelector" onAction="#onTypeSelector" prefHeight="25.0" prefWidth="195.0" />
+            <ComboBox fx:id="sectorSelector" layoutX="10.0" layoutY="10.0" onAction="#onSectorSelector" prefHeight="25.0" prefWidth="207.0" />
+            <ComboBox fx:id="specialtySelector" layoutX="350.0" layoutY="10.0" onAction="#onSpecialtySelector" prefHeight="25.0" prefWidth="178.0" />
          </children>
          <padding>
             <Insets left="40.0" />
@@ -52,11 +59,12 @@
             </AnchorPane>
         </content>
       </ScrollPane>
-      <JFXButton onAction="#onBackButton" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: rgb(215,215,215);" text="Back">
-         <VBox.margin>
-            <Insets top="10.0" />
-         </VBox.margin>
-      </JFXButton>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="25.0">
+         <children>
+            <JFXButton onAction="#onRefreshButton" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: rgb(215,215,215);" text="Refresh" />
+            <JFXButton onAction="#onBackButton" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: rgb(215,215,215);" text="Back" />
+         </children>
+      </HBox>
    </children>
    <padding>
       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
