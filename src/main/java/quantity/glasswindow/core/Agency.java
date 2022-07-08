@@ -481,7 +481,8 @@ public class Agency extends Generator implements IDataBase {
                         // TODO: Right now this is specific to getAppliances(), need to refactor to work more generally later
                         int filter_month = (int) filter.get(key);
                         for (Model m : lists)
-                            if (m instanceof Interview && !(((Interview) m).getDate().lengthOfMonth() == filter_month))
+                            if (m instanceof Interview &&
+                                    !(((Interview) m).getDate().getMonthValue() == filter_month))
                                 result.remove(m);
                     }
                     case "candidate" -> {
@@ -555,7 +556,7 @@ public class Agency extends Generator implements IDataBase {
         );
         ArrayList<Interview> dailyInterviews = new ArrayList<>();
         try {
-            Model object = this.getObject(id);
+            Model object = getObject(id);
             // TODO: review if a pattern can be applied here in the future
             HashMap<String, Object> filter = new HashMap<>();
             if (object.getType().equals("Company")) {

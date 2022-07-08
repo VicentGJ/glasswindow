@@ -42,7 +42,7 @@ public class Main {
             System.exit(1);
         }
         // Report 3
-        ArrayList<ArrayList<Interview>> monthInterviews = agency.getInterviewsMonth("company-2", 6);
+        ArrayList<ArrayList<Interview>> monthInterviews = agency.getInterviewsMonth("company-2", 8);
         System.out.println(monthInterviews);
         // Report 4
         try {
