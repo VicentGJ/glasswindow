@@ -27,8 +27,6 @@ public class CompanyNewController implements Initializable {
     @FXML
     private TextField nameField;
     @FXML
-    private TextArea descriptionField;
-    @FXML
     private TextArea addressField;
     @FXML
     private TextField phoneField;
@@ -56,7 +54,6 @@ public class CompanyNewController implements Initializable {
 
     public void onSaveButton(ActionEvent event) throws IOException, InvalidTypeException {
         String name = nameField.getText();
-        String description = descriptionField.getText();
         String address = addressField.getText();
         String phone = phoneField.getText();
         try{
