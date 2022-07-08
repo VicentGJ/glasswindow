@@ -66,17 +66,6 @@ public class MainController extends TransitionController implements Initializabl
         System.out.println(this.mainList.getItems());
     }
 
-    public void updateListView(String id) throws InvalidTypeException{
-        mainListItems.add(id);
-        System.out.println(id);
-        //mainList.setItems(null);
-        //ArrayList<String> list = new ArrayList<>(agency.gerObjectListIDs("Company", new HashMap<>()));
-        //list.add("mike");
-        //mainList.setItems(FXCollections.observableArrayList(list));
-        //System.out.println(mainList.getItems());
-        //mainList.refresh();
-    }
-
     @FXML
     protected void onNewCompany(ActionEvent event) throws IOException {
         ViewLoader.newWindow(getClass().getResource("Company New.fxml"), "New Company", null);
@@ -96,7 +85,6 @@ public class MainController extends TransitionController implements Initializabl
 
     @FXML
     protected void onCompaniesSection(ActionEvent event) throws IOException, InvalidTypeException {
-        this.updateListView(",ike");
         mainList.setItems(null);
         mainList.setItems(agency.getActiveModels("Company"));
         mainList.setCellFactory(param -> {
@@ -134,7 +122,6 @@ public class MainController extends TransitionController implements Initializabl
     }
     @FXML
     protected void onCandidatesSection(ActionEvent event) throws InvalidTypeException {
-        this.updateListView(",ike");
         mainList.setItems(null);
         mainList.setItems(agency.getActiveModels("Candidate"));
         mainList.setCellFactory(param -> {
@@ -209,7 +196,10 @@ public class MainController extends TransitionController implements Initializabl
     protected void onReport3(ActionEvent event) throws IOException {
         ViewLoader.newWindow(getClass().getResource("Report3.fxml"), "Month Interviews by Company", null);
     }
-
+    @FXML
+    protected void onReport1(ActionEvent event) throws IOException {
+        ViewLoader.newWindow(getClass().getResource("Report1.fxml"), "Most Popular", null);
+    }
     @FXML
     protected void onDeleteButton(ActionEvent event) throws IOException {}
 
