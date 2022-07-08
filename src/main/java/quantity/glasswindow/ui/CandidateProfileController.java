@@ -14,7 +14,7 @@ import java.io.IOException;
 
 public class CandidateProfileController extends TransitionController{
     @FXML
-    private Text name,dni,gender, address, phone,scholarship,branch, specialty,yearsofexp;
+    private Text name,dni,gender, address, phone,scholarship,branch, specialty,yearsofexp,header;
     private Candidate candidate;
 
     public void loadViewInfo(String id) throws IdNotFoundException {
@@ -30,6 +30,7 @@ public class CandidateProfileController extends TransitionController{
         address.setText(candidate.getAddress());
         yearsofexp.setText(String.valueOf(candidate.getYearsOfExp()));
         phone.setText(candidate.getPhone());
+        header.setText(candidate.getName());
     }
 
     @FXML

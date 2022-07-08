@@ -74,6 +74,7 @@ public class CandidateProfileEditController extends TransitionController{
         dniField.setText(candidate.getDni());
         addressField.setText(candidate.getAddress());
         yearsofexpField.getValueFactory().setValue(candidate.getYearsOfExp());
+        header.setText(candidate.getName());
     }
     @FXML
     protected void onSaveButton(ActionEvent event) throws IOException {
