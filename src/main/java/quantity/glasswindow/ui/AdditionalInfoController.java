@@ -2,10 +2,13 @@ package quantity.glasswindow.ui;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 import quantity.glasswindow.core.*;
 import quantity.glasswindow.core.enumerations.*;
 
@@ -104,7 +107,7 @@ public class AdditionalInfoController {
         this.candidate = newcandidate;
         Specialty specialty = candidate.getSpecialty();
         Branch branch = candidate.getSector();
-        checkBoxes = new ArrayList<>();
+        checkBoxes = new ArrayList<>() ;
         if (specialty.equals(Specialty.ENGINEER)) {
             grid.setVisible(true);
             comboBox = new ComboBox<>(engineer);
@@ -175,7 +178,7 @@ public class AdditionalInfoController {
     }
 
     @FXML
-    protected void onSaveButton(){
+    protected void onSaveButton(ActionEvent event){
         Specialty specialty = candidate.getSpecialty();
         if(specialty.equals(Specialty.ENGINEER)){
             InfoEngineer infoEngineer = new InfoEngineer(EngineerSpec.values()[engineer.indexOf(comboBox.getValue())]);
@@ -208,7 +211,10 @@ public class AdditionalInfoController {
             candidate.addAdditionalInfo(infoHealth);
         } else if (branch.equals(Branch.TOURISM)) {
             InfoTourism infoTourism = new InfoTourism(checkBoxes.get(0).isSelected());
-
+            candidate.addAdditionalInfo(infoTourism);
         }
+        System.out.println(candidate);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.close();
     }
 }
